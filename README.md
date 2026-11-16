@@ -20,6 +20,7 @@ A vanilla-friendly dark biome of skull mobs, rotten ruins and giant buried bones
         * When eating a chorus fruit while riding, it teleports between end and overworld with a 1 / 4 scale factor
         * Drops bones and ender marrow
         * Feeding ender marrow heals them
+        * Has a calf version
     * Fry
         * A small skeleton fish, aggressive to living entities closer than 5m, or to whoever hurts the host whale
         * Is tempted by chorus fruit and eats them from the player hand instead of attacking, despawning and setting
@@ -66,6 +67,10 @@ A vanilla-friendly dark biome of skull mobs, rotten ruins and giant buried bones
     * Marrow Lamp - A faint glowing torch
     * Ender Infused Grass - has a faint ender pulsing animation - Caused by ender marrow of dead whales seeping into it
       on death
+    * Whale egg
+        * Can be found at whale ribcage sites as brush loot and placed
+        * Will convert to a hatched whale egg block and spawn a whale calf
+        * The calf is already tamed and will follow the nearest living creature, preferable the owner
 * Structures
     * Various smaller Ruins
     * A ruined tower

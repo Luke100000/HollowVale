@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "hollowvale:item/music_disc_hollow_vale"
+  }
+}

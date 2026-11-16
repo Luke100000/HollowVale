@@ -38,6 +38,15 @@ repositories {
         )
         filter { includeGroup('org.parchmentmc.data') }
     }
+    exclusiveContent {
+        forRepository {
+            maven {
+                name = 'GeckoLib'
+                url = 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/'
+            }
+        }
+        filter { includeGroup('software.bernie.geckolib') }
+    }
     maven {
         name = 'BlameJared'
         url = 'https://maven.blamejared.com'
@@ -98,6 +107,7 @@ processResources {
             'license'                      : license,
             'description'                  : project.description,
             'neoforge_version'             : neoforge_version,
+            'geckolib_version'             : geckolib_version,
             'neoforge_loader_version_range': neoforge_loader_version_range,
             'credits'                      : credits,
             'java_version'                 : java_version

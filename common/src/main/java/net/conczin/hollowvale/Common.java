@@ -11,4 +11,8 @@ public final class Common {
     public static ResourceLocation locate(String path) {
         return ResourceLocation.fromNamespaceAndPath(MOD_ID, path);
     }
+
+    public interface RegisterHelper<T> {
+        void register(ResourceLocation name, T value);
+    }
 }

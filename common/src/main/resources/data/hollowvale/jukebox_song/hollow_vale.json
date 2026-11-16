@@ -1,0 +1,8 @@
+{
+  "sound_event": "hollowvale:music_disc.hollow_vale",
+  "description": {
+    "translate": "jukebox_song.hollowvale.hollow_vale"
+  },
+  "length_in_seconds": 180.0,
+  "comparator_output": 7
+}

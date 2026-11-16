@@ -1,0 +1,204 @@
+{
+  "music.hollow_vale": {
+    "sounds": [
+      {
+        "name": "hollowvale:music/hollow_vale",
+        "stream": true
+      }
+    ]
+  },
+  "ambient.hollow_vale.loop": {
+    "sounds": [
+      {
+        "name": "hollowvale:ambient/hollow_vale/loop",
+        "stream": true
+      }
+    ]
+  },
+  "ambient.hollow_vale.mood": {
+    "sounds": [
+      "hollowvale:ambient/hollow_vale/mood"
+    ]
+  },
+  "ambient.hollow_vale.additions": {
+    "sounds": [
+      "hollowvale:ambient/hollow_vale/additions"
+    ]
+  },
+  "music_disc.hollow_vale": {
+    "sounds": [
+      {
+        "name": "hollowvale:music_disc/hollow_vale",
+        "stream": true
+      }
+    ]
+  },
+  "entity.bone_whale.ambient": {
+    "subtitle": "subtitles.hollowvale.entity.bone_whale.ambient",
+    "sounds": [
+      "hollowvale:entity/bone_whale/ambient"
+    ]
+  },
+  "entity.bone_whale.hurt": {
+    "subtitle": "subtitles.hollowvale.entity.bone_whale.hurt",
+    "sounds": [
+      "hollowvale:entity/bone_whale/hurt"
+    ]
+  },
+  "entity.bone_whale.death": {
+    "subtitle": "subtitles.hollowvale.entity.bone_whale.death",
+    "sounds": [
+      "hollowvale:entity/bone_whale/death"
+    ]
+  },
+  "entity.bone_whale.teleport": {
+    "subtitle": "subtitles.hollowvale.entity.bone_whale.teleport",
+    "sounds": [
+      "hollowvale:entity/bone_whale/teleport"
+    ]
+  },
+  "entity.fry.ambient": {
+    "subtitle": "subtitles.hollowvale.entity.fry.ambient",
+    "sounds": [
+      "hollowvale:entity/fry/ambient"
+    ]
+  },
+  "entity.fry.hurt": {
+    "subtitle": "subtitles.hollowvale.entity.fry.hurt",
+    "sounds": [
+      "hollowvale:entity/fry/hurt"
+    ]
+  },
+  "entity.fry.death": {
+    "subtitle": "subtitles.hollowvale.entity.fry.death",
+    "sounds": [
+      "hollowvale:entity/fry/death"
+    ]
+  },
+  "entity.fry.eat": {
+    "subtitle": "subtitles.hollowvale.entity.fry.eat",
+    "sounds": [
+      "hollowvale:entity/fry/eat"
+    ]
+  },
+  "entity.hopping_skull.hop": {
+    "subtitle": "subtitles.hollowvale.entity.hopping_skull.hop",
+    "sounds": [
+      "hollowvale:entity/hopping_skull/hop"
+    ]
+  },
+  "entity.hopping_skull.fuse": {
+    "subtitle": "subtitles.hollowvale.entity.hopping_skull.fuse",
+    "sounds": [
+      "hollowvale:entity/hopping_skull/fuse"
+    ]
+  },
+  "entity.hopping_skull.hurt": {
+    "subtitle": "subtitles.hollowvale.entity.hopping_skull.hurt",
+    "sounds": [
+      "hollowvale:entity/hopping_skull/hurt"
+    ]
+  },
+  "entity.hopping_skull.death": {
+    "subtitle": "subtitles.hollowvale.entity.hopping_skull.death",
+    "sounds": [
+      "hollowvale:entity/hopping_skull/death"
+    ]
+  },
+  "entity.bone_sludge.squish": {
+    "subtitle": "subtitles.hollowvale.entity.bone_sludge.squish",
+    "sounds": [
+      "hollowvale:entity/bone_sludge/squish"
+    ]
+  },
+  "entity.bone_sludge.jump": {
+    "subtitle": "subtitles.hollowvale.entity.bone_sludge.jump",
+    "sounds": [
+      "hollowvale:entity/bone_sludge/jump"
+    ]
+  },
+  "entity.bone_sludge.hurt": {
+    "subtitle": "subtitles.hollowvale.entity.bone_sludge.hurt",
+    "sounds": [
+      "hollowvale:entity/bone_sludge/hurt"
+    ]
+  },
+  "entity.bone_sludge.death": {
+    "subtitle": "subtitles.hollowvale.entity.bone_sludge.death",
+    "sounds": [
+      "hollowvale:entity/bone_sludge/death"
+    ]
+  },
+  "entity.skull_sludge.squish": {
+    "subtitle": "subtitles.hollowvale.entity.skull_sludge.squish",
+    "sounds": [
+      "hollowvale:entity/skull_sludge/squish"
+    ]
+  },
+  "entity.skull_sludge.bite": {
+    "subtitle": "subtitles.hollowvale.entity.skull_sludge.bite",
+    "sounds": [
+      "hollowvale:entity/skull_sludge/bite"
+    ]
+  },
+  "entity.skull_sludge.spit": {
+    "subtitle": "subtitles.hollowvale.entity.skull_sludge.spit",
+    "sounds": [
+      "hollowvale:entity/skull_sludge/spit"
+    ]
+  },
+  "entity.skull_sludge.hurt": {
+    "subtitle": "subtitles.hollowvale.entity.skull_sludge.hurt",
+    "sounds": [
+      "hollowvale:entity/skull_sludge/hurt"
+    ]
+  },
+  "entity.skull_sludge.death": {
+    "subtitle": "subtitles.hollowvale.entity.skull_sludge.death",
+    "sounds": [
+      "hollowvale:entity/skull_sludge/death"
+    ]
+  },
+  "entity.ender_skull.ambient": {
+    "subtitle": "subtitles.hollowvale.entity.ender_skull.ambient",
+    "sounds": [
+      "hollowvale:entity/ender_skull/ambient"
+    ]
+  },
+  "entity.ender_skull.scream": {
+    "subtitle": "subtitles.hollowvale.entity.ender_skull.scream",
+    "sounds": [
+      "hollowvale:entity/ender_skull/scream"
+    ]
+  },
+  "entity.ender_skull.bite": {
+    "subtitle": "subtitles.hollowvale.entity.ender_skull.bite",
+    "sounds": [
+      "hollowvale:entity/ender_skull/bite"
+    ]
+  },
+  "entity.ender_skull.hurt": {
+    "subtitle": "subtitles.hollowvale.entity.ender_skull.hurt",
+    "sounds": [
+      "hollowvale:entity/ender_skull/hurt"
+    ]
+  },
+  "entity.ender_skull.death": {
+    "subtitle": "subtitles.hollowvale.entity.ender_skull.death",
+    "sounds": [
+      "hollowvale:entity/ender_skull/death"
+    ]
+  },
+  "item.bucket.fill_fry": {
+    "subtitle": "subtitles.hollowvale.item.bucket.fill_fry",
+    "sounds": [
+      "hollowvale:item/bucket/fill_fry"
+    ]
+  },
+  "item.bucket.empty_fry": {
+    "subtitle": "subtitles.hollowvale.item.bucket.empty_fry",
+    "sounds": [
+      "hollowvale:item/bucket/empty_fry"
+    ]
+  }
+}
