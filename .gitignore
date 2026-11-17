@@ -41,3 +41,9 @@ forge*changelog.txt
 *.kate-swp
 
 .*
+# Raw audio sources and their conversion script
+music_raw/
+
+
+music/
+scripts/generate_entity_sounds.py

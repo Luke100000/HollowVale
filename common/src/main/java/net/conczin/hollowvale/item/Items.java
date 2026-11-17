@@ -32,8 +32,8 @@ public final class Items {
                     .nutrition(10)
                     .saturationModifier(1.2f)
                     .alwaysEdible()
-                    .effect(new MobEffectInstance(MobEffects.NIGHT_VISION, 5 * 60 * 20), 1.0f)
-                    .effect(new MobEffectInstance(MobEffects.LEVITATION, 15 * 20), 1.0f)
+                    .effect(new MobEffectInstance(MobEffects.NIGHT_VISION, 60 * 20), 1.0f)
+                    .effect(new MobEffectInstance(MobEffects.LEVITATION, 5 * 20), 1.0f)
                     .usingConvertsTo(net.minecraft.world.item.Items.BOWL)
                     .build())));
     public static final Item FRY_BUCKET = register("fry_bucket", new Item(new Item.Properties().stacksTo(1)));
