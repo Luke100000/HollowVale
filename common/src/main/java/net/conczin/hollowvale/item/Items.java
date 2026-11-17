@@ -36,7 +36,7 @@ public final class Items {
                     .effect(new MobEffectInstance(MobEffects.LEVITATION, 5 * 20), 1.0f)
                     .usingConvertsTo(net.minecraft.world.item.Items.BOWL)
                     .build())));
-    public static final Item FRY_BUCKET = register("fry_bucket", new Item(new Item.Properties().stacksTo(1)));
+    public static final Item FRY_BUCKET = register("fry_bucket", new FryBucketItem(new Item.Properties().stacksTo(1)));
     public static final Item MUSIC_DISC_HOLLOW_VALE = register("music_disc_hollow_vale", new Item(new Item.Properties()
             .stacksTo(1)
             .rarity(Rarity.RARE)
@@ -45,8 +45,8 @@ public final class Items {
     public static final Item BONE_WHALE_SPAWN_EGG = spawnEgg("bone_whale", Entities.BONE_WHALE, 0xD8D2C0, 0x7A4FA0);
     public static final Item FRY_SPAWN_EGG = spawnEgg("fry", Entities.FRY, 0xD8D2C0, 0x5E6E78);
     public static final Item HOPPING_SKULL_SPAWN_EGG = spawnEgg("hopping_skull", Entities.HOPPING_SKULL, 0xC1C1C1, 0x494949);
-    public static final Item BONE_SLUDGE_SPAWN_EGG = spawnEgg("bone_sludge", Entities.BONE_SLUDGE, 0x9FB08A, 0xE3DDCB);
-    public static final Item SKULL_SLUDGE_SPAWN_EGG = spawnEgg("skull_sludge", Entities.SKULL_SLUDGE, 0x7E9168, 0xE3DDCB);
+    public static final Item BONE_SLUDGE_SPAWN_EGG = spawnEgg("bone_sludge", Entities.BONE_SLUDGE, 0x8A809E, 0xE3DDCB);
+    public static final Item SKULL_SLUDGE_SPAWN_EGG = spawnEgg("skull_sludge", Entities.SKULL_SLUDGE, 0x6E6585, 0xE3DDCB);
     public static final Item ENDER_SKULL_SPAWN_EGG = spawnEgg("ender_skull", Entities.ENDER_SKULL, 0x1E1E2A, 0xB35CDB);
 
     private static Item register(String name, Item item) {
