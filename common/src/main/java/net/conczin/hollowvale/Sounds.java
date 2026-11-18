@@ -49,9 +49,10 @@ public final class Sounds {
     public static final SoundEvent SKULL_SLUDGE_DEATH = create("entity.skull_sludge.death");
 
     public static final SoundEvent ENDER_SKULL_AMBIENT = create("entity.ender_skull.ambient");
-    public static final SoundEvent ENDER_SKULL_AIM = create("entity.ender_skull.aim");
-    public static final SoundEvent ENDER_SKULL_SCREAM = create("entity.ender_skull.scream");
+    public static final SoundEvent ENDER_SKULL_AIM = create("entity.ender_skull.aim", 48.0f);
+    public static final SoundEvent ENDER_SKULL_SCREAM = create("entity.ender_skull.scream", 64.0f);
     public static final SoundEvent ENDER_SKULL_ATTACK = create("entity.ender_skull.attack");
+    public static final SoundEvent ENDER_SKULL_CHOMP = create("entity.ender_skull.chomp");
     public static final SoundEvent ENDER_SKULL_HURT = create("entity.ender_skull.hurt");
     public static final SoundEvent ENDER_SKULL_DEATH = create("entity.ender_skull.death");
 
@@ -59,7 +60,14 @@ public final class Sounds {
     public static final SoundEvent BUCKET_EMPTY_FRY = create("item.bucket.empty_fry");
 
     private static SoundEvent create(String name) {
-        SoundEvent sound = SoundEvent.createVariableRangeEvent(Common.locate(name));
+        return register(SoundEvent.createVariableRangeEvent(Common.locate(name)));
+    }
+
+    private static SoundEvent create(String name, float range) {
+        return register(SoundEvent.createFixedRangeEvent(Common.locate(name), range));
+    }
+
+    private static SoundEvent register(SoundEvent sound) {
         SOUNDS.add(sound);
         return sound;
     }

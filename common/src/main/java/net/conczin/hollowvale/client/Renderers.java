@@ -1,6 +1,7 @@
 package net.conczin.hollowvale.client;
 
 import net.conczin.hollowvale.Common;
+import net.conczin.hollowvale.entity.EnderSkull;
 import net.conczin.hollowvale.entity.Entities;
 import net.conczin.hollowvale.entity.HoppingSkull;
 import net.minecraft.client.renderer.RenderType;
@@ -12,6 +13,7 @@ import net.minecraft.world.entity.EntityType;
 import software.bernie.geckolib.animatable.GeoAnimatable;
 import software.bernie.geckolib.model.DefaultedEntityGeoModel;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
+import software.bernie.geckolib.renderer.layer.AutoGlowingGeoLayer;
 
 public final class Renderers {
     public interface Registrar {
@@ -26,7 +28,12 @@ public final class Renderers {
                 .withAltTexture(ResourceLocation.withDefaultNamespace("skeleton/skeleton"))));
         registrar.register(Entities.BONE_SLUDGE, ctx -> new SludgeRenderer<>(ctx, "bone_sludge"));
         registrar.register(Entities.SKULL_SLUDGE, ctx -> new SludgeRenderer<>(ctx, "skull_sludge"));
-        registrar.register(Entities.ENDER_SKULL, ctx -> new GeoEntityRenderer<>(ctx, new DefaultedEntityGeoModel<>(Common.locate("enderskull"))));
+        // The eye glows through enderskull_glowmask.png.
+        registrar.register(Entities.ENDER_SKULL, ctx -> {
+            GeoEntityRenderer<EnderSkull> renderer = new GeoEntityRenderer<>(ctx, new EnderSkullModel());
+            renderer.addRenderLayer(new AutoGlowingGeoLayer<>(renderer));
+            return renderer;
+        });
         registrar.register(Entities.SLUDGE_BALL, ThrownItemRenderer::new);
     }
 

@@ -25,7 +25,7 @@ public final class Entities {
     public static final EntityType<SkullSludge> SKULL_SLUDGE = register("skull_sludge",
             EntityType.Builder.of(SkullSludge::new, MobCategory.MONSTER).sized(22.0f / 16.0f, 22.0f / 16.0f));
     public static final EntityType<EnderSkull> ENDER_SKULL = register("ender_skull",
-            EntityType.Builder.of(EnderSkull::new, MobCategory.MONSTER).sized(0.75f, 0.75f));
+            EntityType.Builder.of(EnderSkull::new, MobCategory.MONSTER).sized(0.825f, 0.9375f));
     public static final EntityType<SludgeBall> SLUDGE_BALL = register("sludge_ball",
             EntityType.Builder.<SludgeBall>of(SludgeBall::new, MobCategory.MISC).sized(0.25f, 0.25f).clientTrackingRange(4).updateInterval(10));
 

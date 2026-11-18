@@ -509,11 +509,26 @@
   "entity.ender_skull.scream": {
     "subtitle": "subtitles.hollowvale.entity.ender_skull.scream",
     "sounds": [
-      "hollowvale:entity/ender_skull/scream1",
-      "hollowvale:entity/ender_skull/scream2",
-      "hollowvale:entity/ender_skull/scream3",
-      "hollowvale:entity/ender_skull/scream4",
-      "hollowvale:entity/ender_skull/scream5"
+      {
+        "name": "hollowvale:entity/ender_skull/scream1",
+        "attenuation_distance": 48
+      },
+      {
+        "name": "hollowvale:entity/ender_skull/scream2",
+        "attenuation_distance": 48
+      },
+      {
+        "name": "hollowvale:entity/ender_skull/scream3",
+        "attenuation_distance": 48
+      },
+      {
+        "name": "hollowvale:entity/ender_skull/scream4",
+        "attenuation_distance": 48
+      },
+      {
+        "name": "hollowvale:entity/ender_skull/scream5",
+        "attenuation_distance": 48
+      }
     ]
   },
   "entity.ender_skull.hurt": {
@@ -551,7 +566,10 @@
   "entity.ender_skull.aim": {
     "subtitle": "subtitles.hollowvale.entity.ender_skull.aim",
     "sounds": [
-      "hollowvale:entity/ender_skull/aim1"
+      {
+        "name": "hollowvale:entity/ender_skull/aim1",
+        "attenuation_distance": 48
+      }
     ]
   },
   "entity.skull_sludge.attack": {
@@ -582,6 +600,16 @@
       "hollowvale:entity/ender_skull/attack3",
       "hollowvale:entity/ender_skull/attack4",
       "hollowvale:entity/ender_skull/attack5"
+    ]
+  },
+  "entity.ender_skull.chomp": {
+    "subtitle": "subtitles.hollowvale.entity.ender_skull.chomp",
+    "sounds": [
+      "hollowvale:entity/ender_skull/ambient1",
+      "hollowvale:entity/ender_skull/ambient2",
+      "hollowvale:entity/ender_skull/ambient3",
+      "hollowvale:entity/ender_skull/ambient4",
+      "hollowvale:entity/ender_skull/ambient5"
     ]
   }
 }
