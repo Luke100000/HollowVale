@@ -5,6 +5,7 @@ import net.conczin.hollowvale.entity.Entities;
 import net.conczin.hollowvale.entity.HoppingSkull;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -23,12 +24,13 @@ public final class Renderers {
         // Placeholder until the hopping skull has its own model, renders the vanilla skeleton head.
         registrar.register(Entities.HOPPING_SKULL, ctx -> new GeoEntityRenderer<>(ctx, new DefaultedEntityGeoModel<HoppingSkull>(Common.locate("hopping_skull"))
                 .withAltTexture(ResourceLocation.withDefaultNamespace("skeleton/skeleton"))));
-        registrar.register(Entities.BONE_SLUDGE, ctx -> new GeoEntityRenderer<>(ctx, new TranslucentModel<>(Common.locate("bone_sludge"))));
-        registrar.register(Entities.SKULL_SLUDGE, ctx -> new GeoEntityRenderer<>(ctx, new TranslucentModel<>(Common.locate("skull_sludge"))));
+        registrar.register(Entities.BONE_SLUDGE, ctx -> new SludgeRenderer<>(ctx, "bone_sludge"));
+        registrar.register(Entities.SKULL_SLUDGE, ctx -> new SludgeRenderer<>(ctx, "skull_sludge"));
         registrar.register(Entities.ENDER_SKULL, ctx -> new GeoEntityRenderer<>(ctx, new DefaultedEntityGeoModel<>(Common.locate("enderskull"))));
+        registrar.register(Entities.SLUDGE_BALL, ThrownItemRenderer::new);
     }
 
-    private static class TranslucentModel<T extends GeoAnimatable> extends DefaultedEntityGeoModel<T> {
+    static class TranslucentModel<T extends GeoAnimatable> extends DefaultedEntityGeoModel<T> {
         TranslucentModel(ResourceLocation assetSubpath) {
             super(assetSubpath);
         }
