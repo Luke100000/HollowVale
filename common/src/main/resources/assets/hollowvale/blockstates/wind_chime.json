@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "rod=0": {
+      "model": "hollowvale:block/wind_chime"
+    },
+    "rod=1": {
+      "model": "hollowvale:block/wind_chime_rod_1"
+    },
+    "rod=2": {
+      "model": "hollowvale:block/wind_chime_rod_2"
+    },
+    "rod=3": {
+      "model": "hollowvale:block/wind_chime_rod_3"
+    },
+    "rod=4": {
+      "model": "hollowvale:block/wind_chime_rod_4"
+    }
+  }
+}

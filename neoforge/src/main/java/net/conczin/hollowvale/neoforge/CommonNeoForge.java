@@ -10,6 +10,7 @@ import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
@@ -36,6 +37,8 @@ public final class CommonNeoForge {
         registerHelper(event, BuiltInRegistries.ENTITY_TYPE, Entities::registerEntities);
         registerHelper(event, BuiltInRegistries.BLOCK, Blocks::registerBlocks);
         registerHelper(event, BuiltInRegistries.ITEM, Items::registerItems);
+        registerHelper(event, BuiltInRegistries.BLOCK_ENTITY_TYPE, helper -> Blocks.registerBlockEntities(helper,
+                (factory, blocks) -> BlockEntityType.Builder.of(factory::apply, blocks).build(null)));
         event.register(Registries.POINT_OF_INTEREST_TYPE, registry -> registry.register(Blocks.MARROW_LAMP_POI.location(), Blocks.createMarrowLampPoi()));
         event.register(Registries.CREATIVE_MODE_TAB, registry -> registry.register(Common.locate(Common.MOD_ID), Items.createTab(CreativeModeTab.builder())));
     }

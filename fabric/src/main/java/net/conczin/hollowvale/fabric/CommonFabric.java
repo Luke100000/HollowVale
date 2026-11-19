@@ -8,6 +8,7 @@ import net.conczin.hollowvale.entity.Entities;
 import net.conczin.hollowvale.item.Items;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
+import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.world.poi.PointOfInterestHelper;
 import net.minecraft.core.Registry;
@@ -29,6 +30,8 @@ public final class CommonFabric implements ModInitializer {
         registerHelper(BuiltInRegistries.ENTITY_TYPE, Entities::registerEntities);
         registerHelper(BuiltInRegistries.BLOCK, Blocks::registerBlocks);
         registerHelper(BuiltInRegistries.ITEM, Items::registerItems);
+        registerHelper(BuiltInRegistries.BLOCK_ENTITY_TYPE, helper -> Blocks.registerBlockEntities(helper,
+                (factory, blocks) -> FabricBlockEntityTypeBuilder.create(factory::apply, blocks).build()));
         PointOfInterestHelper.register(Blocks.MARROW_LAMP_POI.location(), 0, 1, Blocks.MARROW_LAMP);
         Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, Common.locate(Common.MOD_ID), Items.createTab(FabricItemGroup.builder()));
 

@@ -23,6 +23,7 @@ public final class Items {
 
     public static final Item ENDER_MARROW = register("ender_marrow", new Item(new Item.Properties()));
     public static final Item MARROW_LAMP = register("marrow_lamp", new BlockItem(Blocks.MARROW_LAMP, new Item.Properties()));
+    public static final Item WIND_CHIME = register("wind_chime", new BlockItem(Blocks.WIND_CHIME, new Item.Properties()));
     public static final Item ENDER_FISH_SOUP = register("ender_fish_soup", new Item(new Item.Properties()
             .stacksTo(1)
             .food(new FoodProperties.Builder()

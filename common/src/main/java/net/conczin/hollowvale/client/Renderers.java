@@ -1,15 +1,19 @@
 package net.conczin.hollowvale.client;
 
 import net.conczin.hollowvale.Common;
+import net.conczin.hollowvale.block.Blocks;
 import net.conczin.hollowvale.entity.EnderSkull;
 import net.conczin.hollowvale.entity.Entities;
 import net.conczin.hollowvale.entity.HoppingSkull;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import software.bernie.geckolib.animatable.GeoAnimatable;
 import software.bernie.geckolib.model.DefaultedEntityGeoModel;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
@@ -18,6 +22,14 @@ import software.bernie.geckolib.renderer.layer.AutoGlowingGeoLayer;
 public final class Renderers {
     public interface Registrar {
         <T extends Entity> void register(EntityType<? extends T> type, EntityRendererProvider<T> provider);
+    }
+
+    public interface BlockEntityRegistrar {
+        <T extends BlockEntity> void register(BlockEntityType<? extends T> type, BlockEntityRendererProvider<T> provider);
+    }
+
+    public static void registerBlockEntities(BlockEntityRegistrar registrar) {
+        registrar.register(Blocks.WIND_CHIME_ENTITY, WindChimeRenderer::new);
     }
 
     public static void register(Registrar registrar) {

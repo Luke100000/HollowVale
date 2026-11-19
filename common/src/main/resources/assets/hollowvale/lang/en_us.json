@@ -2,6 +2,7 @@
   "itemGroup.hollowvale": "Hollow Vale",
 
   "block.hollowvale.marrow_lamp": "Marrow Lamp",
+  "block.hollowvale.wind_chime": "Wind Chime",
 
   "item.hollowvale.ender_marrow": "Ender Marrow",
   "item.hollowvale.ender_fish_soup": "Ender Fish Soup",
@@ -60,5 +61,7 @@
   "subtitles.hollowvale.entity.ender_skull.death": "Ender Skull dies",
 
   "subtitles.hollowvale.item.bucket.fill_fry": "Fry captured",
-  "subtitles.hollowvale.item.bucket.empty_fry": "Fry released"
+  "subtitles.hollowvale.item.bucket.empty_fry": "Fry released",
+
+  "subtitles.hollowvale.block.wind_chime.chime": "Wind chime rings"
 }

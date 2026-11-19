@@ -59,6 +59,8 @@ public final class Sounds {
     public static final SoundEvent BUCKET_FILL_FRY = create("item.bucket.fill_fry");
     public static final SoundEvent BUCKET_EMPTY_FRY = create("item.bucket.empty_fry");
 
+    public static final SoundEvent WIND_CHIME = create("block.wind_chime.chime");
+
     private static SoundEvent create(String name) {
         return register(SoundEvent.createVariableRangeEvent(Common.locate(name)));
     }

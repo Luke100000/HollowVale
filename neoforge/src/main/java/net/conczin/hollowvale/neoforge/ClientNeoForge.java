@@ -14,5 +14,6 @@ public final class ClientNeoForge {
     @SubscribeEvent
     public static void onRegisterRenderers(EntityRenderersEvent.RegisterRenderers event) {
         Renderers.register(event::registerEntityRenderer);
+        Renderers.registerBlockEntities(event::registerBlockEntityRenderer);
     }
 }

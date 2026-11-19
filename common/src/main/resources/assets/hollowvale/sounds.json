@@ -611,5 +611,11 @@
       "hollowvale:entity/ender_skull/ambient4",
       "hollowvale:entity/ender_skull/ambient5"
     ]
+  },
+  "block.wind_chime.chime": {
+    "subtitle": "subtitles.hollowvale.block.wind_chime.chime",
+    "sounds": [
+      "hollowvale:block/wind_chime/chime"
+    ]
   }
 }
