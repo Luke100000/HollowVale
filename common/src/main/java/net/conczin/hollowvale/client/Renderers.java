@@ -21,14 +21,13 @@ public final class Renderers {
     }
 
     public static void register(Registrar registrar) {
-        registrar.register(Entities.BONE_WHALE, ctx -> new GeoEntityRenderer<>(ctx, new BoneWhaleModel()));
+        registrar.register(Entities.BONE_WHALE, BoneWhaleRenderer::new);
         registrar.register(Entities.FRY, ctx -> new GeoEntityRenderer<>(ctx, new DefaultedEntityGeoModel<>(Common.locate("bone_fry"))));
         // Placeholder until the hopping skull has its own model, renders the vanilla skeleton head.
         registrar.register(Entities.HOPPING_SKULL, ctx -> new GeoEntityRenderer<>(ctx, new DefaultedEntityGeoModel<HoppingSkull>(Common.locate("hopping_skull"))
                 .withAltTexture(ResourceLocation.withDefaultNamespace("skeleton/skeleton"))));
         registrar.register(Entities.BONE_SLUDGE, ctx -> new SludgeRenderer<>(ctx, "bone_sludge"));
         registrar.register(Entities.SKULL_SLUDGE, ctx -> new SludgeRenderer<>(ctx, "skull_sludge"));
-        // The eye glows through enderskull_glowmask.png.
         registrar.register(Entities.ENDER_SKULL, ctx -> {
             GeoEntityRenderer<EnderSkull> renderer = new GeoEntityRenderer<>(ctx, new EnderSkullModel());
             renderer.addRenderLayer(new AutoGlowingGeoLayer<>(renderer));

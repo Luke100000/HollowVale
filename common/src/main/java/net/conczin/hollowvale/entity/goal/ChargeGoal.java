@@ -7,9 +7,6 @@ import net.minecraft.world.entity.ai.goal.Goal;
 
 import java.util.EnumSet;
 
-/**
- * Flies straight at the target while the ender skull is in attack mode and bites when in reach.
- */
 public class ChargeGoal extends Goal {
     private static final int ATTACK_INTERVAL = 20;
     private static final int REPATH_INTERVAL = 5;

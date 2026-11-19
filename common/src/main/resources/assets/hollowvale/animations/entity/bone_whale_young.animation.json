@@ -1,0 +1,55 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.bone_whale.swim": {
+			"animation_length": 3,
+			"loop": true,
+			"bones": {
+				"whale": {},
+				"spine_1": {},
+				"rib_1_l": {},
+				"rib_1_r": {},
+				"rib_2_l": {},
+				"rib_2_r": {},
+				"rib_3_l": {},
+				"rib_3_r": {},
+				"fin_l": {},
+				"fin_r": {},
+				"head": {},
+				"jaw": {},
+				"spine_2": {},
+				"rib_4_l": {},
+				"rib_4_r": {},
+				"rib_5_l": {},
+				"rib_5_r": {},
+				"tail": {},
+				"fluke": {}
+			}
+		},
+		"animation.bone_whale.death": {
+			"animation_length": 2.4,
+			"loop": false,
+			"bones": {
+				"whale": {},
+				"spine_1": {},
+				"rib_1_l": {},
+				"rib_1_r": {},
+				"rib_2_l": {},
+				"rib_2_r": {},
+				"rib_3_l": {},
+				"rib_3_r": {},
+				"fin_l": {},
+				"fin_r": {},
+				"head": {},
+				"jaw": {},
+				"spine_2": {},
+				"rib_4_l": {},
+				"rib_4_r": {},
+				"rib_5_l": {},
+				"rib_5_r": {},
+				"tail": {},
+				"fluke": {}
+			}
+		}
+	}
+}

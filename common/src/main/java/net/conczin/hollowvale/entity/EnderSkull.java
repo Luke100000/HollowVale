@@ -13,12 +13,14 @@ import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.Mth;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntitySelector;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.control.BodyRotationControl;
 import net.minecraft.world.entity.ai.control.FlyingMoveControl;
-import net.minecraft.world.entity.ai.navigation.FlyingPathNavigation;
 import net.minecraft.world.entity.ai.navigation.PathNavigation;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.monster.Monster;
@@ -32,8 +34,7 @@ import software.bernie.geckolib.animation.AnimatableManager;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
 /**
- * Hovers about a block above the ground and wanders. Spotting a player starts an alarm timer that rises while the
- * player stays visible and falls otherwise: back at zero it calms down, past the scream threshold it charges.
+ * Alarm timer: rises while the player is visible, screams and charges past the threshold, calms down at zero.
  */
 public class EnderSkull extends Monster implements GeoEntity {
     private static final int SPOTTED_ALARM = 3 * 20;
@@ -46,7 +47,6 @@ public class EnderSkull extends Monster implements GeoEntity {
     private static final byte SHAKE_EVENT = 100;
     private static final int SHAKE_TICKS = 15;
     private static final float EYE_SEARCH_DEGREES = 30.0f;
-    private static final float AIR_DRAG = 0.91f;
     private static final float CHOMP_RATE = 0.35f;
 
     public enum Mode {IDLE, STARING, ATTACKING}
@@ -93,33 +93,17 @@ public class EnderSkull extends Monster implements GeoEntity {
 
     @Override
     public void travel(Vec3 input) {
-        if (!isControlledByLocalInstance()) {
-            return;
-        }
-        if (isInWater() || isInLava()) {
-            moveRelative(0.02f, input);
-            move(MoverType.SELF, getDeltaMovement());
-            setDeltaMovement(getDeltaMovement().scale(isInWater() ? 0.8 : 0.5));
-        } else {
-            moveRelative(1.0f - AIR_DRAG, input);
-            move(MoverType.SELF, getDeltaMovement());
-            setDeltaMovement(getDeltaMovement().scale(AIR_DRAG));
-        }
-        calculateEntityAnimation(false);
+        Flight.travel(this, input);
     }
 
     @Override
     protected PathNavigation createNavigation(Level level) {
-        FlyingPathNavigation navigation = new FlyingPathNavigation(this, level);
-        navigation.setCanOpenDoors(false);
-        navigation.setCanFloat(true);
-        navigation.setCanPassDoors(true);
-        return navigation;
+        return Flight.navigation(this, level);
     }
 
     @Override
     protected BodyRotationControl createBodyControl() {
-        // The skull is all head: it faces where it flies, and while alarmed the whole skull follows the gaze.
+        // All head: faces the flight direction, or the gaze while alarmed.
         return new BodyRotationControl(this) {
             @Override
             public void clientTick() {
