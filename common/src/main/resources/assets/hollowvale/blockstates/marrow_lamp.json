@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "hanging=false": {
+      "model": "hollowvale:block/marrow_lamp"
+    },
+    "hanging=true": {
+      "model": "hollowvale:block/marrow_lamp_hanging"
+    }
+  }
+}

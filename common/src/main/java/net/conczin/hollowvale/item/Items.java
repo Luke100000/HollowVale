@@ -1,6 +1,7 @@
 package net.conczin.hollowvale.item;
 
 import net.conczin.hollowvale.Common;
+import net.conczin.hollowvale.block.Blocks;
 import net.conczin.hollowvale.entity.Entities;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -10,12 +11,7 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.JukeboxSong;
-import net.minecraft.world.item.Rarity;
-import net.minecraft.world.item.SpawnEggItem;
+import net.minecraft.world.item.*;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -26,6 +22,7 @@ public final class Items {
     public static final ResourceKey<JukeboxSong> HOLLOW_VALE_SONG = ResourceKey.create(Registries.JUKEBOX_SONG, Common.locate("hollow_vale"));
 
     public static final Item ENDER_MARROW = register("ender_marrow", new Item(new Item.Properties()));
+    public static final Item MARROW_LAMP = register("marrow_lamp", new BlockItem(Blocks.MARROW_LAMP, new Item.Properties()));
     public static final Item ENDER_FISH_SOUP = register("ender_fish_soup", new Item(new Item.Properties()
             .stacksTo(1)
             .food(new FoodProperties.Builder()

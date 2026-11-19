@@ -1,7 +1,9 @@
 package net.conczin.hollowvale.entity;
 
 import net.conczin.hollowvale.Sounds;
+import net.conczin.hollowvale.block.MarrowLampBlock;
 import net.conczin.hollowvale.entity.goal.ChargeGoal;
+import net.conczin.hollowvale.entity.goal.FleeLampGoal;
 import net.conczin.hollowvale.entity.goal.HoverWanderGoal;
 import net.conczin.hollowvale.entity.goal.StareGoal;
 import net.minecraft.core.BlockPos;
@@ -38,6 +40,7 @@ import software.bernie.geckolib.util.GeckoLibUtil;
  */
 public class EnderSkull extends Monster implements GeoEntity {
     private static final int SPOTTED_ALARM = 3 * 20;
+    private static final int SAFE_ZONE_INTERVAL = 20;
     private static final int SCREAM_ALARM = 5 * 20;
     private static final int MAX_ALARM = 10 * 20;
     private static final double HOVER_HEIGHT = 1.0;
@@ -53,6 +56,7 @@ public class EnderSkull extends Monster implements GeoEntity {
 
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
     private int alarm;
+    private boolean targetInSafeZone;
     private boolean attacking;
 
     // Client-side animation state
@@ -117,6 +121,7 @@ public class EnderSkull extends Monster implements GeoEntity {
 
     @Override
     protected void registerGoals() {
+        goalSelector.addGoal(0, new FleeLampGoal(this, CHARGE_SPEED));
         goalSelector.addGoal(1, new ChargeGoal(this, CHARGE_SPEED));
         goalSelector.addGoal(2, new StareGoal(this));
         goalSelector.addGoal(3, new HoverWanderGoal(this, 1.0, HOVER_HEIGHT));
@@ -128,7 +133,7 @@ public class EnderSkull extends Monster implements GeoEntity {
 
         if (alarm == 0) {
             Player spotted = level().getNearestPlayer(TargetingConditions.forCombat().range(getAttributeValue(Attributes.FOLLOW_RANGE)), this);
-            if (spotted != null) {
+            if (spotted != null && !MarrowLampBlock.isInSafeZone(level(), spotted.blockPosition())) {
                 setTarget(spotted);
                 alarm = SPOTTED_ALARM;
                 playSound(Sounds.ENDER_SKULL_AIM);
@@ -136,7 +141,10 @@ public class EnderSkull extends Monster implements GeoEntity {
             return;
         }
 
-        alarm = Mth.clamp(alarm + (canSeeTarget() ? 1 : -1), 0, MAX_ALARM);
+        if (tickCount % SAFE_ZONE_INTERVAL == 0) {
+            targetInSafeZone = getTarget() != null && MarrowLampBlock.isInSafeZone(level(), getTarget().blockPosition());
+        }
+        alarm = Mth.clamp(alarm + (canSeeTarget() && !targetInSafeZone ? 1 : -1), 0, MAX_ALARM);
         if (!attacking && alarm >= SCREAM_ALARM) {
             attacking = true;
             playSound(Sounds.ENDER_SKULL_SCREAM);

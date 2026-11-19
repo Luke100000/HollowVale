@@ -2,7 +2,9 @@ package net.conczin.hollowvale.entity;
 
 import net.conczin.hollowvale.Common;
 import net.conczin.hollowvale.Sounds;
+import net.conczin.hollowvale.block.MarrowLampBlock;
 import net.conczin.hollowvale.entity.goal.CircleHostGoal;
+import net.conczin.hollowvale.entity.goal.FleeLampGoal;
 import net.conczin.hollowvale.entity.goal.SkyWanderGoal;
 import net.conczin.hollowvale.item.Items;
 import net.minecraft.advancements.CriteriaTriggers;
@@ -71,11 +73,12 @@ public class Fry extends Monster implements GeoEntity {
 
     @Override
     protected void registerGoals() {
+        goalSelector.addGoal(0, new FleeLampGoal(this, 1.2));
         goalSelector.addGoal(1, new AvoidEntityGoal<>(this, Cat.class, 6.0f, 1.0, 1.2));
         goalSelector.addGoal(2, new TemptGoal(this, 1.0, stack -> stack.is(net.minecraft.world.item.Items.CHORUS_FRUIT), false));
         goalSelector.addGoal(3, new MeleeAttackGoal(this, 1.0, true));
-        goalSelector.addGoal(4, new CircleHostGoal(this, 0.6));
-        goalSelector.addGoal(5, new SkyWanderGoal(this, 0.6, 3.0, 8.0, 1.0, 4.0, 20, 60));
+        goalSelector.addGoal(4, new CircleHostGoal(this, 0.4));
+        goalSelector.addGoal(5, new SkyWanderGoal(this, 0.4, 3.0, 8.0, 1.0, 4.0, 20, 60));
         targetSelector.addGoal(1, new HurtByTargetGoal(this));
         targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, LivingEntity.class, 10, true, false, this::isPrey));
     }
@@ -84,7 +87,8 @@ public class Fry extends Monster implements GeoEntity {
         return distanceToSqr(entity) <= AGGRO_RANGE * AGGRO_RANGE
                && !entity.getType().is(EntityTypeTags.UNDEAD)
                && !BuiltInRegistries.ENTITY_TYPE.getKey(entity.getType()).getNamespace().equals(Common.MOD_ID)
-               && !isHoldingChorus(entity);
+               && !isHoldingChorus(entity)
+               && !MarrowLampBlock.isInSafeZone(level(), entity.blockPosition());
     }
 
     private static boolean isHoldingChorus(LivingEntity entity) {

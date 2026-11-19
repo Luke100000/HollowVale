@@ -2,6 +2,7 @@ package net.conczin.hollowvale.neoforge;
 
 import net.conczin.hollowvale.Common;
 import net.conczin.hollowvale.Sounds;
+import net.conczin.hollowvale.block.Blocks;
 import net.conczin.hollowvale.config.Config;
 import net.conczin.hollowvale.entity.Entities;
 import net.conczin.hollowvale.item.Items;
@@ -33,7 +34,9 @@ public final class CommonNeoForge {
     public static void register(RegisterEvent event) {
         registerHelper(event, BuiltInRegistries.SOUND_EVENT, Sounds::registerSounds);
         registerHelper(event, BuiltInRegistries.ENTITY_TYPE, Entities::registerEntities);
+        registerHelper(event, BuiltInRegistries.BLOCK, Blocks::registerBlocks);
         registerHelper(event, BuiltInRegistries.ITEM, Items::registerItems);
+        event.register(Registries.POINT_OF_INTEREST_TYPE, registry -> registry.register(Blocks.MARROW_LAMP_POI.location(), Blocks.createMarrowLampPoi()));
         event.register(Registries.CREATIVE_MODE_TAB, registry -> registry.register(Common.locate(Common.MOD_ID), Items.createTab(CreativeModeTab.builder())));
     }
 
