@@ -13,6 +13,7 @@
     "ProjectileUtilMixin"
   ],
   "client": [
+    "FogRendererMixin",
     "LivingEntityRendererMixin"
   ]
 }

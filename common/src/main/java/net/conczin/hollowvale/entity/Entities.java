@@ -1,11 +1,10 @@
 package net.conczin.hollowvale.entity;
 
 import net.conczin.hollowvale.Common;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
+import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.level.levelgen.Heightmap;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -46,5 +45,20 @@ public final class Entities {
         consumer.accept(BONE_SLUDGE, BoneSludge.createAttributes().build());
         consumer.accept(SKULL_SLUDGE, SkullSludge.createAttributes().build());
         consumer.accept(ENDER_SKULL, EnderSkull.createAttributes().build());
+    }
+
+    public interface SpawnPlacementRegistrar {
+        <T extends Mob> void register(EntityType<T> type, SpawnPlacementType placement, Heightmap.Types heightmap, SpawnPlacements.SpawnPredicate<T> predicate);
+    }
+
+    public static void registerSpawnPlacements(SpawnPlacementRegistrar registrar) {
+        Heightmap.Types surface = Heightmap.Types.MOTION_BLOCKING_NO_LEAVES;
+        registrar.register(FRY, SpawnPlacementTypes.ON_GROUND, surface, Monster::checkAnyLightMonsterSpawnRules);
+        registrar.register(HOPPING_SKULL, SpawnPlacementTypes.ON_GROUND, surface, Monster::checkAnyLightMonsterSpawnRules);
+        registrar.register(BONE_SLUDGE, SpawnPlacementTypes.ON_GROUND, surface, Monster::checkAnyLightMonsterSpawnRules);
+        registrar.register(SKULL_SLUDGE, SpawnPlacementTypes.ON_GROUND, surface, Monster::checkAnyLightMonsterSpawnRules);
+        registrar.register(ENDER_SKULL, SpawnPlacementTypes.ON_GROUND, surface, Monster::checkAnyLightMonsterSpawnRules);
+        registrar.register(BONE_WHALE, SpawnPlacementTypes.NO_RESTRICTIONS, surface,
+                (type, level, reason, pos, random) -> level.canSeeSky(pos));
     }
 }

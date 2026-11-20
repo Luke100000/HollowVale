@@ -2,21 +2,32 @@ package net.conczin.hollowvale.neoforge;
 
 import net.conczin.hollowvale.Common;
 import net.conczin.hollowvale.Sounds;
+import net.conczin.hollowvale.world.TemplateFeature;
 import net.conczin.hollowvale.Structurify;
 import net.conczin.hollowvale.block.Blocks;
 import net.conczin.hollowvale.config.Config;
 import net.conczin.hollowvale.entity.Entities;
 import net.conczin.hollowvale.item.Items;
+import net.conczin.hollowvale.world.BiolithCompat;
+import net.conczin.hollowvale.world.TerraBlenderCompat;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.SpawnPlacementType;
+import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.ModList;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
+import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
 import net.neoforged.neoforge.registries.RegisterEvent;
 
 import java.util.function.Consumer;
@@ -36,6 +47,7 @@ public final class CommonNeoForge {
     @SubscribeEvent
     public static void register(RegisterEvent event) {
         registerHelper(event, BuiltInRegistries.SOUND_EVENT, Sounds::registerSounds);
+        registerHelper(event, BuiltInRegistries.FEATURE, TemplateFeature::register);
         registerHelper(event, BuiltInRegistries.ENTITY_TYPE, Entities::registerEntities);
         registerHelper(event, BuiltInRegistries.BLOCK, Blocks::registerBlocks);
         registerHelper(event, BuiltInRegistries.ITEM, Items::registerItems);
@@ -48,6 +60,27 @@ public final class CommonNeoForge {
     @SubscribeEvent
     public static void onRegisterCommands(RegisterCommandsEvent event) {
         Structurify.register(event.getDispatcher());
+    }
+
+    @SubscribeEvent
+    public static void onCommonSetup(FMLCommonSetupEvent event) {
+        event.enqueueWork(() -> {
+            if (ModList.get().isLoaded("biolith")) {
+                BiolithCompat.register();
+            } else if (ModList.get().isLoaded("terrablender")) {
+                TerraBlenderCompat.register();
+            }
+        });
+    }
+
+    @SubscribeEvent
+    public static void onRegisterSpawnPlacements(RegisterSpawnPlacementsEvent event) {
+        Entities.registerSpawnPlacements(new Entities.SpawnPlacementRegistrar() {
+            @Override
+            public <T extends Mob> void register(EntityType<T> type, SpawnPlacementType placement, Heightmap.Types heightmap, SpawnPlacements.SpawnPredicate<T> predicate) {
+                event.register(type, placement, heightmap, predicate, RegisterSpawnPlacementsEvent.Operation.OR);
+            }
+        });
     }
 
     @SubscribeEvent

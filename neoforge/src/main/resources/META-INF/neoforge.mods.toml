@@ -38,3 +38,17 @@ type = "required"
 versionRange = "[${geckolib_version},)"
 ordering = "NONE"
 side = "BOTH"
+
+[[dependencies.${mod_id}]]
+modId = "biolith"
+type = "optional"
+versionRange = "[3,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.${mod_id}]]
+modId = "terrablender"
+type = "optional"
+versionRange = "[4,)"
+ordering = "AFTER"
+side = "BOTH"

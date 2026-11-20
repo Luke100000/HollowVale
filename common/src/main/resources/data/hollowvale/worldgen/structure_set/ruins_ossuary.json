@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "hollowvale:ruins_ossuary",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 9,
+    "separation": 3,
+    "salt": 1201
+  }
+}
