@@ -1,0 +1,59 @@
+{
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "hollowvale:dead_tree_0",
+        "processors": "hollowvale:ignore_cave_air",
+        "projection": "rigid"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "hollowvale:dead_tree_1",
+        "processors": "hollowvale:ignore_cave_air",
+        "projection": "rigid"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "hollowvale:dead_tree_2",
+        "processors": "hollowvale:ignore_cave_air",
+        "projection": "rigid"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "hollowvale:tree_3",
+        "processors": "hollowvale:ignore_cave_air",
+        "projection": "rigid"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "hollowvale:tree_4",
+        "processors": "hollowvale:ignore_cave_air",
+        "projection": "rigid"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "hollowvale:tree_5",
+        "processors": "hollowvale:ignore_cave_air",
+        "projection": "rigid"
+      }
+    }
+  ]
+}

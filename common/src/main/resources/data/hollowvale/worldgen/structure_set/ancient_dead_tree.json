@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "hollowvale:ancient_dead_tree",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 56,
+    "separation": 24,
+    "salt": 1102
+  }
+}
