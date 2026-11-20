@@ -12,9 +12,7 @@ import software.bernie.geckolib.model.DefaultedEntityGeoModel;
  * that wobble independently, the jaw opening, the searching eye and a head shake on ambient sounds.
  */
 public class EnderSkullModel extends DefaultedEntityGeoModel<EnderSkull> {
-    // The mouth of the model points along -X, this turns it to face forward.
-    private static final float MODEL_YAW = -Mth.HALF_PI;
-    // The jaw cubes are modelled open (upper -15°, lower +25°). Closed leaves each jaw ajar by 5° so the eye shows,
+    // The jaw cubes are modelled open (upper 15°, lower -25° around X). The angles below are negated when applied. Closed leaves each jaw ajar by 5° so the eye shows,
     // and fully open goes past the Blockbench pose to upper -30°, lower +45°.
     private static final float UPPER_CLOSED = 10.0f * Mth.DEG_TO_RAD;
     private static final float UPPER_OPEN = -15.0f * Mth.DEG_TO_RAD;
@@ -43,21 +41,21 @@ public class EnderSkullModel extends DefaultedEntityGeoModel<EnderSkull> {
         float seed = skull.getId() * 1.3f;
 
         float shake = skull.getShake(partialTick);
-        root.setRotY(MODEL_YAW + shake * SHAKE_YAW * Mth.sin(age * 1.8f));
-        root.setRotX(shake * SHAKE_ROLL * Mth.sin(age * 2.3f));
+        root.setRotY(shake * SHAKE_YAW * Mth.sin(age * 1.8f));
+        root.setRotZ(shake * SHAKE_ROLL * Mth.sin(age * 2.3f));
         root.setPosY(skull.getBob(partialTick));
 
         float jaw = skull.getJaw(partialTick);
-        upper.setRotZ(Mth.lerp(jaw, UPPER_CLOSED, UPPER_OPEN) + wobble(age, seed, 0.13f));
-        upper.setRotX(wobble(age, seed + 1.0f, 0.11f));
-        lower.setRotZ(Mth.lerp(jaw, LOWER_CLOSED, LOWER_OPEN) + wobble(age, seed + 2.0f, 0.15f));
-        lower.setRotX(wobble(age, seed + 3.0f, 0.12f));
+        upper.setRotX(-Mth.lerp(jaw, UPPER_CLOSED, UPPER_OPEN) + wobble(age, seed, 0.13f));
+        upper.setRotZ(wobble(age, seed + 1.0f, 0.11f));
+        lower.setRotX(-Mth.lerp(jaw, LOWER_CLOSED, LOWER_OPEN) + wobble(age, seed + 2.0f, 0.15f));
+        lower.setRotZ(wobble(age, seed + 3.0f, 0.12f));
 
         // Rotate the eye around its own center rather than the exported pivot.
         eye.updatePivot(0.0f, 4.0f, 0.0f);
         eye.setRotY(skull.getEyeYaw(partialTick) * Mth.DEG_TO_RAD);
-        eye.setRotZ(skull.getEyePitch(partialTick) * Mth.DEG_TO_RAD);
-        eye.setPosX(Mth.sin(age * 0.17f + seed) * 0.3f);
+        eye.setRotX(-skull.getEyePitch(partialTick) * Mth.DEG_TO_RAD);
+        eye.setPosZ(Mth.sin(age * 0.17f + seed) * 0.3f);
         eye.setPosY(Mth.sin(age * 0.19f + seed + 4.0f) * 0.3f);
     }
 
