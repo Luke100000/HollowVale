@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "hollowvale:block/marrow_infused_bone"
+  }
+}

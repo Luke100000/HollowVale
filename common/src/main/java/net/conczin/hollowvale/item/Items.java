@@ -12,6 +12,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
+import net.minecraft.world.level.block.Block;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -22,8 +23,18 @@ public final class Items {
     public static final ResourceKey<JukeboxSong> HOLLOW_VALE_SONG = ResourceKey.create(Registries.JUKEBOX_SONG, Common.locate("hollow_vale"));
 
     public static final Item ENDER_MARROW = register("ender_marrow", new Item(new Item.Properties()));
-    public static final Item MARROW_LAMP = register("marrow_lamp", new BlockItem(Blocks.MARROW_LAMP, new Item.Properties()));
-    public static final Item WIND_CHIME = register("wind_chime", new BlockItem(Blocks.WIND_CHIME, new Item.Properties()));
+    public static final Item MARROW_LAMP = blockItem("marrow_lamp", Blocks.MARROW_LAMP);
+    public static final Item WIND_CHIME = blockItem("wind_chime", Blocks.WIND_CHIME);
+
+    public static final Item BONE_BRICKS = blockItem("bone_bricks", Blocks.BONE_BRICKS);
+    public static final Item BONE_BRICK_STAIRS = blockItem("bone_brick_stairs", Blocks.BONE_BRICK_STAIRS);
+    public static final Item BONE_BRICK_SLAB = blockItem("bone_brick_slab", Blocks.BONE_BRICK_SLAB);
+    public static final Item BONE_BRICK_WALL = blockItem("bone_brick_wall", Blocks.BONE_BRICK_WALL);
+    public static final Item CRACKED_BONE_BRICKS = blockItem("cracked_bone_bricks", Blocks.CRACKED_BONE_BRICKS);
+    public static final Item CHISELED_BONE_BRICKS = blockItem("chiseled_bone_bricks", Blocks.CHISELED_BONE_BRICKS);
+    public static final Item BONE_PILLAR = blockItem("bone_pillar", Blocks.BONE_PILLAR);
+    public static final Item MARROW_INFUSED_BONE = blockItem("marrow_infused_bone", Blocks.MARROW_INFUSED_BONE);
+    public static final Item ENDER_INFUSED_GRASS = blockItem("ender_infused_grass", Blocks.ENDER_INFUSED_GRASS);
     public static final Item ENDER_FISH_SOUP = register("ender_fish_soup", new Item(new Item.Properties()
             .stacksTo(1)
             .food(new FoodProperties.Builder()
@@ -50,6 +61,10 @@ public final class Items {
     private static Item register(String name, Item item) {
         ITEMS.put(name, item);
         return item;
+    }
+
+    private static Item blockItem(String name, Block block) {
+        return register(name, new BlockItem(block, new Item.Properties()));
     }
 
     private static Item spawnEgg(String name, EntityType<? extends Mob> type, int background, int highlight) {

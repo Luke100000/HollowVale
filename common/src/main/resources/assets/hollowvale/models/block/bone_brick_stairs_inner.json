@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "hollowvale:block/bone_bricks",
+    "top": "hollowvale:block/bone_bricks",
+    "side": "hollowvale:block/bone_bricks"
+  }
+}

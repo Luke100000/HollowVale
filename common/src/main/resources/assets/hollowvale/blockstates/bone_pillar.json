@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "hollowvale:block/bone_pillar",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "hollowvale:block/bone_pillar"
+    },
+    "axis=z": {
+      "model": "hollowvale:block/bone_pillar",
+      "x": 90
+    }
+  }
+}

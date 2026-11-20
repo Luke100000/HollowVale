@@ -1,5 +1,13 @@
 {
   "values": [
-    "hollowvale:marrow_lamp"
+    "hollowvale:marrow_lamp",
+    "hollowvale:bone_bricks",
+    "hollowvale:bone_brick_stairs",
+    "hollowvale:bone_brick_slab",
+    "hollowvale:bone_brick_wall",
+    "hollowvale:cracked_bone_bricks",
+    "hollowvale:chiseled_bone_bricks",
+    "hollowvale:bone_pillar",
+    "hollowvale:marrow_infused_bone"
   ]
 }

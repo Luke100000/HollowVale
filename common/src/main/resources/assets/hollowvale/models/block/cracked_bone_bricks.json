@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "hollowvale:block/cracked_bone_bricks"
+  }
+}

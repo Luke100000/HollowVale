@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "hollowvale:bone_bricks"
+  },
+  "result": {
+    "count": 1,
+    "id": "hollowvale:chiseled_bone_bricks"
+  }
+}

@@ -1,11 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "misc",
-  "pattern": [
-    "B",
-    "M",
-    "B"
-  ],
   "key": {
     "B": {
       "item": "minecraft:bone"
@@ -14,6 +9,11 @@
       "item": "hollowvale:ender_marrow"
     }
   },
+  "pattern": [
+    "B",
+    "M",
+    "B"
+  ],
   "result": {
     "count": 1,
     "id": "hollowvale:marrow_lamp"

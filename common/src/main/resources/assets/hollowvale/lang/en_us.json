@@ -4,6 +4,16 @@
   "block.hollowvale.marrow_lamp": "Marrow Lamp",
   "block.hollowvale.wind_chime": "Wind Chime",
 
+  "block.hollowvale.bone_bricks": "Bone Bricks",
+  "block.hollowvale.bone_brick_stairs": "Bone Brick Stairs",
+  "block.hollowvale.bone_brick_slab": "Bone Brick Slab",
+  "block.hollowvale.bone_brick_wall": "Bone Brick Wall",
+  "block.hollowvale.cracked_bone_bricks": "Cracked Bone Bricks",
+  "block.hollowvale.chiseled_bone_bricks": "Chiseled Bone Bricks",
+  "block.hollowvale.bone_pillar": "Bone Pillar",
+  "block.hollowvale.marrow_infused_bone": "Marrow-Infused Bone",
+  "block.hollowvale.ender_infused_grass": "Ender-Infused Grass",
+
   "item.hollowvale.ender_marrow": "Ender Marrow",
   "item.hollowvale.ender_fish_soup": "Ender Fish Soup",
   "item.hollowvale.fry_bucket": "Bucket of Fry",

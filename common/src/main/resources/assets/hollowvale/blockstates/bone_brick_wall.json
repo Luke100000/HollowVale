@@ -1,0 +1,173 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "hollowvale:block/bone_brick_wall_post"
+      },
+      "when": {
+        "up": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "hollowvale:block/bone_brick_wall_side"
+      },
+      "when": {
+        "north": "low"
+      }
+    },
+    {
+      "apply": {
+        "model": "hollowvale:block/bone_brick_wall_side",
+        "y": 90
+      },
+      "when": {
+        "east": "low"
+      }
+    },
+    {
+      "apply": {
+        "model": "hollowvale:block/bone_brick_wall_side",
+        "y": 180
+      },
+      "when": {
+        "south": "low"
+      }
+    },
+    {
+      "apply": {
+        "model": "hollowvale:block/bone_brick_wall_side",
+        "y": 270
+      },
+      "when": {
+        "west": "low"
+      }
+    },
+    {
+      "apply": {
+        "model": "hollowvale:block/bone_brick_wall_side_tall_posted"
+      },
+      "when": {
+        "AND": [
+          {
+            "north": "tall"
+          },
+          {
+            "up": "true"
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "hollowvale:block/bone_brick_wall_side_tall"
+      },
+      "when": {
+        "AND": [
+          {
+            "north": "tall"
+          },
+          {
+            "up": "false"
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "hollowvale:block/bone_brick_wall_side_tall_posted",
+        "y": 90
+      },
+      "when": {
+        "AND": [
+          {
+            "east": "tall"
+          },
+          {
+            "up": "true"
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "hollowvale:block/bone_brick_wall_side_tall",
+        "y": 90
+      },
+      "when": {
+        "AND": [
+          {
+            "east": "tall"
+          },
+          {
+            "up": "false"
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "hollowvale:block/bone_brick_wall_side_tall_posted",
+        "y": 180
+      },
+      "when": {
+        "AND": [
+          {
+            "south": "tall"
+          },
+          {
+            "up": "true"
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "hollowvale:block/bone_brick_wall_side_tall",
+        "y": 180
+      },
+      "when": {
+        "AND": [
+          {
+            "south": "tall"
+          },
+          {
+            "up": "false"
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "hollowvale:block/bone_brick_wall_side_tall_posted",
+        "y": 270
+      },
+      "when": {
+        "AND": [
+          {
+            "west": "tall"
+          },
+          {
+            "up": "true"
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "hollowvale:block/bone_brick_wall_side_tall",
+        "y": 270
+      },
+      "when": {
+        "AND": [
+          {
+            "west": "tall"
+          },
+          {
+            "up": "false"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "hollowvale:block/bone_pillar_top",
+    "side": "hollowvale:block/bone_pillar_side"
+  }
+}

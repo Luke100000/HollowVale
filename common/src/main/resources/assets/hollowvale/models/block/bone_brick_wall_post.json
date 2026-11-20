@@ -1,0 +1,79 @@
+{
+  "textures": {
+    "wall": "hollowvale:block/bone_bricks",
+    "smooth": "hollowvale:block/bone_smooth_wall",
+    "particle": "#wall"
+  },
+  "elements": [
+    {
+      "from": [
+        4,
+        0,
+        4
+      ],
+      "to": [
+        12,
+        16,
+        12
+      ],
+      "faces": {
+        "down": {
+          "texture": "#smooth",
+          "uv": [
+            8,
+            0,
+            16,
+            8
+          ],
+          "cullface": "down"
+        },
+        "up": {
+          "texture": "#smooth",
+          "uv": [
+            8,
+            0,
+            16,
+            8
+          ],
+          "cullface": "up"
+        },
+        "north": {
+          "texture": "#smooth",
+          "uv": [
+            0,
+            0,
+            8,
+            16
+          ]
+        },
+        "south": {
+          "texture": "#smooth",
+          "uv": [
+            0,
+            0,
+            8,
+            16
+          ]
+        },
+        "west": {
+          "texture": "#smooth",
+          "uv": [
+            0,
+            0,
+            8,
+            16
+          ]
+        },
+        "east": {
+          "texture": "#smooth",
+          "uv": [
+            0,
+            0,
+            8,
+            16
+          ]
+        }
+      }
+    }
+  ]
+}

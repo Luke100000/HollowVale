@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "hollowvale:block/ender_infused_grass"
+      },
+      {
+        "model": "hollowvale:block/ender_infused_grass",
+        "y": 90
+      },
+      {
+        "model": "hollowvale:block/ender_infused_grass",
+        "y": 180
+      },
+      {
+        "model": "hollowvale:block/ender_infused_grass",
+        "y": 270
+      }
+    ]
+  }
+}

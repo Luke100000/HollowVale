@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "hollowvale:block/bone_smooth",
+    "side": "hollowvale:block/chiseled_bone_bricks"
+  }
+}
