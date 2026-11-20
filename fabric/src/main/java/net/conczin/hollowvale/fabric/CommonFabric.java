@@ -2,11 +2,13 @@ package net.conczin.hollowvale.fabric;
 
 import net.conczin.hollowvale.Common;
 import net.conczin.hollowvale.Sounds;
+import net.conczin.hollowvale.Structurify;
 import net.conczin.hollowvale.block.Blocks;
 import net.conczin.hollowvale.config.Config;
 import net.conczin.hollowvale.entity.Entities;
 import net.conczin.hollowvale.item.Items;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
@@ -36,5 +38,6 @@ public final class CommonFabric implements ModInitializer {
         Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, Common.locate(Common.MOD_ID), Items.createTab(FabricItemGroup.builder()));
 
         Entities.registerAttributes(FabricDefaultAttributeRegistry::register);
+        CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> Structurify.register(dispatcher));
     }
 }
