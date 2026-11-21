@@ -24,7 +24,7 @@
     },
     "additions_sound": {
       "sound": "hollowvale:ambient.ossuary.additions",
-      "tick_chance": 0.0111
+      "tick_chance": 0.00555
     },
     "ambient_sound": "hollowvale:ambient.ossuary.loop",
     "mood_sound": {

@@ -31,7 +31,7 @@
     },
     "additions_sound": {
       "sound": "hollowvale:ambient.marrow_hollows.additions",
-      "tick_chance": 0.0111
+      "tick_chance": 0.00555
     }
   },
   "carvers": {

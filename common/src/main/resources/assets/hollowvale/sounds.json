@@ -4,33 +4,13 @@
       {
         "name": "hollowvale:music/game/hollow_vale/ossuary_1_a_beginning",
         "stream": true
-      },
-      {
-        "name": "hollowvale:music/game/hollow_vale/ossuary_5_rest",
-        "stream": true
-      },
-      {
-        "name": "hollowvale:music/game/hollow_vale/ossuary_6_air",
-        "stream": true
-      },
-      {
-        "name": "hollowvale:music/game/hollow_vale/ossuary_7_resolve",
-        "stream": true
       }
     ]
   },
   "music.ossuary": {
     "sounds": [
       {
-        "name": "hollowvale:music/game/ossuary/ossuary_2_turn",
-        "stream": true
-      },
-      {
-        "name": "hollowvale:music/game/ossuary/ossuary_3_words",
-        "stream": true
-      },
-      {
-        "name": "hollowvale:music/game/ossuary/ossuary_4_animate",
+        "name": "hollowvale:music/game/ossuary/ossuary_6_air",
         "stream": true
       }
     ]
@@ -38,11 +18,7 @@
   "music.marrow_hollows": {
     "sounds": [
       {
-        "name": "hollowvale:music/game/marrow_hollows/a_method_to_the_madness",
-        "stream": true
-      },
-      {
-        "name": "hollowvale:music/game/marrow_hollows/caverns_of_madness",
+        "name": "hollowvale:music/game/marrow_hollows/halloween_theme_1",
         "stream": true
       }
     ]
