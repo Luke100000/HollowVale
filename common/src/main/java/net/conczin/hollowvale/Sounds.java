@@ -14,8 +14,9 @@ public final class Sounds {
     public static final SoundEvent MUSIC_DISC_HOLLOW_VALE = create("music_disc.hollow_vale");
 
     public static final SoundEvent AMBIENT_HOLLOW_VALE_LOOP = create("ambient.hollow_vale.loop");
-    public static final SoundEvent AMBIENT_HOLLOW_VALE_MOOD = create("ambient.hollow_vale.mood");
     public static final SoundEvent AMBIENT_HOLLOW_VALE_ADDITIONS = create("ambient.hollow_vale.additions");
+    public static final SoundEvent AMBIENT_OSSUARY_LOOP = create("ambient.ossuary.loop");
+    public static final SoundEvent AMBIENT_OSSUARY_MOOD = create("ambient.ossuary.mood");
     public static final SoundEvent AMBIENT_OSSUARY_ADDITIONS = create("ambient.ossuary.additions");
     public static final SoundEvent AMBIENT_MARROW_HOLLOWS_LOOP = create("ambient.marrow_hollows.loop");
     public static final SoundEvent AMBIENT_MARROW_HOLLOWS_ADDITIONS = create("ambient.marrow_hollows.additions");

@@ -23,12 +23,6 @@
       "replace_current_music": false
     },
     "ambient_sound": "hollowvale:ambient.hollow_vale.loop",
-    "mood_sound": {
-      "sound": "hollowvale:ambient.hollow_vale.mood",
-      "tick_delay": 6000,
-      "block_search_extent": 8,
-      "offset": 2.0
-    },
     "additions_sound": {
       "sound": "hollowvale:ambient.hollow_vale.additions",
       "tick_chance": 0.0111

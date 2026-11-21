@@ -51,11 +51,21 @@
     "sounds": [
       {
         "name": "hollowvale:ambient/hollow_vale/loop",
-        "stream": true
+        "stream": true,
+        "volume": 0.5
       }
     ]
   },
-  "ambient.hollow_vale.mood": {
+  "ambient.ossuary.loop": {
+    "sounds": [
+      {
+        "name": "hollowvale:ambient/hollow_vale/loop",
+        "stream": true,
+        "volume": 0.1
+      }
+    ]
+  },
+  "ambient.ossuary.mood": {
     "sounds": [
       "hollowvale:ambient/hollow_vale/whale1",
       "hollowvale:ambient/hollow_vale/whale2",
@@ -70,106 +80,211 @@
   },
   "ambient.hollow_vale.additions": {
     "sounds": [
-      "hollowvale:ambient/hollow_vale/crow1",
-      "hollowvale:ambient/hollow_vale/crow2",
-      "hollowvale:ambient/hollow_vale/crow3",
-      "hollowvale:ambient/hollow_vale/crow4",
-      "hollowvale:ambient/hollow_vale/crow5",
-      "hollowvale:ambient/hollow_vale/crow6",
-      "hollowvale:ambient/hollow_vale/creak1",
-      "hollowvale:ambient/hollow_vale/creak2",
-      "hollowvale:ambient/hollow_vale/creak3",
-      "hollowvale:ambient/hollow_vale/creak4",
-      "hollowvale:ambient/hollow_vale/creak5",
-      "hollowvale:ambient/hollow_vale/creak6",
-      "hollowvale:ambient/hollow_vale/creak7",
-      "hollowvale:ambient/hollow_vale/creak8",
-      "hollowvale:ambient/hollow_vale/creak9",
+      {
+        "name": "hollowvale:ambient/hollow_vale/crow1"
+      },
+      {
+        "name": "hollowvale:ambient/hollow_vale/crow2"
+      },
+      {
+        "name": "hollowvale:ambient/hollow_vale/crow3"
+      },
+      {
+        "name": "hollowvale:ambient/hollow_vale/crow4"
+      },
+      {
+        "name": "hollowvale:ambient/hollow_vale/crow5"
+      },
+      {
+        "name": "hollowvale:ambient/hollow_vale/crow6"
+      },
+      {
+        "name": "hollowvale:ambient/hollow_vale/creak1"
+      },
+      {
+        "name": "hollowvale:ambient/hollow_vale/creak2"
+      },
+      {
+        "name": "hollowvale:ambient/hollow_vale/creak3"
+      },
+      {
+        "name": "hollowvale:ambient/hollow_vale/creak4"
+      },
+      {
+        "name": "hollowvale:ambient/hollow_vale/creak5"
+      },
+      {
+        "name": "hollowvale:ambient/hollow_vale/creak6"
+      },
+      {
+        "name": "hollowvale:ambient/hollow_vale/creak7"
+      },
+      {
+        "name": "hollowvale:ambient/hollow_vale/creak8"
+      },
+      {
+        "name": "hollowvale:ambient/hollow_vale/creak9"
+      },
       {
         "name": "minecraft:ambient/nether/soulsand_valley/wind1",
-        "volume": 1.0
+        "volume": 0.6
       },
       {
         "name": "minecraft:ambient/nether/soulsand_valley/wind2",
-        "volume": 1.0
+        "volume": 0.6
       },
       {
         "name": "minecraft:ambient/nether/soulsand_valley/wind3",
-        "volume": 1.0
+        "volume": 0.6
       },
       {
         "name": "minecraft:ambient/nether/soulsand_valley/wind4",
-        "volume": 1.0
+        "volume": 0.6
       }
     ]
   },
   "ambient.ossuary.additions": {
     "sounds": [
-      "hollowvale:ambient/hollow_vale/bones1",
-      "hollowvale:ambient/hollow_vale/bones2",
-      "hollowvale:ambient/hollow_vale/bones3",
-      "hollowvale:ambient/hollow_vale/bones4",
-      "hollowvale:ambient/hollow_vale/bones5",
-      "hollowvale:ambient/hollow_vale/bones6",
-      "hollowvale:ambient/hollow_vale/bones7",
-      "hollowvale:ambient/hollow_vale/bones8",
-      "hollowvale:ambient/hollow_vale/bones9",
-      "hollowvale:ambient/hollow_vale/creak1",
-      "hollowvale:ambient/hollow_vale/creak2",
-      "hollowvale:ambient/hollow_vale/creak3",
-      "hollowvale:ambient/hollow_vale/creak4",
-      "hollowvale:ambient/hollow_vale/creak5",
-      "hollowvale:ambient/hollow_vale/creak6",
-      "hollowvale:ambient/hollow_vale/creak7",
-      "hollowvale:ambient/hollow_vale/creak8",
-      "hollowvale:ambient/hollow_vale/creak9",
+      {
+        "name": "hollowvale:ambient/hollow_vale/bones1",
+        "volume": 0.6,
+        "weight": 5
+      },
+      {
+        "name": "hollowvale:ambient/hollow_vale/bones2",
+        "volume": 0.6,
+        "weight": 5
+      },
+      {
+        "name": "hollowvale:ambient/hollow_vale/bones3",
+        "volume": 0.6,
+        "weight": 5
+      },
+      {
+        "name": "hollowvale:ambient/hollow_vale/bones4",
+        "volume": 0.6,
+        "weight": 5
+      },
+      {
+        "name": "hollowvale:ambient/hollow_vale/bones5",
+        "volume": 0.6,
+        "weight": 5
+      },
+      {
+        "name": "hollowvale:ambient/hollow_vale/bones6",
+        "volume": 0.6,
+        "weight": 5
+      },
+      {
+        "name": "hollowvale:ambient/hollow_vale/bones7",
+        "volume": 0.6,
+        "weight": 5
+      },
+      {
+        "name": "hollowvale:ambient/hollow_vale/bones8",
+        "volume": 0.6,
+        "weight": 5
+      },
+      {
+        "name": "hollowvale:ambient/hollow_vale/bones9",
+        "volume": 0.6,
+        "weight": 5
+      },
+      {
+        "name": "hollowvale:ambient/hollow_vale/creak1",
+        "weight": 12
+      },
+      {
+        "name": "hollowvale:ambient/hollow_vale/creak2",
+        "weight": 12
+      },
+      {
+        "name": "hollowvale:ambient/hollow_vale/creak3",
+        "weight": 12
+      },
+      {
+        "name": "hollowvale:ambient/hollow_vale/creak4",
+        "weight": 12
+      },
+      {
+        "name": "hollowvale:ambient/hollow_vale/creak5",
+        "weight": 12
+      },
+      {
+        "name": "hollowvale:ambient/hollow_vale/creak6",
+        "weight": 12
+      },
+      {
+        "name": "hollowvale:ambient/hollow_vale/creak7",
+        "weight": 12
+      },
+      {
+        "name": "hollowvale:ambient/hollow_vale/creak8",
+        "weight": 12
+      },
+      {
+        "name": "hollowvale:ambient/hollow_vale/creak9",
+        "weight": 12
+      },
       {
         "name": "minecraft:ambient/nether/soulsand_valley/wind1",
-        "volume": 1.0
+        "volume": 0.6,
+        "weight": 12
       },
       {
         "name": "minecraft:ambient/nether/soulsand_valley/wind2",
-        "volume": 1.0
+        "volume": 0.6,
+        "weight": 12
       },
       {
         "name": "minecraft:ambient/nether/soulsand_valley/wind3",
-        "volume": 1.0
+        "volume": 0.6,
+        "weight": 12
       },
       {
         "name": "minecraft:ambient/nether/soulsand_valley/wind4",
-        "volume": 1.0
+        "volume": 0.6,
+        "weight": 12
       },
       {
         "name": "minecraft:ambient/nether/soulsand_valley/whisper1",
-        "volume": 1.0
+        "volume": 1.0,
+        "weight": 12
       },
       {
         "name": "minecraft:ambient/nether/soulsand_valley/whisper2",
-        "volume": 1.0
+        "volume": 1.0,
+        "weight": 12
       },
       {
         "name": "minecraft:ambient/nether/soulsand_valley/whisper3",
-        "volume": 1.0
+        "volume": 1.0,
+        "weight": 12
       },
       {
         "name": "minecraft:ambient/nether/soulsand_valley/whisper4",
-        "volume": 1.0
+        "volume": 1.0,
+        "weight": 12
       },
       {
         "name": "minecraft:ambient/nether/soulsand_valley/whisper5",
-        "volume": 1.0
+        "volume": 1.0,
+        "weight": 12
       },
       {
         "name": "minecraft:ambient/nether/soulsand_valley/whisper6",
-        "volume": 1.0
+        "volume": 1.0,
+        "weight": 12
       },
       {
         "name": "minecraft:ambient/nether/soulsand_valley/whisper7",
-        "volume": 1.0
+        "volume": 1.0,
+        "weight": 12
       },
       {
         "name": "minecraft:ambient/nether/soulsand_valley/whisper8",
-        "volume": 1.0
+        "volume": 1.0,
+        "weight": 12
       }
     ]
   },
@@ -183,106 +298,165 @@
   },
   "ambient.marrow_hollows.additions": {
     "sounds": [
-      "hollowvale:ambient/hollow_vale/bones1",
-      "hollowvale:ambient/hollow_vale/bones2",
-      "hollowvale:ambient/hollow_vale/bones3",
-      "hollowvale:ambient/hollow_vale/bones4",
-      "hollowvale:ambient/hollow_vale/bones5",
-      "hollowvale:ambient/hollow_vale/bones6",
-      "hollowvale:ambient/hollow_vale/bones7",
-      "hollowvale:ambient/hollow_vale/bones8",
-      "hollowvale:ambient/hollow_vale/bones9",
+      {
+        "name": "hollowvale:ambient/hollow_vale/bones1",
+        "volume": 0.6,
+        "weight": 5
+      },
+      {
+        "name": "hollowvale:ambient/hollow_vale/bones2",
+        "volume": 0.6,
+        "weight": 5
+      },
+      {
+        "name": "hollowvale:ambient/hollow_vale/bones3",
+        "volume": 0.6,
+        "weight": 5
+      },
+      {
+        "name": "hollowvale:ambient/hollow_vale/bones4",
+        "volume": 0.6,
+        "weight": 5
+      },
+      {
+        "name": "hollowvale:ambient/hollow_vale/bones5",
+        "volume": 0.6,
+        "weight": 5
+      },
+      {
+        "name": "hollowvale:ambient/hollow_vale/bones6",
+        "volume": 0.6,
+        "weight": 5
+      },
+      {
+        "name": "hollowvale:ambient/hollow_vale/bones7",
+        "volume": 0.6,
+        "weight": 5
+      },
+      {
+        "name": "hollowvale:ambient/hollow_vale/bones8",
+        "volume": 0.6,
+        "weight": 5
+      },
+      {
+        "name": "hollowvale:ambient/hollow_vale/bones9",
+        "volume": 0.6,
+        "weight": 5
+      },
       {
         "name": "minecraft:ambient/nether/soulsand_valley/whisper1",
-        "volume": 1.0
+        "volume": 1.0,
+        "weight": 12
       },
       {
         "name": "minecraft:ambient/nether/soulsand_valley/whisper2",
-        "volume": 1.0
+        "volume": 1.0,
+        "weight": 12
       },
       {
         "name": "minecraft:ambient/nether/soulsand_valley/whisper3",
-        "volume": 1.0
+        "volume": 1.0,
+        "weight": 12
       },
       {
         "name": "minecraft:ambient/nether/soulsand_valley/whisper4",
-        "volume": 1.0
+        "volume": 1.0,
+        "weight": 12
       },
       {
         "name": "minecraft:ambient/nether/soulsand_valley/whisper5",
-        "volume": 1.0
+        "volume": 1.0,
+        "weight": 12
       },
       {
         "name": "minecraft:ambient/nether/soulsand_valley/whisper6",
-        "volume": 1.0
+        "volume": 1.0,
+        "weight": 12
       },
       {
         "name": "minecraft:ambient/nether/soulsand_valley/whisper7",
-        "volume": 1.0
+        "volume": 1.0,
+        "weight": 12
       },
       {
         "name": "minecraft:ambient/nether/soulsand_valley/whisper8",
-        "volume": 1.0
+        "volume": 1.0,
+        "weight": 12
       },
       {
         "name": "minecraft:block/pointed_dripstone/drip_water1",
-        "volume": 1.0
+        "volume": 1.0,
+        "weight": 12
       },
       {
         "name": "minecraft:block/pointed_dripstone/drip_water2",
-        "volume": 1.0
+        "volume": 1.0,
+        "weight": 12
       },
       {
         "name": "minecraft:block/pointed_dripstone/drip_water3",
-        "volume": 1.0
+        "volume": 1.0,
+        "weight": 12
       },
       {
         "name": "minecraft:block/pointed_dripstone/drip_water4",
-        "volume": 1.0
+        "volume": 1.0,
+        "weight": 12
       },
       {
         "name": "minecraft:block/pointed_dripstone/drip_water5",
-        "volume": 1.0
+        "volume": 1.0,
+        "weight": 12
       },
       {
         "name": "minecraft:block/pointed_dripstone/drip_water6",
-        "volume": 1.0
+        "volume": 1.0,
+        "weight": 12
       },
       {
         "name": "minecraft:block/pointed_dripstone/drip_water7",
-        "volume": 1.0
+        "volume": 1.0,
+        "weight": 12
       },
       {
         "name": "minecraft:block/pointed_dripstone/drip_water8",
-        "volume": 1.0
+        "volume": 1.0,
+        "weight": 12
       },
       {
         "name": "minecraft:block/pointed_dripstone/drip_water9",
-        "volume": 1.0
+        "volume": 1.0,
+        "weight": 12
       },
       {
         "name": "minecraft:block/pointed_dripstone/drip_water10",
-        "volume": 1.0
+        "volume": 1.0,
+        "weight": 12
       },
       {
         "name": "minecraft:block/pointed_dripstone/drip_water11",
-        "volume": 1.0
+        "volume": 1.0,
+        "weight": 12
       },
       {
         "name": "minecraft:block/pointed_dripstone/drip_water12",
-        "volume": 1.0
+        "volume": 1.0,
+        "weight": 12
       },
       {
         "name": "minecraft:block/pointed_dripstone/drip_water13",
-        "volume": 1.0
+        "volume": 1.0,
+        "weight": 12
       },
       {
         "name": "minecraft:block/pointed_dripstone/drip_water14",
-        "volume": 1.0
+        "volume": 1.0,
+        "weight": 12
       },
       {
         "name": "minecraft:block/pointed_dripstone/drip_water15",
-        "volume": 1.0
+        "volume": 1.0,
+        "weight": 12
       }
     ]
   },
