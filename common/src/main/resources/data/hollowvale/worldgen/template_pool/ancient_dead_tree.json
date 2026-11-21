@@ -6,7 +6,7 @@
       "element": {
         "element_type": "minecraft:single_pool_element",
         "location": "hollowvale:ancient_dead_tree",
-        "processors": "hollowvale:ignore_cave_air",
+        "processors": "hollowvale:dead_tree_decay",
         "projection": "rigid"
       }
     }
