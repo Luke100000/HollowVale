@@ -57,6 +57,7 @@ A vanilla-friendly dark biome of skull mobs, rotten ruins and giant buried bones
 * Items
     * Ender Marrow
     * Potion of levitation (from ender marrow)
+    * Bone Whale Omelette (smelted from a whale egg, lots of food)
     * Ender Fish Soup (or something with ender marrow and chorus fruit)
     * Custom music disk
     * Spawn eggs

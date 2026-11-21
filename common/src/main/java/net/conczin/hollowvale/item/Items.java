@@ -46,6 +46,8 @@ public final class Items {
                     .effect(new MobEffectInstance(MobEffects.LEVITATION, 5 * 20), 1.0f)
                     .usingConvertsTo(net.minecraft.world.item.Items.BOWL)
                     .build())));
+    public static final Item BONE_WHALE_OMELETTE = register("bone_whale_omelette", new Item(new Item.Properties()
+            .food(new FoodProperties.Builder().nutrition(12).saturationModifier(0.9f).build())));
     public static final Item FRY_BUCKET = register("fry_bucket", new FryBucketItem(new Item.Properties().stacksTo(1)));
     public static final Item MUSIC_DISC_HOLLOW_VALE = register("music_disc_hollow_vale", new Item(new Item.Properties()
             .stacksTo(1)
