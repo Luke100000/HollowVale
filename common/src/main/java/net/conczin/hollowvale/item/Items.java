@@ -22,7 +22,7 @@ public final class Items {
 
     public static final ResourceKey<JukeboxSong> HOLLOW_VALE_SONG = ResourceKey.create(Registries.JUKEBOX_SONG, Common.locate("hollow_vale"));
 
-    public static final Item ENDER_MARROW = register("ender_marrow", new Item(new Item.Properties()));
+    public static final Item ENDER_MARROW = register("ender_marrow", new EnderMarrowItem(new Item.Properties()));
     public static final Item MARROW_LAMP = blockItem("marrow_lamp", Blocks.MARROW_LAMP);
     public static final Item WIND_CHIME = blockItem("wind_chime", Blocks.WIND_CHIME);
     public static final Item WHALE_EGG = register("whale_egg", new BlockItem(Blocks.WHALE_EGG, new Item.Properties().rarity(Rarity.UNCOMMON)));
