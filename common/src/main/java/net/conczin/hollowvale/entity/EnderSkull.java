@@ -17,6 +17,7 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntitySelector;
+import net.minecraft.world.entity.EntityEvent;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
@@ -39,6 +40,7 @@ import software.bernie.geckolib.util.GeckoLibUtil;
  * Alarm timer: rises while the player is visible, screams and charges past the threshold, calms down at zero.
  */
 public class EnderSkull extends Monster implements GeoEntity {
+    private static final int DAWN_FADE_ODDS = 400;
     private static final int SPOTTED_ALARM = 3 * 20;
     private static final int SAFE_ZONE_INTERVAL = 20;
     private static final int SCREAM_ALARM = 5 * 20;
@@ -124,12 +126,19 @@ public class EnderSkull extends Monster implements GeoEntity {
         goalSelector.addGoal(0, new FleeLampGoal(this, CHARGE_SPEED));
         goalSelector.addGoal(1, new ChargeGoal(this, CHARGE_SPEED));
         goalSelector.addGoal(2, new StareGoal(this));
-        goalSelector.addGoal(3, new HoverWanderGoal(this, 1.0, HOVER_HEIGHT));
+        goalSelector.addGoal(3, new HoverWanderGoal(this, 1.0, HOVER_HEIGHT, HOVER_HEIGHT + 1.0));
     }
 
     @Override
     protected void customServerAiStep() {
         super.customServerAiStep();
+
+        // Despawn
+        if (level().isDay() && level().canSeeSky(blockPosition()) && !isPersistenceRequired() && random.nextInt(DAWN_FADE_ODDS) == 0) {
+            level().broadcastEntityEvent(this, EntityEvent.POOF);
+            discard();
+            return;
+        }
 
         if (alarm == 0) {
             Player spotted = level().getNearestPlayer(TargetingConditions.forCombat().range(getAttributeValue(Attributes.FOLLOW_RANGE)), this);

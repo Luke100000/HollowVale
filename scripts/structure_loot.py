@@ -100,11 +100,15 @@ def write_payload(out, tag, value):
         raise ValueError(f"unknown tag {tag}")
 
 
-def load(path):
-    reader = Reader(gzip.decompress(path.read_bytes()))
+def parse(data):
+    reader = Reader(gzip.decompress(data))
     assert reader.take(">b") == COMPOUND
     reader.string()
     return reader.payload(COMPOUND)
+
+
+def load(path):
+    return parse(path.read_bytes())
 
 
 def save(path, root):

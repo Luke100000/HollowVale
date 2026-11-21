@@ -7,13 +7,17 @@ import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
+import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.AreaEffectCloud;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.MobSpawnType;
+import net.minecraft.world.entity.SpawnGroupData;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
@@ -39,6 +43,7 @@ public class HoppingSkull extends Monster implements GeoEntity {
     private static final int GROUND_TICKS = 3;
     private static final float HOP_POWER = 0.3f;
     private static final double HOP_SPEED = 0.3;
+    private static final float HOP_JITTER_DEGREES = 25.0f;
     private static final float EXPLOSION_POWER = 1.0f;
 
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
@@ -106,7 +111,8 @@ public class HoppingSkull extends Monster implements GeoEntity {
     }
 
     private void hopTowards(LivingEntity target) {
-        Vec3 direction = target.position().subtract(position()).multiply(1.0, 0.0, 1.0).normalize();
+        Vec3 direction = target.position().subtract(position()).multiply(1.0, 0.0, 1.0).normalize()
+                .yRot((float) (Mth.clamp(random.nextGaussian(), -2.0, 2.0) * HOP_JITTER_DEGREES * Mth.DEG_TO_RAD));
         setYRot((float) (Mth.atan2(direction.z, direction.x) * Mth.RAD_TO_DEG) - 90.0f);
         yBodyRot = getYRot();
         yHeadRot = getYRot();
@@ -169,6 +175,19 @@ public class HoppingSkull extends Monster implements GeoEntity {
                 level().addParticle(ParticleTypes.FLAME, getRandomX(0.4), getY(0.8), getRandomZ(0.4), 0.0, 0.01, 0.0);
             }
         }
+    }
+
+    @Override
+    public @Nullable SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType spawnType, @Nullable SpawnGroupData spawnGroupData) {
+        // A dormant skull never turns, so without this every one would face the same way.
+        float yaw = random.nextFloat() * 360.0f;
+        setYRot(yaw);
+        yRotO = yaw;
+        yBodyRot = yaw;
+        yBodyRotO = yaw;
+        yHeadRot = yaw;
+        yHeadRotO = yaw;
+        return super.finalizeSpawn(level, difficulty, spawnType, spawnGroupData);
     }
 
     @Override

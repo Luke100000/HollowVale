@@ -2,19 +2,19 @@
   "temperature": 0.5,
   "downfall": 0.4,
   "has_precipitation": true,
-  "creature_spawn_probability": 0.15,
+  "creature_spawn_probability": 0.0,
   "effects": {
-    "fog_color": 2761784,
-    "sky_color": 7304320,
-    "water_color": 6979478,
-    "water_fog_color": 1844272,
-    "grass_color": 9082240,
-    "foliage_color": 8160624,
+    "fog_color": 9078175,
+    "sky_color": 7104390,
+    "water_color": 7632545,
+    "water_fog_color": 3420752,
+    "grass_color": 8618375,
+    "foliage_color": 7697020,
     "particle": {
       "options": {
         "type": "minecraft:reverse_portal"
       },
-      "probability": 0.003
+      "probability": 0.005
     },
     "music": {
       "sound": "hollowvale:music.marrow_hollows",
@@ -101,37 +101,25 @@
     "monster": [
       {
         "type": "minecraft:skeleton",
-        "weight": 100,
-        "minCount": 2,
-        "maxCount": 4
+        "weight": 200,
+        "minCount": 1,
+        "maxCount": 1
       },
       {
-        "type": "minecraft:enderman",
-        "weight": 20,
+        "type": "hollowvale:fry",
+        "weight": 80,
         "minCount": 1,
-        "maxCount": 2
+        "maxCount": 1
       },
       {
         "type": "hollowvale:hopping_skull",
-        "weight": 20,
+        "weight": 80,
         "minCount": 1,
-        "maxCount": 3
-      },
-      {
-        "type": "hollowvale:bone_sludge",
-        "weight": 40,
-        "minCount": 1,
-        "maxCount": 3
-      },
-      {
-        "type": "hollowvale:skull_sludge",
-        "weight": 25,
-        "minCount": 1,
-        "maxCount": 2
+        "maxCount": 1
       },
       {
         "type": "hollowvale:ender_skull",
-        "weight": 8,
+        "weight": 6,
         "minCount": 1,
         "maxCount": 1
       }

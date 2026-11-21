@@ -57,7 +57,8 @@ public final class Entities {
         registrar.register(HOPPING_SKULL, SpawnPlacementTypes.ON_GROUND, surface, Monster::checkAnyLightMonsterSpawnRules);
         registrar.register(BONE_SLUDGE, SpawnPlacementTypes.ON_GROUND, surface, Monster::checkAnyLightMonsterSpawnRules);
         registrar.register(SKULL_SLUDGE, SpawnPlacementTypes.ON_GROUND, surface, Monster::checkAnyLightMonsterSpawnRules);
-        registrar.register(ENDER_SKULL, SpawnPlacementTypes.ON_GROUND, surface, Monster::checkAnyLightMonsterSpawnRules);
+        registrar.register(ENDER_SKULL, SpawnPlacementTypes.ON_GROUND, surface,
+                (type, level, reason, pos, random) -> (level.getLevel().isNight() || !level.canSeeSky(pos)) && Monster.checkAnyLightMonsterSpawnRules(type, level, reason, pos, random));
         registrar.register(BONE_WHALE, SpawnPlacementTypes.NO_RESTRICTIONS, surface,
                 (type, level, reason, pos, random) -> level.canSeeSky(pos));
     }

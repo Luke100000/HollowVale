@@ -2,7 +2,7 @@
   "temperature": 0.2,
   "downfall": 0.3,
   "has_precipitation": true,
-  "creature_spawn_probability": 0.4,
+  "creature_spawn_probability": 0.7,
   "effects": {
     "fog_color": 8022676,
     "sky_color": 6969996,
@@ -97,45 +97,45 @@
     "monster": [
       {
         "type": "minecraft:skeleton",
-        "weight": 100,
-        "minCount": 2,
-        "maxCount": 4
+        "weight": 60,
+        "minCount": 1,
+        "maxCount": 1
       },
       {
         "type": "minecraft:enderman",
-        "weight": 20,
+        "weight": 10,
         "minCount": 1,
-        "maxCount": 2
+        "maxCount": 1
       },
       {
         "type": "hollowvale:hopping_skull",
-        "weight": 25,
+        "weight": 120,
         "minCount": 1,
-        "maxCount": 3
+        "maxCount": 1
       },
       {
         "type": "hollowvale:bone_sludge",
-        "weight": 20,
+        "weight": 60,
         "minCount": 1,
-        "maxCount": 2
+        "maxCount": 1
       },
       {
         "type": "hollowvale:skull_sludge",
-        "weight": 20,
+        "weight": 25,
         "minCount": 1,
-        "maxCount": 2
+        "maxCount": 1
       },
       {
         "type": "hollowvale:ender_skull",
-        "weight": 12,
+        "weight": 10,
         "minCount": 1,
         "maxCount": 1
       },
       {
         "type": "hollowvale:fry",
-        "weight": 4,
+        "weight": 40,
         "minCount": 1,
-        "maxCount": 2
+        "maxCount": 1
       }
     ],
     "creature": [
@@ -147,9 +147,9 @@
       },
       {
         "type": "hollowvale:hopping_skull",
-        "weight": 60,
-        "minCount": 2,
-        "maxCount": 4
+        "weight": 300,
+        "minCount": 1,
+        "maxCount": 1
       }
     ],
     "ambient": [],

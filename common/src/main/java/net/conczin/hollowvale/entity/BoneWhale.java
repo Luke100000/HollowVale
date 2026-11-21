@@ -75,6 +75,9 @@ public class BoneWhale extends TamableAnimal implements GeoEntity, Saddleable {
     private static final int TELEPORT_COOLDOWN = 5 * 20;
     private static final int DEATH_TICKS = 48;
 
+    // Overworld coordinates are multiplied by this in the End, the reverse of the Nether.
+    private static final double END_SCALE = 8.0;
+
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
     private final YawDamper riddenTurn = new YawDamper(RIDDEN_TURN, 0.6f);
     private int fryFed;
@@ -385,10 +388,10 @@ public class BoneWhale extends TamableAnimal implements GeoEntity, Saddleable {
         double scale;
         if (from.dimension() == Level.OVERWORLD) {
             destination = Level.END;
-            scale = 0.25;
+            scale = END_SCALE;
         } else if (from.dimension() == Level.END) {
             destination = Level.OVERWORLD;
-            scale = 4.0;
+            scale = 1.0 / END_SCALE;
         } else {
             return false;
         }
@@ -421,6 +424,11 @@ public class BoneWhale extends TamableAnimal implements GeoEntity, Saddleable {
     private void teleportEffects(ServerLevel level, Vec3 position) {
         level.sendParticles(ParticleTypes.PORTAL, position.x, position.y + getBbHeight() * 0.5, position.z, 80, getBbWidth() * 0.5, getBbHeight() * 0.5, getBbWidth() * 0.5, 0.5);
         level.playSound(null, position.x, position.y, position.z, Sounds.BONE_WHALE_TELEPORT, getSoundSource(), 2.0f, 1.0f);
+    }
+
+    @Override
+    public boolean shouldTryTeleportToOwner() {
+        return false;
     }
 
     @Override

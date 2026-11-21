@@ -1,6 +1,7 @@
 package net.conczin.hollowvale.entity.goal;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.util.Mth;
 import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.level.Level;
@@ -10,7 +11,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.EnumSet;
 
 /**
- * Flies to random nearby spots a fixed height above the ground, with short pauses in between.
+ * Flies to random nearby spots a random height above the ground, with short pauses in between.
  */
 public class HoverWanderGoal extends Goal {
     private static final int RANGE = 8;
@@ -19,13 +20,19 @@ public class HoverWanderGoal extends Goal {
 
     private final PathfinderMob mob;
     private final double speed;
-    private final double hoverHeight;
+    private final double minHeight;
+    private final double maxHeight;
     private int nextMoveTick;
 
     public HoverWanderGoal(PathfinderMob mob, double speed, double hoverHeight) {
+        this(mob, speed, hoverHeight, hoverHeight);
+    }
+
+    public HoverWanderGoal(PathfinderMob mob, double speed, double minHeight, double maxHeight) {
         this.mob = mob;
         this.speed = speed;
-        this.hoverHeight = hoverHeight;
+        this.minHeight = minHeight;
+        this.maxHeight = maxHeight;
         setFlags(EnumSet.of(Flag.MOVE));
     }
 
@@ -63,7 +70,7 @@ public class HoverWanderGoal extends Goal {
             BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos(x, top, z);
             for (int drop = 0; drop < MAX_DROP; drop++, pos.move(0, -1, 0)) {
                 if (level.isEmptyBlock(pos) && level.isEmptyBlock(pos.above()) && level.getBlockState(pos.below()).isSolid()) {
-                    return new Vec3(x + 0.5, pos.getY() + hoverHeight, z + 0.5);
+                    return new Vec3(x + 0.5, pos.getY() + Mth.nextDouble(mob.getRandom(), minHeight, maxHeight), z + 0.5);
                 }
             }
         }

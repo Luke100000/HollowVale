@@ -5,7 +5,7 @@ import net.conczin.hollowvale.Sounds;
 import net.conczin.hollowvale.block.MarrowLampBlock;
 import net.conczin.hollowvale.entity.goal.CircleHostGoal;
 import net.conczin.hollowvale.entity.goal.FleeLampGoal;
-import net.conczin.hollowvale.entity.goal.SkyWanderGoal;
+import net.conczin.hollowvale.entity.goal.HoverWanderGoal;
 import net.conczin.hollowvale.item.Items;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
@@ -78,7 +78,7 @@ public class Fry extends Monster implements GeoEntity {
         goalSelector.addGoal(2, new TemptGoal(this, 1.0, stack -> stack.is(net.minecraft.world.item.Items.CHORUS_FRUIT), false));
         goalSelector.addGoal(3, new MeleeAttackGoal(this, 1.0, true));
         goalSelector.addGoal(4, new CircleHostGoal(this, 0.4));
-        goalSelector.addGoal(5, new SkyWanderGoal(this, 0.4, 3.0, 8.0, 1.0, 4.0, 20, 60));
+        goalSelector.addGoal(5, new HoverWanderGoal(this, 0.4, 1.0, 4.0));
         targetSelector.addGoal(1, new HurtByTargetGoal(this));
         targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, LivingEntity.class, 10, true, false, this::isPrey));
     }
