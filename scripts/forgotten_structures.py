@@ -98,7 +98,11 @@ DECAY = [
 
 
 def local(build: Build, name: str) -> str:
-    return f"hollowvale:{build.name}/{name.removeprefix('minecraft:').removeprefix('village/')}"
+    path = name.removeprefix("minecraft:").removeprefix("village/")
+    # Drops the vanilla biome from folders and file names, the copies are no longer tied to one.
+    path = re.sub(r"(^|/)(taiga|plains)/", r"\1", path)
+    path = re.sub(r"(^|/)taiga_", r"\1", path)
+    return f"hollowvale:{build.name}/{path}"
 
 
 def to_dark_oak(text: str) -> str:

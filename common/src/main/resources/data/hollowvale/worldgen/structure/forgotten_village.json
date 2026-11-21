@@ -8,7 +8,7 @@
   "start_height": {
     "absolute": 0
   },
-  "start_pool": "hollowvale:forgotten_village/taiga/town_centers",
+  "start_pool": "hollowvale:forgotten_village/town_centers",
   "step": "surface_structures",
   "terrain_adaptation": "beard_thin",
   "use_expansion_hack": true
