@@ -81,10 +81,10 @@ def rule(name: str, output: dict, probability: float | None = None) -> dict:
 AIR, COBWEB = block("air"), block("cobweb")
 UNLIT_CAMPFIRE = block("campfire", facing="north", lit="false", signal_fire="false", waterlogged="false")
 DECAY = [
-    # Skips 20% of the blocks, which leaves the terrain in their place.
-    {"processor_type": "minecraft:block_rot", "integrity": 0.8},
+    # Skips 15% of the blocks, which leaves the terrain in their place.
+    {"processor_type": "minecraft:block_rot", "integrity": 0.85},
     {"processor_type": "minecraft:rule", "rules": [
-        rule("dark_oak_log", AIR, 0.4),
+        rule("dark_oak_log", AIR, 0.3),
         rule("dark_oak_log", COBWEB, 0.15),
         rule("cobblestone", block("mossy_cobblestone"), 0.5),
         rule("cobblestone", COBWEB, 0.1),

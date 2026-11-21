@@ -148,12 +148,6 @@
     ],
     "creature": [
       {
-        "type": "hollowvale:bone_whale",
-        "weight": 1,
-        "minCount": 1,
-        "maxCount": 1
-      },
-      {
         "type": "hollowvale:hopping_skull",
         "weight": 300,
         "minCount": 1,

@@ -26,7 +26,7 @@
             },
             {
               "processor_type": "minecraft:block_rot",
-              "integrity": 0.8
+              "integrity": 0.85
             },
             {
               "processor_type": "minecraft:rule",
@@ -35,7 +35,7 @@
                   "input_predicate": {
                     "predicate_type": "minecraft:random_block_match",
                     "block": "minecraft:dark_oak_log",
-                    "probability": 0.4
+                    "probability": 0.3
                   },
                   "location_predicate": {
                     "predicate_type": "minecraft:always_true"
@@ -185,7 +185,7 @@
             },
             {
               "processor_type": "minecraft:block_rot",
-              "integrity": 0.8
+              "integrity": 0.85
             },
             {
               "processor_type": "minecraft:rule",
@@ -194,7 +194,7 @@
                   "input_predicate": {
                     "predicate_type": "minecraft:random_block_match",
                     "block": "minecraft:dark_oak_log",
-                    "probability": 0.4
+                    "probability": 0.3
                   },
                   "location_predicate": {
                     "predicate_type": "minecraft:always_true"
@@ -344,7 +344,7 @@
             },
             {
               "processor_type": "minecraft:block_rot",
-              "integrity": 0.8
+              "integrity": 0.85
             },
             {
               "processor_type": "minecraft:rule",
@@ -353,7 +353,7 @@
                   "input_predicate": {
                     "predicate_type": "minecraft:random_block_match",
                     "block": "minecraft:dark_oak_log",
-                    "probability": 0.4
+                    "probability": 0.3
                   },
                   "location_predicate": {
                     "predicate_type": "minecraft:always_true"
@@ -503,7 +503,7 @@
             },
             {
               "processor_type": "minecraft:block_rot",
-              "integrity": 0.8
+              "integrity": 0.85
             },
             {
               "processor_type": "minecraft:rule",
@@ -512,7 +512,7 @@
                   "input_predicate": {
                     "predicate_type": "minecraft:random_block_match",
                     "block": "minecraft:dark_oak_log",
-                    "probability": 0.4
+                    "probability": 0.3
                   },
                   "location_predicate": {
                     "predicate_type": "minecraft:always_true"
@@ -662,7 +662,7 @@
             },
             {
               "processor_type": "minecraft:block_rot",
-              "integrity": 0.8
+              "integrity": 0.85
             },
             {
               "processor_type": "minecraft:rule",
@@ -671,7 +671,7 @@
                   "input_predicate": {
                     "predicate_type": "minecraft:random_block_match",
                     "block": "minecraft:dark_oak_log",
-                    "probability": 0.4
+                    "probability": 0.3
                   },
                   "location_predicate": {
                     "predicate_type": "minecraft:always_true"
@@ -821,7 +821,7 @@
             },
             {
               "processor_type": "minecraft:block_rot",
-              "integrity": 0.8
+              "integrity": 0.85
             },
             {
               "processor_type": "minecraft:rule",
@@ -830,7 +830,7 @@
                   "input_predicate": {
                     "predicate_type": "minecraft:random_block_match",
                     "block": "minecraft:dark_oak_log",
-                    "probability": 0.4
+                    "probability": 0.3
                   },
                   "location_predicate": {
                     "predicate_type": "minecraft:always_true"
@@ -980,7 +980,7 @@
             },
             {
               "processor_type": "minecraft:block_rot",
-              "integrity": 0.8
+              "integrity": 0.85
             },
             {
               "processor_type": "minecraft:rule",
@@ -989,7 +989,7 @@
                   "input_predicate": {
                     "predicate_type": "minecraft:random_block_match",
                     "block": "minecraft:dark_oak_log",
-                    "probability": 0.4
+                    "probability": 0.3
                   },
                   "location_predicate": {
                     "predicate_type": "minecraft:always_true"
@@ -1139,7 +1139,7 @@
             },
             {
               "processor_type": "minecraft:block_rot",
-              "integrity": 0.8
+              "integrity": 0.85
             },
             {
               "processor_type": "minecraft:rule",
@@ -1148,7 +1148,7 @@
                   "input_predicate": {
                     "predicate_type": "minecraft:random_block_match",
                     "block": "minecraft:dark_oak_log",
-                    "probability": 0.4
+                    "probability": 0.3
                   },
                   "location_predicate": {
                     "predicate_type": "minecraft:always_true"
@@ -1298,7 +1298,7 @@
             },
             {
               "processor_type": "minecraft:block_rot",
-              "integrity": 0.8
+              "integrity": 0.85
             },
             {
               "processor_type": "minecraft:rule",
@@ -1307,7 +1307,7 @@
                   "input_predicate": {
                     "predicate_type": "minecraft:random_block_match",
                     "block": "minecraft:dark_oak_log",
-                    "probability": 0.4
+                    "probability": 0.3
                   },
                   "location_predicate": {
                     "predicate_type": "minecraft:always_true"
@@ -1457,7 +1457,7 @@
             },
             {
               "processor_type": "minecraft:block_rot",
-              "integrity": 0.8
+              "integrity": 0.85
             },
             {
               "processor_type": "minecraft:rule",
@@ -1466,7 +1466,7 @@
                   "input_predicate": {
                     "predicate_type": "minecraft:random_block_match",
                     "block": "minecraft:dark_oak_log",
-                    "probability": 0.4
+                    "probability": 0.3
                   },
                   "location_predicate": {
                     "predicate_type": "minecraft:always_true"
@@ -1616,7 +1616,7 @@
             },
             {
               "processor_type": "minecraft:block_rot",
-              "integrity": 0.8
+              "integrity": 0.85
             },
             {
               "processor_type": "minecraft:rule",
@@ -1625,7 +1625,7 @@
                   "input_predicate": {
                     "predicate_type": "minecraft:random_block_match",
                     "block": "minecraft:dark_oak_log",
-                    "probability": 0.4
+                    "probability": 0.3
                   },
                   "location_predicate": {
                     "predicate_type": "minecraft:always_true"
@@ -1775,7 +1775,7 @@
             },
             {
               "processor_type": "minecraft:block_rot",
-              "integrity": 0.8
+              "integrity": 0.85
             },
             {
               "processor_type": "minecraft:rule",
@@ -1784,7 +1784,7 @@
                   "input_predicate": {
                     "predicate_type": "minecraft:random_block_match",
                     "block": "minecraft:dark_oak_log",
-                    "probability": 0.4
+                    "probability": 0.3
                   },
                   "location_predicate": {
                     "predicate_type": "minecraft:always_true"
@@ -1934,7 +1934,7 @@
             },
             {
               "processor_type": "minecraft:block_rot",
-              "integrity": 0.8
+              "integrity": 0.85
             },
             {
               "processor_type": "minecraft:rule",
@@ -1943,7 +1943,7 @@
                   "input_predicate": {
                     "predicate_type": "minecraft:random_block_match",
                     "block": "minecraft:dark_oak_log",
-                    "probability": 0.4
+                    "probability": 0.3
                   },
                   "location_predicate": {
                     "predicate_type": "minecraft:always_true"
@@ -2093,7 +2093,7 @@
             },
             {
               "processor_type": "minecraft:block_rot",
-              "integrity": 0.8
+              "integrity": 0.85
             },
             {
               "processor_type": "minecraft:rule",
@@ -2102,7 +2102,7 @@
                   "input_predicate": {
                     "predicate_type": "minecraft:random_block_match",
                     "block": "minecraft:dark_oak_log",
-                    "probability": 0.4
+                    "probability": 0.3
                   },
                   "location_predicate": {
                     "predicate_type": "minecraft:always_true"
@@ -2252,7 +2252,7 @@
             },
             {
               "processor_type": "minecraft:block_rot",
-              "integrity": 0.8
+              "integrity": 0.85
             },
             {
               "processor_type": "minecraft:rule",
@@ -2261,7 +2261,7 @@
                   "input_predicate": {
                     "predicate_type": "minecraft:random_block_match",
                     "block": "minecraft:dark_oak_log",
-                    "probability": 0.4
+                    "probability": 0.3
                   },
                   "location_predicate": {
                     "predicate_type": "minecraft:always_true"
@@ -2411,7 +2411,7 @@
             },
             {
               "processor_type": "minecraft:block_rot",
-              "integrity": 0.8
+              "integrity": 0.85
             },
             {
               "processor_type": "minecraft:rule",
@@ -2420,7 +2420,7 @@
                   "input_predicate": {
                     "predicate_type": "minecraft:random_block_match",
                     "block": "minecraft:dark_oak_log",
-                    "probability": 0.4
+                    "probability": 0.3
                   },
                   "location_predicate": {
                     "predicate_type": "minecraft:always_true"
@@ -2570,7 +2570,7 @@
             },
             {
               "processor_type": "minecraft:block_rot",
-              "integrity": 0.8
+              "integrity": 0.85
             },
             {
               "processor_type": "minecraft:rule",
@@ -2579,7 +2579,7 @@
                   "input_predicate": {
                     "predicate_type": "minecraft:random_block_match",
                     "block": "minecraft:dark_oak_log",
-                    "probability": 0.4
+                    "probability": 0.3
                   },
                   "location_predicate": {
                     "predicate_type": "minecraft:always_true"
@@ -2729,7 +2729,7 @@
             },
             {
               "processor_type": "minecraft:block_rot",
-              "integrity": 0.8
+              "integrity": 0.85
             },
             {
               "processor_type": "minecraft:rule",
@@ -2738,7 +2738,7 @@
                   "input_predicate": {
                     "predicate_type": "minecraft:random_block_match",
                     "block": "minecraft:dark_oak_log",
-                    "probability": 0.4
+                    "probability": 0.3
                   },
                   "location_predicate": {
                     "predicate_type": "minecraft:always_true"
@@ -2888,7 +2888,7 @@
             },
             {
               "processor_type": "minecraft:block_rot",
-              "integrity": 0.8
+              "integrity": 0.85
             },
             {
               "processor_type": "minecraft:rule",
@@ -2897,7 +2897,7 @@
                   "input_predicate": {
                     "predicate_type": "minecraft:random_block_match",
                     "block": "minecraft:dark_oak_log",
-                    "probability": 0.4
+                    "probability": 0.3
                   },
                   "location_predicate": {
                     "predicate_type": "minecraft:always_true"
@@ -3047,7 +3047,7 @@
             },
             {
               "processor_type": "minecraft:block_rot",
-              "integrity": 0.8
+              "integrity": 0.85
             },
             {
               "processor_type": "minecraft:rule",
@@ -3056,7 +3056,7 @@
                   "input_predicate": {
                     "predicate_type": "minecraft:random_block_match",
                     "block": "minecraft:dark_oak_log",
-                    "probability": 0.4
+                    "probability": 0.3
                   },
                   "location_predicate": {
                     "predicate_type": "minecraft:always_true"
@@ -3206,7 +3206,7 @@
             },
             {
               "processor_type": "minecraft:block_rot",
-              "integrity": 0.8
+              "integrity": 0.85
             },
             {
               "processor_type": "minecraft:rule",
@@ -3215,7 +3215,7 @@
                   "input_predicate": {
                     "predicate_type": "minecraft:random_block_match",
                     "block": "minecraft:dark_oak_log",
-                    "probability": 0.4
+                    "probability": 0.3
                   },
                   "location_predicate": {
                     "predicate_type": "minecraft:always_true"
@@ -3365,7 +3365,7 @@
             },
             {
               "processor_type": "minecraft:block_rot",
-              "integrity": 0.8
+              "integrity": 0.85
             },
             {
               "processor_type": "minecraft:rule",
@@ -3374,7 +3374,7 @@
                   "input_predicate": {
                     "predicate_type": "minecraft:random_block_match",
                     "block": "minecraft:dark_oak_log",
-                    "probability": 0.4
+                    "probability": 0.3
                   },
                   "location_predicate": {
                     "predicate_type": "minecraft:always_true"
@@ -3524,7 +3524,7 @@
             },
             {
               "processor_type": "minecraft:block_rot",
-              "integrity": 0.8
+              "integrity": 0.85
             },
             {
               "processor_type": "minecraft:rule",
@@ -3533,7 +3533,7 @@
                   "input_predicate": {
                     "predicate_type": "minecraft:random_block_match",
                     "block": "minecraft:dark_oak_log",
-                    "probability": 0.4
+                    "probability": 0.3
                   },
                   "location_predicate": {
                     "predicate_type": "minecraft:always_true"
@@ -3702,7 +3702,7 @@
             },
             {
               "processor_type": "minecraft:block_rot",
-              "integrity": 0.8
+              "integrity": 0.85
             },
             {
               "processor_type": "minecraft:rule",
@@ -3711,7 +3711,7 @@
                   "input_predicate": {
                     "predicate_type": "minecraft:random_block_match",
                     "block": "minecraft:dark_oak_log",
-                    "probability": 0.4
+                    "probability": 0.3
                   },
                   "location_predicate": {
                     "predicate_type": "minecraft:always_true"
@@ -3880,7 +3880,7 @@
             },
             {
               "processor_type": "minecraft:block_rot",
-              "integrity": 0.8
+              "integrity": 0.85
             },
             {
               "processor_type": "minecraft:rule",
@@ -3889,7 +3889,7 @@
                   "input_predicate": {
                     "predicate_type": "minecraft:random_block_match",
                     "block": "minecraft:dark_oak_log",
-                    "probability": 0.4
+                    "probability": 0.3
                   },
                   "location_predicate": {
                     "predicate_type": "minecraft:always_true"
@@ -4039,7 +4039,7 @@
             },
             {
               "processor_type": "minecraft:block_rot",
-              "integrity": 0.8
+              "integrity": 0.85
             },
             {
               "processor_type": "minecraft:rule",
@@ -4048,7 +4048,7 @@
                   "input_predicate": {
                     "predicate_type": "minecraft:random_block_match",
                     "block": "minecraft:dark_oak_log",
-                    "probability": 0.4
+                    "probability": 0.3
                   },
                   "location_predicate": {
                     "predicate_type": "minecraft:always_true"
@@ -4198,7 +4198,7 @@
             },
             {
               "processor_type": "minecraft:block_rot",
-              "integrity": 0.8
+              "integrity": 0.85
             },
             {
               "processor_type": "minecraft:rule",
@@ -4207,7 +4207,7 @@
                   "input_predicate": {
                     "predicate_type": "minecraft:random_block_match",
                     "block": "minecraft:dark_oak_log",
-                    "probability": 0.4
+                    "probability": 0.3
                   },
                   "location_predicate": {
                     "predicate_type": "minecraft:always_true"

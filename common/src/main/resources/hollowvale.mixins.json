@@ -9,6 +9,7 @@
   },
   "mixins": [
     "ChorusFruitItemMixin",
+    "JigsawStructureMixin",
     "PlayerMixin",
     "ProjectileUtilMixin"
   ],
