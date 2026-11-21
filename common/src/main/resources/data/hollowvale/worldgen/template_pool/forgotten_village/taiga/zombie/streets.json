@@ -19,7 +19,7 @@
                     "predicate_type": "minecraft:block_match"
                   },
                   "output_state": {
-                    "Name": "minecraft:spruce_planks"
+                    "Name": "minecraft:dark_oak_planks"
                   }
                 },
                 {
@@ -32,7 +32,7 @@
                     "predicate_type": "minecraft:block_match"
                   },
                   "output_state": {
-                    "Name": "minecraft:spruce_planks"
+                    "Name": "minecraft:dark_oak_planks"
                   }
                 },
                 {
@@ -95,19 +95,6 @@
                 {
                   "input_predicate": {
                     "predicate_type": "minecraft:random_block_match",
-                    "block": "minecraft:spruce_log",
-                    "probability": 0.4
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  },
-                  "output_state": {
-                    "Name": "minecraft:air"
-                  }
-                },
-                {
-                  "input_predicate": {
-                    "predicate_type": "minecraft:random_block_match",
                     "block": "minecraft:dark_oak_log",
                     "probability": 0.4
                   },
@@ -116,19 +103,6 @@
                   },
                   "output_state": {
                     "Name": "minecraft:air"
-                  }
-                },
-                {
-                  "input_predicate": {
-                    "predicate_type": "minecraft:random_block_match",
-                    "block": "minecraft:spruce_log",
-                    "probability": 0.15
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  },
-                  "output_state": {
-                    "Name": "minecraft:cobweb"
                   }
                 },
                 {
@@ -265,7 +239,7 @@
                     "predicate_type": "minecraft:block_match"
                   },
                   "output_state": {
-                    "Name": "minecraft:spruce_planks"
+                    "Name": "minecraft:dark_oak_planks"
                   }
                 },
                 {
@@ -278,7 +252,7 @@
                     "predicate_type": "minecraft:block_match"
                   },
                   "output_state": {
-                    "Name": "minecraft:spruce_planks"
+                    "Name": "minecraft:dark_oak_planks"
                   }
                 },
                 {
@@ -341,19 +315,6 @@
                 {
                   "input_predicate": {
                     "predicate_type": "minecraft:random_block_match",
-                    "block": "minecraft:spruce_log",
-                    "probability": 0.4
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  },
-                  "output_state": {
-                    "Name": "minecraft:air"
-                  }
-                },
-                {
-                  "input_predicate": {
-                    "predicate_type": "minecraft:random_block_match",
                     "block": "minecraft:dark_oak_log",
                     "probability": 0.4
                   },
@@ -362,19 +323,6 @@
                   },
                   "output_state": {
                     "Name": "minecraft:air"
-                  }
-                },
-                {
-                  "input_predicate": {
-                    "predicate_type": "minecraft:random_block_match",
-                    "block": "minecraft:spruce_log",
-                    "probability": 0.15
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  },
-                  "output_state": {
-                    "Name": "minecraft:cobweb"
                   }
                 },
                 {
@@ -511,7 +459,7 @@
                     "predicate_type": "minecraft:block_match"
                   },
                   "output_state": {
-                    "Name": "minecraft:spruce_planks"
+                    "Name": "minecraft:dark_oak_planks"
                   }
                 },
                 {
@@ -524,7 +472,7 @@
                     "predicate_type": "minecraft:block_match"
                   },
                   "output_state": {
-                    "Name": "minecraft:spruce_planks"
+                    "Name": "minecraft:dark_oak_planks"
                   }
                 },
                 {
@@ -587,19 +535,6 @@
                 {
                   "input_predicate": {
                     "predicate_type": "minecraft:random_block_match",
-                    "block": "minecraft:spruce_log",
-                    "probability": 0.4
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  },
-                  "output_state": {
-                    "Name": "minecraft:air"
-                  }
-                },
-                {
-                  "input_predicate": {
-                    "predicate_type": "minecraft:random_block_match",
                     "block": "minecraft:dark_oak_log",
                     "probability": 0.4
                   },
@@ -608,19 +543,6 @@
                   },
                   "output_state": {
                     "Name": "minecraft:air"
-                  }
-                },
-                {
-                  "input_predicate": {
-                    "predicate_type": "minecraft:random_block_match",
-                    "block": "minecraft:spruce_log",
-                    "probability": 0.15
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  },
-                  "output_state": {
-                    "Name": "minecraft:cobweb"
                   }
                 },
                 {
@@ -757,7 +679,7 @@
                     "predicate_type": "minecraft:block_match"
                   },
                   "output_state": {
-                    "Name": "minecraft:spruce_planks"
+                    "Name": "minecraft:dark_oak_planks"
                   }
                 },
                 {
@@ -770,7 +692,7 @@
                     "predicate_type": "minecraft:block_match"
                   },
                   "output_state": {
-                    "Name": "minecraft:spruce_planks"
+                    "Name": "minecraft:dark_oak_planks"
                   }
                 },
                 {
@@ -833,19 +755,6 @@
                 {
                   "input_predicate": {
                     "predicate_type": "minecraft:random_block_match",
-                    "block": "minecraft:spruce_log",
-                    "probability": 0.4
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  },
-                  "output_state": {
-                    "Name": "minecraft:air"
-                  }
-                },
-                {
-                  "input_predicate": {
-                    "predicate_type": "minecraft:random_block_match",
                     "block": "minecraft:dark_oak_log",
                     "probability": 0.4
                   },
@@ -854,19 +763,6 @@
                   },
                   "output_state": {
                     "Name": "minecraft:air"
-                  }
-                },
-                {
-                  "input_predicate": {
-                    "predicate_type": "minecraft:random_block_match",
-                    "block": "minecraft:spruce_log",
-                    "probability": 0.15
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  },
-                  "output_state": {
-                    "Name": "minecraft:cobweb"
                   }
                 },
                 {
@@ -1003,7 +899,7 @@
                     "predicate_type": "minecraft:block_match"
                   },
                   "output_state": {
-                    "Name": "minecraft:spruce_planks"
+                    "Name": "minecraft:dark_oak_planks"
                   }
                 },
                 {
@@ -1016,7 +912,7 @@
                     "predicate_type": "minecraft:block_match"
                   },
                   "output_state": {
-                    "Name": "minecraft:spruce_planks"
+                    "Name": "minecraft:dark_oak_planks"
                   }
                 },
                 {
@@ -1079,19 +975,6 @@
                 {
                   "input_predicate": {
                     "predicate_type": "minecraft:random_block_match",
-                    "block": "minecraft:spruce_log",
-                    "probability": 0.4
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  },
-                  "output_state": {
-                    "Name": "minecraft:air"
-                  }
-                },
-                {
-                  "input_predicate": {
-                    "predicate_type": "minecraft:random_block_match",
                     "block": "minecraft:dark_oak_log",
                     "probability": 0.4
                   },
@@ -1100,19 +983,6 @@
                   },
                   "output_state": {
                     "Name": "minecraft:air"
-                  }
-                },
-                {
-                  "input_predicate": {
-                    "predicate_type": "minecraft:random_block_match",
-                    "block": "minecraft:spruce_log",
-                    "probability": 0.15
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  },
-                  "output_state": {
-                    "Name": "minecraft:cobweb"
                   }
                 },
                 {
@@ -1249,7 +1119,7 @@
                     "predicate_type": "minecraft:block_match"
                   },
                   "output_state": {
-                    "Name": "minecraft:spruce_planks"
+                    "Name": "minecraft:dark_oak_planks"
                   }
                 },
                 {
@@ -1262,7 +1132,7 @@
                     "predicate_type": "minecraft:block_match"
                   },
                   "output_state": {
-                    "Name": "minecraft:spruce_planks"
+                    "Name": "minecraft:dark_oak_planks"
                   }
                 },
                 {
@@ -1325,19 +1195,6 @@
                 {
                   "input_predicate": {
                     "predicate_type": "minecraft:random_block_match",
-                    "block": "minecraft:spruce_log",
-                    "probability": 0.4
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  },
-                  "output_state": {
-                    "Name": "minecraft:air"
-                  }
-                },
-                {
-                  "input_predicate": {
-                    "predicate_type": "minecraft:random_block_match",
                     "block": "minecraft:dark_oak_log",
                     "probability": 0.4
                   },
@@ -1346,19 +1203,6 @@
                   },
                   "output_state": {
                     "Name": "minecraft:air"
-                  }
-                },
-                {
-                  "input_predicate": {
-                    "predicate_type": "minecraft:random_block_match",
-                    "block": "minecraft:spruce_log",
-                    "probability": 0.15
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  },
-                  "output_state": {
-                    "Name": "minecraft:cobweb"
                   }
                 },
                 {
@@ -1495,7 +1339,7 @@
                     "predicate_type": "minecraft:block_match"
                   },
                   "output_state": {
-                    "Name": "minecraft:spruce_planks"
+                    "Name": "minecraft:dark_oak_planks"
                   }
                 },
                 {
@@ -1508,7 +1352,7 @@
                     "predicate_type": "minecraft:block_match"
                   },
                   "output_state": {
-                    "Name": "minecraft:spruce_planks"
+                    "Name": "minecraft:dark_oak_planks"
                   }
                 },
                 {
@@ -1571,19 +1415,6 @@
                 {
                   "input_predicate": {
                     "predicate_type": "minecraft:random_block_match",
-                    "block": "minecraft:spruce_log",
-                    "probability": 0.4
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  },
-                  "output_state": {
-                    "Name": "minecraft:air"
-                  }
-                },
-                {
-                  "input_predicate": {
-                    "predicate_type": "minecraft:random_block_match",
                     "block": "minecraft:dark_oak_log",
                     "probability": 0.4
                   },
@@ -1592,19 +1423,6 @@
                   },
                   "output_state": {
                     "Name": "minecraft:air"
-                  }
-                },
-                {
-                  "input_predicate": {
-                    "predicate_type": "minecraft:random_block_match",
-                    "block": "minecraft:spruce_log",
-                    "probability": 0.15
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  },
-                  "output_state": {
-                    "Name": "minecraft:cobweb"
                   }
                 },
                 {
@@ -1741,7 +1559,7 @@
                     "predicate_type": "minecraft:block_match"
                   },
                   "output_state": {
-                    "Name": "minecraft:spruce_planks"
+                    "Name": "minecraft:dark_oak_planks"
                   }
                 },
                 {
@@ -1754,7 +1572,7 @@
                     "predicate_type": "minecraft:block_match"
                   },
                   "output_state": {
-                    "Name": "minecraft:spruce_planks"
+                    "Name": "minecraft:dark_oak_planks"
                   }
                 },
                 {
@@ -1817,19 +1635,6 @@
                 {
                   "input_predicate": {
                     "predicate_type": "minecraft:random_block_match",
-                    "block": "minecraft:spruce_log",
-                    "probability": 0.4
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  },
-                  "output_state": {
-                    "Name": "minecraft:air"
-                  }
-                },
-                {
-                  "input_predicate": {
-                    "predicate_type": "minecraft:random_block_match",
                     "block": "minecraft:dark_oak_log",
                     "probability": 0.4
                   },
@@ -1838,19 +1643,6 @@
                   },
                   "output_state": {
                     "Name": "minecraft:air"
-                  }
-                },
-                {
-                  "input_predicate": {
-                    "predicate_type": "minecraft:random_block_match",
-                    "block": "minecraft:spruce_log",
-                    "probability": 0.15
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  },
-                  "output_state": {
-                    "Name": "minecraft:cobweb"
                   }
                 },
                 {
@@ -1987,7 +1779,7 @@
                     "predicate_type": "minecraft:block_match"
                   },
                   "output_state": {
-                    "Name": "minecraft:spruce_planks"
+                    "Name": "minecraft:dark_oak_planks"
                   }
                 },
                 {
@@ -2000,7 +1792,7 @@
                     "predicate_type": "minecraft:block_match"
                   },
                   "output_state": {
-                    "Name": "minecraft:spruce_planks"
+                    "Name": "minecraft:dark_oak_planks"
                   }
                 },
                 {
@@ -2063,19 +1855,6 @@
                 {
                   "input_predicate": {
                     "predicate_type": "minecraft:random_block_match",
-                    "block": "minecraft:spruce_log",
-                    "probability": 0.4
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  },
-                  "output_state": {
-                    "Name": "minecraft:air"
-                  }
-                },
-                {
-                  "input_predicate": {
-                    "predicate_type": "minecraft:random_block_match",
                     "block": "minecraft:dark_oak_log",
                     "probability": 0.4
                   },
@@ -2084,19 +1863,6 @@
                   },
                   "output_state": {
                     "Name": "minecraft:air"
-                  }
-                },
-                {
-                  "input_predicate": {
-                    "predicate_type": "minecraft:random_block_match",
-                    "block": "minecraft:spruce_log",
-                    "probability": 0.15
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  },
-                  "output_state": {
-                    "Name": "minecraft:cobweb"
                   }
                 },
                 {
@@ -2233,7 +1999,7 @@
                     "predicate_type": "minecraft:block_match"
                   },
                   "output_state": {
-                    "Name": "minecraft:spruce_planks"
+                    "Name": "minecraft:dark_oak_planks"
                   }
                 },
                 {
@@ -2246,7 +2012,7 @@
                     "predicate_type": "minecraft:block_match"
                   },
                   "output_state": {
-                    "Name": "minecraft:spruce_planks"
+                    "Name": "minecraft:dark_oak_planks"
                   }
                 },
                 {
@@ -2309,19 +2075,6 @@
                 {
                   "input_predicate": {
                     "predicate_type": "minecraft:random_block_match",
-                    "block": "minecraft:spruce_log",
-                    "probability": 0.4
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  },
-                  "output_state": {
-                    "Name": "minecraft:air"
-                  }
-                },
-                {
-                  "input_predicate": {
-                    "predicate_type": "minecraft:random_block_match",
                     "block": "minecraft:dark_oak_log",
                     "probability": 0.4
                   },
@@ -2330,19 +2083,6 @@
                   },
                   "output_state": {
                     "Name": "minecraft:air"
-                  }
-                },
-                {
-                  "input_predicate": {
-                    "predicate_type": "minecraft:random_block_match",
-                    "block": "minecraft:spruce_log",
-                    "probability": 0.15
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  },
-                  "output_state": {
-                    "Name": "minecraft:cobweb"
                   }
                 },
                 {
@@ -2479,7 +2219,7 @@
                     "predicate_type": "minecraft:block_match"
                   },
                   "output_state": {
-                    "Name": "minecraft:spruce_planks"
+                    "Name": "minecraft:dark_oak_planks"
                   }
                 },
                 {
@@ -2492,7 +2232,7 @@
                     "predicate_type": "minecraft:block_match"
                   },
                   "output_state": {
-                    "Name": "minecraft:spruce_planks"
+                    "Name": "minecraft:dark_oak_planks"
                   }
                 },
                 {
@@ -2555,19 +2295,6 @@
                 {
                   "input_predicate": {
                     "predicate_type": "minecraft:random_block_match",
-                    "block": "minecraft:spruce_log",
-                    "probability": 0.4
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  },
-                  "output_state": {
-                    "Name": "minecraft:air"
-                  }
-                },
-                {
-                  "input_predicate": {
-                    "predicate_type": "minecraft:random_block_match",
                     "block": "minecraft:dark_oak_log",
                     "probability": 0.4
                   },
@@ -2576,19 +2303,6 @@
                   },
                   "output_state": {
                     "Name": "minecraft:air"
-                  }
-                },
-                {
-                  "input_predicate": {
-                    "predicate_type": "minecraft:random_block_match",
-                    "block": "minecraft:spruce_log",
-                    "probability": 0.15
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  },
-                  "output_state": {
-                    "Name": "minecraft:cobweb"
                   }
                 },
                 {
@@ -2725,7 +2439,7 @@
                     "predicate_type": "minecraft:block_match"
                   },
                   "output_state": {
-                    "Name": "minecraft:spruce_planks"
+                    "Name": "minecraft:dark_oak_planks"
                   }
                 },
                 {
@@ -2738,7 +2452,7 @@
                     "predicate_type": "minecraft:block_match"
                   },
                   "output_state": {
-                    "Name": "minecraft:spruce_planks"
+                    "Name": "minecraft:dark_oak_planks"
                   }
                 },
                 {
@@ -2801,19 +2515,6 @@
                 {
                   "input_predicate": {
                     "predicate_type": "minecraft:random_block_match",
-                    "block": "minecraft:spruce_log",
-                    "probability": 0.4
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  },
-                  "output_state": {
-                    "Name": "minecraft:air"
-                  }
-                },
-                {
-                  "input_predicate": {
-                    "predicate_type": "minecraft:random_block_match",
                     "block": "minecraft:dark_oak_log",
                     "probability": 0.4
                   },
@@ -2822,19 +2523,6 @@
                   },
                   "output_state": {
                     "Name": "minecraft:air"
-                  }
-                },
-                {
-                  "input_predicate": {
-                    "predicate_type": "minecraft:random_block_match",
-                    "block": "minecraft:spruce_log",
-                    "probability": 0.15
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  },
-                  "output_state": {
-                    "Name": "minecraft:cobweb"
                   }
                 },
                 {
@@ -2971,7 +2659,7 @@
                     "predicate_type": "minecraft:block_match"
                   },
                   "output_state": {
-                    "Name": "minecraft:spruce_planks"
+                    "Name": "minecraft:dark_oak_planks"
                   }
                 },
                 {
@@ -2984,7 +2672,7 @@
                     "predicate_type": "minecraft:block_match"
                   },
                   "output_state": {
-                    "Name": "minecraft:spruce_planks"
+                    "Name": "minecraft:dark_oak_planks"
                   }
                 },
                 {
@@ -3047,19 +2735,6 @@
                 {
                   "input_predicate": {
                     "predicate_type": "minecraft:random_block_match",
-                    "block": "minecraft:spruce_log",
-                    "probability": 0.4
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  },
-                  "output_state": {
-                    "Name": "minecraft:air"
-                  }
-                },
-                {
-                  "input_predicate": {
-                    "predicate_type": "minecraft:random_block_match",
                     "block": "minecraft:dark_oak_log",
                     "probability": 0.4
                   },
@@ -3068,19 +2743,6 @@
                   },
                   "output_state": {
                     "Name": "minecraft:air"
-                  }
-                },
-                {
-                  "input_predicate": {
-                    "predicate_type": "minecraft:random_block_match",
-                    "block": "minecraft:spruce_log",
-                    "probability": 0.15
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  },
-                  "output_state": {
-                    "Name": "minecraft:cobweb"
                   }
                 },
                 {
@@ -3217,7 +2879,7 @@
                     "predicate_type": "minecraft:block_match"
                   },
                   "output_state": {
-                    "Name": "minecraft:spruce_planks"
+                    "Name": "minecraft:dark_oak_planks"
                   }
                 },
                 {
@@ -3230,7 +2892,7 @@
                     "predicate_type": "minecraft:block_match"
                   },
                   "output_state": {
-                    "Name": "minecraft:spruce_planks"
+                    "Name": "minecraft:dark_oak_planks"
                   }
                 },
                 {
@@ -3293,19 +2955,6 @@
                 {
                   "input_predicate": {
                     "predicate_type": "minecraft:random_block_match",
-                    "block": "minecraft:spruce_log",
-                    "probability": 0.4
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  },
-                  "output_state": {
-                    "Name": "minecraft:air"
-                  }
-                },
-                {
-                  "input_predicate": {
-                    "predicate_type": "minecraft:random_block_match",
                     "block": "minecraft:dark_oak_log",
                     "probability": 0.4
                   },
@@ -3314,19 +2963,6 @@
                   },
                   "output_state": {
                     "Name": "minecraft:air"
-                  }
-                },
-                {
-                  "input_predicate": {
-                    "predicate_type": "minecraft:random_block_match",
-                    "block": "minecraft:spruce_log",
-                    "probability": 0.15
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  },
-                  "output_state": {
-                    "Name": "minecraft:cobweb"
                   }
                 },
                 {
@@ -3463,7 +3099,7 @@
                     "predicate_type": "minecraft:block_match"
                   },
                   "output_state": {
-                    "Name": "minecraft:spruce_planks"
+                    "Name": "minecraft:dark_oak_planks"
                   }
                 },
                 {
@@ -3476,7 +3112,7 @@
                     "predicate_type": "minecraft:block_match"
                   },
                   "output_state": {
-                    "Name": "minecraft:spruce_planks"
+                    "Name": "minecraft:dark_oak_planks"
                   }
                 },
                 {
@@ -3539,19 +3175,6 @@
                 {
                   "input_predicate": {
                     "predicate_type": "minecraft:random_block_match",
-                    "block": "minecraft:spruce_log",
-                    "probability": 0.4
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  },
-                  "output_state": {
-                    "Name": "minecraft:air"
-                  }
-                },
-                {
-                  "input_predicate": {
-                    "predicate_type": "minecraft:random_block_match",
                     "block": "minecraft:dark_oak_log",
                     "probability": 0.4
                   },
@@ -3560,19 +3183,6 @@
                   },
                   "output_state": {
                     "Name": "minecraft:air"
-                  }
-                },
-                {
-                  "input_predicate": {
-                    "predicate_type": "minecraft:random_block_match",
-                    "block": "minecraft:spruce_log",
-                    "probability": 0.15
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  },
-                  "output_state": {
-                    "Name": "minecraft:cobweb"
                   }
                 },
                 {
@@ -3709,7 +3319,7 @@
                     "predicate_type": "minecraft:block_match"
                   },
                   "output_state": {
-                    "Name": "minecraft:spruce_planks"
+                    "Name": "minecraft:dark_oak_planks"
                   }
                 },
                 {
@@ -3722,7 +3332,7 @@
                     "predicate_type": "minecraft:block_match"
                   },
                   "output_state": {
-                    "Name": "minecraft:spruce_planks"
+                    "Name": "minecraft:dark_oak_planks"
                   }
                 },
                 {
@@ -3785,19 +3395,6 @@
                 {
                   "input_predicate": {
                     "predicate_type": "minecraft:random_block_match",
-                    "block": "minecraft:spruce_log",
-                    "probability": 0.4
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  },
-                  "output_state": {
-                    "Name": "minecraft:air"
-                  }
-                },
-                {
-                  "input_predicate": {
-                    "predicate_type": "minecraft:random_block_match",
                     "block": "minecraft:dark_oak_log",
                     "probability": 0.4
                   },
@@ -3806,19 +3403,6 @@
                   },
                   "output_state": {
                     "Name": "minecraft:air"
-                  }
-                },
-                {
-                  "input_predicate": {
-                    "predicate_type": "minecraft:random_block_match",
-                    "block": "minecraft:spruce_log",
-                    "probability": 0.15
-                  },
-                  "location_predicate": {
-                    "predicate_type": "minecraft:always_true"
-                  },
-                  "output_state": {
-                    "Name": "minecraft:cobweb"
                   }
                 },
                 {

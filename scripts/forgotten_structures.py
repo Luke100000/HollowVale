@@ -3,7 +3,7 @@
 Run: python3 scripts/forgotten_structures.py [minecraft-1.21.1.jar]
 
 Copies the reachable templates and template pools into the hollowvale namespace, so the jigsaw blocks inside the
-templates lead to the copies, and drops villagers, animals and entities. Every chest gets LOOT_TABLE and every piece
+templates lead to the copies, and drops villagers, animals and entities. Spruce becomes dark oak and the spruce trees dead trees. Every chest gets LOOT_TABLE and every piece
 the decay processors from DECAY.
 """
 import json
@@ -22,6 +22,14 @@ EMPTY = "minecraft:empty"
 LOOT_TABLE = "hollowvale:chests/forgotten_village"
 DROPPED_POOLS = re.compile(r"villagers|animals|cats|sheep|iron_golem")
 DROPPED_ELEMENTS = re.compile(r"allays")
+# Spruce and dark oak share their block states, so renaming a block keeps them.
+SPRUCE = re.compile(
+    r"minecraft:(potted_)?(stripped_)?spruce_(planks|log|wood|stairs|slab|fence|fence_gate|door|trapdoor|button"
+    r"|pressure_plate|sign|wall_sign|leaves|sapling)"
+)
+# Vanilla's spruce trees, replaced by the biome's dead trees.
+SPRUCE_TREE = re.compile(r'"minecraft:(spruce|pine)"')
+DEAD_TREE = '"hollowvale:dead_tree_decor"'
 
 
 @dataclass(frozen=True)
@@ -72,13 +80,12 @@ def rule(name: str, output: dict, probability: float | None = None) -> dict:
 
 AIR, COBWEB = block("air"), block("cobweb")
 UNLIT_CAMPFIRE = block("campfire", facing="north", lit="false", signal_fire="false", waterlogged="false")
-LOGS = ["spruce_log", "dark_oak_log"]
 DECAY = [
     # Skips 20% of the blocks, which leaves the terrain in their place.
     {"processor_type": "minecraft:block_rot", "integrity": 0.8},
     {"processor_type": "minecraft:rule", "rules": [
-        *(rule(log, AIR, 0.4) for log in LOGS),
-        *(rule(log, COBWEB, 0.15) for log in LOGS),
+        rule("dark_oak_log", AIR, 0.4),
+        rule("dark_oak_log", COBWEB, 0.15),
         rule("cobblestone", block("mossy_cobblestone"), 0.5),
         rule("cobblestone", COBWEB, 0.1),
         rule("glass_pane", COBWEB, 0.5),
@@ -92,6 +99,10 @@ DECAY = [
 
 def local(build: Build, name: str) -> str:
     return f"hollowvale:{build.name}/{name.removeprefix('minecraft:').removeprefix('village/')}"
+
+
+def to_dark_oak(text: str) -> str:
+    return SPRUCE.sub(lambda match: match.group().replace("spruce", "dark_oak"), text)
 
 
 def is_kept(pool: str) -> bool:
@@ -116,11 +127,15 @@ def copy_template(jar: zipfile.ZipFile, build: Build, location: str) -> list[str
     """Saves a template with its jigsaw pools redirected and returns the vanilla pools it links to."""
     root = nbt.parse(jar.read(f"data/minecraft/structure/{location.removeprefix('minecraft:')}.nbt"))
     root["entities"] = (nbt.LIST, (nbt.END, []))
+    for state in root["palette"][1][1]:
+        state["Name"] = (nbt.STRING, to_dark_oak(state["Name"][1]))
     linked = []
     for entry in root["blocks"][1][1]:
         fields = entry.get("nbt", (nbt.COMPOUND, {}))[1]
         if "LootTable" in fields:
             fields["LootTable"] = (nbt.STRING, LOOT_TABLE)
+        if "final_state" in fields:
+            fields["final_state"] = (nbt.STRING, to_dark_oak(fields["final_state"][1]))
         if "pool" in fields:
             linked.append(fields["pool"][1])
             fields["pool"] = (nbt.STRING, mapped_pool(build, linked[-1]))
@@ -140,7 +155,8 @@ def convert_element(jar: zipfile.ZipFile, build: Build, element: dict) -> list[s
         processors = element["processors"]
         if isinstance(processors, str):
             processors = read_json(jar, processors, "processor_list")
-        element["processors"] = {"processors": processors["processors"] + DECAY}
+        vanilla = json.loads(to_dark_oak(json.dumps(processors["processors"])))
+        element["processors"] = {"processors": vanilla + DECAY}
         locations.append(element["location"])
         element["location"] = local(build, element["location"])
     return locations
@@ -148,7 +164,8 @@ def convert_element(jar: zipfile.ZipFile, build: Build, element: dict) -> list[s
 
 def convert_pool(jar: zipfile.ZipFile, build: Build, pool: str) -> tuple[dict, str, list[str]]:
     """Returns the pool redirected to the copies, its vanilla fallback pool and the vanilla templates it uses."""
-    data = read_json(jar, pool, "template_pool")
+    text = SPRUCE_TREE.sub(DEAD_TREE, to_dark_oak(json.dumps(read_json(jar, pool, "template_pool"))))
+    data = json.loads(text)
     fallback = data["fallback"]
     data["fallback"] = mapped_pool(build, fallback)
     data["elements"] = [entry for entry in data["elements"] if not DROPPED_ELEMENTS.search(json.dumps(entry))]
