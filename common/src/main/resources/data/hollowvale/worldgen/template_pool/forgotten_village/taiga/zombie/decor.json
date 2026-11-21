@@ -29,7 +29,33 @@
                 {
                   "input_predicate": {
                     "predicate_type": "minecraft:random_block_match",
+                    "block": "minecraft:dark_oak_log",
+                    "probability": 0.4
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  },
+                  "output_state": {
+                    "Name": "minecraft:air"
+                  }
+                },
+                {
+                  "input_predicate": {
+                    "predicate_type": "minecraft:random_block_match",
                     "block": "minecraft:spruce_log",
+                    "probability": 0.15
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  },
+                  "output_state": {
+                    "Name": "minecraft:cobweb"
+                  }
+                },
+                {
+                  "input_predicate": {
+                    "predicate_type": "minecraft:random_block_match",
+                    "block": "minecraft:dark_oak_log",
                     "probability": 0.15
                   },
                   "location_predicate": {
@@ -70,6 +96,19 @@
                     "predicate_type": "minecraft:random_block_match",
                     "block": "minecraft:glass_pane",
                     "probability": 0.5
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  },
+                  "output_state": {
+                    "Name": "minecraft:cobweb"
+                  }
+                },
+                {
+                  "input_predicate": {
+                    "predicate_type": "minecraft:random_block_match",
+                    "block": "minecraft:white_wool",
+                    "probability": 0.3
                   },
                   "location_predicate": {
                     "predicate_type": "minecraft:always_true"
@@ -157,7 +196,33 @@
                 {
                   "input_predicate": {
                     "predicate_type": "minecraft:random_block_match",
+                    "block": "minecraft:dark_oak_log",
+                    "probability": 0.4
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  },
+                  "output_state": {
+                    "Name": "minecraft:air"
+                  }
+                },
+                {
+                  "input_predicate": {
+                    "predicate_type": "minecraft:random_block_match",
                     "block": "minecraft:spruce_log",
+                    "probability": 0.15
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  },
+                  "output_state": {
+                    "Name": "minecraft:cobweb"
+                  }
+                },
+                {
+                  "input_predicate": {
+                    "predicate_type": "minecraft:random_block_match",
+                    "block": "minecraft:dark_oak_log",
                     "probability": 0.15
                   },
                   "location_predicate": {
@@ -198,6 +263,19 @@
                     "predicate_type": "minecraft:random_block_match",
                     "block": "minecraft:glass_pane",
                     "probability": 0.5
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  },
+                  "output_state": {
+                    "Name": "minecraft:cobweb"
+                  }
+                },
+                {
+                  "input_predicate": {
+                    "predicate_type": "minecraft:random_block_match",
+                    "block": "minecraft:white_wool",
+                    "probability": 0.3
                   },
                   "location_predicate": {
                     "predicate_type": "minecraft:always_true"
@@ -285,7 +363,33 @@
                 {
                   "input_predicate": {
                     "predicate_type": "minecraft:random_block_match",
+                    "block": "minecraft:dark_oak_log",
+                    "probability": 0.4
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  },
+                  "output_state": {
+                    "Name": "minecraft:air"
+                  }
+                },
+                {
+                  "input_predicate": {
+                    "predicate_type": "minecraft:random_block_match",
                     "block": "minecraft:spruce_log",
+                    "probability": 0.15
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  },
+                  "output_state": {
+                    "Name": "minecraft:cobweb"
+                  }
+                },
+                {
+                  "input_predicate": {
+                    "predicate_type": "minecraft:random_block_match",
+                    "block": "minecraft:dark_oak_log",
                     "probability": 0.15
                   },
                   "location_predicate": {
@@ -326,6 +430,19 @@
                     "predicate_type": "minecraft:random_block_match",
                     "block": "minecraft:glass_pane",
                     "probability": 0.5
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  },
+                  "output_state": {
+                    "Name": "minecraft:cobweb"
+                  }
+                },
+                {
+                  "input_predicate": {
+                    "predicate_type": "minecraft:random_block_match",
+                    "block": "minecraft:white_wool",
+                    "probability": 0.3
                   },
                   "location_predicate": {
                     "predicate_type": "minecraft:always_true"
@@ -413,7 +530,33 @@
                 {
                   "input_predicate": {
                     "predicate_type": "minecraft:random_block_match",
+                    "block": "minecraft:dark_oak_log",
+                    "probability": 0.4
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  },
+                  "output_state": {
+                    "Name": "minecraft:air"
+                  }
+                },
+                {
+                  "input_predicate": {
+                    "predicate_type": "minecraft:random_block_match",
                     "block": "minecraft:spruce_log",
+                    "probability": 0.15
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  },
+                  "output_state": {
+                    "Name": "minecraft:cobweb"
+                  }
+                },
+                {
+                  "input_predicate": {
+                    "predicate_type": "minecraft:random_block_match",
+                    "block": "minecraft:dark_oak_log",
                     "probability": 0.15
                   },
                   "location_predicate": {
@@ -454,6 +597,19 @@
                     "predicate_type": "minecraft:random_block_match",
                     "block": "minecraft:glass_pane",
                     "probability": 0.5
+                  },
+                  "location_predicate": {
+                    "predicate_type": "minecraft:always_true"
+                  },
+                  "output_state": {
+                    "Name": "minecraft:cobweb"
+                  }
+                },
+                {
+                  "input_predicate": {
+                    "predicate_type": "minecraft:random_block_match",
+                    "block": "minecraft:white_wool",
+                    "probability": 0.3
                   },
                   "location_predicate": {
                     "predicate_type": "minecraft:always_true"
