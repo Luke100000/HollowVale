@@ -27,6 +27,9 @@ public class WindChimeBlock extends Block implements EntityBlock {
     private static final VoxelShape SHAPE = Block.box(4.0, 1.0, 4.0, 12.0, 16.0, 12.0);
 
     // Root, minor third, fourth and fifth.
+    private static final float VOLUME = 0.8f;
+    private static final float VOLUME_JITTER = 0.15f;
+    private static final float PITCH_JITTER = 0.02f;
     private static final float[] PITCHES = {1.0f, 1.189f, 1.335f, 1.498f};
 
     private static final int CALM_CHANCE = 6;
@@ -75,8 +78,9 @@ public class WindChimeBlock extends Block implements EntityBlock {
     public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
         int chance = level.isRaining() || level.isThundering() ? WINDY_CHANCE : CALM_CHANCE;
         if (random.nextInt(chance) == 0) {
-            float pitch = PITCHES[random.nextInt(PITCHES.length)];
-            level.playLocalSound(pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, Sounds.WIND_CHIME, SoundSource.BLOCKS, 0.8f, pitch, false);
+            float pitch = PITCHES[random.nextInt(PITCHES.length)] * (1.0f + (random.nextFloat() - 0.5f) * 2.0f * PITCH_JITTER);
+            float volume = VOLUME + (random.nextFloat() - 0.5f) * 2.0f * VOLUME_JITTER;
+            level.playLocalSound(pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, Sounds.WIND_CHIME, SoundSource.BLOCKS, volume, pitch, false);
         }
     }
 }
