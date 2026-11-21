@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "hatch=0": {
+      "model": "hollowvale:block/whale_egg"
+    },
+    "hatch=1": {
+      "model": "hollowvale:block/whale_egg"
+    },
+    "hatch=2": {
+      "model": "hollowvale:block/whale_egg"
+    }
+  }
+}

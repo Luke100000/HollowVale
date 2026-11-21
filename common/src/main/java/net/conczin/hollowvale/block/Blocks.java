@@ -58,6 +58,13 @@ public final class Blocks {
             .noOcclusion()
             .pushReaction(PushReaction.DESTROY)));
 
+    public static final Block WHALE_EGG = register("whale_egg", new WhaleEggBlock(BlockBehaviour.Properties.of()
+            .mapColor(MapColor.SAND)
+            .strength(0.5f)
+            .sound(SoundType.BONE_BLOCK)
+            .noOcclusion()
+            .pushReaction(PushReaction.DESTROY)));
+
     public static BlockEntityType<WindChimeBlockEntity> WIND_CHIME_ENTITY;
 
     public static final ResourceKey<PoiType> MARROW_LAMP_POI = ResourceKey.create(Registries.POINT_OF_INTEREST_TYPE, Common.locate("marrow_lamp"));

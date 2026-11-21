@@ -75,8 +75,7 @@ A vanilla-friendly dark biome of skull mobs, rotten ruins and giant buried bones
       on death
     * Whale egg
         * Can be found at whale ribcage sites as brush loot and placed
-        * Will convert to a hatched whale egg block and spawn a whale calf
-        * The calf is already tamed and will follow the nearest living creature, preferable the owner
+        * Cracks while it sits and hatches into a whale calf, which is tamed by the nearest player
 * Structures
     * Various smaller Ruins
     * A ruined tower
