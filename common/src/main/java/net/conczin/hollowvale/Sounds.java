@@ -14,12 +14,17 @@ public final class Sounds {
     public static final SoundEvent MUSIC_DISC_HOLLOW_VALE = create("music_disc.hollow_vale");
 
     public static final SoundEvent AMBIENT_HOLLOW_VALE_LOOP = create("ambient.hollow_vale.loop");
-    public static final SoundEvent AMBIENT_HOLLOW_VALE_ADDITIONS = create("ambient.hollow_vale.additions");
     public static final SoundEvent AMBIENT_OSSUARY_LOOP = create("ambient.ossuary.loop");
-    public static final SoundEvent AMBIENT_OSSUARY_MOOD = create("ambient.ossuary.mood");
-    public static final SoundEvent AMBIENT_OSSUARY_ADDITIONS = create("ambient.ossuary.additions");
     public static final SoundEvent AMBIENT_MARROW_HOLLOWS_LOOP = create("ambient.marrow_hollows.loop");
-    public static final SoundEvent AMBIENT_MARROW_HOLLOWS_ADDITIONS = create("ambient.marrow_hollows.additions");
+
+    public static final SoundEvent AMBIENT_ADDITIONS = create("ambient.additions");
+    public static final SoundEvent AMBIENT_BONES = create("ambient.bones");
+    public static final SoundEvent AMBIENT_CREAKS = create("ambient.creaks");
+    public static final SoundEvent AMBIENT_CROWS = create("ambient.crows");
+    public static final SoundEvent AMBIENT_WINDS = create("ambient.winds");
+    public static final SoundEvent AMBIENT_WHISPERS = create("ambient.whispers");
+    public static final SoundEvent AMBIENT_WHALES = create("ambient.whales");
+    public static final SoundEvent AMBIENT_DRIPS = create("ambient.drips");
 
     public static final SoundEvent BONE_WHALE_AMBIENT = create("entity.bone_whale.ambient");
     public static final SoundEvent BONE_WHALE_HURT = create("entity.bone_whale.hurt");

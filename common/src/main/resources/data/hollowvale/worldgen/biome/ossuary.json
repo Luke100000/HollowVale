@@ -23,16 +23,10 @@
       "replace_current_music": false
     },
     "additions_sound": {
-      "sound": "hollowvale:ambient.ossuary.additions",
+      "sound": "hollowvale:ambient.additions",
       "tick_chance": 0.00555
     },
-    "ambient_sound": "hollowvale:ambient.ossuary.loop",
-    "mood_sound": {
-      "sound": "hollowvale:ambient.ossuary.mood",
-      "tick_delay": 6000,
-      "block_search_extent": 8,
-      "offset": 2.0
-    }
+    "ambient_sound": "hollowvale:ambient.ossuary.loop"
   },
   "carvers": {
     "air": [

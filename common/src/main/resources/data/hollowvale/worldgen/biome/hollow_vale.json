@@ -24,7 +24,7 @@
     },
     "ambient_sound": "hollowvale:ambient.hollow_vale.loop",
     "additions_sound": {
-      "sound": "hollowvale:ambient.hollow_vale.additions",
+      "sound": "hollowvale:ambient.additions",
       "tick_chance": 0.00555
     }
   },

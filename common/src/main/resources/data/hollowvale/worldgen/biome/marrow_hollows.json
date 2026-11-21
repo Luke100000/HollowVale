@@ -30,7 +30,7 @@
       "offset": 2.0
     },
     "additions_sound": {
-      "sound": "hollowvale:ambient.marrow_hollows.additions",
+      "sound": "hollowvale:ambient.additions",
       "tick_chance": 0.00555
     }
   },
