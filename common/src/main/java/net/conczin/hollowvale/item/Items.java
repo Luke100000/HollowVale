@@ -54,6 +54,7 @@ public final class Items {
             .stacksTo(1)
             .rarity(Rarity.RARE)
             .jukeboxPlayable(HOLLOW_VALE_SONG)));
+    public static final Item BONE_HARPOON = register("bone_harpoon", new HarpoonItem());
     public static final Item BONE_MASK = register("bone_mask", new BoneMaskItem());
 
     public static final Item BONE_WHALE_SPAWN_EGG = spawnEgg("bone_whale", Entities.BONE_WHALE, 0xD8D2C0, 0x7A4FA0);

@@ -179,6 +179,11 @@
           "type": "minecraft:item",
           "name": "hollowvale:whale_egg",
           "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "hollowvale:bone_harpoon",
+          "weight": 2
         }
       ]
     }

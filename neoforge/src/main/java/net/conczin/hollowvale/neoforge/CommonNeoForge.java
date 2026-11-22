@@ -6,6 +6,7 @@ import net.conczin.hollowvale.world.TemplateFeature;
 import net.conczin.hollowvale.Structurify;
 import net.conczin.hollowvale.block.Blocks;
 import net.conczin.hollowvale.config.Config;
+import net.conczin.hollowvale.effect.ModEffects;
 import net.conczin.hollowvale.entity.Entities;
 import net.conczin.hollowvale.item.Items;
 import net.conczin.hollowvale.item.ModPotions;
@@ -54,6 +55,7 @@ public final class CommonNeoForge {
         registerHelper(event, BuiltInRegistries.BLOCK, Blocks::registerBlocks);
         registerHelper(event, BuiltInRegistries.ITEM, Items::registerItems);
         registerHelper(event, BuiltInRegistries.POTION, ModPotions::registerPotions);
+        registerHelper(event, BuiltInRegistries.MOB_EFFECT, ModEffects::registerEffects);
         registerHelper(event, BuiltInRegistries.BLOCK_ENTITY_TYPE, helper -> Blocks.registerBlockEntities(helper,
                 (factory, blocks) -> BlockEntityType.Builder.of(factory::apply, blocks).build(null)));
         event.register(Registries.POINT_OF_INTEREST_TYPE, registry -> registry.register(Blocks.MARROW_LAMP_POI.location(), Blocks.createMarrowLampPoi()));

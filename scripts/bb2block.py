@@ -1,7 +1,7 @@
 """Convert a Blockbench Java block model to a block/item model json."""
 
+import base64
 import json
-import shutil
 import sys
 from pathlib import Path
 
@@ -55,7 +55,7 @@ def main() -> None:
 
     texture_target = assets / "textures" / f"{texture_id.split(':')[-1]}.png"
     texture_target.parent.mkdir(parents=True, exist_ok=True)
-    shutil.copyfile(source.with_suffix(".png"), texture_target)
+    texture_target.write_bytes(base64.b64decode(model["textures"][0]["source"].split(",", 1)[1]))
     print(f"converted {source.stem}")
 
 

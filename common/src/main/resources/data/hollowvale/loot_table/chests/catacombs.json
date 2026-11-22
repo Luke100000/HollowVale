@@ -273,6 +273,11 @@
           "type": "minecraft:item",
           "name": "hollowvale:bone_mask",
           "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "name": "hollowvale:bone_harpoon",
+          "weight": 2
         }
       ]
     },

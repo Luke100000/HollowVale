@@ -11,12 +11,14 @@
     "ChorusFruitItemMixin",
     "EnderManMixin",
     "JigsawStructureMixin",
+    "LivingEntityHurtMixin",
     "PlayerMixin",
     "ProjectileUtilMixin"
   ],
   "client": [
     "FogRendererMixin",
     "HumanoidArmorLayerMixin",
+    "ItemRendererMixin",
     "SimpleSoundInstanceMixin",
     "LivingEntityRendererMixin"
   ]

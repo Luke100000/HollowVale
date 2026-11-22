@@ -65,10 +65,15 @@ A vanilla-friendly dark biome of skull mobs, rotten ruins and giant buried bones
     * Ender Fish Soup (bowl, ender marrow, fish and chorus fruit)
     * Custom music disk
     * Spawn eggs
-    * The Whale Harpoon
-        * Ancient weapon found or crafted from bone, string, and ender marrow
-        * Shoots, similar to the trident, but less damage and reels the enemy towards you
-        * Allows off hand + main hand usage for advanced combat
+    * Bone Harpoon
+        * Ancient tethered weapon found in ruins, catacombs and whale remains (later at the scavenger), repaired with bones
+        * Right click fires a line, hooked mobs, players and dropped items get hooked and reeled to you, blocks and very large mobs (like whales)
+          pull you to them, similar to a grappling hook, and the bolt flies in an arc
+        * Right click again to pluck the line: one strong yank with some damage, then it lets go. Right click in flight or sneak and right click cancels it
+        * A reeled in mob is Hooked for a few seconds and takes 50% more damage, so it combos with a sword in the other hand
+        * Works from either hand, so it can be held next to a sword, the main hand goes first
+        * Takes Sharpness, Smite, Bane of Arthropods and Fire Aspect (also on the bolt), Unbreaking and Mending
+        * Long Line (faster throw, so farther) and Strong String (faster reel, stronger pluck) are its own enchantments
     * Bone Mask
         * An iron grade helmet repaired with bones, not craftable, found in chests and dropped by the undead cow
         * Like a carved pumpkin it keeps endermen and ender skulls from noticing you, and fry wont attack you

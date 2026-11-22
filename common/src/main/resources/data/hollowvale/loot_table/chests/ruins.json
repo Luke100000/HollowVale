@@ -333,6 +333,11 @@
           "type": "minecraft:item",
           "name": "hollowvale:bone_mask",
           "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "hollowvale:bone_harpoon",
+          "weight": 1
         }
       ]
     },

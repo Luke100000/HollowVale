@@ -45,6 +45,7 @@ public final class Renderers {
             return renderer;
         });
         registrar.register(Entities.UNDEAD_HIGHLAND_CATTLE, UndeadHighlandCattleRenderer::new);
+        registrar.register(Entities.HARPOON_BOLT, HarpoonBoltRenderer::new);
         registrar.register(Entities.SLUDGE_BALL, ThrownItemRenderer::new);
     }
 

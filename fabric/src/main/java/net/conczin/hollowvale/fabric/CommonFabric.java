@@ -5,6 +5,7 @@ import net.conczin.hollowvale.Sounds;
 import net.conczin.hollowvale.Structurify;
 import net.conczin.hollowvale.block.Blocks;
 import net.conczin.hollowvale.config.Config;
+import net.conczin.hollowvale.effect.ModEffects;
 import net.conczin.hollowvale.entity.Entities;
 import net.conczin.hollowvale.fabric.mixin.SpawnPlacementsInvoker;
 import net.conczin.hollowvale.item.Items;
@@ -40,6 +41,7 @@ public final class CommonFabric implements ModInitializer {
         registerHelper(BuiltInRegistries.BLOCK, Blocks::registerBlocks);
         registerHelper(BuiltInRegistries.ITEM, Items::registerItems);
         registerHelper(BuiltInRegistries.POTION, ModPotions::registerPotions);
+        registerHelper(BuiltInRegistries.MOB_EFFECT, ModEffects::registerEffects);
         FabricBrewingRecipeRegistryBuilder.BUILD.register(ModPotions::addBrewingRecipes);
         registerHelper(BuiltInRegistries.BLOCK_ENTITY_TYPE, helper -> Blocks.registerBlockEntities(helper,
                 (factory, blocks) -> FabricBlockEntityTypeBuilder.create(factory::apply, blocks).build()));
