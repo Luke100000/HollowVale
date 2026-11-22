@@ -1,0 +1,30 @@
+{
+  "processors": [
+    {
+      "processor_type": "minecraft:block_ignore",
+      "blocks": [
+        {
+          "Name": "minecraft:cave_air"
+        }
+      ]
+    },
+    {
+      "processor_type": "minecraft:rule",
+      "rules": [
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_block_match",
+            "block": "hollowvale:bone_bricks",
+            "probability": 0.4
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "hollowvale:cracked_bone_bricks"
+          }
+        }
+      ]
+    }
+  ]
+}

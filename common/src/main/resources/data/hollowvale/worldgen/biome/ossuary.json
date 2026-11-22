@@ -155,8 +155,8 @@
       {
         "type": "hollowvale:undead_highland_cattle",
         "weight": 50,
-        "minCount": 3,
-        "maxCount": 5
+        "minCount": 2,
+        "maxCount": 4
       }
     ],
     "ambient": [],

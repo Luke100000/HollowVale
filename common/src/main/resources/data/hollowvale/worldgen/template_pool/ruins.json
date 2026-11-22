@@ -6,7 +6,7 @@
       "element": {
         "element_type": "minecraft:single_pool_element",
         "location": "hollowvale:ruins_0",
-        "processors": "hollowvale:ignore_cave_air",
+        "processors": "hollowvale:ruins_decay",
         "projection": "rigid"
       }
     },
@@ -15,7 +15,7 @@
       "element": {
         "element_type": "minecraft:single_pool_element",
         "location": "hollowvale:ruins_1",
-        "processors": "hollowvale:ignore_cave_air",
+        "processors": "hollowvale:ruins_decay",
         "projection": "rigid"
       }
     },
@@ -24,7 +24,7 @@
       "element": {
         "element_type": "minecraft:single_pool_element",
         "location": "hollowvale:ruins_2",
-        "processors": "hollowvale:ignore_cave_air",
+        "processors": "hollowvale:ruins_decay",
         "projection": "rigid"
       }
     }
