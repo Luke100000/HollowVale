@@ -1,7 +1,10 @@
 {
   "variants": {
-    "": {
-      "model": "hollowvale:block/cracked_bone_bricks"
-    }
+    "": [
+      { "model": "hollowvale:block/cracked_bone_bricks_1" },
+      { "model": "hollowvale:block/cracked_bone_bricks_2" },
+      { "model": "hollowvale:block/cracked_bone_bricks_3" },
+      { "model": "hollowvale:block/cracked_bone_bricks_4" }
+    ]
   }
 }
