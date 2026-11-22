@@ -6,6 +6,7 @@ import net.conczin.hollowvale.block.MarrowLampBlock;
 import net.conczin.hollowvale.entity.goal.CircleHostGoal;
 import net.conczin.hollowvale.entity.goal.FleeLampGoal;
 import net.conczin.hollowvale.entity.goal.HoverWanderGoal;
+import net.conczin.hollowvale.item.BoneMaskItem;
 import net.conczin.hollowvale.item.Items;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
@@ -101,6 +102,11 @@ public class Fry extends Monster implements GeoEntity {
         if (getTarget() != null && isHoldingChorus(getTarget())) {
             setTarget(null);
         }
+    }
+
+    @Override
+    public void setTarget(@Nullable LivingEntity target) {
+        super.setTarget(target != null && BoneMaskItem.isWornBy(target) ? null : target);
     }
 
     public void setHost(BoneWhale host) {

@@ -6,6 +6,7 @@ import net.conczin.hollowvale.entity.goal.ChargeGoal;
 import net.conczin.hollowvale.entity.goal.FleeLampGoal;
 import net.conczin.hollowvale.entity.goal.HoverWanderGoal;
 import net.conczin.hollowvale.entity.goal.StareGoal;
+import net.conczin.hollowvale.item.BoneMaskItem;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
@@ -15,11 +16,7 @@ import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.Mth;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntitySelector;
-import net.minecraft.world.entity.EntityEvent;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.control.BodyRotationControl;
@@ -142,7 +139,7 @@ public class EnderSkull extends Monster implements GeoEntity {
 
         if (alarm == 0) {
             Player spotted = level().getNearestPlayer(TargetingConditions.forCombat().range(getAttributeValue(Attributes.FOLLOW_RANGE)), this);
-            if (spotted != null && !MarrowLampBlock.isInSafeZone(level(), spotted.blockPosition())) {
+            if (spotted != null && !BoneMaskItem.isWornBy(spotted) && !MarrowLampBlock.isInSafeZone(level(), spotted.blockPosition())) {
                 setTarget(spotted);
                 alarm = SPOTTED_ALARM;
                 playSound(Sounds.ENDER_SKULL_AIM);

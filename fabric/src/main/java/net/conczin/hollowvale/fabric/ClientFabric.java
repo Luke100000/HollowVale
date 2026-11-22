@@ -16,6 +16,7 @@ public final class ClientFabric implements ClientModInitializer {
     public void onInitializeClient() {
         Renderers.register(EntityRendererRegistry::register);
         Renderers.registerBlockEntities(BlockEntityRenderers::register);
+
         BlockRenderLayerMap.INSTANCE.putBlocks(RenderType.cutout(), Blocks.MARROW_LAMP, Blocks.WIND_CHIME);
         BlockRenderLayerMap.INSTANCE.putBlock(Blocks.ENDER_INFUSED_GRASS, RenderType.cutoutMipped());
         ColorProviderRegistry.BLOCK.register(BlockTints::grass, Blocks.ENDER_INFUSED_GRASS);

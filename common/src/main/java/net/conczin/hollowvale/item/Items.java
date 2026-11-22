@@ -36,6 +36,7 @@ public final class Items {
     public static final Item BONE_PILLAR = blockItem("bone_pillar", Blocks.BONE_PILLAR);
     public static final Item MARROW_INFUSED_BONE = blockItem("marrow_infused_bone", Blocks.MARROW_INFUSED_BONE);
     public static final Item ENDER_INFUSED_GRASS = blockItem("ender_infused_grass", Blocks.ENDER_INFUSED_GRASS);
+
     public static final Item ENDER_FISH_SOUP = register("ender_fish_soup", new Item(new Item.Properties()
             .stacksTo(1)
             .food(new FoodProperties.Builder()
@@ -53,6 +54,7 @@ public final class Items {
             .stacksTo(1)
             .rarity(Rarity.RARE)
             .jukeboxPlayable(HOLLOW_VALE_SONG)));
+    public static final Item BONE_MASK = register("bone_mask", new BoneMaskItem());
 
     public static final Item BONE_WHALE_SPAWN_EGG = spawnEgg("bone_whale", Entities.BONE_WHALE, 0xD8D2C0, 0x7A4FA0);
     public static final Item FRY_SPAWN_EGG = spawnEgg("fry", Entities.FRY, 0xD8D2C0, 0x5E6E78);

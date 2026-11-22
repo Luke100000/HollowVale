@@ -66,8 +66,9 @@ A vanilla-friendly dark biome of skull mobs, rotten ruins and giant buried bones
         * Ancient weapon found or crafted from bone, string, and ender marrow
         * Shoots, similar to the trident, but less damage and reels the enemy towards you
         * Allows off hand + main hand usage for advanced combat
-    * Watchers Mask
+    * Bone Mask
         * A carved bone mask having the same effect as a carved pumpkin, but with a better view and armor
+        * Frys wont attack you
     * Bucket of fry
 * Blocks
     * Bone bricks, walls, stairs, slabs, pillars, chiseled
