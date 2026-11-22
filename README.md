@@ -97,5 +97,5 @@ A vanilla-friendly dark biome of skull mobs, rotten ruins and giant buried bones
     * Whale ribcage and 3 different "impact" with ender infused grass and ribcages
 * Integration
     * Archelogy and gravel added in most structures
-    * Advancements for riding a whale
+    * Advancements: a small tree of three chains, marrow to levitation, whale egg to omelette, Fry feeding to riding a whale to the End, and mask to harpoon to killing every Vale creature
     * Immersive Pillagers: the Vale and Ossuary are in its undead raider biome tag, so skeleton raiders spawn there

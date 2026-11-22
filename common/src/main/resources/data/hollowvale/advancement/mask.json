@@ -1,0 +1,32 @@
+{
+  "display": {
+    "icon": {
+      "id": "hollowvale:bone_mask"
+    },
+    "title": {
+      "translate": "advancements.hollowvale.mask.title"
+    },
+    "description": {
+      "translate": "advancements.hollowvale.mask.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "hollowvale:bone_mask"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "parent": "hollowvale:root"
+}

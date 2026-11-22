@@ -1,0 +1,40 @@
+{
+  "display": {
+    "icon": {
+      "id": "minecraft:bone"
+    },
+    "title": {
+      "translate": "advancements.hollowvale.root.title"
+    },
+    "description": {
+      "translate": "advancements.hollowvale.root.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false,
+    "background": "minecraft:textures/block/bone_block_side.png"
+  },
+  "criteria": {
+    "entered": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biomes": [
+                  "hollowvale:hollow_vale",
+                  "hollowvale:ossuary",
+                  "hollowvale:marrow_hollows"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

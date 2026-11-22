@@ -89,5 +89,26 @@
   "subtitles.hollowvale.item.bucket.fill_fry": "Fry captured",
   "subtitles.hollowvale.item.bucket.empty_fry": "Fry released",
 
-  "subtitles.hollowvale.block.wind_chime.chime": "Bone wind chime rings"
+  "subtitles.hollowvale.block.wind_chime.chime": "Bone wind chime rings",
+
+  "advancements.hollowvale.root.title": "Something Is Buried Here",
+  "advancements.hollowvale.root.description": "Enter the Hollow Vale",
+  "advancements.hollowvale.levitation.title": "Skeleton Space Program",
+  "advancements.hollowvale.levitation.description": "Brew a Potion of Levitation from an awkward potion and Ender Marrow",
+  "advancements.hollowvale.omelette.title": "Bone Appétit",
+  "advancements.hollowvale.omelette.description": "Cook a whale egg and eat it",
+  "advancements.hollowvale.mask.title": "Dress Code",
+  "advancements.hollowvale.mask.description": "Find a Bone Mask. Wearing one, you might blend in with the dead and the End",
+  "advancements.hollowvale.whale_commute.title": "Whale of a Commute",
+  "advancements.hollowvale.whale_commute.description": "Ride a tamed Bone Whale between the Overworld and the End by feeding it chorus fruit",
+  "advancements.hollowvale.bone_doctor.title": "Bone Doctor",
+  "advancements.hollowvale.bone_doctor.description": "Heal a skeleton horse or an Undead Highland Cattle with Ender Marrow",
+  "advancements.hollowvale.reel_and_deal.title": "Reel and Deal",
+  "advancements.hollowvale.reel_and_deal.description": "Reel a mob in with a harpoon, then hit it while it is Hooked for critical damage",
+  "advancements.hollowvale.all_mobs.title": "Rest in Pieces",
+  "advancements.hollowvale.all_mobs.description": "Put every kind of creature of the Vale to rest",
+  "advancements.hollowvale.whale_egg.title": "Fragile Ecosystem",
+  "advancements.hollowvale.whale_egg.description": "Brush a whale egg out of the remains of a whale",
+  "advancements.hollowvale.fry_diet.title": "Fry Diet",
+  "advancements.hollowvale.fry_diet.description": "Hand a chorus fruit to a Fry and see what the whale thinks of it"
 }

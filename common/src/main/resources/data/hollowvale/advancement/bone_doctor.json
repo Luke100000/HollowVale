@@ -1,0 +1,39 @@
+{
+  "display": {
+    "icon": {
+      "id": "hollowvale:ender_marrow"
+    },
+    "title": {
+      "translate": "advancements.hollowvale.bone_doctor.title"
+    },
+    "description": {
+      "translate": "advancements.hollowvale.bone_doctor.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "hollowvale:root",
+  "criteria": {
+    "healed": {
+      "trigger": "minecraft:player_interacted_with_entity",
+      "conditions": {
+        "item": {
+          "items": [
+            "hollowvale:ender_marrow"
+          ]
+        },
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "#hollowvale:marrow_healable"
+            }
+          }
+        ]
+      }
+    }
+  }
+}

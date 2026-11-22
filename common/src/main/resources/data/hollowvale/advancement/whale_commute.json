@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "id": "hollowvale:bone_whale_spawn_egg"
+    },
+    "title": {
+      "translate": "advancements.hollowvale.whale_commute.title"
+    },
+    "description": {
+      "translate": "advancements.hollowvale.whale_commute.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "hollowvale:fry_diet",
+  "criteria": {
+    "commuted": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {
+    "experience": 100
+  }
+}

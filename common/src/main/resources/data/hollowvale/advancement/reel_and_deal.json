@@ -1,0 +1,39 @@
+{
+  "display": {
+    "icon": {
+      "id": "hollowvale:bone_harpoon"
+    },
+    "title": {
+      "translate": "advancements.hollowvale.reel_and_deal.title"
+    },
+    "description": {
+      "translate": "advancements.hollowvale.reel_and_deal.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "hollowvale:mask",
+  "criteria": {
+    "hit": {
+      "trigger": "minecraft:player_hurt_entity",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "effects": {
+                "hollowvale:hooked": {}
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 20
+  }
+}

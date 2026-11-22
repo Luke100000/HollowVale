@@ -1,0 +1,107 @@
+{
+  "display": {
+    "icon": {
+      "id": "minecraft:wither_skeleton_skull"
+    },
+    "title": {
+      "translate": "advancements.hollowvale.all_mobs.title"
+    },
+    "description": {
+      "translate": "advancements.hollowvale.all_mobs.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "hopping_skull": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "hollowvale:hopping_skull"
+            }
+          }
+        ]
+      }
+    },
+    "bone_sludge": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "hollowvale:bone_sludge"
+            }
+          }
+        ]
+      }
+    },
+    "skull_sludge": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "hollowvale:skull_sludge"
+            }
+          }
+        ]
+      }
+    },
+    "ender_skull": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "hollowvale:ender_skull"
+            }
+          }
+        ]
+      }
+    },
+    "undead_highland_cattle": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "hollowvale:undead_highland_cattle"
+            }
+          }
+        ]
+      }
+    },
+    "bone_whale": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "hollowvale:bone_whale"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "parent": "hollowvale:reel_and_deal",
+  "rewards": {
+    "experience": 100
+  }
+}
