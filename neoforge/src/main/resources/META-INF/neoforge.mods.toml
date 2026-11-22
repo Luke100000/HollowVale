@@ -52,3 +52,10 @@ type = "optional"
 versionRange = "[4,)"
 ordering = "AFTER"
 side = "BOTH"
+
+[[dependencies.${mod_id}]]
+modId = "immersive_pillagers"
+type = "optional"
+versionRange = "[1,)"
+ordering = "NONE"
+side = "BOTH"

@@ -38,6 +38,7 @@
   },
   "suggests": {
     "biolith": "*",
-    "terrablender": "*"
+    "terrablender": "*",
+    "immersive_pillagers": "*"
   }
 }

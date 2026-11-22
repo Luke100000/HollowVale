@@ -21,6 +21,12 @@
   "item.hollowvale.bone_mask": "Bone Mask",
   "item.hollowvale.fry_bucket": "Bucket of Fry",
   "item.hollowvale.music_disc_hollow_vale": "Music Disc",
+
+  "item.minecraft.potion.effect.levitation": "Potion of Levitation",
+  "item.minecraft.splash_potion.effect.levitation": "Splash Potion of Levitation",
+  "item.minecraft.lingering_potion.effect.levitation": "Lingering Potion of Levitation",
+  "item.minecraft.tipped_arrow.effect.levitation": "Arrow of Levitation",
+
   "jukebox_song.hollowvale.hollow_vale": "Alexander Nakarada - Skeleton Keys",
 
   "entity.hollowvale.bone_whale": "Bone Whale",

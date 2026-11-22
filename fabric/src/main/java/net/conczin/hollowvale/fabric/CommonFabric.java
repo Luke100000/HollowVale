@@ -2,20 +2,22 @@ package net.conczin.hollowvale.fabric;
 
 import net.conczin.hollowvale.Common;
 import net.conczin.hollowvale.Sounds;
-import net.conczin.hollowvale.world.TemplateFeature;
 import net.conczin.hollowvale.Structurify;
 import net.conczin.hollowvale.block.Blocks;
 import net.conczin.hollowvale.config.Config;
 import net.conczin.hollowvale.entity.Entities;
 import net.conczin.hollowvale.fabric.mixin.SpawnPlacementsInvoker;
 import net.conczin.hollowvale.item.Items;
+import net.conczin.hollowvale.item.ModPotions;
 import net.conczin.hollowvale.world.BiolithCompat;
+import net.conczin.hollowvale.world.TemplateFeature;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.world.poi.PointOfInterestHelper;
+import net.fabricmc.fabric.api.registry.FabricBrewingRecipeRegistryBuilder;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -37,6 +39,8 @@ public final class CommonFabric implements ModInitializer {
         registerHelper(BuiltInRegistries.ENTITY_TYPE, Entities::registerEntities);
         registerHelper(BuiltInRegistries.BLOCK, Blocks::registerBlocks);
         registerHelper(BuiltInRegistries.ITEM, Items::registerItems);
+        registerHelper(BuiltInRegistries.POTION, ModPotions::registerPotions);
+        FabricBrewingRecipeRegistryBuilder.BUILD.register(ModPotions::addBrewingRecipes);
         registerHelper(BuiltInRegistries.BLOCK_ENTITY_TYPE, helper -> Blocks.registerBlockEntities(helper,
                 (factory, blocks) -> FabricBlockEntityTypeBuilder.create(factory::apply, blocks).build()));
         PointOfInterestHelper.register(Blocks.MARROW_LAMP_POI.location(), 0, 1, Blocks.MARROW_LAMP);

@@ -8,6 +8,7 @@ import net.conczin.hollowvale.block.Blocks;
 import net.conczin.hollowvale.config.Config;
 import net.conczin.hollowvale.entity.Entities;
 import net.conczin.hollowvale.item.Items;
+import net.conczin.hollowvale.item.ModPotions;
 import net.conczin.hollowvale.world.BiolithCompat;
 import net.conczin.hollowvale.world.TerraBlenderCompat;
 import net.minecraft.core.Registry;
@@ -26,6 +27,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
+import net.neoforged.neoforge.event.brewing.RegisterBrewingRecipesEvent;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
 import net.neoforged.neoforge.registries.RegisterEvent;
@@ -51,10 +53,16 @@ public final class CommonNeoForge {
         registerHelper(event, BuiltInRegistries.ENTITY_TYPE, Entities::registerEntities);
         registerHelper(event, BuiltInRegistries.BLOCK, Blocks::registerBlocks);
         registerHelper(event, BuiltInRegistries.ITEM, Items::registerItems);
+        registerHelper(event, BuiltInRegistries.POTION, ModPotions::registerPotions);
         registerHelper(event, BuiltInRegistries.BLOCK_ENTITY_TYPE, helper -> Blocks.registerBlockEntities(helper,
                 (factory, blocks) -> BlockEntityType.Builder.of(factory::apply, blocks).build(null)));
         event.register(Registries.POINT_OF_INTEREST_TYPE, registry -> registry.register(Blocks.MARROW_LAMP_POI.location(), Blocks.createMarrowLampPoi()));
         event.register(Registries.CREATIVE_MODE_TAB, registry -> registry.register(Common.locate(Common.MOD_ID), Items.createTab(CreativeModeTab.builder())));
+    }
+
+    @SubscribeEvent
+    public static void onRegisterBrewingRecipes(RegisterBrewingRecipesEvent event) {
+        ModPotions.addBrewingRecipes(event.getBuilder());
     }
 
     @SubscribeEvent
