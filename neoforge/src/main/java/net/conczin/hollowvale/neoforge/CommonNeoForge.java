@@ -79,6 +79,8 @@ public final class CommonNeoForge {
                 BiolithCompat.register();
             } else if (ModList.get().isLoaded("terrablender")) {
                 TerraBlenderCompat.register();
+            } else {
+                Common.LOGGER.warn("Neither Biolith nor TerraBlender is installed, so the Hollow Vale biomes will not generate");
             }
         });
     }

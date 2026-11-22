@@ -52,6 +52,8 @@ public final class CommonFabric implements ModInitializer {
         Entities.registerSpawnPlacements(SpawnPlacementsInvoker::register);
         if (FabricLoader.getInstance().isModLoaded("biolith")) {
             BiolithCompat.register();
+        } else if (!FabricLoader.getInstance().isModLoaded("terrablender")) {
+            Common.LOGGER.warn("Neither Biolith nor TerraBlender is installed, so the Hollow Vale biomes will not generate");
         }
         CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> Structurify.register(dispatcher));
     }

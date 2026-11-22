@@ -142,7 +142,7 @@
     "creature": [
       {
         "type": "hollowvale:bone_whale",
-        "weight": 1,
+        "weight": 25,
         "minCount": 1,
         "maxCount": 1
       },
