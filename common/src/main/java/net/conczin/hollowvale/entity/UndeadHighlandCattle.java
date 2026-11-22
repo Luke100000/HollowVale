@@ -1,10 +1,7 @@
 package net.conczin.hollowvale.entity;
 
-import net.conczin.hollowvale.entity.goal.CattleAttackGoal;
-import net.conczin.hollowvale.entity.goal.CattleFleeGoal;
-import net.conczin.hollowvale.entity.goal.CattleStandGoal;
-import net.conczin.hollowvale.entity.goal.CattleStareGoal;
-import net.conczin.hollowvale.entity.goal.HerdGoal;
+import net.conczin.hollowvale.entity.goal.*;
+import net.conczin.hollowvale.item.Items;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -13,6 +10,8 @@ import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -50,6 +49,7 @@ public class UndeadHighlandCattle extends PathfinderMob implements GeoEntity {
     private static final float TILT_SMOOTHING = 0.12f;
     private static final float VOICE_PITCH = 0.8f;
     private static final double COMBAT_SPEED = 1.5;
+    private static final float BUCKET_DAMAGE = 2.0f;
 
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
     private long lastStandDay = -1L;
@@ -103,6 +103,18 @@ public class UndeadHighlandCattle extends PathfinderMob implements GeoEntity {
             setTarget(attacker);
         }
         return hurt;
+    }
+
+    @Override
+    protected InteractionResult mobInteract(Player player, InteractionHand hand) {
+        if (!player.getItemInHand(hand).is(net.minecraft.world.item.Items.BUCKET)) {
+            return super.mobInteract(player, hand);
+        }
+        if (!level().isClientSide && hurt(damageSources().playerAttack(player), BUCKET_DAMAGE)) {
+            playSound(SoundEvents.BUCKET_FILL);
+            spawnAtLocation(Items.ENDER_MARROW);
+        }
+        return InteractionResult.sidedSuccess(level().isClientSide);
     }
 
     public void setTilt(int direction) {

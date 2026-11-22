@@ -40,9 +40,9 @@ public class HoppingSkull extends Monster implements GeoEntity {
     private static final int DORMANT = -1;
     private static final int FUSE_TICKS = 72;
     private static final double WAKE_RANGE = 5.0;
-    private static final int GROUND_TICKS = 3;
-    private static final float HOP_POWER = 0.3f;
-    private static final double HOP_SPEED = 0.3;
+    private static final int GROUND_TICKS = 2;
+    private static final float HOP_POWER = 0.35f;
+    private static final double HOP_SPEED = 0.5;
     private static final float HOP_JITTER_DEGREES = 25.0f;
     private static final float EXPLOSION_POWER = 1.0f;
 

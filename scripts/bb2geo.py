@@ -7,7 +7,7 @@ animations/entity/<name>.animation.json under <assets_dir>. A <name>.png
 next to the model is copied to textures/entity/.
 
 The conversion matches Blockbench's own Bedrock export: X is mirrored and
-X/Y rotations are negated. Cubes outside any group go into a "root" bone.
+X/Y rotations of bones and animations are negated, and so is X of animation positions. Cubes outside any group go into a "root" bone.
 Meshes, locators and bezier keyframes are not supported.
 """
 
@@ -34,6 +34,12 @@ def parse_value(value: str) -> float | str:
     except ValueError:
         return value
     return int(number) if number.is_integer() else number
+
+
+def negate(value: float | str) -> float | str:
+    if isinstance(value, str):
+        return f"-({value})"
+    return -value if value else 0
 
 
 def convert_cube(element: dict) -> dict:
@@ -149,6 +155,11 @@ def build_animations(model: dict) -> dict:
             for keyframe in keyframes:
                 point = keyframe["data_points"][0]
                 vector = [parse_value(point[axis]) for axis in "xyz"]
+                if keyframe["channel"] == "rotation":
+                    # GeckoLib negates X and Y of rotation keyframes on load, like it does for bone rotations.
+                    vector[0], vector[1] = negate(vector[0]), negate(vector[1])
+                elif keyframe["channel"] == "position":
+                    vector[0] = negate(vector[0])
                 if keyframe.get("interpolation") == "catmullrom":
                     value = {"post": vector, "lerp_mode": "catmullrom"}
                 else:

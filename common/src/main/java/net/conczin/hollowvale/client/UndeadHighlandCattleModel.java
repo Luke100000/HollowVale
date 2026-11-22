@@ -10,11 +10,11 @@ import software.bernie.geckolib.model.DefaultedEntityGeoModel;
 import software.bernie.geckolib.model.data.EntityModelData;
 
 /**
- * The body group is modelled along X and turned 90° to face -Z, so the head's local Z axis is pitch and its local X axis is roll.
+ * Turns the head toward whatever the cattle looks at and tilts it while it stares.
  */
 public class UndeadHighlandCattleModel extends DefaultedEntityGeoModel<UndeadHighlandCattle> {
-    private static final float MAX_HEAD_YAW = 50.0f;
-    private static final float TILT = 22.0f * Mth.DEG_TO_RAD;
+    private static final float MAX_HEAD_YAW = 75.0f;
+    private static final float TILT = 25.0f * Mth.DEG_TO_RAD;
 
     public UndeadHighlandCattleModel() {
         super(Common.locate("undead_highland_cattle"));
@@ -29,7 +29,7 @@ public class UndeadHighlandCattleModel extends DefaultedEntityGeoModel<UndeadHig
         }
 
         head.setRotY(head.getRotY() + Mth.clamp(data.netHeadYaw(), -MAX_HEAD_YAW, MAX_HEAD_YAW) * Mth.DEG_TO_RAD);
-        head.setRotZ(head.getRotZ() - data.headPitch() * Mth.DEG_TO_RAD);
-        head.setRotX(head.getRotX() + cattle.getTilt(state.getPartialTick()) * TILT);
+        head.setRotX(head.getRotX() + data.headPitch() * Mth.DEG_TO_RAD);
+        head.setRotZ(head.getRotZ() + cattle.getTilt(state.getPartialTick()) * TILT);
     }
 }

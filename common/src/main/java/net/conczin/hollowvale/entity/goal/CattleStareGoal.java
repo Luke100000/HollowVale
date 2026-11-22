@@ -13,13 +13,12 @@ import java.util.EnumSet;
  * Stare at a nearby player, tilting its head from side to side.
  */
 public class CattleStareGoal extends Goal {
-    private static final int ODDS = 500;
+    private static final int ODDS = 200;
     private static final double RANGE = 12.0;
     private static final int MIN_TICKS = 80;
     private static final int MAX_TICKS = 200;
     private static final int MIN_TILT_TICKS = 25;
     private static final int MAX_TILT_TICKS = 60;
-    private static final float TURN_SPEED = 4.0f;
 
     private final UndeadHighlandCattle cattle;
     private @Nullable Player player;
@@ -70,7 +69,6 @@ public class CattleStareGoal extends Goal {
             return;
         }
         cattle.getLookControl().setLookAt(player, 30.0f, 30.0f);
-        cattle.faceTowards(player, TURN_SPEED);
 
         if (--nextTilt <= 0) {
             nextTilt = Mth.nextInt(cattle.getRandom(), MIN_TILT_TICKS, MAX_TILT_TICKS);

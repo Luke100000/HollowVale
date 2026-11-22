@@ -1,3 +1,7 @@
+# 0.1.0
+
+* Initial Release
+
 # TODO
 
-* milk a cow for its marrow.
+* Finalize

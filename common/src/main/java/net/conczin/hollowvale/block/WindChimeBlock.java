@@ -27,8 +27,8 @@ public class WindChimeBlock extends Block implements EntityBlock {
     private static final VoxelShape SHAPE = Block.box(4.0, 1.0, 4.0, 12.0, 16.0, 12.0);
 
     // Root, minor third, fourth and fifth.
-    private static final float VOLUME = 0.8f;
-    private static final float VOLUME_JITTER = 0.15f;
+    private static final float VOLUME = 0.5f;
+    private static final float VOLUME_JITTER = 0.1f;
     private static final float PITCH_JITTER = 0.02f;
     private static final float[] PITCHES = {1.0f, 1.189f, 1.335f, 1.498f};
 
