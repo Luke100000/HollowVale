@@ -2,7 +2,7 @@
   "temperature": 0.3,
   "downfall": 0.4,
   "has_precipitation": true,
-  "creature_spawn_probability": 0.7,
+  "creature_spawn_probability": 0.15,
   "effects": {
     "fog_color": 10133674,
     "sky_color": 7304320,
@@ -88,8 +88,8 @@
     ],
     [
       "minecraft:glow_lichen",
-      "minecraft:patch_dead_bush",
       "minecraft:patch_grass_taiga",
+      "minecraft:patch_dead_bush",
       "minecraft:brown_mushroom_normal",
       "hollowvale:skull_patch",
       "hollowvale:dead_tree"

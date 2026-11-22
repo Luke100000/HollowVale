@@ -28,7 +28,7 @@ public final class Entities {
     public static final EntityType<UndeadHighlandCattle> UNDEAD_HIGHLAND_CATTLE = register("undead_highland_cattle",
             EntityType.Builder.of(UndeadHighlandCattle::new, MobCategory.CREATURE).sized(0.9f, 1.3f));
     public static final EntityType<Scavenger> SCAVENGER = register("scavenger",
-            EntityType.Builder.of(Scavenger::new, MobCategory.CREATURE).sized(0.6f, 1.95f).eyeHeight(1.62f).ridingOffset(-0.75f).clientTrackingRange(10));
+            EntityType.Builder.of(Scavenger::new, MobCategory.CREATURE).sized(0.6f, 1.95f).eyeHeight(1.62f).ridingOffset(-0.5625f).clientTrackingRange(10));
     public static final EntityType<HarpoonBolt> HARPOON_BOLT = register("harpoon_bolt",
             EntityType.Builder.<HarpoonBolt>of(HarpoonBolt::new, MobCategory.MISC).sized(0.25f, 0.25f).clientTrackingRange(8).updateInterval(2));
     public static final EntityType<SludgeBall> SLUDGE_BALL = register("sludge_ball",

@@ -71,21 +71,28 @@ public final class ScavengerSpawner {
     }
 
     private static void spawn(ServerLevel level, BlockPos pos) {
-        SkeletonHorse horse = EntityType.SKELETON_HORSE.create(level);
         Scavenger scavenger = Entities.SCAVENGER.create(level);
-        if (horse == null || scavenger == null) {
+        if (scavenger == null) {
             return;
         }
         float yaw = level.random.nextFloat() * 360.0f;
-        horse.moveTo(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5, yaw, 0.0f);
+        scavenger.moveTo(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5, yaw, 0.0f);
+        scavenger.finalizeSpawn(level, level.getCurrentDifficultyAt(pos), MobSpawnType.EVENT, null);
+        level.addFreshEntity(scavenger);
+
+        if (level.random.nextBoolean()) {
+            return;
+        }
+        SkeletonHorse horse = EntityType.SKELETON_HORSE.create(level);
+        if (horse == null) {
+            return;
+        }
+        horse.moveTo(scavenger.getX(), scavenger.getY(), scavenger.getZ(), yaw, 0.0f);
         horse.finalizeSpawn(level, level.getCurrentDifficultyAt(pos), MobSpawnType.EVENT, null);
         horse.setTamed(true);
         horse.equipSaddle(new ItemStack(Items.SADDLE), null);
         horse.setPersistenceRequired();
-        scavenger.moveTo(horse.getX(), horse.getY(), horse.getZ(), yaw, 0.0f);
-        scavenger.finalizeSpawn(level, level.getCurrentDifficultyAt(pos), MobSpawnType.EVENT, null);
         level.addFreshEntity(horse);
-        level.addFreshEntity(scavenger);
         scavenger.startRiding(horse, true);
     }
 }
