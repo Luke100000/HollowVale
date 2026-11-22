@@ -7,7 +7,7 @@ dependencies {
     implementation "software.bernie.geckolib:geckolib-neoforge-${minecraft_version}:${geckolib_version}"
 
     implementation "maven.modrinth:biolith:${biolith_neoforge_version}"
-    implementation "maven.modrinth:terrablender:${terrablender_neoforge_version}"
+    compileOnly "maven.modrinth:terrablender:${terrablender_neoforge_version}"
 }
 
 neoForge {
