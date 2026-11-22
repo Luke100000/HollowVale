@@ -45,6 +45,7 @@ public final class Renderers {
             renderer.addRenderLayer(new AutoGlowingGeoLayer<>(renderer));
             return renderer;
         });
+        registrar.register(Entities.UNDEAD_HIGHLAND_CATTLE, ctx -> new GeoEntityRenderer<>(ctx, new UndeadHighlandCattleModel()));
         registrar.register(Entities.SLUDGE_BALL, ThrownItemRenderer::new);
     }
 

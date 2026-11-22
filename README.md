@@ -49,8 +49,9 @@ A vanilla-friendly dark biome of skull mobs, rotten ruins and giant buried bones
         * Despawns when half on health using chorus fruit
         * Trades end and otherwise rare or unfarmable items (including marrow and maps to nearby villages or pois)
     * Undead highland cow
-        * It's a skeleton cow, maybe dropping a horn, and has absolutely no reason to be here tbh
-        * Cow behavior, bone and leather drops
+        * It's a skeleton cow and has absolutely no reason to be here tbh
+        * Cow behavior in herds of 3-5, but they never eat, and from time to time walk to another cow to stay together
+        * Bone and leather drops
         * Bone rattle noises and they are oddly interested in the player, tilting their head from time to time and
           staring the player down
         * Unlike animals tho they attack when harmed unless half life

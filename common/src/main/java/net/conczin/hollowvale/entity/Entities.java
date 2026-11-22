@@ -25,6 +25,8 @@ public final class Entities {
             EntityType.Builder.of(SkullSludge::new, MobCategory.MONSTER).sized(22.0f / 16.0f, 22.0f / 16.0f));
     public static final EntityType<EnderSkull> ENDER_SKULL = register("ender_skull",
             EntityType.Builder.of(EnderSkull::new, MobCategory.MONSTER).sized(0.825f, 0.9375f));
+    public static final EntityType<UndeadHighlandCattle> UNDEAD_HIGHLAND_CATTLE = register("undead_highland_cattle",
+            EntityType.Builder.of(UndeadHighlandCattle::new, MobCategory.CREATURE).sized(0.9f, 1.3f));
     public static final EntityType<SludgeBall> SLUDGE_BALL = register("sludge_ball",
             EntityType.Builder.<SludgeBall>of(SludgeBall::new, MobCategory.MISC).sized(0.25f, 0.25f).clientTrackingRange(4).updateInterval(10));
 
@@ -45,6 +47,7 @@ public final class Entities {
         consumer.accept(BONE_SLUDGE, BoneSludge.createAttributes().build());
         consumer.accept(SKULL_SLUDGE, SkullSludge.createAttributes().build());
         consumer.accept(ENDER_SKULL, EnderSkull.createAttributes().build());
+        consumer.accept(UNDEAD_HIGHLAND_CATTLE, UndeadHighlandCattle.createAttributes().build());
     }
 
     public interface SpawnPlacementRegistrar {
@@ -59,6 +62,7 @@ public final class Entities {
         registrar.register(SKULL_SLUDGE, SpawnPlacementTypes.ON_GROUND, surface, Monster::checkAnyLightMonsterSpawnRules);
         registrar.register(ENDER_SKULL, SpawnPlacementTypes.ON_GROUND, surface,
                 (type, level, reason, pos, random) -> (level.getLevel().isNight() || !level.canSeeSky(pos)) && Monster.checkAnyLightMonsterSpawnRules(type, level, reason, pos, random));
+        registrar.register(UNDEAD_HIGHLAND_CATTLE, SpawnPlacementTypes.ON_GROUND, surface, Mob::checkMobSpawnRules);
         registrar.register(BONE_WHALE, SpawnPlacementTypes.NO_RESTRICTIONS, surface,
                 (type, level, reason, pos, random) -> level.canSeeSky(pos));
     }
