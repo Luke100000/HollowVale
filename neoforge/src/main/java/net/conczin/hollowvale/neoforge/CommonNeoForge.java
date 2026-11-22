@@ -2,7 +2,6 @@ package net.conczin.hollowvale.neoforge;
 
 import net.conczin.hollowvale.Common;
 import net.conczin.hollowvale.Sounds;
-import net.conczin.hollowvale.world.TemplateFeature;
 import net.conczin.hollowvale.Structurify;
 import net.conczin.hollowvale.block.Blocks;
 import net.conczin.hollowvale.config.Config;
@@ -11,10 +10,13 @@ import net.conczin.hollowvale.entity.Entities;
 import net.conczin.hollowvale.item.Items;
 import net.conczin.hollowvale.item.ModPotions;
 import net.conczin.hollowvale.world.BiolithCompat;
+import net.conczin.hollowvale.world.ScavengerSpawner;
+import net.conczin.hollowvale.world.TemplateFeature;
 import net.conczin.hollowvale.world.TerraBlenderCompat;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.SpawnPlacementType;
@@ -31,6 +33,7 @@ import net.neoforged.neoforge.event.RegisterCommandsEvent;
 import net.neoforged.neoforge.event.brewing.RegisterBrewingRecipesEvent;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
+import net.neoforged.neoforge.event.tick.LevelTickEvent;
 import net.neoforged.neoforge.registries.RegisterEvent;
 
 import java.util.function.Consumer;
@@ -65,6 +68,13 @@ public final class CommonNeoForge {
     @SubscribeEvent
     public static void onRegisterBrewingRecipes(RegisterBrewingRecipesEvent event) {
         ModPotions.addBrewingRecipes(event.getBuilder());
+    }
+
+    @SubscribeEvent
+    public static void onLevelTick(LevelTickEvent.Post event) {
+        if (event.getLevel() instanceof ServerLevel level) {
+            ScavengerSpawner.tick(level);
+        }
     }
 
     @SubscribeEvent

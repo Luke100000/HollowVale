@@ -41,3 +41,6 @@ Hollow Vale contains assets from various awesome artists:
 | [Wandering Trader Jungle](https://blockbenchworkshop.com/model/octopuslab/wandering-trader-jungle) | @octopuslab | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) |
 | [Malicious Leathers](https://blockbenchworkshop.com/model/eanncrod/malicious-leathers)             | @eanncrod   | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) |
 
+## Mascot
+
+Sirben99.

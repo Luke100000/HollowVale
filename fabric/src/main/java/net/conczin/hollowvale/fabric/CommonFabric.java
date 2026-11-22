@@ -11,9 +11,11 @@ import net.conczin.hollowvale.fabric.mixin.SpawnPlacementsInvoker;
 import net.conczin.hollowvale.item.Items;
 import net.conczin.hollowvale.item.ModPotions;
 import net.conczin.hollowvale.world.BiolithCompat;
+import net.conczin.hollowvale.world.ScavengerSpawner;
 import net.conczin.hollowvale.world.TemplateFeature;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
@@ -55,6 +57,7 @@ public final class CommonFabric implements ModInitializer {
         } else if (!FabricLoader.getInstance().isModLoaded("terrablender")) {
             Common.LOGGER.warn("Neither Biolith nor TerraBlender is installed, so the Hollow Vale biomes will not generate");
         }
+        ServerTickEvents.END_WORLD_TICK.register(ScavengerSpawner::tick);
         CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> Structurify.register(dispatcher));
     }
 }

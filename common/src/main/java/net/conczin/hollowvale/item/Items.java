@@ -64,6 +64,7 @@ public final class Items {
     public static final Item SKULL_SLUDGE_SPAWN_EGG = spawnEgg("skull_sludge", Entities.SKULL_SLUDGE, 0x6E6585, 0xE3DDCB);
     public static final Item ENDER_SKULL_SPAWN_EGG = spawnEgg("ender_skull", Entities.ENDER_SKULL, 0x1E1E2A, 0xB35CDB);
     public static final Item UNDEAD_HIGHLAND_CATTLE_SPAWN_EGG = spawnEgg("undead_highland_cattle", Entities.UNDEAD_HIGHLAND_CATTLE, 0x5B4A3A, 0xC9C2A8);
+    public static final Item SCAVENGER_SPAWN_EGG = spawnEgg("scavenger", Entities.SCAVENGER, 0x6B5B45, 0xB8A27A);
 
     private static Item register(String name, Item item) {
         ITEMS.put(name, item);
