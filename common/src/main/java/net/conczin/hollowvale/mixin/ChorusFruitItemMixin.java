@@ -1,5 +1,7 @@
 package net.conczin.hollowvale.mixin;
 
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.conczin.hollowvale.block.MarrowLampBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -7,13 +9,13 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ChorusFruitItem;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Redirect;
+
 
 @Mixin(ChorusFruitItem.class)
 public abstract class ChorusFruitItemMixin {
     // A nearby Marrow Lamp replaces the random destination
-    @Redirect(method = "finishUsingItem", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/LivingEntity;randomTeleport(DDDZ)Z"))
-    private boolean hollowvale$teleportToLamp(LivingEntity entity, double x, double y, double z, boolean particles) {
+    @WrapOperation(method = "finishUsingItem", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/LivingEntity;randomTeleport(DDDZ)Z"))
+    private boolean hollowvale$teleportToLamp(LivingEntity entity, double x, double y, double z, boolean particles, Operation<Boolean> original) {
         BlockPos lamp = MarrowLampBlock.findNearest(entity.level(), entity.blockPosition(), MarrowLampBlock.RECALL_RANGE).orElse(null);
         if (lamp != null) {
             for (Direction direction : Direction.Plane.HORIZONTAL) {
@@ -23,6 +25,6 @@ public abstract class ChorusFruitItemMixin {
                 }
             }
         }
-        return entity.randomTeleport(x, y, z, particles);
+        return original.call(entity, x, y, z, particles);
     }
 }
