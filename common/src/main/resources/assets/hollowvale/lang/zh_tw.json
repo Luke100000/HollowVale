@@ -1,6 +1,9 @@
 {
   "itemGroup.hollowvale": "空谷",
+  "message.hollowvale.missing_biome_library": "由於既未安裝 Biolith，也未安裝 TerraBlender，因此「空谷」生物群系將不會生成。",
   "block.hollowvale.marrow_lamp": "骨髓燈",
+  "item.hollowvale.marrow_lamp.repels": "怪物們都保持著距離",
+  "item.hollowvale.marrow_lamp.recall": "在附近品嚐「Chorus」果實，便會來到此地",
   "block.hollowvale.wind_chime": "骨製風鈴",
   "block.hollowvale.whale_egg": "鯨魚蛋",
   "block.hollowvale.bone_bricks": "骨磚",
@@ -98,5 +101,9 @@
   "advancements.hollowvale.whale_egg.title": "脆弱的生態系統",
   "advancements.hollowvale.whale_egg.description": "從鯨魚的殘骸中刷出一顆鯨魚蛋",
   "advancements.hollowvale.fry_diet.title": "弗萊飲食法",
-  "advancements.hollowvale.fry_diet.description": "把一顆合唱水果遞給弗萊，看看那頭鯨魚會怎麼想"
+  "advancements.hollowvale.fry_diet.description": "把一顆合唱水果遞給弗萊，看看那頭鯨魚會怎麼想",
+  "advancements.hollowvale.scavenger.title": "公平貿易",
+  "advancements.hollowvale.scavenger.description": "Do business with the stranger riding through the Vale",
+  "advancements.hollowvale.marrow_lamp.title": "Light at the End",
+  "advancements.hollowvale.marrow_lamp.description": "Eat a chorus fruit near a Marrow Lamp and see where it takes you"
 }
