@@ -42,6 +42,8 @@ public class Scavenger extends AbstractVillager implements GeoEntity {
     private static final EntityDataAccessor<Integer> CHARGE = SynchedEntityData.defineId(Scavenger.class, EntityDataSerializers.INT);
 
     public static final int CHARGE_TICKS = 25;
+    private static final double MOUNTED_STROLL_SPEED = 1.25;
+    private static final double FOOT_STROLL_SPEED = 0.5;
     private static final int KEYCHAIN_PERCENT = 15;
     private static final int LIFETIME_TICKS = 5 * 60 * 20;
     private static final double TRADE_RANGE_SQ = 16.0 * 16.0;
@@ -67,7 +69,18 @@ public class Scavenger extends AbstractVillager implements GeoEntity {
         goalSelector.addGoal(1, new ScavengerCrossbowGoal(this));
         goalSelector.addGoal(1, new StandForTradeGoal(this, TRADE_RANGE_SQ));
         goalSelector.addGoal(2, new LookAtTradingPlayerGoal(this));
-        goalSelector.addGoal(8, new WaterAvoidingRandomStrollGoal(this, 1.0));
+        goalSelector.addGoal(8, new WaterAvoidingRandomStrollGoal(this, MOUNTED_STROLL_SPEED) {
+            @Override
+            public boolean canUse() {
+                return isPassenger() && super.canUse();
+            }
+        });
+        goalSelector.addGoal(8, new WaterAvoidingRandomStrollGoal(this, FOOT_STROLL_SPEED) {
+            @Override
+            public boolean canUse() {
+                return !isPassenger() && super.canUse();
+            }
+        });
         goalSelector.addGoal(9, new InteractGoal(this, Player.class, 3.0f, 1.0f));
         goalSelector.addGoal(10, new LookAtPlayerGoal(this, Mob.class, 8.0f));
 

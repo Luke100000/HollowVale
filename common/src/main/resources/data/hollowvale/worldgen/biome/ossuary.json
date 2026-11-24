@@ -98,19 +98,19 @@
     "monster": [
       {
         "type": "minecraft:skeleton",
-        "weight": 60,
+        "weight": 40,
         "minCount": 1,
-        "maxCount": 1
+        "maxCount": 2
       },
       {
         "type": "minecraft:enderman",
-        "weight": 10,
+        "weight": 6,
         "minCount": 1,
         "maxCount": 1
       },
       {
         "type": "hollowvale:hopping_skull",
-        "weight": 120,
+        "weight": 100,
         "minCount": 1,
         "maxCount": 1
       },
@@ -118,7 +118,7 @@
         "type": "hollowvale:bone_sludge",
         "weight": 60,
         "minCount": 1,
-        "maxCount": 1
+        "maxCount": 2
       },
       {
         "type": "hollowvale:skull_sludge",
@@ -128,35 +128,29 @@
       },
       {
         "type": "hollowvale:ender_skull",
-        "weight": 10,
+        "weight": 20,
         "minCount": 1,
         "maxCount": 1
       },
       {
         "type": "hollowvale:fry",
-        "weight": 40,
+        "weight": 70,
         "minCount": 1,
-        "maxCount": 1
+        "maxCount": 3
       }
     ],
     "creature": [
       {
-        "type": "hollowvale:bone_whale",
-        "weight": 25,
-        "minCount": 1,
-        "maxCount": 1
-      },
-      {
-        "type": "hollowvale:hopping_skull",
-        "weight": 300,
-        "minCount": 1,
-        "maxCount": 1
-      },
-      {
         "type": "hollowvale:undead_highland_cattle",
-        "weight": 50,
+        "weight": 60,
         "minCount": 2,
         "maxCount": 4
+      },
+      {
+        "type": "hollowvale:bone_whale",
+        "weight": 40,
+        "minCount": 1,
+        "maxCount": 1
       }
     ],
     "ambient": [],

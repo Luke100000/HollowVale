@@ -13,7 +13,7 @@ import software.bernie.geckolib.renderer.GeoEntityRenderer;
 import software.bernie.geckolib.renderer.layer.BlockAndItemGeoLayer;
 
 public class ScavengerRenderer extends GeoEntityRenderer<Scavenger> {
-    private static final String RIGHT_ARM = "right_arm";
+    private static final String HAND = "hand_item";
 
     public ScavengerRenderer(EntityRendererProvider.Context context) {
         super(context, new ScavengerModel());
@@ -22,7 +22,7 @@ public class ScavengerRenderer extends GeoEntityRenderer<Scavenger> {
         addRenderLayer(new BlockAndItemGeoLayer<>(this) {
             @Override
             protected ItemStack getStackForBone(GeoBone bone, Scavenger scavenger) {
-                return RIGHT_ARM.equals(bone.getName()) ? scavenger.getMainHandItem() : null;
+                return HAND.equals(bone.getName()) ? scavenger.getMainHandItem() : null;
             }
 
             @Override
@@ -35,7 +35,7 @@ public class ScavengerRenderer extends GeoEntityRenderer<Scavenger> {
                 pose.pushPose();
                 pose.mulPose(Axis.XP.rotationDegrees(90.0f));
                 pose.mulPose(Axis.YP.rotationDegrees(180.0f));
-                pose.translate(-1.0 / 16.0, -0.125, -0.625);
+                pose.translate(0.0, -0.125, 0.0);
                 Minecraft.getInstance().getItemRenderer().renderStatic(scavenger, stack, ItemDisplayContext.THIRD_PERSON_RIGHT_HAND, false, pose, buffer, scavenger.level(), light, overlay, scavenger.getId());
                 pose.popPose();
             }

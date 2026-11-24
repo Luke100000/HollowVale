@@ -3475,6 +3475,15 @@
 					]
 				},
 				{
+					"name": "hand_item",
+					"pivot": [
+						6,
+						12,
+						0.5
+					],
+					"parent": "right_arm"
+				},
+				{
 					"name": "armorLeftArm",
 					"pivot": [
 						5,

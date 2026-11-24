@@ -27,6 +27,7 @@ public class WindChimeRenderer implements BlockEntityRenderer<WindChimeBlockEnti
     private static final float RAIN_SWING = 6.0f;
     private static final float THUNDER_SWING = 8.0f;
     private static final int VIEW_DISTANCE = 32;
+    private static final float MAX_ELAPSED = 40.0f;
 
     private final BlockRenderDispatcher dispatcher;
     private final RandomSource random = RandomSource.create();
@@ -44,7 +45,15 @@ public class WindChimeRenderer implements BlockEntityRenderer<WindChimeBlockEnti
         float rain = level.getRainLevel(partialTick);
         float thunder = level.getThunderLevel(partialTick);
         float amplitude = CALM_SWING + RAIN_SWING * rain + THUNDER_SWING * thunder;
-        float time = (level.getGameTime() + partialTick) * (1.0f + 0.5f * rain + 0.5f * thunder);
+        float now = level.getGameTime() + partialTick;
+        float elapsed = now - chime.lastRenderTime;
+        if (chime.lastRenderTime < 0.0f || elapsed < 0.0f || elapsed > MAX_ELAPSED) {
+            chime.swingTime = now;
+        } else {
+            chime.swingTime += elapsed * (1.0f + 0.5f * rain + 0.5f * thunder);
+        }
+        chime.lastRenderTime = now;
+        float time = chime.swingTime;
         long seed = chime.getBlockPos().asLong();
 
         VertexConsumer consumer = buffers.getBuffer(Sheets.cutoutBlockSheet());

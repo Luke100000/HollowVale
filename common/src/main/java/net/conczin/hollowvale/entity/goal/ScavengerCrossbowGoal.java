@@ -21,8 +21,11 @@ public class ScavengerCrossbowGoal extends Goal {
     private static final float ARROW_SPEED = 1.6f;
     private static final float BASE_INACCURACY = 14.0f;
     private static final float INACCURACY_PER_DIFFICULTY = 4.0f;
-    private static final double RETREAT_SPEED = 1.3;
-    private static final double CHASE_SPEED = 1.0;
+
+    private static final double FOOT_RETREAT_SPEED = 1.15;
+    private static final double FOOT_CHASE_SPEED = 0.9;
+    private static final double MOUNTED_RETREAT_SPEED = 2.6;
+    private static final double MOUNTED_CHASE_SPEED = 2.0;
 
     private final Scavenger scavenger;
     private int cooldown;
@@ -69,7 +72,7 @@ public class ScavengerCrossbowGoal extends Goal {
         if (distance < TOO_CLOSE) {
             retreat(target);
         } else if (distance > TOO_FAR || !visible) {
-            scavenger.getNavigation().moveTo(target, CHASE_SPEED);
+            scavenger.getNavigation().moveTo(target, scavenger.isPassenger() ? MOUNTED_CHASE_SPEED : FOOT_CHASE_SPEED);
         } else {
             scavenger.getNavigation().stop();
         }
@@ -92,7 +95,7 @@ public class ScavengerCrossbowGoal extends Goal {
     private void retreat(LivingEntity target) {
         Vec3 away = DefaultRandomPos.getPosAway(scavenger, 16, 7, target.position());
         if (away != null) {
-            scavenger.getNavigation().moveTo(away.x, away.y, away.z, RETREAT_SPEED);
+            scavenger.getNavigation().moveTo(away.x, away.y, away.z, scavenger.isPassenger() ? MOUNTED_RETREAT_SPEED : FOOT_RETREAT_SPEED);
         }
     }
 
