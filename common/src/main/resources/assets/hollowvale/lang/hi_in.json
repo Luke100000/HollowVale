@@ -1,6 +1,9 @@
 {
   "itemGroup.hollowvale": "हॉलो वेले",
+  "message.hollowvale.missing_biome_library": "न तो बायोलिथ इंस्टॉल है और न ही टेराब्लेंडर, इसलिए हॉलो वेले बायोम उत्पन्न नहीं होंगे।",
   "block.hollowvale.marrow_lamp": "मज्जा दीपक",
+  "item.hollowvale.marrow_lamp.repels": "राक्षस अपनी दूरी बनाए रखते हैं",
+  "item.hollowvale.marrow_lamp.recall": "कोरस फल जो पास में खाया जाता है, तुम्हें यहाँ लाता है।",
   "block.hollowvale.wind_chime": "हड्डी की पवन घंटी",
   "block.hollowvale.whale_egg": "व्हेल का अंडा",
   "block.hollowvale.bone_bricks": "हड्डी की ईंटें",
@@ -98,5 +101,9 @@
   "advancements.hollowvale.whale_egg.title": "नाजुक पारिस्थितिकी तंत्र",
   "advancements.hollowvale.whale_egg.description": "व्हेल के अवशेषों से व्हेल का अंडा ब्रश से बाहर निकालें।",
   "advancements.hollowvale.fry_diet.title": "फ्राई डाइट",
-  "advancements.hollowvale.fry_diet.description": "एक फ्राइ को एक कोरस फल थमाएँ और देखें कि व्हेल इसके बारे में क्या सोचती है।"
+  "advancements.hollowvale.fry_diet.description": "एक फ्राइ को एक कोरस फल थमाएँ और देखें कि व्हेल इसके बारे में क्या सोचती है।",
+  "advancements.hollowvale.scavenger.title": "न्यायपूर्ण व्यापार",
+  "advancements.hollowvale.scavenger.description": "Do business with the stranger riding through the Vale",
+  "advancements.hollowvale.marrow_lamp.title": "Light at the End",
+  "advancements.hollowvale.marrow_lamp.description": "Eat a chorus fruit near a Marrow Lamp and see where it takes you"
 }
