@@ -1,6 +1,9 @@
 {
   "itemGroup.hollowvale": "Tuščias slėnis",
+  "message.hollowvale.missing_biome_library": "Nė „Biolith“, nei „TerraBlender“ nėra įdiegti, todėl „Hollow Vale“ biomasai nebus generuojami.",
   "block.hollowvale.marrow_lamp": "„Marrow“ lempa",
+  "item.hollowvale.marrow_lamp.repels": "Monstrai laikosi atokiau",
+  "item.hollowvale.marrow_lamp.recall": "„Chorus“ vaisius, suvalgytas netoliese, atveda tave čia",
   "block.hollowvale.wind_chime": "Kauliniai vėjo varpeliai",
   "block.hollowvale.whale_egg": "Banginio kiaušinis",
   "block.hollowvale.bone_bricks": "Kaulų plytos",
@@ -98,5 +101,9 @@
   "advancements.hollowvale.whale_egg.title": "Pažeidžiama ekosistema",
   "advancements.hollowvale.whale_egg.description": "Išvalykite banginio kiaušinį iš banginio liekanų",
   "advancements.hollowvale.fry_diet.title": "Fry dieta",
-  "advancements.hollowvale.fry_diet.description": "Paduokite „Fry“ „Chorus“ vaisių ir pažiūrėkite, ką apie jį manys banginis"
+  "advancements.hollowvale.fry_diet.description": "Paduokite „Fry“ „Chorus“ vaisių ir pažiūrėkite, ką apie jį manys banginis",
+  "advancements.hollowvale.scavenger.title": "Sąžininga prekyba",
+  "advancements.hollowvale.scavenger.description": "Do business with the stranger riding through the Vale",
+  "advancements.hollowvale.marrow_lamp.title": "Light at the End",
+  "advancements.hollowvale.marrow_lamp.description": "Eat a chorus fruit near a Marrow Lamp and see where it takes you"
 }
