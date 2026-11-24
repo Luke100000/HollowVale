@@ -1,6 +1,9 @@
 {
   "itemGroup.hollowvale": "Шупља долина",
+  "message.hollowvale.missing_biome_library": "Ни Biolith ни TerraBlender нису инсталирани, па се биоми Hollow Vale неће генерисати.",
   "block.hollowvale.marrow_lamp": "Срж лампа",
+  "item.hollowvale.marrow_lamp.repels": "Чудовишта држе дистанцу",
+  "item.hollowvale.marrow_lamp.recall": "Хор воћа који се једе у близини те доводи овде.",
   "block.hollowvale.wind_chime": "Костeни ветрозвон",
   "block.hollowvale.whale_egg": "Китово јаје",
   "block.hollowvale.bone_bricks": "Костне цигле",
@@ -98,5 +101,9 @@
   "advancements.hollowvale.whale_egg.title": "Крхки екосистем",
   "advancements.hollowvale.whale_egg.description": "Истрљајте китово јаје из остатака кита",
   "advancements.hollowvale.fry_diet.title": "Фрај дијета",
-  "advancements.hollowvale.fry_diet.description": "Упари воће из хора са Фрајом и види шта кит мисли о томе."
+  "advancements.hollowvale.fry_diet.description": "Упари воће из хора са Фрајом и види шта кит мисли о томе.",
+  "advancements.hollowvale.scavenger.title": "Праведна трговина",
+  "advancements.hollowvale.scavenger.description": "Do business with the stranger riding through the Vale",
+  "advancements.hollowvale.marrow_lamp.title": "Light at the End",
+  "advancements.hollowvale.marrow_lamp.description": "Eat a chorus fruit near a Marrow Lamp and see where it takes you"
 }
