@@ -1,6 +1,9 @@
 {
   "itemGroup.hollowvale": "할로우 베일",
+  "message.hollowvale.missing_biome_library": "Biolith도 TerraBlender도 설치되어 있지 않으므로, Hollow Vale 생물군이 생성되지 않습니다.",
   "block.hollowvale.marrow_lamp": "마로우 램프",
+  "item.hollowvale.marrow_lamp.repels": "괴물들은 거리를 둔다",
+  "item.hollowvale.marrow_lamp.recall": "근처에서 먹은 코러스 열매가 당신을 이곳으로 데려옵니다",
   "block.hollowvale.wind_chime": "뼈로 만든 바람종",
   "block.hollowvale.whale_egg": "고래 알",
   "block.hollowvale.bone_bricks": "뼈 벽돌",
@@ -98,5 +101,9 @@
   "advancements.hollowvale.whale_egg.title": "취약한 생태계",
   "advancements.hollowvale.whale_egg.description": "고래의 유해에서 고래 알을 긁어내다",
   "advancements.hollowvale.fry_diet.title": "프라이 식단",
-  "advancements.hollowvale.fry_diet.description": "프라이에게 코러스 과일을 하나 건네주고, 고래가 어떻게 반응하는지 지켜보세요"
+  "advancements.hollowvale.fry_diet.description": "프라이에게 코러스 과일을 하나 건네주고, 고래가 어떻게 반응하는지 지켜보세요",
+  "advancements.hollowvale.scavenger.title": "공정무역",
+  "advancements.hollowvale.scavenger.description": "Do business with the stranger riding through the Vale",
+  "advancements.hollowvale.marrow_lamp.title": "Light at the End",
+  "advancements.hollowvale.marrow_lamp.description": "Eat a chorus fruit near a Marrow Lamp and see where it takes you"
 }
