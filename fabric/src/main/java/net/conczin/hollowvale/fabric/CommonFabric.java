@@ -60,6 +60,8 @@ public final class CommonFabric implements ModInitializer {
         }
         ServerTickEvents.END_WORLD_TICK.register(ScavengerSpawner::tick);
         ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> Common.warnIfBiomeLibraryMissing(handler.getPlayer()));
-        CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> Structurify.register(dispatcher));
+        if (FabricLoader.getInstance().isDevelopmentEnvironment()) {
+            CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> Structurify.register(dispatcher));
+        }
     }
 }
