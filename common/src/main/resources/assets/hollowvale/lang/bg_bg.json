@@ -1,6 +1,9 @@
 {
   "itemGroup.hollowvale": "Холоу Вейл",
+  "message.hollowvale.missing_biome_library": "Нито Biolith, нито TerraBlender са инсталирани, така че биомите на Hollow Vale няма да се генерират.",
   "block.hollowvale.marrow_lamp": "Лампа „Marrow“",
+  "item.hollowvale.marrow_lamp.repels": "Чудовищата се държат на разстояние",
+  "item.hollowvale.marrow_lamp.recall": "Ако изядеш плода на хор, който расте наблизо, ще се озовеш тук",
   "block.hollowvale.wind_chime": "Костни камбанки за вятър",
   "block.hollowvale.whale_egg": "Яйце на кит",
   "block.hollowvale.bone_bricks": "Костни тухли",
@@ -98,5 +101,9 @@
   "advancements.hollowvale.whale_egg.title": "Крехка екосистема",
   "advancements.hollowvale.whale_egg.description": "Изгребете яйцето на кит от останките на кит",
   "advancements.hollowvale.fry_diet.title": "Диетата на Фрай",
-  "advancements.hollowvale.fry_diet.description": "Дай един плод от хора на Фрай и виж какво ще каже китът за него"
+  "advancements.hollowvale.fry_diet.description": "Дай един плод от хора на Фрай и виж какво ще каже китът за него",
+  "advancements.hollowvale.scavenger.title": "Справедлива търговия",
+  "advancements.hollowvale.scavenger.description": "Do business with the stranger riding through the Vale",
+  "advancements.hollowvale.marrow_lamp.title": "Light at the End",
+  "advancements.hollowvale.marrow_lamp.description": "Eat a chorus fruit near a Marrow Lamp and see where it takes you"
 }
