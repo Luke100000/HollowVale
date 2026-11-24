@@ -1,6 +1,9 @@
 {
   "itemGroup.hollowvale": "Gleann Folamh",
+  "message.hollowvale.missing_biome_library": "Níl Biolith ná TerraBlender suiteáilte, mar sin ní ghinfear na bith-réimsí de Ghleann an Fhóid.",
   "block.hollowvale.marrow_lamp": "Lampa smior",
+  "item.hollowvale.marrow_lamp.repels": "Coinníonn arrachtaigh a gcuid astarach",
+  "item.hollowvale.marrow_lamp.recall": "Tugann an toradh a itear in aice láimhe go dtí an talamh seo thú.",
   "block.hollowvale.wind_chime": "Cliathán gaoithe cnámh",
   "block.hollowvale.whale_egg": "Uibhe Muc-mhara",
   "block.hollowvale.bone_bricks": "Brící Cnámh",
@@ -98,5 +101,9 @@
   "advancements.hollowvale.whale_egg.title": "Éiceachóras leochaileach",
   "advancements.hollowvale.whale_egg.description": "scuab amach ubh míolta móra as iarsmaí míolta móra",
   "advancements.hollowvale.fry_diet.title": "Aiste bia Fry",
-  "advancements.hollowvale.fry_diet.description": "Tabhair toradh Chorús do Fry agus féach cad a cheapann an t-iasc mór faoi."
+  "advancements.hollowvale.fry_diet.description": "Tabhair toradh Chorús do Fry agus féach cad a cheapann an t-iasc mór faoi.",
+  "advancements.hollowvale.scavenger.title": "Trádáil Chothrom",
+  "advancements.hollowvale.scavenger.description": "Do business with the stranger riding through the Vale",
+  "advancements.hollowvale.marrow_lamp.title": "Light at the End",
+  "advancements.hollowvale.marrow_lamp.description": "Eat a chorus fruit near a Marrow Lamp and see where it takes you"
 }
