@@ -1,12 +1,11 @@
 package net.conczin.hollowvale.entity;
 
-import net.conczin.hollowvale.Common;
+import net.conczin.hollowvale.ModAdvancements;
 import net.conczin.hollowvale.Sounds;
 import net.conczin.hollowvale.client.RiderInput;
 import net.conczin.hollowvale.entity.goal.FarTemptGoal;
 import net.conczin.hollowvale.entity.goal.SkyWanderGoal;
 import net.conczin.hollowvale.item.Items;
-import net.minecraft.advancements.AdvancementHolder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
@@ -405,19 +404,15 @@ public class BoneWhale extends TamableAnimal implements GeoEntity, Saddleable {
         Vec3 target = findTeleportTarget(to, scale);
         teleportEffects(from, position());
         teleportCooldown = TELEPORT_COOLDOWN;
-        awardCommute(from);
+        awardCommute();
         changeDimension(new DimensionTransition(to, target, Vec3.ZERO, getYRot(), getXRot(), whale -> teleportEffects(to, whale.position())));
         return true;
     }
 
-    private void awardCommute(ServerLevel from) {
-        AdvancementHolder advancement = from.getServer().getAdvancements().get(Common.locate("whale_commute"));
-        if (advancement == null) {
-            return;
-        }
+    private void awardCommute() {
         for (Entity passenger : getPassengers()) {
             if (passenger instanceof ServerPlayer player) {
-                player.getAdvancements().award(advancement, "commuted");
+                ModAdvancements.award(player, "whale_commute", "commuted");
             }
         }
     }

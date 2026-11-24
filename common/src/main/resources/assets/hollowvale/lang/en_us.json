@@ -2,6 +2,8 @@
   "itemGroup.hollowvale": "Hollow Vale",
 
   "block.hollowvale.marrow_lamp": "Marrow Lamp",
+  "item.hollowvale.marrow_lamp.repels": "Monsters keep their distance",
+  "item.hollowvale.marrow_lamp.recall": "Chorus fruit eaten nearby lands you here",
   "block.hollowvale.wind_chime": "Bone Wind Chime",
   "block.hollowvale.whale_egg": "Whale Egg",
 
@@ -113,5 +115,9 @@
   "advancements.hollowvale.whale_egg.title": "Fragile Ecosystem",
   "advancements.hollowvale.whale_egg.description": "Brush a whale egg out of the remains of a whale",
   "advancements.hollowvale.fry_diet.title": "Fry Diet",
-  "advancements.hollowvale.fry_diet.description": "Hand a chorus fruit to a Fry and see what the whale thinks of it"
+  "advancements.hollowvale.fry_diet.description": "Hand a chorus fruit to a Fry and see what the whale thinks of it",
+  "advancements.hollowvale.scavenger.title": "Fair Trade",
+  "advancements.hollowvale.scavenger.description": "Do business with the stranger riding through the Vale",
+  "advancements.hollowvale.marrow_lamp.title": "Light at the End",
+  "advancements.hollowvale.marrow_lamp.description": "Eat a chorus fruit near a Marrow Lamp and see where it takes you"
 }

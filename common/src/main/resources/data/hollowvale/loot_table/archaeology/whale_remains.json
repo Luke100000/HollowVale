@@ -67,11 +67,6 @@
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:chorus_fruit",
-          "weight": 3
-        },
-        {
-          "type": "minecraft:item",
           "name": "hollowvale:ender_marrow",
           "weight": 6,
           "functions": [

@@ -101,21 +101,6 @@
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:chorus_fruit",
-          "weight": 5,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "type": "minecraft:uniform",
-                "min": 2,
-                "max": 5
-              }
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
           "name": "hollowvale:ender_fish_soup",
           "weight": 4,
           "functions": [

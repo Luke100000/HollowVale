@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": {
+      "id": "hollowvale:marrow_lamp"
+    },
+    "title": {
+      "translate": "advancements.hollowvale.marrow_lamp.title"
+    },
+    "description": {
+      "translate": "advancements.hollowvale.marrow_lamp.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "hollowvale:root",
+  "criteria": {
+    "recalled": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

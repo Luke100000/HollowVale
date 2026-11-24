@@ -17,6 +17,7 @@ displayURL = "${mod_homepage}"
 credits = "${credits}"
 authors = "${mod_author}"
 description = '''${description}'''
+logoFile = "icon.png"
 
 [[dependencies.${mod_id}]]
 modId = "neoforge"

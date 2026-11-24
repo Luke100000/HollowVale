@@ -2,9 +2,11 @@ package net.conczin.hollowvale.mixin;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
+import net.conczin.hollowvale.ModAdvancements;
 import net.conczin.hollowvale.block.MarrowLampBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ChorusFruitItem;
 import org.spongepowered.asm.mixin.Mixin;
@@ -21,6 +23,9 @@ public abstract class ChorusFruitItemMixin {
             for (Direction direction : Direction.Plane.HORIZONTAL) {
                 BlockPos spot = lamp.relative(direction);
                 if (entity.randomTeleport(spot.getX() + 0.5, spot.getY(), spot.getZ() + 0.5, particles)) {
+                    if (entity instanceof ServerPlayer player) {
+                        ModAdvancements.award(player, "marrow_lamp", "recalled");
+                    }
                     return true;
                 }
             }

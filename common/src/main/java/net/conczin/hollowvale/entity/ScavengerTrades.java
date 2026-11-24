@@ -35,7 +35,6 @@ final class ScavengerTrades {
 
     private static final VillagerTrades.ItemListing[] SELLS = {
             sale(() -> new ItemStack(Items.ENDER_MARROW, 2), 3, 12, 5),
-            sale(() -> new ItemStack(net.minecraft.world.item.Items.CHORUS_FRUIT, 4), 1, 16, 2),
             sale(() -> new ItemStack(net.minecraft.world.item.Items.ENDER_PEARL), 5, 12, 5),
             sale(() -> new ItemStack(Items.MARROW_LAMP), 2, 12, 2),
             book(ModEnchantments.LONG_LINE),
