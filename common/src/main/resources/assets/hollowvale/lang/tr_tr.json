@@ -1,6 +1,9 @@
 {
   "itemGroup.hollowvale": "Hollow Vale",
+  "message.hollowvale.missing_biome_library": "Ne Biolith ne de TerraBlender yüklü olduğundan, Hollow Vale biyomları oluşmayacaktır.",
   "block.hollowvale.marrow_lamp": "Marrow Lambası",
+  "item.hollowvale.marrow_lamp.repels": "Canavarlar mesafelerini korurlar",
+  "item.hollowvale.marrow_lamp.recall": "Yakınlarda yediğin Chorus meyvesi seni buraya getirir",
   "block.hollowvale.wind_chime": "Kemik Rüzgâr Çanı",
   "block.hollowvale.whale_egg": "Balina Yumurtası",
   "block.hollowvale.bone_bricks": "Kemik Tuğlaları",
@@ -98,5 +101,9 @@
   "advancements.hollowvale.whale_egg.title": "Hassas Ekosistem",
   "advancements.hollowvale.whale_egg.description": "Bir balina kalıntılarından balina yumurtasını fırçayla çıkar",
   "advancements.hollowvale.fry_diet.title": "Fry Diyeti",
-  "advancements.hollowvale.fry_diet.description": "Bir Fry’a bir koro meyvesi verin ve balinanın buna ne diyeceğini görün"
+  "advancements.hollowvale.fry_diet.description": "Bir Fry’a bir koro meyvesi verin ve balinanın buna ne diyeceğini görün",
+  "advancements.hollowvale.scavenger.title": "Adil Ticaret",
+  "advancements.hollowvale.scavenger.description": "Do business with the stranger riding through the Vale",
+  "advancements.hollowvale.marrow_lamp.title": "Light at the End",
+  "advancements.hollowvale.marrow_lamp.description": "Eat a chorus fruit near a Marrow Lamp and see where it takes you"
 }
