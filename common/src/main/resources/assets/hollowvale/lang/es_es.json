@@ -1,6 +1,9 @@
 {
   "itemGroup.hollowvale": "Valle hueco",
+  "message.hollowvale.missing_biome_library": "Ni Biolith ni TerraBlender están instalados, por lo que los biomas del Valle Hueco no generarán.",
   "block.hollowvale.marrow_lamp": "Lámpara de Mflecha",
+  "item.hollowvale.marrow_lamp.repels": "Los monstruos mantienen su distancia",
+  "item.hollowvale.marrow_lamp.recall": "Fruto coro comido tierras cercanas que aquí",
   "block.hollowvale.wind_chime": "Chime viento óseo",
   "block.hollowvale.whale_egg": "Huevo de ballena",
   "block.hollowvale.bone_bricks": "Ladrillos de hueso",
@@ -98,5 +101,9 @@
   "advancements.hollowvale.whale_egg.title": "Ecosistema frágil",
   "advancements.hollowvale.whale_egg.description": "Sacar un huevo de ballena de los restos de una ballena",
   "advancements.hollowvale.fry_diet.title": "Fría dieta",
-  "advancements.hollowvale.fry_diet.description": "Entrega una fruta coral a un Fry y ve lo que la ballena piensa de ella"
+  "advancements.hollowvale.fry_diet.description": "Entrega una fruta coral a un Fry y ve lo que la ballena piensa de ella",
+  "advancements.hollowvale.scavenger.title": "Comercio justo",
+  "advancements.hollowvale.scavenger.description": "Do business with the stranger riding through the Vale",
+  "advancements.hollowvale.marrow_lamp.title": "Light at the End",
+  "advancements.hollowvale.marrow_lamp.description": "Eat a chorus fruit near a Marrow Lamp and see where it takes you"
 }
