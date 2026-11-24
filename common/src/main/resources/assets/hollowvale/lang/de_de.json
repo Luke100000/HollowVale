@@ -1,6 +1,9 @@
 {
   "itemGroup.hollowvale": "Hohltal",
+  "message.hollowvale.missing_biome_library": "Weder Biolith noch TerraBlender sind installiert, so dass die Hohlen Vale Biome nicht erzeugt werden.",
   "block.hollowvale.marrow_lamp": "Markenlampe",
+  "item.hollowvale.marrow_lamp.repels": "Monster behalten ihre Distanz",
+  "item.hollowvale.marrow_lamp.recall": "Chorus Frucht gegessen in deiner Nähe",
   "block.hollowvale.wind_chime": "Knochenwind-Chime",
   "block.hollowvale.whale_egg": "Wal-Ei",
   "block.hollowvale.bone_bricks": "Knochenziegel",
@@ -98,5 +101,9 @@
   "advancements.hollowvale.whale_egg.title": "Zerbrechliches Ökosystem",
   "advancements.hollowvale.whale_egg.description": "Bürste ein Walei aus den Überresten eines Wales",
   "advancements.hollowvale.fry_diet.title": "Fry Diät",
-  "advancements.hollowvale.fry_diet.description": "Hand eine Chorusfrucht einem Fry und schaue, was der Wal davon denkt"
+  "advancements.hollowvale.fry_diet.description": "Hand eine Chorusfrucht einem Fry und schaue, was der Wal davon denkt",
+  "advancements.hollowvale.scavenger.title": "Fairer Handel",
+  "advancements.hollowvale.scavenger.description": "Do business with the stranger riding through the Vale",
+  "advancements.hollowvale.marrow_lamp.title": "Light at the End",
+  "advancements.hollowvale.marrow_lamp.description": "Eat a chorus fruit near a Marrow Lamp and see where it takes you"
 }
