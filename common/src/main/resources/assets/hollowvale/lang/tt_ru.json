@@ -1,6 +1,9 @@
 {
   "itemGroup.hollowvale": "Буш үзән",
+  "message.hollowvale.missing_biome_library": "Biolith та, TerraBlender да урнаштырылмаган, шуңа күрә Hollow Vale биоме барлыкка килмәячәк.",
   "block.hollowvale.marrow_lamp": "Сүяк лампасы",
+  "item.hollowvale.marrow_lamp.repels": "Монстрлар ерак торалар",
+  "item.hollowvale.marrow_lamp.recall": "Якында ашалган җимеш сине монда китерә.",
   "block.hollowvale.wind_chime": "Сөйәк җил чыңгыравы",
   "block.hollowvale.whale_egg": "Киттә йомырка",
   "block.hollowvale.bone_bricks": "Сөйәк кирпечләр",
@@ -98,5 +101,9 @@
   "advancements.hollowvale.whale_egg.title": "Зәгыйфь экосистема",
   "advancements.hollowvale.whale_egg.description": "Киттә калдыкларыннан кит йомыркасын чыгарып сөртеп ал",
   "advancements.hollowvale.fry_diet.title": "Фрай диета",
-  "advancements.hollowvale.fry_diet.description": "Фрайга «Hand a chorus fruit» җимешен тоттырып, кит моны ничек кабул итәчәген кара."
+  "advancements.hollowvale.fry_diet.description": "Фрайга «Hand a chorus fruit» җимешен тоттырып, кит моны ничек кабул итәчәген кара.",
+  "advancements.hollowvale.scavenger.title": "Гадел сәүдә",
+  "advancements.hollowvale.scavenger.description": "Do business with the stranger riding through the Vale",
+  "advancements.hollowvale.marrow_lamp.title": "Light at the End",
+  "advancements.hollowvale.marrow_lamp.description": "Eat a chorus fruit near a Marrow Lamp and see where it takes you"
 }
