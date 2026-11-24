@@ -1,6 +1,9 @@
 {
   "itemGroup.hollowvale": "Hollow Vale",
+  "message.hollowvale.missing_biome_library": "Biolith と TerraBlender のどちらも設置されていないため、Hollow Vale バイオームは生成されません。",
   "block.hollowvale.marrow_lamp": "マーロウランプ",
+  "item.hollowvale.marrow_lamp.repels": "モンスターは距離を保つ。",
+  "item.hollowvale.marrow_lamp.recall": "近くの土地でコーラスフルーツを食べました",
   "block.hollowvale.wind_chime": "骨の風の<unk>",
   "block.hollowvale.whale_egg": "クジラの卵",
   "block.hollowvale.bone_bricks": "骨ブロック",
@@ -98,5 +101,9 @@
   "advancements.hollowvale.whale_egg.title": "脆弱なエコシステム",
   "advancements.hollowvale.whale_egg.description": "鯨の残骸からクジラの卵を磨く。",
   "advancements.hollowvale.fry_diet.title": "フライダイエット",
-  "advancements.hollowvale.fry_diet.description": "合唱の果物をフライに渡して、クジラが考えていることを確認してください"
+  "advancements.hollowvale.fry_diet.description": "合唱の果物をフライに渡して、クジラが考えていることを確認してください",
+  "advancements.hollowvale.scavenger.title": "公正取引",
+  "advancements.hollowvale.scavenger.description": "ヴェールを通って乗っている見知らぬ人と取引をする",
+  "advancements.hollowvale.marrow_lamp.title": "終わりの光",
+  "advancements.hollowvale.marrow_lamp.description": "Eat a chorus fruit near a Marrow Lamp and see where it takes you"
 }
