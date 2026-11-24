@@ -1,6 +1,9 @@
 {
   "itemGroup.hollowvale": "Пустая Даліна",
+  "message.hollowvale.missing_biome_library": "Ні Biolith, ні TerraBlender не ўсталяваныя, таму біёмы Пустай Даліны не згенераваюцца.",
   "block.hollowvale.marrow_lamp": "Лампа «Кала»",
+  "item.hollowvale.marrow_lamp.repels": "Пачвары трымаюцца далей",
+  "item.hollowvale.marrow_lamp.recall": "Хор фруктаў, з'едзеных побач, прыводзіць цябе сюды",
   "block.hollowvale.wind_chime": "Касцяное веццевік",
   "block.hollowvale.whale_egg": "Кітавае яйка",
   "block.hollowvale.bone_bricks": "Касцяныя цагліны",
@@ -98,5 +101,9 @@
   "advancements.hollowvale.whale_egg.title": "Крохкая экасістэма",
   "advancements.hollowvale.whale_egg.description": "Вычэрпніце кітава яйка з рэшткаў кіта.",
   "advancements.hollowvale.fry_diet.title": "Дыета Фрая",
-  "advancements.hollowvale.fry_diet.description": "Падсуньце Фраю фрукт з хору і паглядзіце, што кіт пра яго думае."
+  "advancements.hollowvale.fry_diet.description": "Падсуньце Фраю фрукт з хору і паглядзіце, што кіт пра яго думае.",
+  "advancements.hollowvale.scavenger.title": "Справядлівы гандаль",
+  "advancements.hollowvale.scavenger.description": "Do business with the stranger riding through the Vale",
+  "advancements.hollowvale.marrow_lamp.title": "Light at the End",
+  "advancements.hollowvale.marrow_lamp.description": "Eat a chorus fruit near a Marrow Lamp and see where it takes you"
 }
