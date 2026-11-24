@@ -1,6 +1,9 @@
 {
   "itemGroup.hollowvale": "Դատարկ հովիտ",
+  "message.hollowvale.missing_biome_library": "Biolith-ը և TerraBlender-ը տեղադրված չեն, ուստի Hollow Vale բիոմները չեն գեներացվի։",
   "block.hollowvale.marrow_lamp": "Մարո լամպ",
+  "item.hollowvale.marrow_lamp.repels": "Մոնստրները պահպանում են հեռավորությունը",
+  "item.hollowvale.marrow_lamp.recall": "Քորուսի պտուղները, որոնք ուտվում են մոտակա հողերում, քեզ այստեղ են հասցնում։",
   "block.hollowvale.wind_chime": "Ոսկորային քամու զանգակ",
   "block.hollowvale.whale_egg": "Կետի ձու",
   "block.hollowvale.bone_bricks": "Ոսկորե աղյուսներ",
@@ -98,5 +101,9 @@
   "advancements.hollowvale.whale_egg.title": "Շատ խոցելի էկոհամակարգ",
   "advancements.hollowvale.whale_egg.description": "Մաքրեք կետաձվի ձուն կետաձվի մնացորդներից։",
   "advancements.hollowvale.fry_diet.title": "Ֆրայ դիետա",
-  "advancements.hollowvale.fry_diet.description": "Փռեք Ֆրային մի խմբակային պտուղ և տեսեք, թե ինչ է կետը դրա մասին մտածում։"
+  "advancements.hollowvale.fry_diet.description": "Փռեք Ֆրային մի խմբակային պտուղ և տեսեք, թե ինչ է կետը դրա մասին մտածում։",
+  "advancements.hollowvale.scavenger.title": "Արդար առևտուր",
+  "advancements.hollowvale.scavenger.description": "Do business with the stranger riding through the Vale",
+  "advancements.hollowvale.marrow_lamp.title": "Light at the End",
+  "advancements.hollowvale.marrow_lamp.description": "Eat a chorus fruit near a Marrow Lamp and see where it takes you"
 }
