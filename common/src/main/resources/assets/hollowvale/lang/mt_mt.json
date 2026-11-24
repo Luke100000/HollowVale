@@ -1,6 +1,9 @@
 {
   "itemGroup.hollowvale": "Wied Vojt",
+  "message.hollowvale.missing_biome_library": "Ma hemmx Biolith jew TerraBlender installati, għalhekk il-bijomi ta' Hollow Vale ma jiġġenerawx.",
   "block.hollowvale.marrow_lamp": "Lampa tal-midollo",
+  "item.hollowvale.marrow_lamp.repels": "Il-mostri iżommu d-distanza tagħhom",
+  "item.hollowvale.marrow_lamp.recall": "Il-frott Chorus li tiekol qrib artijiet iwasslek hawn.",
   "block.hollowvale.wind_chime": "Ċana tar-riħ tal-għadam",
   "block.hollowvale.whale_egg": "Bajda tal-balena",
   "block.hollowvale.bone_bricks": "Brixxi tal-għadam",
@@ -98,5 +101,9 @@
   "advancements.hollowvale.whale_egg.title": "Ekosistema Fraġli",
   "advancements.hollowvale.whale_egg.description": "Ixkott bajda ta' balena mill-fdalijiet ta' balena.",
   "advancements.hollowvale.fry_diet.title": "Dieta tal-fritt",
-  "advancements.hollowvale.fry_diet.description": "Agħti frott tal-korus lil Fry u ara x'jaħseb il-balena dwaru."
+  "advancements.hollowvale.fry_diet.description": "Agħti frott tal-korus lil Fry u ara x'jaħseb il-balena dwaru.",
+  "advancements.hollowvale.scavenger.title": "Kummerċ Ġust",
+  "advancements.hollowvale.scavenger.description": "Do business with the stranger riding through the Vale",
+  "advancements.hollowvale.marrow_lamp.title": "Light at the End",
+  "advancements.hollowvale.marrow_lamp.description": "Eat a chorus fruit near a Marrow Lamp and see where it takes you"
 }
