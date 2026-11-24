@@ -1,6 +1,9 @@
 {
   "itemGroup.hollowvale": "หุบเขาว่างเปล่า",
+  "message.hollowvale.missing_biome_library": "ทั้ง Biolith และ TerraBlender ยังไม่ได้ติดตั้ง ดังนั้น biomes ของ Hollow Vale จึงจะไม่ถูกสร้างขึ้น",
   "block.hollowvale.marrow_lamp": "โคมไฟ Marrow",
+  "item.hollowvale.marrow_lamp.repels": "สัตว์ประหลาดมักรักษาระยะห่าง",
+  "item.hollowvale.marrow_lamp.recall": "ผลไม้ที่กินในบริเวณใกล้เคียงจะนำคุณมาที่นี่",
   "block.hollowvale.wind_chime": "ระฆังลมทำจากกระดูก",
   "block.hollowvale.whale_egg": "ไข่ปลาวาฬ",
   "block.hollowvale.bone_bricks": "ก้อนกระดูก",
@@ -98,5 +101,9 @@
   "advancements.hollowvale.whale_egg.title": "ระบบนิเวศที่เปราะบาง",
   "advancements.hollowvale.whale_egg.description": "ใช้แปรงปัดไข่ปลาวาฬออกจากซากปลาวาฬ",
   "advancements.hollowvale.fry_diet.title": "อาหารแบบฟราย",
-  "advancements.hollowvale.fry_diet.description": "ให้ผลไม้คอร์รัสแก่ฟราย แล้วดูว่าวาฬคิดอย่างไร"
+  "advancements.hollowvale.fry_diet.description": "ให้ผลไม้คอร์รัสแก่ฟราย แล้วดูว่าวาฬคิดอย่างไร",
+  "advancements.hollowvale.scavenger.title": "การค้าที่เป็นธรรม",
+  "advancements.hollowvale.scavenger.description": "Do business with the stranger riding through the Vale",
+  "advancements.hollowvale.marrow_lamp.title": "Light at the End",
+  "advancements.hollowvale.marrow_lamp.description": "Eat a chorus fruit near a Marrow Lamp and see where it takes you"
 }
