@@ -1,6 +1,9 @@
 {
   "itemGroup.hollowvale": "Vale oco",
+  "message.hollowvale.missing_biome_library": "Nem o Biolith nem o TerraBlender estão instalados, então os biomas do Vale Hollow não irão gerar.",
   "block.hollowvale.marrow_lamp": "Lâmpada de Medula",
+  "item.hollowvale.marrow_lamp.repels": "Os monstros mantêm suas distâncias",
+  "item.hollowvale.marrow_lamp.recall": "Fruta de Coro come nas proximidades aterrissagem que você aqui",
   "block.hollowvale.wind_chime": "Mão do vento osso",
   "block.hollowvale.whale_egg": "Ovo de Baleia",
   "block.hollowvale.bone_bricks": "Blocos de Osso",
@@ -98,5 +101,9 @@
   "advancements.hollowvale.whale_egg.title": "Ecossistema Frágil",
   "advancements.hollowvale.whale_egg.description": "Escovar um ovo de baleia para fora dos restos de uma baleia",
   "advancements.hollowvale.fry_diet.title": "Dieta frita",
-  "advancements.hollowvale.fry_diet.description": "Entregue uma fruta do coro a um Frito e veja o que a baleia acha disso"
+  "advancements.hollowvale.fry_diet.description": "Entregue uma fruta do coro a um Frito e veja o que a baleia acha disso",
+  "advancements.hollowvale.scavenger.title": "Comércio Equitativo",
+  "advancements.hollowvale.scavenger.description": "Faça negócio com o estranho que atravessa o Vale",
+  "advancements.hollowvale.marrow_lamp.title": "Luz no Fim",
+  "advancements.hollowvale.marrow_lamp.description": "Coma uma fruta de coro perto de uma lâmpada de marrom e veja onde você leva"
 }
