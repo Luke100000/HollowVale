@@ -1,6 +1,9 @@
 {
   "itemGroup.hollowvale": "Hollow Vale",
+  "message.hollowvale.missing_biome_library": "Ker nista nameščena niti Biolith niti TerraBlender, se biomi Hollow Vale ne bodo ustvarili.",
   "block.hollowvale.marrow_lamp": "Lampa »Marrow«",
+  "item.hollowvale.marrow_lamp.repels": "Pošasti se držijo na razdalji",
+  "item.hollowvale.marrow_lamp.recall": "Če v bližini poješ plodove Chorusa, se znajdeš tukaj",
   "block.hollowvale.wind_chime": "Kostni zvonček vetra",
   "block.hollowvale.whale_egg": "Kitovo jajce",
   "block.hollowvale.bone_bricks": "Kostne opeke",
@@ -98,5 +101,9 @@
   "advancements.hollowvale.whale_egg.title": "Občutljiv ekosistem",
   "advancements.hollowvale.whale_egg.description": "Iz ostankov kita izčisti kitovo jajce",
   "advancements.hollowvale.fry_diet.title": "Fryjeva dieta",
-  "advancements.hollowvale.fry_diet.description": "Daj Fryju sadež iz zbora in poglej, kaj si o njem misli kit"
+  "advancements.hollowvale.fry_diet.description": "Daj Fryju sadež iz zbora in poglej, kaj si o njem misli kit",
+  "advancements.hollowvale.scavenger.title": "Pravična trgovina",
+  "advancements.hollowvale.scavenger.description": "Do business with the stranger riding through the Vale",
+  "advancements.hollowvale.marrow_lamp.title": "Light at the End",
+  "advancements.hollowvale.marrow_lamp.description": "Eat a chorus fruit near a Marrow Lamp and see where it takes you"
 }
