@@ -1,6 +1,9 @@
 {
   "itemGroup.hollowvale": "Thung lũng Rỗng",
+  "message.hollowvale.missing_biome_library": "Cả Biolith lẫn TerraBlender đều chưa được cài đặt, do đó các sinh cảnh Hollow Vale sẽ không được tạo ra.",
   "block.hollowvale.marrow_lamp": "Đèn Marrow",
+  "item.hollowvale.marrow_lamp.repels": "Quái vật luôn giữ khoảng cách",
+  "item.hollowvale.marrow_lamp.recall": "Quả Chorus được ăn ở khu vực lân cận sẽ đưa bạn đến đây",
   "block.hollowvale.wind_chime": "Chuông gió bằng xương",
   "block.hollowvale.whale_egg": "Trứng cá voi",
   "block.hollowvale.bone_bricks": "Gạch xương",
@@ -98,5 +101,9 @@
   "advancements.hollowvale.whale_egg.title": "Hệ sinh thái dễ bị tổn thương",
   "advancements.hollowvale.whale_egg.description": "Dùng bàn chải lấy một quả trứng cá voi ra khỏi xác con cá voi",
   "advancements.hollowvale.fry_diet.title": "Chế độ ăn kiêng Fry",
-  "advancements.hollowvale.fry_diet.description": "Hãy đưa một quả trái cây của dàn hợp xướng cho một chú Fry và xem con cá voi nghĩ gì về nó"
+  "advancements.hollowvale.fry_diet.description": "Hãy đưa một quả trái cây của dàn hợp xướng cho một chú Fry và xem con cá voi nghĩ gì về nó",
+  "advancements.hollowvale.scavenger.title": "Thương mại công bằng",
+  "advancements.hollowvale.scavenger.description": "Do business with the stranger riding through the Vale",
+  "advancements.hollowvale.marrow_lamp.title": "Light at the End",
+  "advancements.hollowvale.marrow_lamp.description": "Eat a chorus fruit near a Marrow Lamp and see where it takes you"
 }
