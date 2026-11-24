@@ -1,6 +1,9 @@
 {
   "itemGroup.hollowvale": "Κοίλο Βάλε",
+  "message.hollowvale.missing_biome_library": "Ούτε Biolith ούτε TerraBlender έχει εγκατασταθεί, έτσι ώστε το κοίλο βιώματα Vale δεν θα δημιουργήσει.",
   "block.hollowvale.marrow_lamp": "Λαμπτήρας Μυελού",
+  "item.hollowvale.marrow_lamp.repels": "Τέρατα κρατούν την απόσταση τους",
+  "item.hollowvale.marrow_lamp.recall": "Χορωδία φρούτα τρώγονται γύρω από τα εδάφη σας εδώ",
   "block.hollowvale.wind_chime": "Κοκάλινο Άνεμο Chime",
   "block.hollowvale.whale_egg": "Αυγό Φάλαινας",
   "block.hollowvale.bone_bricks": "Τούβλα Από Οστά",
@@ -98,5 +101,9 @@
   "advancements.hollowvale.whale_egg.title": "Εύθραυστο Οικοσύστημα",
   "advancements.hollowvale.whale_egg.description": "Βουρτσίστε ένα αυγό φάλαινας από τα υπολείμματα μιας φάλαινας",
   "advancements.hollowvale.fry_diet.title": "Τηγανισμένη Διατροφή",
-  "advancements.hollowvale.fry_diet.description": "Χέρι ένα χορτάρι φρούτα σε ένα τηγάνι και να δούμε τι σκέφτεται η φάλαινα"
+  "advancements.hollowvale.fry_diet.description": "Χέρι ένα χορτάρι φρούτα σε ένα τηγάνι και να δούμε τι σκέφτεται η φάλαινα",
+  "advancements.hollowvale.scavenger.title": "Δίκαιο Εμπόριο",
+  "advancements.hollowvale.scavenger.description": "Do business with the stranger riding through the Vale",
+  "advancements.hollowvale.marrow_lamp.title": "Light at the End",
+  "advancements.hollowvale.marrow_lamp.description": "Eat a chorus fruit near a Marrow Lamp and see where it takes you"
 }
