@@ -1,6 +1,9 @@
 {
   "itemGroup.hollowvale": "Ihålig Vale",
+  "message.hollowvale.missing_biome_library": "Varken Biolith eller TerraBlender är installerat, så Hollow Vale biomer kommer inte att generera.",
   "block.hollowvale.marrow_lamp": "Marrow lampa",
+  "item.hollowvale.marrow_lamp.repels": "Monster behåller sitt avstånd",
+  "item.hollowvale.marrow_lamp.recall": "Chorus frukt äts i närheten landar du här",
   "block.hollowvale.wind_chime": "Bone Wind Chime",
   "block.hollowvale.whale_egg": "Valägg",
   "block.hollowvale.bone_bricks": "Ben klossar",
@@ -98,5 +101,9 @@
   "advancements.hollowvale.whale_egg.title": "Bräckligt ekosystem",
   "advancements.hollowvale.whale_egg.description": "Pensla ett valägg ur resterna av en val",
   "advancements.hollowvale.fry_diet.title": "Stek kost",
-  "advancements.hollowvale.fry_diet.description": "Hand en refräng till en Fry och se vad valen tycker om det"
+  "advancements.hollowvale.fry_diet.description": "Hand en refräng till en Fry och se vad valen tycker om det",
+  "advancements.hollowvale.scavenger.title": "Rättvis handel",
+  "advancements.hollowvale.scavenger.description": "Gör affärer med främlingen rider genom Vale",
+  "advancements.hollowvale.marrow_lamp.title": "Ljus i slutet",
+  "advancements.hollowvale.marrow_lamp.description": "Ät en refräng i närheten av en Marrow Lamp och se vart det tar dig"
 }
