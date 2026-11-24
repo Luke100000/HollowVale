@@ -1,6 +1,9 @@
 {
   "itemGroup.hollowvale": "Puste Vale",
+  "message.hollowvale.missing_biome_library": "Ani Biolith ani TerraBlender nie są zainstalowane, więc Hollow Vale biomes nie będzie generowany.",
   "block.hollowvale.marrow_lamp": "Lampa marszowa",
+  "item.hollowvale.marrow_lamp.repels": "Potwory utrzymują swój dystans",
+  "item.hollowvale.marrow_lamp.recall": "Owoce Chorusa zjedzone pobliskie ziemie",
   "block.hollowvale.wind_chime": "Kościsty wapień wiatru",
   "block.hollowvale.whale_egg": "Jajko wieloryba",
   "block.hollowvale.bone_bricks": "Kościane cegły",
@@ -98,5 +101,9 @@
   "advancements.hollowvale.whale_egg.title": "Fragiczny ekosystem",
   "advancements.hollowvale.whale_egg.description": "pędzlij jajko wieloryba z reszty wieloryba",
   "advancements.hollowvale.fry_diet.title": "Płynna dieta",
-  "advancements.hollowvale.fry_diet.description": "Dostarcz chrzan do płomienia i zobacz, co czuje wieloryb"
+  "advancements.hollowvale.fry_diet.description": "Dostarcz chrzan do płomienia i zobacz, co czuje wieloryb",
+  "advancements.hollowvale.scavenger.title": "Sprawiedliwy handel",
+  "advancements.hollowvale.scavenger.description": "Prowadź interesy z nieznajomym jeźdem przez Vale",
+  "advancements.hollowvale.marrow_lamp.title": "Światło na końcu",
+  "advancements.hollowvale.marrow_lamp.description": "Zjedz kotwicowisko w pobliżu lampy marrow i zobacz gdzie cię zabiera"
 }
