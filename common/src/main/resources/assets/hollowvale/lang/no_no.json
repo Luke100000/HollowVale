@@ -1,6 +1,9 @@
 {
   "itemGroup.hollowvale": "Hul Vale",
+  "message.hollowvale.missing_biome_library": "Verken Biolith eller TerraBlender er installert, så de hule vale biomene vil ikke skape.",
   "block.hollowvale.marrow_lamp": "Marrow Lampe",
+  "item.hollowvale.marrow_lamp.repels": "Monstre beholder avstanden",
+  "item.hollowvale.marrow_lamp.recall": "Kor frukt spist i nærheten du her",
   "block.hollowvale.wind_chime": "Bein vindskime",
   "block.hollowvale.whale_egg": "Hval egg",
   "block.hollowvale.bone_bricks": "Bein blokker",
@@ -98,5 +101,9 @@
   "advancements.hollowvale.whale_egg.title": "Fragile Ecosystem",
   "advancements.hollowvale.whale_egg.description": "Puss et hvalegg ut av rester av en hval",
   "advancements.hollowvale.fry_diet.title": "Bra diett",
-  "advancements.hollowvale.fry_diet.description": "Hånden refreng frukt av en tansel og se hva hvalen tenker om det"
+  "advancements.hollowvale.fry_diet.description": "Hånden refreng frukt av en tansel og se hva hvalen tenker om det",
+  "advancements.hollowvale.scavenger.title": "Rettferdig Handel",
+  "advancements.hollowvale.scavenger.description": "Fremme selskapet som står bak tanken på Vale",
+  "advancements.hollowvale.marrow_lamp.title": "Lys på slutten",
+  "advancements.hollowvale.marrow_lamp.description": "Spis en korefrukt nær en Marrow Lamp og se hvor det tar deg"
 }
