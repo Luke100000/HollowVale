@@ -1,17 +1,6 @@
 {
   "processors": [
     {
-      "processor_type": "minecraft:block_ignore",
-      "blocks": [
-        {
-          "Name": "minecraft:air"
-        },
-        {
-          "Name": "minecraft:cave_air"
-        }
-      ]
-    },
-    {
       "processor_type": "minecraft:rule",
       "rules": [
         {
@@ -24,10 +13,7 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "minecraft:grass_block",
-            "Properties": {
-              "snowy": "false"
-            }
+            "Name": "minecraft:structure_void"
           }
         },
         {
@@ -40,10 +26,7 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "minecraft:grass_block",
-            "Properties": {
-              "snowy": "false"
-            }
+            "Name": "minecraft:structure_void"
           }
         },
         {
@@ -58,6 +41,20 @@
           "output_state": {
             "Name": "minecraft:air"
           }
+        }
+      ]
+    },
+    {
+      "processor_type": "minecraft:block_ignore",
+      "blocks": [
+        {
+          "Name": "minecraft:air"
+        },
+        {
+          "Name": "minecraft:cave_air"
+        },
+        {
+          "Name": "minecraft:structure_void"
         }
       ]
     }

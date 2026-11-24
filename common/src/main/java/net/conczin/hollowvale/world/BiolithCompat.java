@@ -4,25 +4,31 @@ import com.terraformersmc.biolith.api.biome.BiomePlacement;
 import com.terraformersmc.biolith.api.biome.sub.BiomeParameterTargets;
 import com.terraformersmc.biolith.api.biome.sub.Criterion;
 import com.terraformersmc.biolith.api.biome.sub.CriterionBuilder;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
 
+import java.util.List;
+
 public final class BiolithCompat {
-    private static final double VALE_SHARE = 0.2;
-    private static final float OSSUARY_DEVIATION = 0.1f;
+    // Share of each listed vanilla biome that is replaced. Matches TerraBlenderCompat's region weight.
+    private static final double SHARE = 0.16;
     private static final float MARROW_MIN_DEPTH = 0.2f;
     private static final float MARROW_MAX_DEPTH = 0.9f;
 
     public static void register() {
         // Taking over whole stretches of common land biomes gives regions as big as vanilla ones.
-        BiomePlacement.replaceOverworld(Biomes.PLAINS, ModBiomes.HOLLOW_VALE, VALE_SHARE);
-        BiomePlacement.replaceOverworld(Biomes.FOREST, ModBiomes.HOLLOW_VALE, VALE_SHARE);
-        BiomePlacement.replaceOverworld(Biomes.TAIGA, ModBiomes.HOLLOW_VALE, VALE_SHARE);
-        Criterion cellCenter = CriterionBuilder.allOf(
-                CriterionBuilder.deviation(BiomeParameterTargets.TEMPERATURE, -OSSUARY_DEVIATION, OSSUARY_DEVIATION),
-                CriterionBuilder.deviation(BiomeParameterTargets.HUMIDITY, -OSSUARY_DEVIATION, OSSUARY_DEVIATION));
-        BiomePlacement.addSubOverworld(ModBiomes.HOLLOW_VALE, ModBiomes.OSSUARY, cellCenter);
+        replace(List.of(Biomes.PLAINS, Biomes.SUNFLOWER_PLAINS, Biomes.TAIGA, Biomes.OLD_GROWTH_PINE_TAIGA, Biomes.OLD_GROWTH_SPRUCE_TAIGA), ModBiomes.HOLLOW_VALE);
+        replace(List.of(Biomes.FOREST, Biomes.BIRCH_FOREST, Biomes.FLOWER_FOREST), ModBiomes.OSSUARY);
         Criterion underground = CriterionBuilder.value(BiomeParameterTargets.DEPTH, MARROW_MIN_DEPTH, MARROW_MAX_DEPTH);
         BiomePlacement.addSubOverworld(ModBiomes.HOLLOW_VALE, ModBiomes.MARROW_HOLLOWS, underground);
         BiomePlacement.addSubOverworld(ModBiomes.OSSUARY, ModBiomes.MARROW_HOLLOWS, underground);
+    }
+
+    private static void replace(List<ResourceKey<Biome>> vanilla, ResourceKey<Biome> replacement) {
+        vanilla.forEach(biome -> BiomePlacement.replaceOverworld(biome, replacement, SHARE));
+    }
+
+    private BiolithCompat() {
     }
 }

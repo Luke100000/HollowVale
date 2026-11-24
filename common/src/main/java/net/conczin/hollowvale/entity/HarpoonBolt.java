@@ -57,6 +57,7 @@ public class HarpoonBolt extends ThrowableProjectile {
     private float anchorYRot;
     private double strength = 1.0;
     private int stringLevel;
+    private boolean pulled;
 
     public HarpoonBolt(EntityType<? extends HarpoonBolt> type, Level level) {
         super(type, level);
@@ -211,7 +212,9 @@ public class HarpoonBolt extends ThrowableProjectile {
         Entity target = getHookedEntity();
         if (target instanceof LivingEntity living && !isHeavy(target)) {
             damage(living, owner, PLUCK_DAMAGE + stringLevel);
-            applyHooked(living, owner);
+            if (center(owner).distanceTo(center(living)) >= ARRIVE_DISTANCE) {
+                applyHooked(living, owner);
+            }
         }
         playSound(SoundEvents.TRIDENT_RETURN, 1.0f, 1.2f);
         reel(owner, true);
@@ -241,12 +244,13 @@ public class HarpoonBolt extends ThrowableProjectile {
         Vec3 toOwner = center(owner).subtract(center(target));
         double distance = toOwner.length();
         if (distance < ARRIVE_DISTANCE) {
-            if (target instanceof LivingEntity living) {
+            if (target instanceof LivingEntity living && pulled) {
                 applyHooked(living, owner);
             }
             release();
             return;
         }
+        pulled = true;
         double speed = pluck ? PLUCK_SPEED * strength : Math.min(REEL_SPEED * strength, distance * 0.5);
         target.setDeltaMovement(toOwner.normalize().scale(speed).add(0.0, 0.04, 0.0));
         target.hurtMarked = true;

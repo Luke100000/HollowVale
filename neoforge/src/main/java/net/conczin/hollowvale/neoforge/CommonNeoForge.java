@@ -17,6 +17,7 @@ import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.SpawnPlacementType;
@@ -33,6 +34,7 @@ import net.neoforged.neoforge.event.RegisterCommandsEvent;
 import net.neoforged.neoforge.event.brewing.RegisterBrewingRecipesEvent;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
+import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.neoforged.neoforge.event.tick.LevelTickEvent;
 import net.neoforged.neoforge.registries.RegisterEvent;
 
@@ -78,6 +80,13 @@ public final class CommonNeoForge {
     }
 
     @SubscribeEvent
+    public static void onPlayerLoggedIn(PlayerEvent.PlayerLoggedInEvent event) {
+        if (event.getEntity() instanceof ServerPlayer player) {
+            Common.warnIfBiomeLibraryMissing(player);
+        }
+    }
+
+    @SubscribeEvent
     public static void onRegisterCommands(RegisterCommandsEvent event) {
         Structurify.register(event.getDispatcher());
     }
@@ -90,7 +99,7 @@ public final class CommonNeoForge {
             } else if (ModList.get().isLoaded("terrablender")) {
                 TerraBlenderCompat.register();
             } else {
-                Common.LOGGER.warn("Neither Biolith nor TerraBlender is installed, so the Hollow Vale biomes will not generate");
+                Common.reportMissingBiomeLibrary();
             }
         });
     }

@@ -1,6 +1,7 @@
 {
   "itemGroup.hollowvale": "Hollow Vale",
 
+  "message.hollowvale.missing_biome_library": "Neither Biolith nor TerraBlender is installed, so the Hollow Vale biomes will not generate.",
   "block.hollowvale.marrow_lamp": "Marrow Lamp",
   "item.hollowvale.marrow_lamp.repels": "Monsters keep their distance",
   "item.hollowvale.marrow_lamp.recall": "Chorus fruit eaten nearby lands you here",
