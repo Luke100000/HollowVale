@@ -1,6 +1,9 @@
 {
   "itemGroup.hollowvale": "Huelen Dall",
+  "message.hollowvale.missing_biome_library": "Weder Biolith nach TerraBlender ass installéiert, dofir ginn d'Hollow Vale-Biomer net generéiert.",
   "block.hollowvale.marrow_lamp": "Marklampe",
+  "item.hollowvale.marrow_lamp.repels": "Monstere halen hir Distanz",
+  "item.hollowvale.marrow_lamp.recall": "Chorus-Uebst, dat an der Noperschaft iesst, bréngt dech hei.",
   "block.hollowvale.wind_chime": "Been-Windklack",
   "block.hollowvale.whale_egg": "Walenei",
   "block.hollowvale.bone_bricks": "Bongesteen",
@@ -98,5 +101,9 @@
   "advancements.hollowvale.whale_egg.title": "Bréchegt Ëkosystem",
   "advancements.hollowvale.whale_egg.description": "Bürst e Wal-Ee aus de Reschter vun engem Wal eraus.",
   "advancements.hollowvale.fry_diet.title": "Frittéiert Diät",
-  "advancements.hollowvale.fry_diet.description": "Gitt engem Fry e Chorfrucht a kuckt, wat de Wal dovun hält."
+  "advancements.hollowvale.fry_diet.description": "Gitt engem Fry e Chorfrucht a kuckt, wat de Wal dovun hält.",
+  "advancements.hollowvale.scavenger.title": "Fair Trade",
+  "advancements.hollowvale.scavenger.description": "Do business with the stranger riding through the Vale",
+  "advancements.hollowvale.marrow_lamp.title": "Light at the End",
+  "advancements.hollowvale.marrow_lamp.description": "Eat a chorus fruit near a Marrow Lamp and see where it takes you"
 }
