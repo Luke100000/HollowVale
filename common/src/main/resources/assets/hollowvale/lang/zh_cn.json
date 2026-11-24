@@ -1,6 +1,9 @@
 {
   "itemGroup.hollowvale": "Hollow Vale",
+  "message.hollowvale.missing_biome_library": "未安装Biolith 或 TerraBlender ，因此Hollow Vale 生物群系不会生成。",
   "block.hollowvale.marrow_lamp": "Marrow 灯",
+  "item.hollowvale.marrow_lamp.repels": "怪物保持其距离",
+  "item.hollowvale.marrow_lamp.recall": "你在这里吃的合鲁斯水果！",
   "block.hollowvale.wind_chime": "骨风chime",
   "block.hollowvale.whale_egg": "鲸鱼蛋",
   "block.hollowvale.bone_bricks": "骨砖块",
@@ -98,5 +101,9 @@
   "advancements.hollowvale.whale_egg.title": "脆弱的星系",
   "advancements.hollowvale.whale_egg.description": "用鲸鱼的残骸画出鲸鱼蛋",
   "advancements.hollowvale.fry_diet.title": "Fry Diet",
-  "advancements.hollowvale.fry_diet.description": "一把合唱水果送到一个兄弟，看看一下鲸对它的看法"
+  "advancements.hollowvale.fry_diet.description": "一把合唱水果送到一个兄弟，看看一下鲸对它的看法",
+  "advancements.hollowvale.scavenger.title": "公平贸易",
+  "advancements.hollowvale.scavenger.description": "与陌生人穿越Vale做生意。",
+  "advancements.hollowvale.marrow_lamp.title": "在末尾点亮光",
+  "advancements.hollowvale.marrow_lamp.description": "在Marrow Lamp附近吃一个合唱水果，看看它在哪里带你"
 }
