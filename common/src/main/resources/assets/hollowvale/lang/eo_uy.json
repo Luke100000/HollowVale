@@ -1,6 +1,9 @@
 {
   "itemGroup.hollowvale": "Kava Valo",
+  "message.hollowvale.missing_biome_library": "Nek Biolith nek TerraBlender estas instalitaj, do la biomoj de Hollow Vale ne generiĝos.",
   "block.hollowvale.marrow_lamp": "Osta Lampo",
+  "item.hollowvale.marrow_lamp.repels": "Monstroj tenas sin for",
+  "item.hollowvale.marrow_lamp.recall": "Ĉoruso: Frukto manĝita proksime alvenigas vin ĉi tien.",
   "block.hollowvale.wind_chime": "Osta ventosonorilo",
   "block.hollowvale.whale_egg": "Balena ovo",
   "block.hollowvale.bone_bricks": "Osta briko",
@@ -98,5 +101,9 @@
   "advancements.hollowvale.whale_egg.title": "Vundebla ekosistemo",
   "advancements.hollowvale.whale_egg.description": "Forbrosu balenan ovon el la restaĵoj de baleno.",
   "advancements.hollowvale.fry_diet.title": "Frita dieto",
-  "advancements.hollowvale.fry_diet.description": "Donu al Fry korusan frukton kaj vidu, kion la baleno pri ĝi pensas."
+  "advancements.hollowvale.fry_diet.description": "Donu al Fry korusan frukton kaj vidu, kion la baleno pri ĝi pensas.",
+  "advancements.hollowvale.scavenger.title": "Justa Komerco",
+  "advancements.hollowvale.scavenger.description": "Do business with the stranger riding through the Vale",
+  "advancements.hollowvale.marrow_lamp.title": "Light at the End",
+  "advancements.hollowvale.marrow_lamp.description": "Eat a chorus fruit near a Marrow Lamp and see where it takes you"
 }
