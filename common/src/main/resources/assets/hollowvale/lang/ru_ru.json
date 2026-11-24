@@ -1,6 +1,9 @@
 {
   "itemGroup.hollowvale": "Долина",
+  "message.hollowvale.missing_biome_library": "Ни Biolith ни TerraBlender не установлен, поэтому биомы Hollow Vale не будут генерироваться.",
   "block.hollowvale.marrow_lamp": "Огненная лампа",
+  "item.hollowvale.marrow_lamp.repels": "Монстры сохраняют свое расстояние",
+  "item.hollowvale.marrow_lamp.recall": "Корус фруктов съел поблизости земли вы здесь",
   "block.hollowvale.wind_chime": "Костяной ветрогенератор",
   "block.hollowvale.whale_egg": "Китовое яйцо",
   "block.hollowvale.bone_bricks": "Костяные кирпичи",
@@ -98,5 +101,9 @@
   "advancements.hollowvale.whale_egg.title": "Фрагментная Экосистема",
   "advancements.hollowvale.whale_egg.description": "Китовое яйцо из останков кита",
   "advancements.hollowvale.fry_diet.title": "Жуткая диета",
-  "advancements.hollowvale.fry_diet.description": "Рука плода хора для Фрея и посмотреть, что думает о кит"
+  "advancements.hollowvale.fry_diet.description": "Рука плода хора для Фрея и посмотреть, что думает о кит",
+  "advancements.hollowvale.scavenger.title": "Справедливая торговля",
+  "advancements.hollowvale.scavenger.description": "Делайте бизнес с незнакомцем езды через Долину",
+  "advancements.hollowvale.marrow_lamp.title": "Свет в конце",
+  "advancements.hollowvale.marrow_lamp.description": "Съешьте фрукты припева рядом с Лампой Шляпы и посмотрите, где она принимает вас"
 }
