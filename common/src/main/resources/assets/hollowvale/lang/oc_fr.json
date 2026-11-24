@@ -1,6 +1,9 @@
 {
   "itemGroup.hollowvale": "Vauca Vòida",
+  "message.hollowvale.missing_biome_library": "Ni Biolith ni TerraBlender es installat, donc los biòmas de la Vall Vòida se generaràn pas.",
   "block.hollowvale.marrow_lamp": "Lampa de moèlh",
+  "item.hollowvale.marrow_lamp.repels": "Los monstres gardan la distància",
+  "item.hollowvale.marrow_lamp.recall": "Lo fruch del còr que se manja a costat t'aboca aquí.",
   "block.hollowvale.wind_chime": "Carilhon d'òs",
   "block.hollowvale.whale_egg": "Uòu de balena",
   "block.hollowvale.bone_bricks": "Bricas d'òs",
@@ -98,5 +101,9 @@
   "advancements.hollowvale.whale_egg.title": "Ecosistèma fragil",
   "advancements.hollowvale.whale_egg.description": "Pintar un uòu de balena demest los rèstas d'una balena.",
   "advancements.hollowvale.fry_diet.title": "Dieta de fregit",
-  "advancements.hollowvale.fry_diet.description": "Donatz un fruch de cor a un Fry e veiretz çò que la balena ne pensa."
+  "advancements.hollowvale.fry_diet.description": "Donatz un fruch de cor a un Fry e veiretz çò que la balena ne pensa.",
+  "advancements.hollowvale.scavenger.title": "Comèrci equitable",
+  "advancements.hollowvale.scavenger.description": "Do business with the stranger riding through the Vale",
+  "advancements.hollowvale.marrow_lamp.title": "Light at the End",
+  "advancements.hollowvale.marrow_lamp.description": "Eat a chorus fruit near a Marrow Lamp and see where it takes you"
 }
