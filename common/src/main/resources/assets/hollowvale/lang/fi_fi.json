@@ -1,6 +1,9 @@
 {
   "itemGroup.hollowvale": "Ontto Vale",
+  "message.hollowvale.missing_biome_library": "Biolith tai TerraBlender ei ole asennettu, joten Hollow Vale biomit eivät tuota niitä.",
   "block.hollowvale.marrow_lamp": "Marrow Lamppu",
+  "item.hollowvale.marrow_lamp.repels": "Hirviöt pitävät etäisyyden",
+  "item.hollowvale.marrow_lamp.recall": "Chorus hedelmät syövät lähistöllä laskeutuu tänne",
   "block.hollowvale.wind_chime": "Luutuulen Kalkki",
   "block.hollowvale.whale_egg": "Valan Muna",
   "block.hollowvale.bone_bricks": "Luun Tiilet",
@@ -98,5 +101,9 @@
   "advancements.hollowvale.whale_egg.title": "Fragile Ekosysteemi",
   "advancements.hollowvale.whale_egg.description": "Sivele valaanmuna valaanpalasta pois valaanpalan jäännöksestä",
   "advancements.hollowvale.fry_diet.title": "Fry Ruokavalio",
-  "advancements.hollowvale.fry_diet.description": "Kätke chorus hedelmä Fry ja katso mitä valas ajattelee siitä"
+  "advancements.hollowvale.fry_diet.description": "Kätke chorus hedelmä Fry ja katso mitä valas ajattelee siitä",
+  "advancements.hollowvale.scavenger.title": "Reilu Kauppa",
+  "advancements.hollowvale.scavenger.description": "Do business with the stranger riding through the Vale",
+  "advancements.hollowvale.marrow_lamp.title": "Light at the End",
+  "advancements.hollowvale.marrow_lamp.description": "Eat a chorus fruit near a Marrow Lamp and see where it takes you"
 }
