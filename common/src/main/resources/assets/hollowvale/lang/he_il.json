@@ -1,6 +1,9 @@
 {
   "itemGroup.hollowvale": "עמק הולו",
+  "message.hollowvale.missing_biome_library": "לא מותקן לא Biolith ולא TerraBlender, ולכן הביומים של Hollow Vale לא ייווצרו.",
   "block.hollowvale.marrow_lamp": "מנורת Marrow",
+  "item.hollowvale.marrow_lamp.repels": "המפלצות שומרות מרחק",
+  "item.hollowvale.marrow_lamp.recall": "אכילת פרי \"קורוס\" בסביבה תביא אותך לכאן",
   "block.hollowvale.wind_chime": "פעמוני רוח מעצם",
   "block.hollowvale.whale_egg": "ביצת לוויתן",
   "block.hollowvale.bone_bricks": "לבני עצם",
@@ -98,5 +101,9 @@
   "advancements.hollowvale.whale_egg.title": "מערכת אקולוגית שברירית",
   "advancements.hollowvale.whale_egg.description": "להוציא ביצת לוויתן מתוך שרידי לוויתן",
   "advancements.hollowvale.fry_diet.title": "דיאטת פריי",
-  "advancements.hollowvale.fry_diet.description": "תן פרי \"קורוס\" ל\"פריי\" ותראה מה הלווייתן חושב על זה"
+  "advancements.hollowvale.fry_diet.description": "תן פרי \"קורוס\" ל\"פריי\" ותראה מה הלווייתן חושב על זה",
+  "advancements.hollowvale.scavenger.title": "סחר הוגן",
+  "advancements.hollowvale.scavenger.description": "Do business with the stranger riding through the Vale",
+  "advancements.hollowvale.marrow_lamp.title": "Light at the End",
+  "advancements.hollowvale.marrow_lamp.description": "Eat a chorus fruit near a Marrow Lamp and see where it takes you"
 }
