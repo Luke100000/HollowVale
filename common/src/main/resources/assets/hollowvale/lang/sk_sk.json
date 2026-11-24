@@ -1,6 +1,9 @@
 {
   "itemGroup.hollowvale": "Hollow Vale",
+  "message.hollowvale.missing_biome_library": "Nie je nainštalovaný ani Biolith, ani TerraBlender, takže sa biomy Hollow Vale nevygenerujú.",
   "block.hollowvale.marrow_lamp": "Lampa „Marrow“",
+  "item.hollowvale.marrow_lamp.repels": "Príšery si udržujú odstup",
+  "item.hollowvale.marrow_lamp.recall": "Ak zješ ovocie z Chóru, ktoré rastie v okolí, ocitneš sa tu",
   "block.hollowvale.wind_chime": "Kostné zvonkohry",
   "block.hollowvale.whale_egg": "Vejce veľryby",
   "block.hollowvale.bone_bricks": "Kostné tehly",
@@ -98,5 +101,9 @@
   "advancements.hollowvale.whale_egg.title": "Krehký ekosystém",
   "advancements.hollowvale.whale_egg.description": "Vyčisti veľrybie vajce zo zvyškov veľryby",
   "advancements.hollowvale.fry_diet.title": "Fryho diéta",
-  "advancements.hollowvale.fry_diet.description": "Daj Fryovi ovocie z Chóru a uvidíš, čo si o ňom myslí veľryba"
+  "advancements.hollowvale.fry_diet.description": "Daj Fryovi ovocie z Chóru a uvidíš, čo si o ňom myslí veľryba",
+  "advancements.hollowvale.scavenger.title": "Spravodlivý obchod",
+  "advancements.hollowvale.scavenger.description": "Do business with the stranger riding through the Vale",
+  "advancements.hollowvale.marrow_lamp.title": "Light at the End",
+  "advancements.hollowvale.marrow_lamp.description": "Eat a chorus fruit near a Marrow Lamp and see where it takes you"
 }
