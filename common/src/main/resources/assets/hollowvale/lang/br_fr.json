@@ -1,6 +1,9 @@
 {
   "itemGroup.hollowvale": "Traoñienn Zigoñvel",
+  "message.hollowvale.missing_biome_library": "N'eo staliet na Biolith na TerraBlender, neuze ne vo ket krouet biomoù an Traoñienn C'houllo.",
   "block.hollowvale.marrow_lamp": "Lamp ar mel",
+  "item.hollowvale.marrow_lamp.repels": "An euzhviled a chom a-bell",
+  "item.hollowvale.marrow_lamp.recall": "Korus frouezh debret nepell a zouar ac'hanout amañ",
   "block.hollowvale.wind_chime": "Kilen-avel eskern",
   "block.hollowvale.whale_egg": "Vi ar balumed",
   "block.hollowvale.bone_bricks": "Brikennoù eskern",
@@ -98,5 +101,9 @@
   "advancements.hollowvale.whale_egg.title": "Ekoreizhiad bresk",
   "advancements.hollowvale.whale_egg.description": "Broustañ ur vi balumed er-maez eus restachoù ur balumed.",
   "advancements.hollowvale.fry_diet.title": "Reol-voued Frit",
-  "advancements.hollowvale.fry_diet.description": "Roit ur frouezh-koroll d'ur Fry ha gwelit petra a soñj ar balum dioutañ."
+  "advancements.hollowvale.fry_diet.description": "Roit ur frouezh-koroll d'ur Fry ha gwelit petra a soñj ar balum dioutañ.",
+  "advancements.hollowvale.scavenger.title": "Kenwerzh reizh",
+  "advancements.hollowvale.scavenger.description": "Do business with the stranger riding through the Vale",
+  "advancements.hollowvale.marrow_lamp.title": "Light at the End",
+  "advancements.hollowvale.marrow_lamp.description": "Eat a chorus fruit near a Marrow Lamp and see where it takes you"
 }
