@@ -1,6 +1,9 @@
 {
   "itemGroup.hollowvale": "دره توخالی",
+  "message.hollowvale.missing_biome_library": "نه Biolith و نه TerraBlender نصب نشده‌اند، بنابراین زیستگاه‌های Hollow Vale ایجاد نخواهند شد.",
   "block.hollowvale.marrow_lamp": "چراغ مغز استخوان",
+  "item.hollowvale.marrow_lamp.repels": "هیولاها فاصله می‌گیرند",
+  "item.hollowvale.marrow_lamp.recall": "میوه‌ی کرس که در زمین‌های اطراف خورده می‌شود، تو را اینجا فرود می‌آورد.",
   "block.hollowvale.wind_chime": "آویز بادی استخوانی",
   "block.hollowvale.whale_egg": "تخم نهنگ",
   "block.hollowvale.bone_bricks": "آجرهای استخوانی",
@@ -98,5 +101,9 @@
   "advancements.hollowvale.whale_egg.title": "اکوسیستم شکننده",
   "advancements.hollowvale.whale_egg.description": "یک تخم نهنگ را از میان بقایای یک نهنگ بیرون بکشید.",
   "advancements.hollowvale.fry_diet.title": "رژیم سرخ‌کردنی",
-  "advancements.hollowvale.fry_diet.description": "یک میوهٔ کرس را به یک فرای بده و ببین نهنگ درباره‌اش چه فکر می‌کند."
+  "advancements.hollowvale.fry_diet.description": "یک میوهٔ کرس را به یک فرای بده و ببین نهنگ درباره‌اش چه فکر می‌کند.",
+  "advancements.hollowvale.scavenger.title": "تجارت منصفانه",
+  "advancements.hollowvale.scavenger.description": "Do business with the stranger riding through the Vale",
+  "advancements.hollowvale.marrow_lamp.title": "Light at the End",
+  "advancements.hollowvale.marrow_lamp.description": "Eat a chorus fruit near a Marrow Lamp and see where it takes you"
 }
