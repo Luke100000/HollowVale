@@ -1,6 +1,9 @@
 {
   "itemGroup.hollowvale": "Gwastadedd y Twll",
+  "message.hollowvale.missing_biome_library": "Nid oes Biolith na TerraBlender wedi'u gosod, felly ni fydd biomau'r Hollow Vale yn cael eu cynhyrchu.",
   "block.hollowvale.marrow_lamp": "Lamp Moron",
+  "item.hollowvale.marrow_lamp.repels": "Mae'r angenfilod yn cadw draw",
+  "item.hollowvale.marrow_lamp.recall": "Mae ffrwythau'r corws a fwyteir yn agos yn eich glanio yma.",
   "block.hollowvale.wind_chime": "Clöch Gwynt Esgyrn",
   "block.hollowvale.whale_egg": "Wy Môr-forwyn",
   "block.hollowvale.bone_bricks": "Tociau Esgyrn",
@@ -98,5 +101,9 @@
   "advancements.hollowvale.whale_egg.title": "Eco-system bregus",
   "advancements.hollowvale.whale_egg.description": "Brwsiwch wy morfil allan o weddillion morfil",
   "advancements.hollowvale.fry_diet.title": "Deiet Ffrio",
-  "advancements.hollowvale.fry_diet.description": "Rho ffrwyth chorus i Fry a gwêl beth mae'r morfil yn ei feddwl ohono."
+  "advancements.hollowvale.fry_diet.description": "Rho ffrwyth chorus i Fry a gwêl beth mae'r morfil yn ei feddwl ohono.",
+  "advancements.hollowvale.scavenger.title": "Masnach Deg",
+  "advancements.hollowvale.scavenger.description": "Do business with the stranger riding through the Vale",
+  "advancements.hollowvale.marrow_lamp.title": "Light at the End",
+  "advancements.hollowvale.marrow_lamp.description": "Eat a chorus fruit near a Marrow Lamp and see where it takes you"
 }
