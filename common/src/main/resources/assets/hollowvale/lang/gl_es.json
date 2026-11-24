@@ -1,6 +1,9 @@
 {
   "itemGroup.hollowvale": "Valle Oco",
+  "message.hollowvale.missing_biome_library": "Non está instalado nin Biolith nin TerraBlender, polo que os biomas do Vale Oco non se xerarán.",
   "block.hollowvale.marrow_lamp": "Lámpada de medula",
+  "item.hollowvale.marrow_lamp.repels": "Os monstros manteñen a distancia",
+  "item.hollowvale.marrow_lamp.recall": "Coro de froitas comido preto de terras che leva aquí",
   "block.hollowvale.wind_chime": "Campá de vento ósea",
   "block.hollowvale.whale_egg": "Ovo de balea",
   "block.hollowvale.bone_bricks": "Ladrillos de óso",
@@ -98,5 +101,9 @@
   "advancements.hollowvale.whale_egg.title": "Ecosistema Fráxil",
   "advancements.hollowvale.whale_egg.description": "Cepilla un ovo de balea fóra dos restos dunha balea",
   "advancements.hollowvale.fry_diet.title": "Dieta frita",
-  "advancements.hollowvale.fry_diet.description": "Entregalle unha froita de coro a un Fry e mira o que pensa a balea."
+  "advancements.hollowvale.fry_diet.description": "Entregalle unha froita de coro a un Fry e mira o que pensa a balea.",
+  "advancements.hollowvale.scavenger.title": "Comercio Xusto",
+  "advancements.hollowvale.scavenger.description": "Do business with the stranger riding through the Vale",
+  "advancements.hollowvale.marrow_lamp.title": "Light at the End",
+  "advancements.hollowvale.marrow_lamp.description": "Eat a chorus fruit near a Marrow Lamp and see where it takes you"
 }
