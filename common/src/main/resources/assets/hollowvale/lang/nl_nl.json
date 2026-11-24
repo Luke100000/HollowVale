@@ -1,6 +1,9 @@
 {
   "itemGroup.hollowvale": "Holle Vaal",
+  "message.hollowvale.missing_biome_library": "Biolith noch TerraBlender is geïnstalleerd, dus de biomes van de Hollowvale zullen niet genereren.",
   "block.hollowvale.marrow_lamp": "Marge Lamp",
+  "item.hollowvale.marrow_lamp.repels": "Monsters houden hun afstand",
+  "item.hollowvale.marrow_lamp.recall": "Chorus heeft vlakbij landen gegeten die je hier hebt",
   "block.hollowvale.wind_chime": "Botten Wind Chime",
   "block.hollowvale.whale_egg": "Walvis Ei",
   "block.hollowvale.bone_bricks": "Botten bakstenen",
@@ -98,5 +101,9 @@
   "advancements.hollowvale.whale_egg.title": "Kwetsbaar ecosysteem",
   "advancements.hollowvale.whale_egg.description": "Borstel een walvis uit de overblijfselen van een walvis",
   "advancements.hollowvale.fry_diet.title": "Fry Dieet",
-  "advancements.hollowvale.fry_diet.description": "Lever een pak fruit naar een Fry en kijk wat de walvis ervan vindt"
+  "advancements.hollowvale.fry_diet.description": "Lever een pak fruit naar een Fry en kijk wat de walvis ervan vindt",
+  "advancements.hollowvale.scavenger.title": "Fair Trade",
+  "advancements.hollowvale.scavenger.description": "Doe zaken met de vreemdeling die door de Vale rijdt",
+  "advancements.hollowvale.marrow_lamp.title": "Licht aan het eind",
+  "advancements.hollowvale.marrow_lamp.description": "Eet een chorus fruit in de buurt van een Marrow Lamp en kijk waar het je naartoe brengt"
 }
