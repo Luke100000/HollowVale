@@ -1,6 +1,9 @@
 {
   "itemGroup.hollowvale": "Вейл порожнистий",
+  "message.hollowvale.missing_biome_library": "Ні біоліт, ні Терраблендер не встановлюють, тому біоми порожніх Vale не генеруються.",
   "block.hollowvale.marrow_lamp": "Марроу Лампа",
+  "item.hollowvale.marrow_lamp.repels": "Монстри підтримують свою відстань",
+  "item.hollowvale.marrow_lamp.recall": "Плід Хорса з'їв неподалік землі, які з’явилися тут",
   "block.hollowvale.wind_chime": "Кістяний вітер",
   "block.hollowvale.whale_egg": "Китове яйце",
   "block.hollowvale.bone_bricks": "Кісткова цегла",
@@ -98,5 +101,9 @@
   "advancements.hollowvale.whale_egg.title": "Фрагільний екосистема",
   "advancements.hollowvale.whale_egg.description": "Киньте кита яйце з залишків кита",
   "advancements.hollowvale.fry_diet.title": "Фрай Дайт",
-  "advancements.hollowvale.fry_diet.description": "Рука плід хор Фрі і подивитися, що кит думає про це"
+  "advancements.hollowvale.fry_diet.description": "Рука плід хор Фрі і подивитися, що кит думає про це",
+  "advancements.hollowvale.scavenger.title": "Справедлива торгівля",
+  "advancements.hollowvale.scavenger.description": "Робіть бізнес з незнайомцем, який їздить через Вейл",
+  "advancements.hollowvale.marrow_lamp.title": "Світло на Енді",
+  "advancements.hollowvale.marrow_lamp.description": "З'їжте плід хоруса біля мороку - Лампа і подивіться, куди він вас приведе,"
 }
