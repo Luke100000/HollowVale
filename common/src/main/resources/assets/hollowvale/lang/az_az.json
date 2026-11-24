@@ -1,6 +1,9 @@
 {
   "itemGroup.hollowvale": "Boş Vadisi",
+  "message.hollowvale.missing_biome_library": "Biolith də, TerraBlender də quraşdırılmayıb, buna görə də Hollow Vale biomları yaranmayacaq.",
   "block.hollowvale.marrow_lamp": "Sümük lampası",
+  "item.hollowvale.marrow_lamp.repels": "Canavarlar məsafəni saxlayırlar",
+  "item.hollowvale.marrow_lamp.recall": "Xoruz meyvəsi yaxınlıqda yeyildikdə səni buraya gətirir",
   "block.hollowvale.wind_chime": "Sümük külək zəngi",
   "block.hollowvale.whale_egg": "Kit yumurtası",
   "block.hollowvale.bone_bricks": "Sümük kərpicləri",
@@ -98,5 +101,9 @@
   "advancements.hollowvale.whale_egg.title": "Zəif Ekosistem",
   "advancements.hollowvale.whale_egg.description": "Kəpənək qalıqlarından kəpənək yumurtasını fırça ilə çıxarın.",
   "advancements.hollowvale.fry_diet.title": "Fry pəhrizi",
-  "advancements.hollowvale.fry_diet.description": "Fry-ə bir xoruz meyvəsi ver və balinanın bunun haqqında nə düşündüyünü gör."
+  "advancements.hollowvale.fry_diet.description": "Fry-ə bir xoruz meyvəsi ver və balinanın bunun haqqında nə düşündüyünü gör.",
+  "advancements.hollowvale.scavenger.title": "Ədalətli ticarət",
+  "advancements.hollowvale.scavenger.description": "Do business with the stranger riding through the Vale",
+  "advancements.hollowvale.marrow_lamp.title": "Light at the End",
+  "advancements.hollowvale.marrow_lamp.description": "Eat a chorus fruit near a Marrow Lamp and see where it takes you"
 }
