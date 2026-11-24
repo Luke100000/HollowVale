@@ -1,6 +1,9 @@
 {
   "itemGroup.hollowvale": "Vallée creuse",
+  "message.hollowvale.missing_biome_library": "Neither Biolith nor TerraBlender is installed, so the Hollow Vale biomes will not generate.",
   "block.hollowvale.marrow_lamp": "Lampe de moelle",
+  "item.hollowvale.marrow_lamp.repels": "Monsters keep their distance",
+  "item.hollowvale.marrow_lamp.recall": "Chorus fruit eaten nearby lands you here",
   "block.hollowvale.wind_chime": "Jeton de Vent d'Os",
   "block.hollowvale.whale_egg": "Oeuf de Baleine",
   "block.hollowvale.bone_bricks": "Briques d'os",
@@ -98,5 +101,9 @@
   "advancements.hollowvale.whale_egg.title": "Écosystème fragile",
   "advancements.hollowvale.whale_egg.description": "Brossez un oeuf de baleine sur les restes d'une baleine",
   "advancements.hollowvale.fry_diet.title": "Alimentation à frire",
-  "advancements.hollowvale.fry_diet.description": "Livrez un fruit de chœur à un Frite et voyez ce que la baleine en pense"
+  "advancements.hollowvale.fry_diet.description": "Livrez un fruit de chœur à un Frite et voyez ce que la baleine en pense",
+  "advancements.hollowvale.scavenger.title": "Fair Trade",
+  "advancements.hollowvale.scavenger.description": "Do business with the stranger riding through the Vale",
+  "advancements.hollowvale.marrow_lamp.title": "Light at the End",
+  "advancements.hollowvale.marrow_lamp.description": "Eat a chorus fruit near a Marrow Lamp and see where it takes you"
 }
