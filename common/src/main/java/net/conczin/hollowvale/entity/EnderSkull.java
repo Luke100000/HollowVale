@@ -339,4 +339,8 @@ public class EnderSkull extends Monster implements GeoEntity {
     public AnimatableInstanceCache getAnimatableInstanceCache() {
         return cache;
     }
+
+    @Override
+    protected void updateNoActionTime() {
+    }
 }

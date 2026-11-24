@@ -18,7 +18,7 @@ public final class BiolithCompat {
 
     public static void register() {
         // Taking over whole stretches of common land biomes gives regions as big as vanilla ones.
-        replace(List.of(Biomes.PLAINS, Biomes.SUNFLOWER_PLAINS, Biomes.TAIGA, Biomes.OLD_GROWTH_PINE_TAIGA, Biomes.OLD_GROWTH_SPRUCE_TAIGA), ModBiomes.HOLLOW_VALE);
+        replace(List.of(Biomes.PLAINS, Biomes.SUNFLOWER_PLAINS, Biomes.TAIGA), ModBiomes.HOLLOW_VALE);
         replace(List.of(Biomes.FOREST, Biomes.BIRCH_FOREST, Biomes.FLOWER_FOREST), ModBiomes.OSSUARY);
         Criterion underground = CriterionBuilder.value(BiomeParameterTargets.DEPTH, MARROW_MIN_DEPTH, MARROW_MAX_DEPTH);
         BiomePlacement.addSubOverworld(ModBiomes.HOLLOW_VALE, ModBiomes.MARROW_HOLLOWS, underground);

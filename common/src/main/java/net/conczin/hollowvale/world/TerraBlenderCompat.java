@@ -25,7 +25,7 @@ public final class TerraBlenderCompat {
             @Override
             public void addBiomes(Registry<Biome> registry, Consumer<Pair<Climate.ParameterPoint, ResourceKey<Biome>>> mapper) {
                 ModifiedVanillaOverworldBuilder builder = new ModifiedVanillaOverworldBuilder();
-                for (ResourceKey<Biome> vanilla : List.of(Biomes.PLAINS, Biomes.SUNFLOWER_PLAINS, Biomes.TAIGA, Biomes.OLD_GROWTH_PINE_TAIGA, Biomes.OLD_GROWTH_SPRUCE_TAIGA)) {
+                for (ResourceKey<Biome> vanilla : List.of(Biomes.PLAINS, Biomes.SUNFLOWER_PLAINS, Biomes.TAIGA)) {
                     builder.replaceBiome(vanilla, ModBiomes.HOLLOW_VALE);
                 }
                 for (ResourceKey<Biome> vanilla : List.of(Biomes.FOREST, Biomes.BIRCH_FOREST, Biomes.FLOWER_FOREST)) {
