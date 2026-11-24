@@ -1,6 +1,9 @@
 {
   "itemGroup.hollowvale": "Hollow Vale",
+  "message.hollowvale.missing_biome_library": "Hverken Biolith eller TerraBlender er installeret, så Hollow Vale biomer vil ikke generere.",
   "block.hollowvale.marrow_lamp": "Marv Lampe",
+  "item.hollowvale.marrow_lamp.repels": "Monstre beholder deres afstand",
+  "item.hollowvale.marrow_lamp.recall": "Kor frugt spist i nærheden lander du her",
   "block.hollowvale.wind_chime": "Knogle Vind Chime",
   "block.hollowvale.whale_egg": "Hvalæg",
   "block.hollowvale.bone_bricks": "Knoglemricks",
@@ -98,5 +101,9 @@
   "advancements.hollowvale.whale_egg.title": "Fragil Økosystem",
   "advancements.hollowvale.whale_egg.description": "Børste en hvalæg ud af resterne af en hval.",
   "advancements.hollowvale.fry_diet.title": "Stegt Kost",
-  "advancements.hollowvale.fry_diet.description": "Hånd en chorus frugt til en Fry og se hvad hvalen mener om det"
+  "advancements.hollowvale.fry_diet.description": "Hånd en chorus frugt til en Fry og se hvad hvalen mener om det",
+  "advancements.hollowvale.scavenger.title": "Fair Trade",
+  "advancements.hollowvale.scavenger.description": "Do business with the stranger riding through the Vale",
+  "advancements.hollowvale.marrow_lamp.title": "Light at the End",
+  "advancements.hollowvale.marrow_lamp.description": "Eat a chorus fruit near a Marrow Lamp and see where it takes you"
 }
