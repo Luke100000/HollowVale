@@ -1,6 +1,9 @@
 {
   "itemGroup.hollowvale": "Ọnụọgụ Ọnwụ",
+  "message.hollowvale.missing_biome_library": "Enweghị Biolith ma ọ bụ TerraBlender etinyere, ya mere biọm Hollow Vale agaghị apụta.",
   "block.hollowvale.marrow_lamp": "Lampa ọkpụkpụ",
+  "item.hollowvale.marrow_lamp.repels": "Anụ ọhịa na-edebe anya ha anya",
+  "item.hollowvale.marrow_lamp.recall": "Mkpụrụ chorus a na-eri nso ala na-eduga gị ebe a",
   "block.hollowvale.wind_chime": "Ngba ụda ikuku ọkpụkpụ",
   "block.hollowvale.whale_egg": "Akwa azù mmiri ukwu",
   "block.hollowvale.bone_bricks": "Ụdọ Ọkpụkpụ",
@@ -98,5 +101,9 @@
   "advancements.hollowvale.whale_egg.title": "Usoro ndụ dị nro",
   "advancements.hollowvale.whale_egg.description": "Sacha akwa azù ukwu si n'ihe fọdụrụ nke azù ukwu",
   "advancements.hollowvale.fry_diet.title": "Nri esi n'ọkụ",
-  "advancements.hollowvale.fry_diet.description": "Nye Fry mkpụrụ osisi chorus ma hụ ihe azù mmiri ukwu na-eche banyere ya."
+  "advancements.hollowvale.fry_diet.description": "Nye Fry mkpụrụ osisi chorus ma hụ ihe azù mmiri ukwu na-eche banyere ya.",
+  "advancements.hollowvale.scavenger.title": "Ahịa Ziri Ezi",
+  "advancements.hollowvale.scavenger.description": "Do business with the stranger riding through the Vale",
+  "advancements.hollowvale.marrow_lamp.title": "Light at the End",
+  "advancements.hollowvale.marrow_lamp.description": "Eat a chorus fruit near a Marrow Lamp and see where it takes you"
 }
