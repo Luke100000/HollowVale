@@ -1,6 +1,9 @@
 {
   "itemGroup.hollowvale": "Huts Bailara",
+  "message.hollowvale.missing_biome_library": "Ez Biolith ez TerraBlender ez daude instalatuta, beraz Hollow Vale biomoak ez dira sortuko.",
   "block.hollowvale.marrow_lamp": "Muineko lanpara",
+  "item.hollowvale.marrow_lamp.repels": "Munstroek euren arteko distantzia mantentzen dute",
+  "item.hollowvale.marrow_lamp.recall": "Hemen erortzen zaitu gertukoan jaten den Chorus-fruta.",
   "block.hollowvale.wind_chime": "Hezurrezko haize-kanpai",
   "block.hollowvale.whale_egg": "Izurrien arrautza",
   "block.hollowvale.bone_bricks": "Hezur-adreiluak",
@@ -98,5 +101,9 @@
   "advancements.hollowvale.whale_egg.title": "Ekosistema ahula",
   "advancements.hollowvale.whale_egg.description": "Marrazo baten arrautza marrazo baten hondakinetatik eskuilatu",
   "advancements.hollowvale.fry_diet.title": "Fry dieta",
-  "advancements.hollowvale.fry_diet.description": "Emazu koruko fruta bat Fryri eta ikusi zer pentsatzen duen baleak."
+  "advancements.hollowvale.fry_diet.description": "Emazu koruko fruta bat Fryri eta ikusi zer pentsatzen duen baleak.",
+  "advancements.hollowvale.scavenger.title": "Merkataritza bidezkoa",
+  "advancements.hollowvale.scavenger.description": "Do business with the stranger riding through the Vale",
+  "advancements.hollowvale.marrow_lamp.title": "Light at the End",
+  "advancements.hollowvale.marrow_lamp.description": "Eat a chorus fruit near a Marrow Lamp and see where it takes you"
 }
