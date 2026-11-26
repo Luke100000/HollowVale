@@ -16,12 +16,12 @@ import net.conczin.hollowvale.world.TemplateFeature;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
-import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
+import net.fabricmc.fabric.api.creativetab.v1.FabricCreativeModeTab;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
-import net.fabricmc.fabric.api.object.builder.v1.world.poi.PointOfInterestHelper;
-import net.fabricmc.fabric.api.registry.FabricBrewingRecipeRegistryBuilder;
+import net.fabricmc.fabric.api.object.builder.v1.world.poi.PoiHelper;
+import net.fabricmc.fabric.api.registry.FabricPotionBrewingBuilder;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -45,11 +45,11 @@ public final class CommonFabric implements ModInitializer {
         registerHelper(BuiltInRegistries.ITEM, Items::registerItems);
         registerHelper(BuiltInRegistries.POTION, ModPotions::registerPotions);
         registerHelper(BuiltInRegistries.MOB_EFFECT, ModEffects::registerEffects);
-        FabricBrewingRecipeRegistryBuilder.BUILD.register(ModPotions::addBrewingRecipes);
+        FabricPotionBrewingBuilder.BUILD.register(ModPotions::addBrewingRecipes);
         registerHelper(BuiltInRegistries.BLOCK_ENTITY_TYPE, helper -> Blocks.registerBlockEntities(helper,
                 (factory, blocks) -> FabricBlockEntityTypeBuilder.create(factory::apply, blocks).build()));
-        PointOfInterestHelper.register(Blocks.MARROW_LAMP_POI.location(), 0, 1, Blocks.MARROW_LAMP);
-        Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, Common.locate(Common.MOD_ID), Items.createTab(FabricItemGroup.builder()));
+        PoiHelper.register(Blocks.MARROW_LAMP_POI.identifier(), 0, 1, Blocks.MARROW_LAMP);
+        Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, Common.locate(Common.MOD_ID), Items.createTab(FabricCreativeModeTab.builder()));
 
         Entities.registerAttributes(FabricDefaultAttributeRegistry::register);
         Entities.registerSpawnPlacements(SpawnPlacementsInvoker::register);
@@ -58,7 +58,7 @@ public final class CommonFabric implements ModInitializer {
         } else if (!FabricLoader.getInstance().isModLoaded("terrablender")) {
             Common.reportMissingBiomeLibrary();
         }
-        ServerTickEvents.END_WORLD_TICK.register(ScavengerSpawner::tick);
+        ServerTickEvents.END_LEVEL_TICK.register(ScavengerSpawner::tick);
         ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> Common.warnIfBiomeLibraryMissing(handler.getPlayer()));
         if (FabricLoader.getInstance().isDevelopmentEnvironment()) {
             CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> Structurify.register(dispatcher));

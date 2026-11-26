@@ -3,9 +3,7 @@
   "category": "blocks",
   "cookingtime": 200,
   "experience": 0.1,
-  "ingredient": {
-    "item": "hollowvale:bone_bricks"
-  },
+  "ingredient": "hollowvale:bone_bricks",
   "result": {
     "id": "hollowvale:cracked_bone_bricks"
   }

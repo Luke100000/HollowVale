@@ -1,9 +1,11 @@
 package net.conczin.hollowvale.mixin;
 
-import com.mojang.blaze3d.systems.RenderSystem;
 import net.conczin.hollowvale.world.ModBiomes;
 import net.minecraft.client.Camera;
-import net.minecraft.client.renderer.FogRenderer;
+import net.minecraft.client.DeltaTracker;
+import net.minecraft.client.multiplayer.ClientLevel;
+import net.minecraft.client.renderer.fog.FogData;
+import net.minecraft.client.renderer.fog.FogRenderer;
 import net.minecraft.core.Holder;
 import net.minecraft.util.Mth;
 import net.minecraft.world.level.biome.Biome;
@@ -12,7 +14,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(FogRenderer.class)
 public abstract class FogRendererMixin {
@@ -25,16 +27,16 @@ public abstract class FogRendererMixin {
     @Unique
     private static final float NEUTRAL_SHARE = 0.999f;
     @Unique
-    private static float hollowvale$share = 1.0f;
+    private float hollowvale$share = 1.0f;
 
     // Thickens the terrain fog in the Hollow Vale biomes as a share of the render distance, fading in and out when crossing their border.
-    @Inject(method = "setupFog", at = @At("TAIL"))
-    private static void hollowvale$thickenFog(Camera camera, FogRenderer.FogMode mode, float farPlane, boolean foggy, float partialTick, CallbackInfo ci) {
-        if (mode != FogRenderer.FogMode.FOG_TERRAIN || camera.getFluidInCamera() != FogType.NONE) {
+    @Inject(method = "setupFog", at = @At("RETURN"))
+    private void hollowvale$thickenFog(Camera camera, int renderDistance, DeltaTracker deltaTracker, float darkenWorldAmount, ClientLevel level, CallbackInfoReturnable<FogData> cir) {
+        if (camera.getFluidInCamera() != FogType.NONE || camera.entity() == null) {
             return;
         }
 
-        Holder<Biome> biome = camera.getEntity().level().getBiome(camera.getBlockPosition());
+        Holder<Biome> biome = level.getBiome(camera.blockPosition());
         float target = biome.is(ModBiomes.OSSUARY) ? OSSUARY_FOG_SHARE : biome.is(ModBiomes.HOLLOW_VALE) ? VALE_FOG_SHARE : biome.is(ModBiomes.MARROW_HOLLOWS) ? MARROW_FOG_SHARE : 1.0f;
         hollowvale$share = Mth.lerp(0.004f, hollowvale$share, target);
         if (hollowvale$share > NEUTRAL_SHARE) {
@@ -42,10 +44,13 @@ public abstract class FogRendererMixin {
         }
 
         // Blends from vanilla's own fog, so it is untouched outside the biomes and only thickens as the share drops.
-        float vanillaStart = RenderSystem.getShaderFogStart();
-        float end = RenderSystem.getShaderFogEnd() * hollowvale$share;
+        FogData fog = cir.getReturnValue();
         float thickness = Mth.clamp((1.0f - hollowvale$share) / (1.0f - MARROW_FOG_SHARE), 0.0f, 1.0f);
-        RenderSystem.setShaderFogStart(Mth.lerp(thickness, vanillaStart, end * 0.25f));
-        RenderSystem.setShaderFogEnd(end);
+        float environmentalEnd = fog.environmentalEnd * hollowvale$share;
+        float renderDistanceEnd = fog.renderDistanceEnd * hollowvale$share;
+        fog.environmentalStart = Mth.lerp(thickness, fog.environmentalStart, environmentalEnd * 0.25f);
+        fog.renderDistanceStart = Mth.lerp(thickness, fog.renderDistanceStart, renderDistanceEnd * 0.25f);
+        fog.environmentalEnd = environmentalEnd;
+        fog.renderDistanceEnd = renderDistanceEnd;
     }
 }

@@ -2,13 +2,5 @@
   "parent": "minecraft:item/generated",
   "textures": {
     "layer0": "hollowvale:item/bone_mask"
-  },
-  "overrides": [
-    {
-      "predicate": {
-        "custom_model_data": 1
-      },
-      "model": "hollowvale:item/bone_mask_worn"
-    }
-  ]
+  }
 }

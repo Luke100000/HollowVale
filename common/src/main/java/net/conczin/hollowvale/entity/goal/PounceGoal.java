@@ -1,5 +1,7 @@
 package net.conczin.hollowvale.entity.goal;
 
+import net.minecraft.world.entity.Entity;
+import net.minecraft.server.level.ServerLevel;
 import net.conczin.hollowvale.Sounds;
 import net.conczin.hollowvale.entity.BoneSludge;
 import net.minecraft.util.Mth;
@@ -85,7 +87,7 @@ public class PounceGoal extends Goal {
             }
         } else if (!hit && sludge.getBoundingBox().inflate(0.2).intersects(target.getBoundingBox())) {
             hit = true;
-            sludge.doHurtTarget(target);
+            sludge.doHurtTarget((ServerLevel) sludge.level(), target);
         }
     }
 

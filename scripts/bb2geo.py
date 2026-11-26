@@ -2,8 +2,8 @@
 
 Usage: python3 scripts/bb2geo.py <assets_dir> <model.bbmodel>...
 
-Each <name>.bbmodel becomes geo/entity/<name>.geo.json and
-animations/entity/<name>.animation.json under <assets_dir>. A <name>.png
+Each <name>.bbmodel becomes geckolib/models/entity/<name>.geo.json and
+geckolib/animations/entity/<name>.animation.json under <assets_dir>. A <name>.png
 next to the model is copied to textures/entity/.
 
 The conversion matches Blockbench's own Bedrock export: X is mirrored and
@@ -188,9 +188,9 @@ def main() -> None:
     for model_path in map(Path, sys.argv[2:]):
         model = json.loads(model_path.read_text())
         name = model_path.stem
-        write_json(assets / "geo/entity" / f"{name}.geo.json", build_geometry(model))
+        write_json(assets / "geckolib/models/entity" / f"{name}.geo.json", build_geometry(model))
         write_json(
-            assets / "animations/entity" / f"{name}.animation.json",
+            assets / "geckolib/animations/entity" / f"{name}.animation.json",
             build_animations(model),
         )
 

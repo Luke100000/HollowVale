@@ -1,11 +1,12 @@
 package net.conczin.hollowvale.entity;
 
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.projectile.ThrowableItemProjectile;
+import net.minecraft.world.entity.projectile.throwableitemprojectile.ThrowableItemProjectile;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
@@ -20,7 +21,7 @@ public class SludgeBall extends ThrowableItemProjectile {
     }
 
     public SludgeBall(Level level, LivingEntity owner) {
-        super(Entities.SLUDGE_BALL, owner, level);
+        super(Entities.SLUDGE_BALL, owner, level, new net.minecraft.world.item.ItemStack(Items.SLIME_BALL));
     }
 
     @Override
@@ -31,16 +32,18 @@ public class SludgeBall extends ThrowableItemProjectile {
     @Override
     protected void onHitEntity(EntityHitResult result) {
         super.onHitEntity(result);
-        result.getEntity().hurt(damageSources().thrown(this, getOwner()), 1.0f);
+        if (level() instanceof ServerLevel serverLevel) {
+            result.getEntity().hurtServer(serverLevel, damageSources().thrown(this, getOwner()), 1.0f);
+        }
         if (result.getEntity() instanceof LivingEntity living) {
-            living.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 3 * 20, 1), getEffectSource());
+            living.addEffect(new MobEffectInstance(MobEffects.SLOWNESS, 3 * 20, 1), getEffectSource());
         }
     }
 
     @Override
     protected void onHit(HitResult result) {
         super.onHit(result);
-        if (!level().isClientSide) {
+        if (!level().isClientSide()) {
             level().broadcastEntityEvent(this, SPLASH_EVENT);
             discard();
         }

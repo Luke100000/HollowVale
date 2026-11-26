@@ -1,0 +1,34 @@
+{
+  "gives": {
+    "id": "minecraft:enchanted_book"
+  },
+  "given_item_modifiers": [
+    {
+      "function": "minecraft:enchant_randomly",
+      "include_additional_cost_component": true,
+      "only_compatible": false,
+      "options": "hollowvale:long_line"
+    },
+    {
+      "function": "minecraft:filtered",
+      "item_filter": {
+        "items": "minecraft:enchanted_book",
+        "predicates": {
+          "minecraft:stored_enchantments": [
+            {}
+          ]
+        }
+      },
+      "on_fail": {
+        "function": "minecraft:discard"
+      }
+    }
+  ],
+  "max_uses": 1.0,
+  "reputation_discount": 0.05,
+  "wants": {
+    "id": "minecraft:emerald",
+    "count": 0.0
+  },
+  "xp": 10.0
+}

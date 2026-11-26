@@ -74,11 +74,11 @@ public class SkyWanderGoal extends Goal {
 
             // Unloaded chunks and the void report the bottom of the world.
             int ground = level.getHeight(Heightmap.Types.MOTION_BLOCKING, Mth.floor(x), Mth.floor(z));
-            if (ground <= level.getMinBuildHeight()) {
+            if (ground <= level.getMinY()) {
                 continue;
             }
             double y = ground + Mth.nextDouble(random, minAltitude, maxAltitude);
-            return new Vec3(x, Math.min(y, level.getMaxBuildHeight() - mob.getBbHeight() - 1.0), z);
+            return new Vec3(x, Math.min(y, level.getMaxY() - mob.getBbHeight() - 1.0), z);
         }
         return null;
     }

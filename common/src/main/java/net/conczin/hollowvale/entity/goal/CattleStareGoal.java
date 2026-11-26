@@ -1,5 +1,6 @@
 package net.conczin.hollowvale.entity.goal;
 
+import net.minecraft.server.level.ServerLevel;
 import net.conczin.hollowvale.entity.UndeadHighlandCattle;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.ai.goal.Goal;
@@ -35,7 +36,7 @@ public class CattleStareGoal extends Goal {
         if (cattle.isStanding() || cattle.getRandom().nextInt(ODDS) != 0) {
             return false;
         }
-        player = cattle.level().getNearestPlayer(TargetingConditions.forNonCombat().range(RANGE), cattle);
+        player = ((ServerLevel) cattle.level()).getNearestPlayer(TargetingConditions.forNonCombat().range(RANGE), cattle);
         return player != null;
     }
 

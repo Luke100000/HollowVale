@@ -17,7 +17,7 @@ public final class ModEnchantments {
     }
 
     public static int level(Level level, ItemStack stack, ResourceKey<Enchantment> key) {
-        return level.registryAccess().registryOrThrow(Registries.ENCHANTMENT).getHolder(key)
+        return level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT).get(key)
                 .map(enchantment -> EnchantmentHelper.getItemEnchantmentLevel(enchantment, stack))
                 .orElse(0);
     }

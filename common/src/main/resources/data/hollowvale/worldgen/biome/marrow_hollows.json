@@ -3,44 +3,50 @@
   "downfall": 0.4,
   "has_precipitation": true,
   "creature_spawn_probability": 0.0,
-  "effects": {
-    "fog_color": 9078175,
-    "sky_color": 7104390,
-    "water_color": 7632545,
-    "water_fog_color": 3420752,
-    "grass_color": 8618375,
-    "foliage_color": 7697020,
-    "particle": {
-      "options": {
-        "type": "minecraft:reverse_portal"
+  "attributes": {
+    "minecraft:visual/fog_color": "#8a859f",
+    "minecraft:visual/sky_color": "#6c6786",
+    "minecraft:visual/water_fog_color": "#343250",
+    "minecraft:visual/ambient_particles": [
+      {
+        "particle": {
+          "type": "minecraft:reverse_portal"
+        },
+        "probability": 0.005
+      }
+    ],
+    "minecraft:audio/background_music": {
+      "default": {
+        "sound": "hollowvale:music.marrow_hollows",
+        "min_delay": 12000,
+        "max_delay": 24000,
+        "replace_current_music": false
+      }
+    },
+    "minecraft:audio/ambient_sounds": {
+      "loop": "hollowvale:ambient.marrow_hollows.loop",
+      "mood": {
+        "sound": "minecraft:ambient.cave",
+        "tick_delay": 6000,
+        "block_search_extent": 8,
+        "offset": 2.0
       },
-      "probability": 0.005
-    },
-    "music": {
-      "sound": "hollowvale:music.marrow_hollows",
-      "min_delay": 12000,
-      "max_delay": 24000,
-      "replace_current_music": false
-    },
-    "ambient_sound": "hollowvale:ambient.marrow_hollows.loop",
-    "mood_sound": {
-      "sound": "minecraft:ambient.cave",
-      "tick_delay": 6000,
-      "block_search_extent": 8,
-      "offset": 2.0
-    },
-    "additions_sound": {
-      "sound": "hollowvale:ambient.additions",
-      "tick_chance": 0.00555
+      "additions": {
+        "sound": "hollowvale:ambient.additions",
+        "tick_chance": 0.00555
+      }
     }
   },
-  "carvers": {
-    "air": [
-      "minecraft:cave",
-      "minecraft:cave_extra_underground",
-      "minecraft:canyon"
-    ]
+  "effects": {
+    "water_color": "#7476a1",
+    "grass_color": "#838187",
+    "foliage_color": "#75727c"
   },
+  "carvers": [
+    "minecraft:cave",
+    "minecraft:cave_extra_underground",
+    "minecraft:canyon"
+  ],
   "features": [
     [],
     [

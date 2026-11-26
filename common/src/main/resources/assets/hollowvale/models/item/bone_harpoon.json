@@ -2,13 +2,5 @@
   "parent": "minecraft:item/handheld",
   "textures": {
     "layer0": "hollowvale:item/bone_harpoon"
-  },
-  "overrides": [
-    {
-      "predicate": {
-        "custom_model_data": 1
-      },
-      "model": "hollowvale:item/bone_harpoon_in_hand"
-    }
-  ]
+  }
 }

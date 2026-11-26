@@ -131,7 +131,7 @@ public class HarpoonBolt extends ThrowableProjectile {
             xRotO = anchorXRot;
             yRotO = anchorYRot;
         }
-        if (!level().isClientSide) {
+        if (!level().isClientSide()) {
             tickServer();
         }
     }
@@ -289,7 +289,7 @@ public class HarpoonBolt extends ThrowableProjectile {
         }
         ItemStack weapon = owner.getItemInHand(getHand());
         DamageSource source = damageSources().thrown(this, owner);
-        if (target.hurt(source, EnchantmentHelper.modifyDamage(server, weapon, target, source, amount))) {
+        if (target.hurtServer(server, source, EnchantmentHelper.modifyDamage(server, weapon, target, source, amount))) {
             EnchantmentHelper.doPostAttackEffectsWithItemSource(server, target, source, weapon);
         }
     }

@@ -16,7 +16,7 @@ import java.util.Map;
 public final class ModPotions {
     private static final Map<String, Potion> POTIONS = new LinkedHashMap<>();
 
-    public static final ResourceKey<Potion> LEVITATION = register("levitation", new Potion(new MobEffectInstance(MobEffects.LEVITATION, 30 * 20)));
+    public static final ResourceKey<Potion> LEVITATION = register("levitation", new Potion("levitation", new MobEffectInstance(MobEffects.LEVITATION, 30 * 20)));
     public static final ResourceKey<Potion> LONG_LEVITATION = register("long_levitation", new Potion("levitation", new MobEffectInstance(MobEffects.LEVITATION, 60 * 20)));
 
     private static ResourceKey<Potion> register(String name, Potion potion) {
@@ -25,7 +25,7 @@ public final class ModPotions {
     }
 
     private static Holder<Potion> holder(ResourceKey<Potion> key) {
-        return BuiltInRegistries.POTION.getHolderOrThrow(key);
+        return BuiltInRegistries.POTION.get(key).orElseThrow();
     }
 
     public static void registerPotions(Common.RegisterHelper<Potion> helper) {

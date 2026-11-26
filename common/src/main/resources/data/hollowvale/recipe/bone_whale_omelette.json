@@ -3,9 +3,7 @@
   "category": "food",
   "cookingtime": 200,
   "experience": 0.35,
-  "ingredient": {
-    "item": "hollowvale:whale_egg"
-  },
+  "ingredient": "hollowvale:whale_egg",
   "result": {
     "id": "hollowvale:bone_whale_omelette"
   }

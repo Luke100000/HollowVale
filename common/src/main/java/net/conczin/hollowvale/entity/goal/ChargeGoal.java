@@ -1,5 +1,7 @@
 package net.conczin.hollowvale.entity.goal;
 
+import net.minecraft.world.entity.Entity;
+import net.minecraft.server.level.ServerLevel;
 import net.conczin.hollowvale.entity.EnderSkull;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.LivingEntity;
@@ -51,7 +53,7 @@ public class ChargeGoal extends Goal {
         if (skull.tickCount >= nextAttackTick && skull.isWithinMeleeAttackRange(target) && skull.hasLineOfSight(target)) {
             nextAttackTick = skull.tickCount + ATTACK_INTERVAL;
             skull.swing(InteractionHand.MAIN_HAND);
-            skull.doHurtTarget(target);
+            skull.doHurtTarget((ServerLevel) skull.level(), target);
         }
     }
 }

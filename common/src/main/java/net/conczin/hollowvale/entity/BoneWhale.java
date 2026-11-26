@@ -8,7 +8,8 @@ import net.conczin.hollowvale.entity.goal.SkyWanderGoal;
 import net.conczin.hollowvale.item.Items;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -33,23 +34,22 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.border.WorldBorder;
-import net.minecraft.world.level.portal.DimensionTransition;
+import net.minecraft.world.level.portal.TeleportTransition;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.Nullable;
-import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animation.AnimatableManager;
-import software.bernie.geckolib.animation.AnimationController;
-import software.bernie.geckolib.animation.PlayState;
-import software.bernie.geckolib.animation.RawAnimation;
-import software.bernie.geckolib.util.GeckoLibUtil;
+import com.geckolib.animatable.GeoEntity;
+import com.geckolib.animatable.instance.AnimatableInstanceCache;
+import com.geckolib.animatable.manager.AnimatableManager;
+import com.geckolib.animation.AnimationController;
+import com.geckolib.animation.object.PlayState;
+import com.geckolib.animation.RawAnimation;
+import com.geckolib.util.GeckoLibUtil;
 
 import java.util.List;
 
-public class BoneWhale extends TamableAnimal implements GeoEntity, Saddleable {
+public class BoneWhale extends TamableAnimal implements GeoEntity {
     private static final RawAnimation DEATH = RawAnimation.begin().thenPlayAndHold("animation.bone_whale.death");
-    private static final EntityDataAccessor<Boolean> SADDLED = SynchedEntityData.defineId(BoneWhale.class, EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<Boolean> YOUNG = SynchedEntityData.defineId(BoneWhale.class, EntityDataSerializers.BOOLEAN);
     private static final float YOUNG_SCALE = 0.9f;
     private static final float SWIM_CYCLE_TICKS = 3 * 20;
@@ -109,7 +109,6 @@ public class BoneWhale extends TamableAnimal implements GeoEntity, Saddleable {
     @Override
     protected void defineSynchedData(SynchedEntityData.Builder builder) {
         super.defineSynchedData(builder);
-        builder.define(SADDLED, false);
         builder.define(YOUNG, false);
     }
 
@@ -127,8 +126,8 @@ public class BoneWhale extends TamableAnimal implements GeoEntity, Saddleable {
     }
 
     @Override
-    protected void customServerAiStep() {
-        super.customServerAiStep();
+    protected void customServerAiStep(ServerLevel serverLevel) {
+        super.customServerAiStep(serverLevel);
         if (!isTame() && !isBaby() && tickCount % FRY_INTERVAL == 0 && level().getDifficulty() != Difficulty.PEACEFUL) {
             spawnFry();
         }
@@ -137,7 +136,7 @@ public class BoneWhale extends TamableAnimal implements GeoEntity, Saddleable {
     @Override
     public void tick() {
         super.tick();
-        if (level().isClientSide) {
+        if (level().isClientSide()) {
             previousTurnRate = turnRate;
             float moved = (float) new Vec3(getX() - xo, getY() - yo, getZ() - zo).length();
             swimSpeed += (Mth.clamp(0.75f + moved * 4.0f, 0.75f, 2.5f) - swimSpeed) * 0.1f;
@@ -167,12 +166,12 @@ public class BoneWhale extends TamableAnimal implements GeoEntity, Saddleable {
         if (getFry().size() >= MAX_FRY) {
             return;
         }
-        Fry fry = Entities.FRY.create(level());
+        Fry fry = Entities.FRY.create(level(), EntitySpawnReason.EVENT);
         if (fry == null) {
             return;
         }
         fry.setHost(this);
-        fry.moveTo(getX() + random.nextGaussian(), getY(0.5), getZ() + random.nextGaussian(), random.nextFloat() * 360.0f, 0.0f);
+        fry.snapTo(getX() + random.nextGaussian(), getY(0.5), getZ() + random.nextGaussian(), random.nextFloat() * 360.0f, 0.0f);
         level().addFreshEntity(fry);
     }
 
@@ -186,12 +185,12 @@ public class BoneWhale extends TamableAnimal implements GeoEntity, Saddleable {
     }
 
     @Override
-    public boolean hurt(DamageSource source, float amount) {
+    public boolean hurtServer(ServerLevel serverLevel, DamageSource source, float amount) {
         if (source.getEntity() != null && hasPassenger(source.getEntity())) {
             return false;
         }
-        boolean hurt = super.hurt(source, amount);
-        if (hurt && !level().isClientSide && source.getEntity() instanceof LivingEntity attacker) {
+        boolean hurt = super.hurtServer(serverLevel, source, amount);
+        if (hurt && !level().isClientSide() && source.getEntity() instanceof LivingEntity attacker) {
             getFry().forEach(fry -> fry.setTarget(attacker));
         }
         return hurt;
@@ -205,40 +204,40 @@ public class BoneWhale extends TamableAnimal implements GeoEntity, Saddleable {
             if (stack.is(net.minecraft.world.item.Items.CHORUS_FRUIT) || tickCount - mountedTick < DISMOUNT_DELAY) {
                 return InteractionResult.PASS;
             }
-            if (!level().isClientSide) {
+            if (!level().isClientSide()) {
                 player.stopRiding();
             }
-            return InteractionResult.sidedSuccess(level().isClientSide);
+            return InteractionResult.SUCCESS;
         }
         if (!isTame() || !isOwnedBy(player)) {
             return super.mobInteract(player, hand);
         }
 
         if (stack.is(Items.ENDER_MARROW) && (getHealth() < getMaxHealth() || isBaby())) {
-            if (!level().isClientSide) {
+            if (!level().isClientSide()) {
                 heal(10.0f);
                 if (isBaby()) {
                     ageUp(AgeableMob.getSpeedUpSecondsWhenFeeding(-getAge()), true);
                 }
                 stack.consume(1, player);
             }
-            return InteractionResult.sidedSuccess(level().isClientSide);
+            return InteractionResult.SUCCESS;
         }
 
         if (player.isSecondaryUseActive()) {
-            if (!level().isClientSide) {
+            if (!level().isClientSide()) {
                 setOrderedToSit(!isOrderedToSit());
                 getNavigation().stop();
             }
-            return InteractionResult.sidedSuccess(level().isClientSide);
+            return InteractionResult.SUCCESS;
         }
 
         if (isSaddled() && !isVehicle() && !stack.is(net.minecraft.world.item.Items.SADDLE)) {
-            if (!level().isClientSide) {
+            if (!level().isClientSide()) {
                 setOrderedToSit(false);
                 player.startRiding(this);
             }
-            return InteractionResult.sidedSuccess(level().isClientSide);
+            return InteractionResult.SUCCESS;
         }
 
         return super.mobInteract(player, hand);
@@ -262,29 +261,8 @@ public class BoneWhale extends TamableAnimal implements GeoEntity, Saddleable {
     }
 
     @Override
-    public boolean isSaddleable() {
-        return isAlive() && isTame() && !isBaby();
-    }
-
-    @Override
-    public void equipSaddle(ItemStack stack, @Nullable SoundSource source) {
-        entityData.set(SADDLED, true);
-        if (source != null) {
-            level().playSound(null, this, getSaddleSoundEvent(), source, 0.5f, 1.0f);
-        }
-    }
-
-    @Override
-    public boolean isSaddled() {
-        return entityData.get(SADDLED);
-    }
-
-    @Override
-    protected void dropEquipment() {
-        super.dropEquipment();
-        if (isSaddled()) {
-            spawnAtLocation(net.minecraft.world.item.Items.SADDLE);
-        }
+    public boolean canUseSlot(EquipmentSlot slot) {
+        return slot != EquipmentSlot.SADDLE ? super.canUseSlot(slot) : isAlive() && isTame() && !isBaby();
     }
 
     @Override
@@ -332,7 +310,7 @@ public class BoneWhale extends TamableAnimal implements GeoEntity, Saddleable {
     @Override
     public void lerpHeadTo(float yaw, int steps) {
         // The rider's client turns the whale itself; stale server head yaw would drag the body back.
-        if (!isControlledByLocalInstance()) {
+        if (!isLocalInstanceAuthoritative()) {
             super.lerpHeadTo(yaw, steps);
         }
     }
@@ -340,7 +318,7 @@ public class BoneWhale extends TamableAnimal implements GeoEntity, Saddleable {
     @Override
     public void travel(Vec3 input) {
         if (isAlive() && getControllingPassenger() instanceof Player rider) {
-            if (isControlledByLocalInstance()) {
+            if (isLocalInstanceAuthoritative()) {
                 travelRidden(rider);
             }
             return;
@@ -352,8 +330,8 @@ public class BoneWhale extends TamableAnimal implements GeoEntity, Saddleable {
         float yaw = getYRot() * Mth.DEG_TO_RAD;
         Vec3 forward = new Vec3(-Mth.sin(yaw), 0.0, Mth.cos(yaw));
         Vec3 thrust = forward.scale(rider.zza);
-        if (level().isClientSide) {
-            if (RiderInput.isAscending(rider) && getY() < level().getMaxBuildHeight()) {
+        if (level().isClientSide()) {
+            if (RiderInput.isAscending(rider) && getY() < level().getMaxY()) {
                 thrust = thrust.add(0.0, 1.0, 0.0);
             }
             if (RiderInput.isDescending(rider)) {
@@ -405,7 +383,7 @@ public class BoneWhale extends TamableAnimal implements GeoEntity, Saddleable {
         teleportEffects(from, position());
         teleportCooldown = TELEPORT_COOLDOWN;
         awardCommute();
-        changeDimension(new DimensionTransition(to, target, Vec3.ZERO, getYRot(), getXRot(), whale -> teleportEffects(to, whale.position())));
+        teleport(new TeleportTransition(to, target, Vec3.ZERO, getYRot(), getXRot(), whale -> teleportEffects(to, whale.position())));
         return true;
     }
 
@@ -421,7 +399,7 @@ public class BoneWhale extends TamableAnimal implements GeoEntity, Saddleable {
         WorldBorder border = to.getWorldBorder();
         double x = Mth.clamp(getX() * scale, border.getMinX() + 16.0, border.getMaxX() - 16.0);
         double z = Mth.clamp(getZ() * scale, border.getMinZ() + 16.0, border.getMaxZ() - 16.0);
-        double y = Mth.clamp(getY(), to.getMinBuildHeight() + 8.0, to.getMaxBuildHeight() - 8.0);
+        double y = Mth.clamp(getY(), to.getMinY() + 8.0, to.getMaxY() - 8.0);
 
         AABB box = getDimensions(getPose()).makeBoundingBox(x, y, z).expandTowards(0.0, 2.0, 0.0);
         for (int step = 0; step < 64 && !to.noCollision(box); step++) {
@@ -462,7 +440,7 @@ public class BoneWhale extends TamableAnimal implements GeoEntity, Saddleable {
     }
 
     @Override
-    public boolean causeFallDamage(float fallDistance, float multiplier, DamageSource source) {
+    public boolean causeFallDamage(double fallDistance, float multiplier, DamageSource source) {
         return false;
     }
 
@@ -480,19 +458,17 @@ public class BoneWhale extends TamableAnimal implements GeoEntity, Saddleable {
     }
 
     @Override
-    public void addAdditionalSaveData(CompoundTag tag) {
+    public void addAdditionalSaveData(ValueOutput tag) {
         super.addAdditionalSaveData(tag);
-        tag.putBoolean("Saddled", isSaddled());
         tag.putInt("FryFed", fryFed);
         tag.putInt("TeleportCooldown", teleportCooldown);
     }
 
     @Override
-    public void readAdditionalSaveData(CompoundTag tag) {
+    public void readAdditionalSaveData(ValueInput tag) {
         super.readAdditionalSaveData(tag);
-        entityData.set(SADDLED, tag.getBoolean("Saddled"));
-        fryFed = tag.getInt("FryFed");
-        teleportCooldown = tag.getInt("TeleportCooldown");
+        fryFed = tag.getIntOr("FryFed", 0);
+        teleportCooldown = tag.getIntOr("TeleportCooldown", 0);
     }
 
     @Override
@@ -512,8 +488,8 @@ public class BoneWhale extends TamableAnimal implements GeoEntity, Saddleable {
 
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        // Swimming is procedural, see BoneWhaleModel.
-        controllers.add(new AnimationController<>(this, state -> isDeadOrDying() ? state.setAndContinue(DEATH) : PlayState.STOP));
+        // Swimming is procedural, see BoneWhaleRenderer.
+        controllers.add(new AnimationController<>(state -> isDeadOrDying() ? state.setAndContinue(DEATH) : PlayState.STOP));
     }
 
     @Override

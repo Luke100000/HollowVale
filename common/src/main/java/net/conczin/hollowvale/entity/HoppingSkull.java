@@ -2,7 +2,8 @@ package net.conczin.hollowvale.entity;
 
 import net.conczin.hollowvale.Sounds;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -16,7 +17,7 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.AreaEffectCloud;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.MobSpawnType;
+import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.SpawnGroupData;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -26,10 +27,10 @@ import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.Nullable;
-import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animation.AnimatableManager;
-import software.bernie.geckolib.util.GeckoLibUtil;
+import com.geckolib.animatable.GeoEntity;
+import com.geckolib.animatable.instance.AnimatableInstanceCache;
+import com.geckolib.animatable.manager.AnimatableManager;
+import com.geckolib.util.GeckoLibUtil;
 
 /**
  * Lies on the floor like any other skull until a player comes close or it takes damage. Then it lights its fuse,
@@ -81,11 +82,11 @@ public class HoppingSkull extends Monster implements GeoEntity {
     }
 
     @Override
-    protected void customServerAiStep() {
-        super.customServerAiStep();
+    protected void customServerAiStep(ServerLevel serverLevel) {
+        super.customServerAiStep(serverLevel);
 
         if (!isFused()) {
-            LivingEntity player = level().getNearestPlayer(TargetingConditions.forCombat().range(WAKE_RANGE), this);
+            LivingEntity player = ((ServerLevel) level()).getNearestPlayer(TargetingConditions.forCombat().range(WAKE_RANGE), this);
             if (player != null) {
                 lightFuse(player);
             }
@@ -133,6 +134,7 @@ public class HoppingSkull extends Monster implements GeoEntity {
                 Level.ExplosionInteraction.NONE,
                 ParticleTypes.EXPLOSION,
                 ParticleTypes.EXPLOSION,
+                net.minecraft.util.random.WeightedList.of(),
                 SoundEvents.GENERIC_EXPLODE
         );
 
@@ -141,12 +143,12 @@ public class HoppingSkull extends Monster implements GeoEntity {
             server.sendParticles(ParticleTypes.FLAME, getX(), getY(0.5), getZ(), 40, 0.4, 0.3, 0.4, 0.1);
             server.sendParticles(ParticleTypes.LAVA, getX(), getY(0.5), getZ(), 8, 0.2, 0.1, 0.2, 0.0);
             server.sendParticles(ParticleTypes.SMOKE, getX(), getY(0.5), getZ(), 50, 0.5, 0.3, 0.5, 0.06);
-            server.sendParticles(ParticleTypes.DRAGON_BREATH, getX(), getY(0.5), getZ(), 30, 0.5, 0.3, 0.5, 0.05);
+            server.sendParticles(net.minecraft.core.particles.PowerParticleOption.create(ParticleTypes.DRAGON_BREATH, 1.0f), getX(), getY(0.5), getZ(), 30, 0.5, 0.3, 0.5, 0.05);
         }
 
         AreaEffectCloud cloud = new AreaEffectCloud(level(), getX(), getY(), getZ());
         cloud.setOwner(this);
-        cloud.setParticle(ParticleTypes.DRAGON_BREATH);
+        cloud.setCustomParticle(net.minecraft.core.particles.PowerParticleOption.create(ParticleTypes.DRAGON_BREATH, 1.0f));
         cloud.setRadius(2.0f);
         cloud.setDuration(40);
         cloud.setRadiusPerTick(-cloud.getRadius() / cloud.getDuration());
@@ -157,9 +159,9 @@ public class HoppingSkull extends Monster implements GeoEntity {
     }
 
     @Override
-    public boolean hurt(DamageSource source, float amount) {
-        boolean hurt = super.hurt(source, amount);
-        if (hurt && !level().isClientSide && isAlive()) {
+    public boolean hurtServer(ServerLevel serverLevel, DamageSource source, float amount) {
+        boolean hurt = super.hurtServer(serverLevel, source, amount);
+        if (hurt && !level().isClientSide() && isAlive()) {
             LivingEntity attacker = source.getEntity() instanceof LivingEntity living ? living : level().getNearestPlayer(this, 16.0);
             lightFuse(attacker);
         }
@@ -169,7 +171,7 @@ public class HoppingSkull extends Monster implements GeoEntity {
     @Override
     public void tick() {
         super.tick();
-        if (level().isClientSide && isFused()) {
+        if (level().isClientSide() && isFused()) {
             level().addParticle(ParticleTypes.SMOKE, getRandomX(0.5), getRandomY(), getRandomZ(0.5), 0.0, 0.02, 0.0);
             if (random.nextInt(3) == 0) {
                 level().addParticle(ParticleTypes.FLAME, getRandomX(0.4), getY(0.8), getRandomZ(0.4), 0.0, 0.01, 0.0);
@@ -178,7 +180,7 @@ public class HoppingSkull extends Monster implements GeoEntity {
     }
 
     @Override
-    public @Nullable SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType spawnType, @Nullable SpawnGroupData spawnGroupData) {
+    public @Nullable SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, EntitySpawnReason spawnType, @Nullable SpawnGroupData spawnGroupData) {
         // A dormant skull never turns, so without this every one would face the same way.
         float yaw = random.nextFloat() * 360.0f;
         setYRot(yaw);
@@ -202,19 +204,17 @@ public class HoppingSkull extends Monster implements GeoEntity {
     }
 
     @Override
-    public void addAdditionalSaveData(CompoundTag tag) {
+    public void addAdditionalSaveData(ValueOutput tag) {
         super.addAdditionalSaveData(tag);
 
         tag.putInt("Fuse", entityData.get(FUSE));
     }
 
     @Override
-    public void readAdditionalSaveData(CompoundTag tag) {
+    public void readAdditionalSaveData(ValueInput tag) {
         super.readAdditionalSaveData(tag);
 
-        if (tag.contains("Fuse")) {
-            entityData.set(FUSE, tag.getInt("Fuse"));
-        }
+        tag.getInt("Fuse").ifPresent(v -> entityData.set(FUSE, v));
     }
 
     @Override

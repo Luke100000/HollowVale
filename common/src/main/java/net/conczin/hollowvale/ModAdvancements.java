@@ -8,7 +8,7 @@ import net.minecraft.server.level.ServerPlayer;
  */
 public final class ModAdvancements {
     public static void award(ServerPlayer player, String name, String criterion) {
-        AdvancementHolder advancement = player.server.getAdvancements().get(Common.locate(name));
+        AdvancementHolder advancement = player.level().getServer().getAdvancements().get(Common.locate(name));
         if (advancement != null) {
             player.getAdvancements().award(advancement, criterion);
         }

@@ -1,0 +1,42 @@
+{
+  "additional_wants": {
+    "id": "minecraft:compass"
+  },
+  "given_item_modifiers": [
+    {
+      "decoration": "minecraft:target_point",
+      "destination": "minecraft:village",
+      "function": "minecraft:exploration_map",
+      "search_radius": 100
+    },
+    {
+      "function": "minecraft:set_name",
+      "name": {
+        "translate": "filled_map.hollowvale.village"
+      },
+      "target": "item_name"
+    },
+    {
+      "function": "minecraft:filtered",
+      "item_filter": {
+        "items": "minecraft:filled_map",
+        "predicates": {
+          "minecraft:map_id": {}
+        }
+      },
+      "on_fail": {
+        "function": "minecraft:discard"
+      }
+    }
+  ],
+  "gives": {
+    "id": "minecraft:map"
+  },
+  "max_uses": 5.0,
+  "reputation_discount": 0.2,
+  "wants": {
+    "id": "minecraft:emerald",
+    "count": 4.0
+  },
+  "xp": 0.0
+}

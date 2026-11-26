@@ -3,38 +3,44 @@
   "downfall": 0.4,
   "has_precipitation": true,
   "creature_spawn_probability": 0.1,
-  "effects": {
-    "fog_color": 10133674,
-    "sky_color": 7304320,
-    "water_color": 8360872,
-    "water_fog_color": 3029576,
-    "grass_color": 9082240,
-    "foliage_color": 8160624,
-    "particle": {
-      "options": {
-        "type": "minecraft:ash"
-      },
-      "probability": 0.004
+  "attributes": {
+    "minecraft:visual/fog_color": "#9aa0aa",
+    "minecraft:visual/sky_color": "#6f7480",
+    "minecraft:visual/water_fog_color": "#2e3a48",
+    "minecraft:visual/ambient_particles": [
+      {
+        "particle": {
+          "type": "minecraft:ash"
+        },
+        "probability": 0.004
+      }
+    ],
+    "minecraft:audio/background_music": {
+      "default": {
+        "sound": "hollowvale:music.hollow_vale",
+        "min_delay": 12000,
+        "max_delay": 24000,
+        "replace_current_music": false
+      }
     },
-    "music": {
-      "sound": "hollowvale:music.hollow_vale",
-      "min_delay": 12000,
-      "max_delay": 24000,
-      "replace_current_music": false
-    },
-    "ambient_sound": "hollowvale:ambient.hollow_vale.loop",
-    "additions_sound": {
-      "sound": "hollowvale:ambient.additions",
-      "tick_chance": 0.00555
+    "minecraft:audio/ambient_sounds": {
+      "loop": "hollowvale:ambient.hollow_vale.loop",
+      "additions": {
+        "sound": "hollowvale:ambient.additions",
+        "tick_chance": 0.00555
+      }
     }
   },
-  "carvers": {
-    "air": [
-      "minecraft:cave",
-      "minecraft:cave_extra_underground",
-      "minecraft:canyon"
-    ]
+  "effects": {
+    "water_color": "#7f93a8",
+    "grass_color": "#8a9580",
+    "foliage_color": "#7c8570"
   },
+  "carvers": [
+    "minecraft:cave",
+    "minecraft:cave_extra_underground",
+    "minecraft:canyon"
+  ],
   "features": [
     [],
     [

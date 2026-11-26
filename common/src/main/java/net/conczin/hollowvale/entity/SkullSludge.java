@@ -1,5 +1,7 @@
 package net.conczin.hollowvale.entity;
 
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.entity.EntitySpawnReason;
 import net.conczin.hollowvale.Sounds;
 import net.conczin.hollowvale.entity.goal.SpitGoal;
 import net.minecraft.sounds.SoundEvent;
@@ -18,12 +20,12 @@ import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
-import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animation.AnimatableManager;
-import software.bernie.geckolib.animation.AnimationController;
-import software.bernie.geckolib.animation.RawAnimation;
-import software.bernie.geckolib.util.GeckoLibUtil;
+import com.geckolib.animatable.GeoEntity;
+import com.geckolib.animatable.instance.AnimatableInstanceCache;
+import com.geckolib.animatable.manager.AnimatableManager;
+import com.geckolib.animation.AnimationController;
+import com.geckolib.animation.RawAnimation;
+import com.geckolib.util.GeckoLibUtil;
 
 public class SkullSludge extends Monster implements GeoEntity {
     private static final int SPLIT_COUNT = 3;
@@ -57,7 +59,7 @@ public class SkullSludge extends Monster implements GeoEntity {
 
     @Override
     public void remove(RemovalReason reason) {
-        if (!level().isClientSide && reason == RemovalReason.KILLED && isDeadOrDying()) {
+        if (!level().isClientSide() && reason == RemovalReason.KILLED && isDeadOrDying()) {
             splitIntoBoneSludges();
         }
         super.remove(reason);
@@ -69,7 +71,7 @@ public class SkullSludge extends Monster implements GeoEntity {
     private void splitIntoBoneSludges() {
         double away = awayAngle();
         for (int i = 0; i < SPLIT_COUNT; i++) {
-            BoneSludge sludge = Entities.BONE_SLUDGE.create(level());
+            BoneSludge sludge = Entities.BONE_SLUDGE.create(level(), EntitySpawnReason.EVENT);
             if (sludge == null) {
                 continue;
             }
@@ -83,7 +85,7 @@ public class SkullSludge extends Monster implements GeoEntity {
             double dx = Math.cos(angle);
             double dz = Math.sin(angle);
             float yaw = (float) (angle * Mth.RAD_TO_DEG) - 90.0f;
-            sludge.moveTo(getX() + dx * 0.6, getY() + 0.5, getZ() + dz * 0.6, yaw, 0.0f);
+            sludge.snapTo(getX() + dx * 0.6, getY() + 0.5, getZ() + dz * 0.6, yaw, 0.0f);
             sludge.setDeltaMovement(dx * SPLIT_SPEED, SPLIT_LIFT, dz * SPLIT_SPEED);
             level().addFreshEntity(sludge);
         }
@@ -101,8 +103,8 @@ public class SkullSludge extends Monster implements GeoEntity {
     }
 
     @Override
-    public boolean doHurtTarget(Entity target) {
-        boolean hurt = super.doHurtTarget(target);
+    public boolean doHurtTarget(ServerLevel serverLevel, Entity target) {
+        boolean hurt = super.doHurtTarget(serverLevel, target);
         if (hurt) {
             playSound(Sounds.SKULL_SLUDGE_ATTACK);
         }
@@ -126,7 +128,7 @@ public class SkullSludge extends Monster implements GeoEntity {
 
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        controllers.add(new AnimationController<>(this, state -> state.setAndContinue(IDLE)));
+        controllers.add(new AnimationController<>(state -> state.setAndContinue(IDLE)));
     }
 
     @Override

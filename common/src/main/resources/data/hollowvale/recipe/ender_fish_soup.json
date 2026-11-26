@@ -2,18 +2,10 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "minecraft:bowl"
-    },
-    {
-      "item": "hollowvale:ender_marrow"
-    },
-    {
-      "tag": "minecraft:fishes"
-    },
-    {
-      "item": "minecraft:chorus_fruit"
-    }
+    "minecraft:bowl",
+    "hollowvale:ender_marrow",
+    "#minecraft:fishes",
+    "minecraft:chorus_fruit"
   ],
   "result": {
     "count": 1,

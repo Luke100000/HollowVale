@@ -2,7 +2,7 @@ package net.conczin.hollowvale;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerPlayer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,11 +24,11 @@ public final class Common {
         }
     }
 
-    public static ResourceLocation locate(String path) {
-        return ResourceLocation.fromNamespaceAndPath(MOD_ID, path);
+    public static Identifier locate(String path) {
+        return Identifier.fromNamespaceAndPath(MOD_ID, path);
     }
 
     public interface RegisterHelper<T> {
-        void register(ResourceLocation name, T value);
+        void register(Identifier name, T value);
     }
 }

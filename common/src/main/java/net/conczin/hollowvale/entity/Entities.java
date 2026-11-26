@@ -1,6 +1,8 @@
 package net.conczin.hollowvale.entity;
 
 import net.conczin.hollowvale.Common;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.monster.Monster;
@@ -35,7 +37,7 @@ public final class Entities {
             EntityType.Builder.<SludgeBall>of(SludgeBall::new, MobCategory.MISC).sized(0.25f, 0.25f).clientTrackingRange(4).updateInterval(10));
 
     private static <T extends Entity> EntityType<T> register(String name, EntityType.Builder<T> builder) {
-        EntityType<T> type = builder.build(name);
+        EntityType<T> type = builder.build(ResourceKey.create(Registries.ENTITY_TYPE, Common.locate(name)));
         TYPES.put(name, type);
         return type;
     }
@@ -66,7 +68,7 @@ public final class Entities {
         registrar.register(BONE_SLUDGE, SpawnPlacementTypes.ON_GROUND, surface, Monster::checkAnyLightMonsterSpawnRules);
         registrar.register(SKULL_SLUDGE, SpawnPlacementTypes.ON_GROUND, surface, Monster::checkAnyLightMonsterSpawnRules);
         registrar.register(ENDER_SKULL, SpawnPlacementTypes.ON_GROUND, surface,
-                (type, level, reason, pos, random) -> (level.getLevel().isNight() || !level.canSeeSky(pos)) && Monster.checkAnyLightMonsterSpawnRules(type, level, reason, pos, random));
+                (type, level, reason, pos, random) -> (level.getLevel().isDarkOutside() || !level.canSeeSky(pos)) && Monster.checkAnyLightMonsterSpawnRules(type, level, reason, pos, random));
         registrar.register(UNDEAD_HIGHLAND_CATTLE, SpawnPlacementTypes.ON_GROUND, surface, Mob::checkMobSpawnRules);
         registrar.register(BONE_WHALE, SpawnPlacementTypes.NO_RESTRICTIONS, surface,
                 (type, level, reason, pos, random) -> level.canSeeSky(pos));

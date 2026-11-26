@@ -1,5 +1,6 @@
 package net.conczin.hollowvale.entity;
 
+import net.minecraft.server.level.ServerLevel;
 import net.conczin.hollowvale.Sounds;
 import net.conczin.hollowvale.block.MarrowLampBlock;
 import net.conczin.hollowvale.entity.goal.ChargeGoal;
@@ -9,7 +10,8 @@ import net.conczin.hollowvale.entity.goal.StareGoal;
 import net.conczin.hollowvale.item.BoneMaskItem;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -28,10 +30,10 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
-import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animation.AnimatableManager;
-import software.bernie.geckolib.util.GeckoLibUtil;
+import com.geckolib.animatable.GeoEntity;
+import com.geckolib.animatable.instance.AnimatableInstanceCache;
+import com.geckolib.animatable.manager.AnimatableManager;
+import com.geckolib.util.GeckoLibUtil;
 
 /**
  * Alarm timer: rises while the player is visible, screams and charges past the threshold, calms down at zero.
@@ -127,18 +129,18 @@ public class EnderSkull extends Monster implements GeoEntity {
     }
 
     @Override
-    protected void customServerAiStep() {
-        super.customServerAiStep();
+    protected void customServerAiStep(ServerLevel serverLevel) {
+        super.customServerAiStep(serverLevel);
 
         // Despawn
-        if (level().isDay() && level().canSeeSky(blockPosition()) && !isPersistenceRequired() && random.nextInt(DAWN_FADE_ODDS) == 0) {
+        if (level().isBrightOutside() && level().canSeeSky(blockPosition()) && !isPersistenceRequired() && random.nextInt(DAWN_FADE_ODDS) == 0) {
             level().broadcastEntityEvent(this, EntityEvent.POOF);
             discard();
             return;
         }
 
         if (alarm == 0) {
-            Player spotted = level().getNearestPlayer(TargetingConditions.forCombat().range(getAttributeValue(Attributes.FOLLOW_RANGE)), this);
+            Player spotted = ((ServerLevel) level()).getNearestPlayer(TargetingConditions.forCombat().range(getAttributeValue(Attributes.FOLLOW_RANGE)), this);
             if (spotted != null && !BoneMaskItem.isWornBy(spotted) && !MarrowLampBlock.isInSafeZone(level(), spotted.blockPosition())) {
                 setTarget(spotted);
                 alarm = SPOTTED_ALARM;
@@ -165,7 +167,7 @@ public class EnderSkull extends Monster implements GeoEntity {
     @Override
     public void tick() {
         super.tick();
-        if (level().isClientSide) {
+        if (level().isClientSide()) {
             tickAnimation();
         }
     }
@@ -242,7 +244,7 @@ public class EnderSkull extends Monster implements GeoEntity {
     @Override
     public void playAmbientSound() {
         super.playAmbientSound();
-        if (!level().isClientSide) {
+        if (!level().isClientSide()) {
             level().broadcastEntityEvent(this, SHAKE_EVENT);
         }
     }
@@ -266,10 +268,10 @@ public class EnderSkull extends Monster implements GeoEntity {
     }
 
     @Override
-    public boolean hurt(DamageSource source, float amount) {
-        boolean hurt = super.hurt(source, amount);
+    public boolean hurtServer(ServerLevel serverLevel, DamageSource source, float amount) {
+        boolean hurt = super.hurtServer(serverLevel, source, amount);
         // Getting hit skips the staring phase.
-        if (hurt && !level().isClientSide && source.getEntity() instanceof LivingEntity attacker && attacker != this) {
+        if (hurt && !level().isClientSide() && source.getEntity() instanceof LivingEntity attacker && attacker != this) {
             setTarget(attacker);
             alarm = Math.max(alarm, SCREAM_ALARM);
         }
@@ -285,8 +287,8 @@ public class EnderSkull extends Monster implements GeoEntity {
     }
 
     @Override
-    public boolean doHurtTarget(Entity target) {
-        boolean hurt = super.doHurtTarget(target);
+    public boolean doHurtTarget(ServerLevel serverLevel, Entity target) {
+        boolean hurt = super.doHurtTarget(serverLevel, target);
         if (hurt) {
             playSound(Sounds.ENDER_SKULL_ATTACK);
         }
@@ -294,7 +296,7 @@ public class EnderSkull extends Monster implements GeoEntity {
     }
 
     @Override
-    public boolean causeFallDamage(float fallDistance, float multiplier, DamageSource source) {
+    public boolean causeFallDamage(double fallDistance, float multiplier, DamageSource source) {
         return false;
     }
 
@@ -303,17 +305,17 @@ public class EnderSkull extends Monster implements GeoEntity {
     }
 
     @Override
-    public void addAdditionalSaveData(CompoundTag tag) {
+    public void addAdditionalSaveData(ValueOutput tag) {
         super.addAdditionalSaveData(tag);
         tag.putInt("Alarm", alarm);
         tag.putBoolean("Attacking", attacking);
     }
 
     @Override
-    public void readAdditionalSaveData(CompoundTag tag) {
+    public void readAdditionalSaveData(ValueInput tag) {
         super.readAdditionalSaveData(tag);
-        alarm = tag.getInt("Alarm");
-        attacking = tag.getBoolean("Attacking");
+        alarm = tag.getIntOr("Alarm", 0);
+        attacking = tag.getBooleanOr("Attacking", false);
     }
 
     @Override

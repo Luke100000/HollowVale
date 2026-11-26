@@ -1,5 +1,6 @@
 package net.conczin.hollowvale.neoforge;
 
+import java.util.Set;
 import net.conczin.hollowvale.Common;
 import net.conczin.hollowvale.Sounds;
 import net.conczin.hollowvale.Structurify;
@@ -63,8 +64,8 @@ public final class CommonNeoForge {
         registerHelper(event, BuiltInRegistries.POTION, ModPotions::registerPotions);
         registerHelper(event, BuiltInRegistries.MOB_EFFECT, ModEffects::registerEffects);
         registerHelper(event, BuiltInRegistries.BLOCK_ENTITY_TYPE, helper -> Blocks.registerBlockEntities(helper,
-                (factory, blocks) -> BlockEntityType.Builder.of(factory::apply, blocks).build(null)));
-        event.register(Registries.POINT_OF_INTEREST_TYPE, registry -> registry.register(Blocks.MARROW_LAMP_POI.location(), Blocks.createMarrowLampPoi()));
+                (factory, blocks) -> new BlockEntityType<>(factory::apply, Set.of(blocks))));
+        event.register(Registries.POINT_OF_INTEREST_TYPE, registry -> registry.register(Blocks.MARROW_LAMP_POI.identifier(), Blocks.createMarrowLampPoi()));
         event.register(Registries.CREATIVE_MODE_TAB, registry -> registry.register(Common.locate(Common.MOD_ID), Items.createTab(CreativeModeTab.builder())));
     }
 
@@ -89,7 +90,7 @@ public final class CommonNeoForge {
 
     @SubscribeEvent
     public static void onRegisterCommands(RegisterCommandsEvent event) {
-        if (!FMLLoader.isProduction()) {
+        if (!FMLLoader.getCurrent().isProduction()) {
             Structurify.register(event.getDispatcher());
         }
     }

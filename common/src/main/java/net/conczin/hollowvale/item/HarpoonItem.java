@@ -4,9 +4,8 @@ import net.conczin.hollowvale.entity.HarpoonBolt;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.EquipmentSlotGroup;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
@@ -23,13 +22,13 @@ import net.minecraft.world.level.Level;
 public class HarpoonItem extends Item {
     private static final int DURABILITY = 250;
     private static final int FIRE_COOLDOWN = 6;
-    // Matches the custom_model_data override in the item model that switches from the sprite to the 3D model.
-    public static final int IN_HAND_MODEL = 1;
 
-    public HarpoonItem() {
-        super(new Item.Properties()
+    public HarpoonItem(Properties properties) {
+        super(properties
                 .durability(DURABILITY)
                 .rarity(Rarity.UNCOMMON)
+                .repairable(net.minecraft.world.item.Items.BONE)
+                .enchantable(10)
                 .attributes(ItemAttributeModifiers.builder()
                         .add(Attributes.ATTACK_DAMAGE, new AttributeModifier(BASE_ATTACK_DAMAGE_ID, 4.0, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND)
                         .add(Attributes.ATTACK_SPEED, new AttributeModifier(BASE_ATTACK_SPEED_ID, -2.4, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND)
@@ -37,13 +36,13 @@ public class HarpoonItem extends Item {
     }
 
     @Override
-    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
+    public InteractionResult use(Level level, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
-        if (player.getCooldowns().isOnCooldown(this)) {
-            return InteractionResultHolder.fail(stack);
+        if (player.getCooldowns().isOnCooldown(stack)) {
+            return InteractionResult.FAIL;
         }
 
-        if (!level.isClientSide) {
+        if (!level.isClientSide()) {
             HarpoonBolt line = HarpoonBolt.find(player);
             if (line == null) {
                 fire(level, player, hand, stack);
@@ -53,7 +52,7 @@ public class HarpoonItem extends Item {
                 line.pluck(player);
             }
         }
-        return InteractionResultHolder.sidedSuccess(stack, level.isClientSide);
+        return InteractionResult.SUCCESS;
     }
 
     private void fire(Level level, Player player, InteractionHand hand, ItemStack stack) {
@@ -61,17 +60,8 @@ public class HarpoonItem extends Item {
         int stringLevel = ModEnchantments.level(level, stack, ModEnchantments.STRONG_STRING);
         level.addFreshEntity(new HarpoonBolt(level, player, hand, lineLevel, stringLevel));
         level.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.FISHING_BOBBER_THROW, SoundSource.PLAYERS, 1.0f, 0.7f);
-        stack.hurtAndBreak(1, player, LivingEntity.getSlotForHand(hand));
-        player.getCooldowns().addCooldown(this, FIRE_COOLDOWN);
+        stack.hurtAndBreak(1, player, hand);
+        player.getCooldowns().addCooldown(stack, FIRE_COOLDOWN);
     }
 
-    @Override
-    public boolean isValidRepairItem(ItemStack stack, ItemStack repairCandidate) {
-        return repairCandidate.is(net.minecraft.world.item.Items.BONE) || super.isValidRepairItem(stack, repairCandidate);
-    }
-
-    @Override
-    public int getEnchantmentValue() {
-        return 10;
-    }
 }

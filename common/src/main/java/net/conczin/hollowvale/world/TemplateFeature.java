@@ -5,7 +5,7 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.conczin.hollowvale.Common;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
@@ -23,9 +23,9 @@ import java.util.List;
 public class TemplateFeature extends Feature<TemplateFeature.Config> {
     public static final TemplateFeature INSTANCE = new TemplateFeature();
 
-    public record Config(List<ResourceLocation> templates, Holder<StructureProcessorList> processors) implements FeatureConfiguration {
+    public record Config(List<Identifier> templates, Holder<StructureProcessorList> processors) implements FeatureConfiguration {
         public static final Codec<Config> CODEC = RecordCodecBuilder.create(instance -> instance.group(
-                ResourceLocation.CODEC.listOf().fieldOf("templates").forGetter(Config::templates),
+                Identifier.CODEC.listOf().fieldOf("templates").forGetter(Config::templates),
                 StructureProcessorType.LIST_CODEC.fieldOf("processors").forGetter(Config::processors)
         ).apply(instance, Config::new));
     }
@@ -42,7 +42,7 @@ public class TemplateFeature extends Feature<TemplateFeature.Config> {
     public boolean place(FeaturePlaceContext<Config> context) {
         WorldGenLevel level = context.level();
         RandomSource random = context.random();
-        List<ResourceLocation> templates = context.config().templates();
+        List<Identifier> templates = context.config().templates();
 
         StructureTemplate template = level.getLevel().getServer().getStructureManager()                .get(templates.get(random.nextInt(templates.size()))).orElse(null);
         if (template == null) {

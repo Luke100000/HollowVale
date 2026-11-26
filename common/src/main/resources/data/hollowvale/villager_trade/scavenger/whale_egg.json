@@ -1,0 +1,12 @@
+{
+  "gives": {
+    "id": "hollowvale:whale_egg"
+  },
+  "max_uses": 1.0,
+  "reputation_discount": 0.05,
+  "wants": {
+    "id": "minecraft:emerald",
+    "count": 20.0
+  },
+  "xp": 15.0
+}

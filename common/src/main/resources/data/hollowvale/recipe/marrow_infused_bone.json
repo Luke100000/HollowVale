@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "#": {
-      "item": "hollowvale:bone_bricks"
-    },
-    "M": {
-      "item": "hollowvale:ender_marrow"
-    }
+    "#": "hollowvale:bone_bricks",
+    "M": "hollowvale:ender_marrow"
   },
   "pattern": [
     "###",

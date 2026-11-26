@@ -1,5 +1,6 @@
 package net.conczin.hollowvale.block;
 
+import net.minecraft.world.entity.EntitySpawnReason;
 import net.conczin.hollowvale.entity.BoneWhale;
 import net.conczin.hollowvale.entity.Entities;
 import net.minecraft.core.BlockPos;
@@ -44,7 +45,7 @@ public class WhaleEggBlock extends Block {
 
     @Override
     protected void onPlace(BlockState state, Level level, BlockPos pos, BlockState oldState, boolean movedByPiston) {
-        level.scheduleTick(pos, this, STAGE_TICKS + level.random.nextInt(STAGE_JITTER_TICKS));
+        level.scheduleTick(pos, this, STAGE_TICKS + level.getRandom().nextInt(STAGE_JITTER_TICKS));
     }
 
     @Override
@@ -59,16 +60,16 @@ public class WhaleEggBlock extends Block {
     }
 
     private void hatch(BlockState state, ServerLevel level, BlockPos pos) {
-        level.playSound(null, pos, SoundEvents.TURTLE_EGG_HATCH, SoundSource.BLOCKS, 0.7f, 0.9f + level.random.nextFloat() * 0.2f);
+        level.playSound(null, pos, SoundEvents.TURTLE_EGG_HATCH, SoundSource.BLOCKS, 0.7f, 0.9f + level.getRandom().nextFloat() * 0.2f);
         level.removeBlock(pos, false);
         level.levelEvent(2001, pos, Block.getId(state));
 
-        BoneWhale calf = Entities.BONE_WHALE.create(level);
+        BoneWhale calf = Entities.BONE_WHALE.create(level, EntitySpawnReason.EVENT);
         if (calf == null) {
             return;
         }
         calf.setAge(AgeableMob.BABY_START_AGE);
-        calf.moveTo(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5, level.random.nextFloat() * 360.0f, 0.0f);
+        calf.snapTo(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5, level.getRandom().nextFloat() * 360.0f, 0.0f);
         Player owner = level.getNearestPlayer(calf, OWNER_RANGE);
         if (owner != null) {
             calf.tame(owner);

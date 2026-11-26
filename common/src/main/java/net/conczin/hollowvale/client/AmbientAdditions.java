@@ -94,7 +94,7 @@ public final class AmbientAdditions {
     private static double height(Level level, LocalPlayer player, Spot spot, double x, double z, RandomSource random) {
         int playerSurface = level.getHeight(Heightmap.Types.MOTION_BLOCKING, player.getBlockX(), player.getBlockZ());
         int surface = level.getHeight(Heightmap.Types.MOTION_BLOCKING, Mth.floor(x), Mth.floor(z));
-        boolean usable = surface > level.getMinBuildHeight() && player.getY() >= playerSurface - UNDERGROUND_MARGIN;
+        boolean usable = surface > level.getMinY() && player.getY() >= playerSurface - UNDERGROUND_MARGIN;
         if (spot.aboveSurface && usable) {
             return surface + Mth.nextDouble(random, spot.minHeight, spot.maxHeight);
         }

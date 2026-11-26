@@ -81,6 +81,6 @@ public final class Sounds {
     }
 
     public static void registerSounds(Common.RegisterHelper<SoundEvent> helper) {
-        SOUNDS.forEach(sound -> helper.register(sound.getLocation(), sound));
+        SOUNDS.forEach(sound -> helper.register(sound.location(), sound));
     }
 }

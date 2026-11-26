@@ -15,7 +15,7 @@ public final class Flight {
     }
 
     public static void travel(LivingEntity entity, Vec3 input) {
-        if (!entity.isControlledByLocalInstance()) {
+        if (!entity.isLocalInstanceAuthoritative()) {
             return;
         }
         if (entity.isInWater() || entity.isInLava()) {
@@ -41,7 +41,7 @@ public final class Flight {
         FlyingPathNavigation navigation = new FlyingPathNavigation(mob, level);
         navigation.setCanOpenDoors(false);
         navigation.setCanFloat(true);
-        navigation.setCanPassDoors(true);
+        navigation.getNodeEvaluator().setCanPassDoors(true);
         return navigation;
     }
 }

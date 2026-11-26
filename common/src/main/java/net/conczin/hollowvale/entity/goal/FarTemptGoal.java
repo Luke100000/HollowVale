@@ -1,5 +1,6 @@
 package net.conczin.hollowvale.entity.goal;
 
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.entity.ai.goal.TemptGoal;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
@@ -17,13 +18,13 @@ public class FarTemptGoal extends TemptGoal {
     public FarTemptGoal(PathfinderMob mob, double speed, Predicate<ItemStack> items, double range, double stopDistance) {
         super(mob, speed, items, false);
         this.conditions = TargetingConditions.forNonCombat().range(range).ignoreLineOfSight()
-                .selector(entity -> items.test(entity.getMainHandItem()) || items.test(entity.getOffhandItem()));
+                .selector((entity, level) -> items.test(entity.getMainHandItem()) || items.test(entity.getOffhandItem()));
         this.stopDistance = stopDistance;
     }
 
     @Override
     public boolean canUse() {
-        player = mob.level().getNearestPlayer(conditions, mob);
+        player = ((ServerLevel) mob.level()).getNearestPlayer(conditions, mob);
         return player != null;
     }
 

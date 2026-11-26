@@ -26,7 +26,7 @@ public final class ModEffects {
     }
 
     public static Holder<MobEffect> holder(ResourceKey<MobEffect> key) {
-        return BuiltInRegistries.MOB_EFFECT.getHolderOrThrow(key);
+        return BuiltInRegistries.MOB_EFFECT.get(key).orElseThrow();
     }
 
     public static void registerEffects(Common.RegisterHelper<MobEffect> helper) {

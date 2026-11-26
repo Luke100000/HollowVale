@@ -1,9 +1,11 @@
 package net.conczin.hollowvale.entity;
 
+import net.minecraft.server.level.ServerLevel;
 import net.conczin.hollowvale.entity.goal.*;
 import net.conczin.hollowvale.item.Items;
 import net.minecraft.core.BlockPos;
-import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -26,12 +28,12 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
-import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animation.AnimatableManager;
-import software.bernie.geckolib.animation.AnimationController;
-import software.bernie.geckolib.animation.RawAnimation;
-import software.bernie.geckolib.util.GeckoLibUtil;
+import com.geckolib.animatable.GeoEntity;
+import com.geckolib.animatable.instance.AnimatableInstanceCache;
+import com.geckolib.animatable.manager.AnimatableManager;
+import com.geckolib.animation.AnimationController;
+import com.geckolib.animation.RawAnimation;
+import com.geckolib.util.GeckoLibUtil;
 
 public class UndeadHighlandCattle extends PathfinderMob implements GeoEntity {
     private static final EntityDataAccessor<Integer> STAND_TICKS = SynchedEntityData.defineId(UndeadHighlandCattle.class, EntityDataSerializers.INT);
@@ -97,9 +99,9 @@ public class UndeadHighlandCattle extends PathfinderMob implements GeoEntity {
     }
 
     @Override
-    public boolean hurt(DamageSource source, float amount) {
-        boolean hurt = super.hurt(source, amount);
-        if (hurt && !level().isClientSide && isHealthy() && source.getEntity() instanceof LivingEntity attacker && attacker != this) {
+    public boolean hurtServer(ServerLevel serverLevel, DamageSource source, float amount) {
+        boolean hurt = super.hurtServer(serverLevel, source, amount);
+        if (hurt && !level().isClientSide() && isHealthy() && source.getEntity() instanceof LivingEntity attacker && attacker != this) {
             setTarget(attacker);
         }
         return hurt;
@@ -110,11 +112,11 @@ public class UndeadHighlandCattle extends PathfinderMob implements GeoEntity {
         if (!player.getItemInHand(hand).is(net.minecraft.world.item.Items.BUCKET)) {
             return super.mobInteract(player, hand);
         }
-        if (!level().isClientSide && hurt(damageSources().playerAttack(player), BUCKET_DAMAGE)) {
+        if (level() instanceof ServerLevel serverLevel && hurtServer(serverLevel, damageSources().playerAttack(player), BUCKET_DAMAGE)) {
             playSound(SoundEvents.BUCKET_FILL);
-            spawnAtLocation(Items.ENDER_MARROW);
+            spawnAtLocation(serverLevel, Items.ENDER_MARROW);
         }
-        return InteractionResult.sidedSuccess(level().isClientSide);
+        return InteractionResult.SUCCESS;
     }
 
     public void setTilt(int direction) {
@@ -144,8 +146,8 @@ public class UndeadHighlandCattle extends PathfinderMob implements GeoEntity {
     }
 
     @Override
-    protected void customServerAiStep() {
-        super.customServerAiStep();
+    protected void customServerAiStep(ServerLevel serverLevel) {
+        super.customServerAiStep(serverLevel);
 
         if (getTarget() != null && !isHealthy()) {
             setTarget(null);
@@ -158,17 +160,17 @@ public class UndeadHighlandCattle extends PathfinderMob implements GeoEntity {
         if (remaining > 0) {
             entityData.set(STAND_TICKS, remaining - 1);
         } else if (isFullMoonMidnight()) {
-            lastStandDay = level().getDayTime() / DAY_TICKS;
+            lastStandDay = level().getDefaultClockTime() / DAY_TICKS;
             entityData.set(STAND_TICKS, STAND_TICKS_TOTAL);
             getNavigation().stop();
         }
     }
 
     private boolean isFullMoonMidnight() {
-        long time = level().getDayTime();
+        long time = level().getDefaultClockTime();
         long timeOfDay = time % DAY_TICKS;
         return level().dimensionType().hasSkyLight()
-               && level().getMoonPhase() == 0
+               && level().environmentAttributes().getValue(net.minecraft.world.attribute.EnvironmentAttributes.MOON_PHASE, blockPosition()) == net.minecraft.world.level.MoonPhase.FULL_MOON
                && timeOfDay >= MIDNIGHT && timeOfDay < MIDNIGHT + STAND_WINDOW
                && lastStandDay != time / DAY_TICKS
                && level().getNearestPlayer(this, STAND_RANGE) != null;
@@ -209,26 +211,24 @@ public class UndeadHighlandCattle extends PathfinderMob implements GeoEntity {
     }
 
     @Override
-    public void addAdditionalSaveData(CompoundTag tag) {
+    public void addAdditionalSaveData(ValueOutput tag) {
         super.addAdditionalSaveData(tag);
 
         tag.putLong("LastStandDay", lastStandDay);
     }
 
     @Override
-    public void readAdditionalSaveData(CompoundTag tag) {
+    public void readAdditionalSaveData(ValueInput tag) {
         super.readAdditionalSaveData(tag);
 
-        if (tag.contains("LastStandDay")) {
-            lastStandDay = tag.getLong("LastStandDay");
-        }
+        tag.getLong("LastStandDay").ifPresent(v -> lastStandDay = v);
     }
 
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        controllers.add(new AnimationController<>(this, "main", 5, state -> {
+        controllers.add(new AnimationController<>("main", 5, state -> {
             boolean running = entityData.get(RUNNING) && !isStanding();
-            state.getController().setAnimationSpeed(running ? COMBAT_SPEED : 1.0);
+            state.setControllerSpeed(running ? (float) COMBAT_SPEED : 1.0f);
             if (isStanding()) {
                 return state.setAndContinue(STAND);
             }

@@ -3,12 +3,14 @@ package net.conczin.hollowvale.entity;
 import net.conczin.hollowvale.entity.goal.ScavengerCrossbowGoal;
 import net.conczin.hollowvale.entity.goal.StandForTradeGoal;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.stats.Stats;
@@ -22,8 +24,8 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
-import net.minecraft.world.entity.npc.AbstractVillager;
-import net.minecraft.world.entity.npc.VillagerTrades;
+import net.minecraft.world.entity.npc.villager.AbstractVillager;
+import net.minecraft.world.item.trading.TradeSet;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -32,10 +34,10 @@ import net.minecraft.world.item.trading.MerchantOffers;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import org.jetbrains.annotations.Nullable;
-import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animation.AnimatableManager;
-import software.bernie.geckolib.util.GeckoLibUtil;
+import com.geckolib.animatable.GeoEntity;
+import com.geckolib.animatable.instance.AnimatableInstanceCache;
+import com.geckolib.animatable.manager.AnimatableManager;
+import com.geckolib.util.GeckoLibUtil;
 
 public class Scavenger extends AbstractVillager implements GeoEntity {
     private static final EntityDataAccessor<Boolean> HOSTILE = SynchedEntityData.defineId(Scavenger.class, EntityDataSerializers.BOOLEAN);
@@ -85,7 +87,7 @@ public class Scavenger extends AbstractVillager implements GeoEntity {
         goalSelector.addGoal(10, new LookAtPlayerGoal(this, Mob.class, 8.0f));
 
         targetSelector.addGoal(1, new HurtByTargetGoal(this));
-        targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, 10, true, false, player -> isHostile()));
+        targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, 10, true, false, (player, level) -> isHostile()));
     }
 
     @Override
@@ -96,7 +98,7 @@ public class Scavenger extends AbstractVillager implements GeoEntity {
     }
 
     @Override
-    public @Nullable SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType spawnType, @Nullable SpawnGroupData spawnGroupData) {
+    public @Nullable SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, EntitySpawnReason spawnType, @Nullable SpawnGroupData spawnGroupData) {
         setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(Items.CROSSBOW));
         return super.finalizeSpawn(level, difficulty, spawnType, spawnGroupData);
     }
@@ -127,9 +129,9 @@ public class Scavenger extends AbstractVillager implements GeoEntity {
     }
 
     @Override
-    public boolean hurt(DamageSource source, float amount) {
-        boolean hurt = super.hurt(source, amount);
-        if (hurt && !level().isClientSide && isAlive()) {
+    public boolean hurtServer(ServerLevel serverLevel, DamageSource source, float amount) {
+        boolean hurt = super.hurtServer(serverLevel, source, amount);
+        if (hurt && !level().isClientSide() && isAlive()) {
             if (source.getEntity() instanceof LivingEntity attacker && attacker != this) {
                 becomeHostile(attacker);
             }
@@ -141,8 +143,8 @@ public class Scavenger extends AbstractVillager implements GeoEntity {
     }
 
     @Override
-    protected void customServerAiStep() {
-        super.customServerAiStep();
+    protected void customServerAiStep(ServerLevel serverLevel) {
+        super.customServerAiStep(serverLevel);
 
         if (!isHostile() && getVehicle() instanceof LivingEntity mount) {
             LivingEntity attacker = mount.getLastHurtByMob();
@@ -165,7 +167,7 @@ public class Scavenger extends AbstractVillager implements GeoEntity {
                 mount.discard();
             }
         }
-        playSound(SoundEvents.GENERIC_EAT);
+        playSound(SoundEvents.GENERIC_EAT.value());
         playSound(SoundEvents.CHORUS_FRUIT_TELEPORT);
         discard();
     }
@@ -182,23 +184,23 @@ public class Scavenger extends AbstractVillager implements GeoEntity {
         if (hand == InteractionHand.MAIN_HAND) {
             player.awardStat(Stats.TALKED_TO_VILLAGER);
         }
-        if (!level().isClientSide) {
+        if (!level().isClientSide()) {
             if (getOffers().isEmpty()) {
                 return InteractionResult.CONSUME;
             }
             setTradingPlayer(player);
             openTradingScreen(player, getDisplayName(), 1);
         }
-        return InteractionResult.sidedSuccess(level().isClientSide);
+        return InteractionResult.SUCCESS;
     }
 
     @Override
-    protected void updateTrades() {
+    protected void updateTrades(ServerLevel level) {
         ScavengerTrades.fill(this, getOffers());
     }
 
-    public void addTradeListings(MerchantOffers offers, VillagerTrades.ItemListing[] listings, int count) {
-        addOffersFromItemListings(offers, listings, count);
+    public void addTradeSet(MerchantOffers offers, ResourceKey<TradeSet> tradeSet) {
+        addOffersFromTradeSet((ServerLevel) level(), offers, tradeSet);
     }
 
     @Override
@@ -239,24 +241,22 @@ public class Scavenger extends AbstractVillager implements GeoEntity {
     }
 
     @Override
-    public void addAdditionalSaveData(CompoundTag tag) {
+    public void addAdditionalSaveData(ValueOutput tag) {
         super.addAdditionalSaveData(tag);
         tag.putBoolean("Hostile", isHostile());
         tag.putInt("Lifetime", lifetime);
     }
 
     @Override
-    public void readAdditionalSaveData(CompoundTag tag) {
+    public void readAdditionalSaveData(ValueInput tag) {
         super.readAdditionalSaveData(tag);
-        entityData.set(HOSTILE, tag.getBoolean("Hostile"));
-        if (tag.contains("Lifetime")) {
-            lifetime = tag.getInt("Lifetime");
-        }
+        entityData.set(HOSTILE, tag.getBooleanOr("Hostile", false));
+        tag.getInt("Lifetime").ifPresent(v -> lifetime = v);
     }
 
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        // Posed procedurally, see ScavengerModel.
+        // Posed procedurally, see ScavengerRenderer.
     }
 
     @Override

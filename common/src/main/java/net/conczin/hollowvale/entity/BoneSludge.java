@@ -1,5 +1,6 @@
 package net.conczin.hollowvale.entity;
 
+import net.minecraft.server.level.ServerLevel;
 import net.conczin.hollowvale.Sounds;
 import net.conczin.hollowvale.entity.goal.PounceGoal;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -20,12 +21,12 @@ import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
-import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animation.AnimatableManager;
-import software.bernie.geckolib.animation.AnimationController;
-import software.bernie.geckolib.animation.RawAnimation;
-import software.bernie.geckolib.util.GeckoLibUtil;
+import com.geckolib.animatable.GeoEntity;
+import com.geckolib.animatable.instance.AnimatableInstanceCache;
+import com.geckolib.animatable.manager.AnimatableManager;
+import com.geckolib.animation.AnimationController;
+import com.geckolib.animation.RawAnimation;
+import com.geckolib.util.GeckoLibUtil;
 
 public class BoneSludge extends Monster implements GeoEntity {
     private static final EntityDataAccessor<Boolean> WINDING_UP = SynchedEntityData.defineId(BoneSludge.class, EntityDataSerializers.BOOLEAN);
@@ -67,7 +68,7 @@ public class BoneSludge extends Monster implements GeoEntity {
     @Override
     public void tick() {
         super.tick();
-        if (level().isClientSide) {
+        if (level().isClientSide()) {
             previousSquish = squish;
             squish += ((entityData.get(WINDING_UP) ? 1.0f : 0.0f) - squish) * 0.3f;
         }
@@ -88,8 +89,8 @@ public class BoneSludge extends Monster implements GeoEntity {
     }
 
     @Override
-    public boolean doHurtTarget(Entity target) {
-        boolean hurt = super.doHurtTarget(target);
+    public boolean doHurtTarget(ServerLevel serverLevel, Entity target) {
+        boolean hurt = super.doHurtTarget(serverLevel, target);
         if (hurt) {
             playSound(Sounds.BONE_SLUDGE_ATTACK);
         }
@@ -113,7 +114,7 @@ public class BoneSludge extends Monster implements GeoEntity {
 
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        controllers.add(new AnimationController<>(this, state -> state.setAndContinue(IDLE)));
+        controllers.add(new AnimationController<>(state -> state.setAndContinue(IDLE)));
     }
 
     @Override

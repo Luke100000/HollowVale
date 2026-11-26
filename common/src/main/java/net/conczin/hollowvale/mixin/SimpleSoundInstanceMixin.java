@@ -17,7 +17,7 @@ public abstract class SimpleSoundInstanceMixin {
     @Inject(method = "forAmbientAddition", at = @At("HEAD"), cancellable = true)
     private static void hollowvale$placeAddition(SoundEvent sound, CallbackInfoReturnable<SimpleSoundInstance> cir) {
         LocalPlayer player = Minecraft.getInstance().player;
-        if (player == null || !sound.getLocation().equals(Sounds.AMBIENT_ADDITIONS.getLocation())) {
+        if (player == null || !sound.location().equals(Sounds.AMBIENT_ADDITIONS.location())) {
             return;
         }
         SimpleSoundInstance placed = AmbientAdditions.create(player);

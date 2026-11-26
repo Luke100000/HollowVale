@@ -38,7 +38,7 @@ public class EnderMarrowItem extends Item {
 
     @Override
     public InteractionResult interactLivingEntity(ItemStack stack, Player player, LivingEntity target, InteractionHand hand) {
-        if (!target.getType().is(HEALABLE) || target.getHealth() >= target.getMaxHealth()) {
+        if (!target.is(HEALABLE) || target.getHealth() >= target.getMaxHealth()) {
             return InteractionResult.PASS;
         }
         if (target.level() instanceof ServerLevel level) {
@@ -47,7 +47,7 @@ public class EnderMarrowItem extends Item {
             level.playSound(null, target.blockPosition(), SoundEvents.BONE_MEAL_USE, SoundSource.NEUTRAL, 1.0f, 1.0f);
             level.sendParticles(ParticleTypes.HEART, target.getX(), target.getY(0.8), target.getZ(), 5, 0.3, 0.3, 0.3, 0.0);
         }
-        return InteractionResult.sidedSuccess(player.level().isClientSide);
+        return InteractionResult.SUCCESS;
     }
 
     @Override
@@ -58,7 +58,7 @@ public class EnderMarrowItem extends Item {
         if (!clickedGrass && !isSpreadable(level, clicked)) {
             return InteractionResult.PASS;
         }
-        if (level.isClientSide) {
+        if (level.isClientSide()) {
             return InteractionResult.SUCCESS;
         }
 
@@ -67,7 +67,7 @@ public class EnderMarrowItem extends Item {
             targets.add(clicked);
         }
         List<BlockPos> frontier = frontier(level, clicked);
-        Collections.shuffle(frontier, new Random(level.random.nextLong()));
+        Collections.shuffle(frontier, new Random(level.getRandom().nextLong()));
         targets.addAll(frontier.subList(0, Math.min(MAX_BLOCKS - targets.size(), frontier.size())));
 
         if (targets.isEmpty()) {

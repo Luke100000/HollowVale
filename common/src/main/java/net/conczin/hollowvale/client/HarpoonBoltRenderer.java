@@ -4,36 +4,35 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.conczin.hollowvale.Common;
 import net.conczin.hollowvale.entity.HarpoonBolt;
-import net.conczin.hollowvale.item.HarpoonItem;
 import net.conczin.hollowvale.item.Items;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.LevelRenderer;
-import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.culling.Frustum;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
-import net.minecraft.client.renderer.entity.ItemRenderer;
+import net.minecraft.client.renderer.entity.state.EntityRenderState;
+import net.minecraft.client.renderer.item.ItemModelResolver;
+import net.minecraft.client.renderer.item.ItemStackRenderState;
+import net.minecraft.client.renderer.rendertype.RenderTypes;
+import net.minecraft.client.renderer.state.level.CameraRenderState;
 import net.minecraft.client.renderer.texture.OverlayTexture;
-import net.minecraft.client.renderer.texture.TextureAtlas;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.component.DataComponents;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.HumanoidArm;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.component.CustomModelData;
 import net.minecraft.world.phys.Vec3;
 import org.joml.Quaternionf;
 
 /**
  * Draws the harpoon tip and the line from the wielder's hand to it.
  */
-public class HarpoonBoltRenderer extends EntityRenderer<HarpoonBolt> {
-    private static final ResourceLocation LINE_TEXTURE = Common.locate("textures/entity/harpoon_line.png");
+public class HarpoonBoltRenderer extends EntityRenderer<HarpoonBolt, HarpoonBoltRenderer.State> {
+    private static final Identifier LINE_TEXTURE = Common.locate("textures/entity/harpoon_line.png");
     private static final int SEGMENTS = 16;
     private static final float LINE_WIDTH = 0.03f;
     // How many blocks of line one repeat of the texture covers.
@@ -46,13 +45,30 @@ public class HarpoonBoltRenderer extends EntityRenderer<HarpoonBolt> {
     private static final float SLACK_SAG = 0.3f;
     private static final float TAUT_SAG = 0.05f;
 
-    private final ItemRenderer itemRenderer;
-    private final ItemStack tip = new ItemStack(Items.BONE_HARPOON);
+    private final ItemModelResolver itemModelResolver;
+    // Created on first use, item components aren't bound yet when renderers are built.
+    private ItemStack tip;
 
     public HarpoonBoltRenderer(EntityRendererProvider.Context context) {
         super(context);
-        itemRenderer = context.getItemRenderer();
-        tip.set(DataComponents.CUSTOM_MODEL_DATA, new CustomModelData(HarpoonItem.IN_HAND_MODEL));
+        itemModelResolver = context.getItemModelResolver();
+    }
+
+    public static class State extends EntityRenderState {
+        final ItemStackRenderState tip = new ItemStackRenderState();
+        boolean visible;
+        boolean showTip;
+        Quaternionf tipRotation = new Quaternionf();
+        int tipLight;
+        int lineLight;
+        Vec3 lineStart = Vec3.ZERO;
+        Vec3 lineEnd = Vec3.ZERO;
+        float sag;
+    }
+
+    @Override
+    public State createRenderState() {
+        return new State();
     }
 
     @Override
@@ -61,47 +77,56 @@ public class HarpoonBoltRenderer extends EntityRenderer<HarpoonBolt> {
     }
 
     @Override
-    public void render(HarpoonBolt bolt, float yaw, float partialTick, PoseStack pose, MultiBufferSource buffer, int light) {
+    public void extractRenderState(HarpoonBolt bolt, State state, float partialTick) {
+        super.extractRenderState(bolt, state, partialTick);
         Entity owner = bolt.getOwner();
+        state.visible = owner != null;
         if (owner == null) {
             return;
         }
-
-        if (bolt.getHookedEntity() == null) {
-            drawTip(bolt, partialTick, pose, buffer);
+        state.showTip = bolt.getHookedEntity() == null;
+        if (state.showTip) {
+            // Projectile rotation, unlike an entity's view direction, is yaw = atan2(x, z) and pitch up.
+            float yRot = Mth.lerp(partialTick, bolt.yRotO, bolt.getYRot()) * Mth.DEG_TO_RAD;
+            float xRot = Mth.lerp(partialTick, bolt.xRotO, bolt.getXRot()) * Mth.DEG_TO_RAD;
+            Vec3 direction = new Vec3(Mth.sin(yRot) * Mth.cos(xRot), Mth.sin(xRot), Mth.cos(yRot) * Mth.cos(xRot));
+            BlockPos lightPos = BlockPos.containing(bolt.getPosition(partialTick).subtract(direction.scale(LIGHT_SAMPLE_OFFSET)));
+            state.tipRotation.rotationTo(0.0f, 1.0f, 0.0f, (float) direction.x, (float) direction.y, (float) direction.z);
+            state.tipLight = LevelRenderer.getLightCoords(bolt.level(), lightPos);
+            if (tip == null) {
+                tip = new ItemStack(Items.BONE_HARPOON);
+            }
+            itemModelResolver.updateForNonLiving(state.tip, tip, ItemDisplayContext.NONE, bolt);
         }
-
         Vec3 origin = bolt.getPosition(partialTick);
-        drawLine(pose, buffer, origin, handPosition(owner, bolt.isOffHand(), partialTick).subtract(origin), bolt.getHookPoint(partialTick).subtract(origin),
-                bolt.isHooked() ? TAUT_SAG : SLACK_SAG, ownerLight(owner, partialTick));
-        super.render(bolt, yaw, partialTick, pose, buffer, light);
+        state.lineStart = handPosition(owner, bolt.isOffHand(), partialTick).subtract(origin);
+        state.lineEnd = bolt.getHookPoint(partialTick).subtract(origin);
+        state.sag = bolt.isHooked() ? TAUT_SAG : SLACK_SAG;
+        // The line is lit like its wielder, a hooked block would otherwise make it dark.
+        state.lineLight = entityRenderDispatcher.getRenderer(owner).getPackedLightCoords(owner, partialTick);
     }
 
-    private void drawTip(HarpoonBolt bolt, float partialTick, PoseStack pose, MultiBufferSource buffer) {
-        // Projectile rotation, unlike an entity's view direction, is yaw = atan2(x, z) and pitch up.
-        float yRot = Mth.lerp(partialTick, bolt.yRotO, bolt.getYRot()) * Mth.DEG_TO_RAD;
-        float xRot = Mth.lerp(partialTick, bolt.xRotO, bolt.getXRot()) * Mth.DEG_TO_RAD;
-        Vec3 direction = new Vec3(Mth.sin(yRot) * Mth.cos(xRot), Mth.sin(xRot), Mth.cos(yRot) * Mth.cos(xRot));
-        BlockPos lightPos = BlockPos.containing(bolt.getPosition(partialTick).subtract(direction.scale(LIGHT_SAMPLE_OFFSET)));
-
-        pose.pushPose();
-        pose.mulPose(new Quaternionf().rotationTo(0.0f, 1.0f, 0.0f, (float) direction.x, (float) direction.y, (float) direction.z));
-        pose.scale(TIP_SCALE, TIP_SCALE, TIP_SCALE);
-        pose.translate(0.0f, -TIP_OFFSET, 0.0f);
-        itemRenderer.renderStatic(tip, ItemDisplayContext.FIXED, LevelRenderer.getLightColor(bolt.level(), lightPos),
-                OverlayTexture.NO_OVERLAY, pose, buffer, bolt.level(), bolt.getId());
-        pose.popPose();
+    @Override
+    public void submit(State state, PoseStack pose, SubmitNodeCollector collector, CameraRenderState camera) {
+        if (!state.visible) {
+            return;
+        }
+        if (state.showTip) {
+            pose.pushPose();
+            pose.mulPose(state.tipRotation);
+            pose.scale(TIP_SCALE, TIP_SCALE, TIP_SCALE);
+            pose.translate(0.0f, -TIP_OFFSET, 0.0f);
+            state.tip.submit(pose, collector, state.tipLight, OverlayTexture.NO_OVERLAY, state.outlineColor);
+            pose.popPose();
+        }
+        Vec3 origin = new Vec3(state.x, state.y, state.z);
+        Vec3 cameraPos = camera.pos;
+        collector.submitCustomGeometry(pose, RenderTypes.entityCutout(LINE_TEXTURE),
+                (last, ribbon) -> drawLine(last, ribbon, origin, cameraPos, state.lineStart, state.lineEnd, state.sag, state.lineLight));
+        super.submit(state, pose, collector, camera);
     }
 
-    // The line is lit like its wielder, a hooked block would otherwise make it dark.
-    private int ownerLight(Entity owner, float partialTick) {
-        return entityRenderDispatcher.getRenderer(owner).getPackedLightCoords(owner, partialTick);
-    }
-
-    private static void drawLine(PoseStack pose, MultiBufferSource buffer, Vec3 origin, Vec3 start, Vec3 end, float sag, int light) {
-        VertexConsumer ribbon = buffer.getBuffer(RenderType.entityCutoutNoCull(LINE_TEXTURE));
-        PoseStack.Pose last = pose.last();
-        Vec3 camera = Minecraft.getInstance().gameRenderer.getMainCamera().getPosition();
+    private static void drawLine(PoseStack.Pose last, VertexConsumer ribbon, Vec3 origin, Vec3 camera, Vec3 start, Vec3 end, float sag, int light) {
         Vec3 direction = end.subtract(start).normalize();
         float repeat = (float) (end.subtract(start).length() / TEXTURE_LENGTH);
 
@@ -150,8 +175,4 @@ public class HarpoonBoltRenderer extends EntityRenderer<HarpoonBolt> {
                 -Mth.sin(yaw) * side + Mth.cos(yaw) * forward);
     }
 
-    @Override
-    public ResourceLocation getTextureLocation(HarpoonBolt bolt) {
-        return TextureAtlas.LOCATION_BLOCKS;
-    }
 }

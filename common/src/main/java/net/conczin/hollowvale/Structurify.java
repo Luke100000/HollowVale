@@ -12,7 +12,7 @@ import net.minecraft.commands.Commands;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Vec3i;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.level.ClipContext;
@@ -41,7 +41,7 @@ public final class Structurify {
 
     public static void register(CommandDispatcher<CommandSourceStack> dispatcher) {
         dispatcher.register(Commands.literal("structurify")
-                .requires(source -> source.hasPermission(2))
+                .requires(Commands.hasPermission(Commands.LEVEL_GAMEMASTERS))
                 .executes(context -> run(context.getSource(), null))
                 .then(Commands.argument("name", StringArgumentType.greedyString())
                         .executes(context -> run(context.getSource(), StringArgumentType.getString(context, "name")))));
@@ -79,7 +79,7 @@ public final class Structurify {
             throw fail("Failed to save structure '" + structureName + "'");
         }
 
-        ResourceLocation id = ResourceLocation.parse(structureName);
+        Identifier id = Identifier.parse(structureName);
         String file = level.getServer().getWorldPath(LevelResource.GENERATED_DIR)
                 .resolve(id.getNamespace()).resolve("structures").resolve(id.getPath() + ".nbt").toString();
         String message = "Exported %s (%dx%dx%d, %d air blocks updated) to %s".formatted(
@@ -163,7 +163,7 @@ public final class Structurify {
     private static BoundingBox extend(ServerLevel level, BoundingBox region) throws CommandSyntaxException {
         BoundingBox box = new BoundingBox(
                 region.minX() - MARGIN, region.minY(), region.minZ() - MARGIN,
-                region.maxX() + MARGIN, Math.min(region.maxY() + HEADROOM, level.getMaxBuildHeight() - 1), region.maxZ() + MARGIN);
+                region.maxX() + MARGIN, Math.min(region.maxY() + HEADROOM, level.getMaxY() - 1), region.maxZ() + MARGIN);
         if ((long) box.getXSpan() * box.getYSpan() * box.getZSpan() > MAX_VOLUME) {
             throw fail("Bounding box too large: " + box.getXSpan() + "x" + box.getYSpan() + "x" + box.getZSpan());
         }
@@ -184,7 +184,7 @@ public final class Structurify {
     private static String resolveName(ServerLevel level, @Nullable BlockPos blockPos, @Nullable String name) throws CommandSyntaxException {
         if (name != null) {
             String qualified = name.contains(":") ? name.trim() : Common.MOD_ID + ":" + name.trim();
-            if (ResourceLocation.tryParse(qualified) == null) {
+            if (Identifier.tryParse(qualified) == null) {
                 throw fail("Invalid structure name '" + name + "'");
             }
             return qualified;
@@ -211,7 +211,7 @@ public final class Structurify {
 
     private static void configure(ServerLevel level, BlockPos pos, StructureBlockEntity entity, String name, BoundingBox box) {
         entity.setMode(StructureMode.SAVE);
-        entity.setStructureName(ResourceLocation.parse(name));
+        entity.setStructureName(Identifier.parse(name));
         entity.setStructurePos(new BlockPos(box.minX(), box.minY(), box.minZ()).subtract(pos));
         entity.setStructureSize(new Vec3i(box.getXSpan(), box.getYSpan(), box.getZSpan()));
         entity.setIgnoreEntities(true);

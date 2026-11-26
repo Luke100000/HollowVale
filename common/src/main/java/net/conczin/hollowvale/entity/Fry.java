@@ -12,7 +12,9 @@ import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
+import net.minecraft.core.UUIDUtil;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
@@ -32,7 +34,7 @@ import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.ai.navigation.PathNavigation;
 import net.minecraft.world.entity.animal.Bucketable;
-import net.minecraft.world.entity.animal.Cat;
+import net.minecraft.world.entity.animal.feline.Cat;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -41,12 +43,12 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.Nullable;
-import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animation.AnimatableManager;
-import software.bernie.geckolib.animation.AnimationController;
-import software.bernie.geckolib.animation.RawAnimation;
-import software.bernie.geckolib.util.GeckoLibUtil;
+import com.geckolib.animatable.GeoEntity;
+import com.geckolib.animatable.instance.AnimatableInstanceCache;
+import com.geckolib.animatable.manager.AnimatableManager;
+import com.geckolib.animation.AnimationController;
+import com.geckolib.animation.RawAnimation;
+import com.geckolib.util.GeckoLibUtil;
 
 import java.util.UUID;
 
@@ -69,7 +71,8 @@ public class Fry extends Monster implements GeoEntity {
                 .add(Attributes.ATTACK_DAMAGE, 2.0)
                 .add(Attributes.MOVEMENT_SPEED, 0.25)
                 .add(Attributes.FLYING_SPEED, 0.25)
-                .add(Attributes.FOLLOW_RANGE, 16.0);
+                .add(Attributes.FOLLOW_RANGE, 16.0)
+                .add(Attributes.TEMPT_RANGE, 10.0);
     }
 
     @Override
@@ -81,12 +84,12 @@ public class Fry extends Monster implements GeoEntity {
         goalSelector.addGoal(4, new CircleHostGoal(this, 0.4));
         goalSelector.addGoal(5, new HoverWanderGoal(this, 0.4, 1.0, 4.0));
         targetSelector.addGoal(1, new HurtByTargetGoal(this));
-        targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, LivingEntity.class, 10, true, false, this::isPrey));
+        targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, LivingEntity.class, 10, true, false, (entity, level) -> isPrey(entity)));
     }
 
     private boolean isPrey(LivingEntity entity) {
         return distanceToSqr(entity) <= AGGRO_RANGE * AGGRO_RANGE
-               && !entity.getType().is(EntityTypeTags.UNDEAD)
+               && !entity.is(EntityTypeTags.UNDEAD)
                && !BuiltInRegistries.ENTITY_TYPE.getKey(entity.getType()).getNamespace().equals(Common.MOD_ID)
                && !isHoldingChorus(entity)
                && !MarrowLampBlock.isInSafeZone(level(), entity.blockPosition());
@@ -97,8 +100,8 @@ public class Fry extends Monster implements GeoEntity {
     }
 
     @Override
-    protected void customServerAiStep() {
-        super.customServerAiStep();
+    protected void customServerAiStep(ServerLevel serverLevel) {
+        super.customServerAiStep(serverLevel);
         if (getTarget() != null && isHoldingChorus(getTarget())) {
             setTarget(null);
         }
@@ -140,7 +143,7 @@ public class Fry extends Monster implements GeoEntity {
         }
 
         if (stack.is(net.minecraft.world.item.Items.CHORUS_FRUIT)) {
-            if (!level().isClientSide) {
+            if (!level().isClientSide()) {
                 stack.consume(1, player);
                 playSound(Sounds.FRY_EAT);
                 BoneWhale host = getHost();
@@ -149,7 +152,7 @@ public class Fry extends Monster implements GeoEntity {
                     host.onFryFed(player);
                 }
             }
-            return InteractionResult.sidedSuccess(level().isClientSide);
+            return InteractionResult.SUCCESS;
         }
 
         if (stack.is(net.minecraft.world.item.Items.BUCKET)) {
@@ -161,7 +164,7 @@ public class Fry extends Monster implements GeoEntity {
                 CriteriaTriggers.FILLED_BUCKET.trigger(serverPlayer, bucket);
             }
             discard();
-            return InteractionResult.sidedSuccess(level().isClientSide);
+            return InteractionResult.SUCCESS;
         }
 
         return super.mobInteract(player, hand);
@@ -178,7 +181,7 @@ public class Fry extends Monster implements GeoEntity {
     }
 
     @Override
-    public boolean causeFallDamage(float fallDistance, float multiplier, DamageSource source) {
+    public boolean causeFallDamage(double fallDistance, float multiplier, DamageSource source) {
         return false;
     }
 
@@ -187,17 +190,17 @@ public class Fry extends Monster implements GeoEntity {
     }
 
     @Override
-    public void addAdditionalSaveData(CompoundTag tag) {
+    public void addAdditionalSaveData(ValueOutput tag) {
         super.addAdditionalSaveData(tag);
         if (hostId != null) {
-            tag.putUUID("Host", hostId);
+            tag.store("Host", UUIDUtil.CODEC, hostId);
         }
     }
 
     @Override
-    public void readAdditionalSaveData(CompoundTag tag) {
+    public void readAdditionalSaveData(ValueInput tag) {
         super.readAdditionalSaveData(tag);
-        hostId = tag.hasUUID("Host") ? tag.getUUID("Host") : null;
+        hostId = tag.read("Host", UUIDUtil.CODEC).orElse(null);
     }
 
     @Override
@@ -217,7 +220,7 @@ public class Fry extends Monster implements GeoEntity {
 
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        controllers.add(new AnimationController<>(this, state -> state.setAndContinue(SWIM)));
+        controllers.add(new AnimationController<>(state -> state.setAndContinue(SWIM)));
     }
 
     @Override

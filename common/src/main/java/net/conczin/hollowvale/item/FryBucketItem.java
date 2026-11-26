@@ -8,7 +8,7 @@ import net.minecraft.core.component.DataComponents;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.MobSpawnType;
+import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.animal.Bucketable;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -32,7 +32,7 @@ public class FryBucketItem extends Item {
         ItemStack stack = context.getItemInHand();
 
         if (level instanceof ServerLevel serverLevel) {
-            Fry fry = Entities.FRY.spawn(serverLevel, stack, player, pos, MobSpawnType.BUCKET, true, false);
+            Fry fry = Entities.FRY.spawn(serverLevel, stack, player, pos, EntitySpawnReason.BUCKET, true, false);
             if (fry != null) {
                 Bucketable.loadDefaultDataFromBucketTag(fry, stack.getOrDefault(DataComponents.BUCKET_ENTITY_DATA, CustomData.EMPTY).copyTag());
                 fry.setPersistenceRequired();
@@ -45,6 +45,6 @@ public class FryBucketItem extends Item {
             ItemStack empty = new ItemStack(net.minecraft.world.item.Items.BUCKET);
             player.setItemInHand(context.getHand(), ItemUtils.createFilledResult(stack, player, empty));
         }
-        return InteractionResult.sidedSuccess(level.isClientSide);
+        return InteractionResult.SUCCESS;
     }
 }

@@ -10,11 +10,11 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.MobSpawnType;
-import net.minecraft.world.entity.animal.horse.SkeletonHorse;
+import net.minecraft.world.entity.EntitySpawnReason;
+import net.minecraft.world.entity.animal.equine.SkeletonHorse;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.level.GameRules;
+import net.minecraft.world.level.gamerules.GameRules;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.levelgen.Heightmap;
@@ -29,11 +29,11 @@ public final class ScavengerSpawner {
 
     public static void tick(ServerLevel level) {
         if (level.dimension() != Level.OVERWORLD || level.getGameTime() % CHECK_INTERVAL != 0
-            || !level.getGameRules().getBoolean(GameRules.RULE_DO_TRADER_SPAWNING)) {
+            || !level.getGameRules().get(GameRules.SPAWN_WANDERING_TRADERS)) {
             return;
         }
 
-        RandomSource random = level.random;
+        RandomSource random = level.getRandom();
         if (random.nextFloat() >= Config.getInstance().scavengerSpawnChance || !level.getEntities(Entities.SCAVENGER, scavenger -> true).isEmpty()) {
             return;
         }
@@ -71,28 +71,28 @@ public final class ScavengerSpawner {
     }
 
     private static void spawn(ServerLevel level, BlockPos pos) {
-        Scavenger scavenger = Entities.SCAVENGER.create(level);
+        Scavenger scavenger = Entities.SCAVENGER.create(level, EntitySpawnReason.EVENT);
         if (scavenger == null) {
             return;
         }
-        float yaw = level.random.nextFloat() * 360.0f;
-        scavenger.moveTo(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5, yaw, 0.0f);
-        scavenger.finalizeSpawn(level, level.getCurrentDifficultyAt(pos), MobSpawnType.EVENT, null);
+        float yaw = level.getRandom().nextFloat() * 360.0f;
+        scavenger.snapTo(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5, yaw, 0.0f);
+        scavenger.finalizeSpawn(level, level.getCurrentDifficultyAt(pos), EntitySpawnReason.EVENT, null);
         level.addFreshEntity(scavenger);
 
-        if (level.random.nextBoolean()) {
+        if (level.getRandom().nextBoolean()) {
             return;
         }
-        SkeletonHorse horse = EntityType.SKELETON_HORSE.create(level);
+        SkeletonHorse horse = EntityType.SKELETON_HORSE.create(level, EntitySpawnReason.EVENT);
         if (horse == null) {
             return;
         }
-        horse.moveTo(scavenger.getX(), scavenger.getY(), scavenger.getZ(), yaw, 0.0f);
-        horse.finalizeSpawn(level, level.getCurrentDifficultyAt(pos), MobSpawnType.EVENT, null);
+        horse.snapTo(scavenger.getX(), scavenger.getY(), scavenger.getZ(), yaw, 0.0f);
+        horse.finalizeSpawn(level, level.getCurrentDifficultyAt(pos), EntitySpawnReason.EVENT, null);
         horse.setTamed(true);
-        horse.equipSaddle(new ItemStack(Items.SADDLE), null);
+        horse.setItemSlot(net.minecraft.world.entity.EquipmentSlot.SADDLE, new ItemStack(Items.SADDLE));
         horse.setPersistenceRequired();
         level.addFreshEntity(horse);
-        scavenger.startRiding(horse, true);
+        scavenger.startRiding(horse, true, true);
     }
 }

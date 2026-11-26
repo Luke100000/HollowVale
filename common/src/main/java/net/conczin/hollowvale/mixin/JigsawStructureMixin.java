@@ -26,7 +26,7 @@ public abstract class JigsawStructureMixin {
     // Keeps this mod's structures out of lakes by checking the middle of the start chunk for water above the ground.
     @Inject(method = "findGenerationPoint", at = @At("RETURN"), cancellable = true)
     private void hollowvale$skipWater(Structure.GenerationContext context, CallbackInfoReturnable<Optional<Structure.GenerationStub>> cir) {
-        boolean ours = startPool.unwrapKey().map(key -> key.location().getNamespace().equals(Common.MOD_ID)).orElse(false);
+        boolean ours = startPool.unwrapKey().map(key -> key.identifier().getNamespace().equals(Common.MOD_ID)).orElse(false);
         if (!ours || cir.getReturnValue().isEmpty()) {
             return;
         }

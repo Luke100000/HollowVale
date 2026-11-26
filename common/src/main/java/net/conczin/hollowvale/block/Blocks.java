@@ -22,48 +22,49 @@ import net.minecraft.world.level.material.PushReaction;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.function.BiFunction;
+import java.util.function.Function;
 
 public final class Blocks {
     private static final Map<String, Block> BLOCKS = new LinkedHashMap<>();
 
-    public static final Block BONE_BRICKS = register("bone_bricks", new Block(boneProperties()));
-    public static final Block BONE_BRICK_STAIRS = register("bone_brick_stairs", new ModStairBlock(BONE_BRICKS.defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(BONE_BRICKS)));
-    public static final Block BONE_BRICK_SLAB = register("bone_brick_slab", new SlabBlock(BlockBehaviour.Properties.ofFullCopy(BONE_BRICKS)));
-    public static final Block BONE_BRICK_WALL = register("bone_brick_wall", new WallBlock(BlockBehaviour.Properties.ofFullCopy(BONE_BRICKS)));
-    public static final Block CRACKED_BONE_BRICKS = register("cracked_bone_bricks", new Block(boneProperties()));
-    public static final Block CHISELED_BONE_BRICKS = register("chiseled_bone_bricks", new Block(boneProperties()));
-    public static final Block BONE_PILLAR = register("bone_pillar", new RotatedPillarBlock(boneProperties()));
-    public static final Block MARROW_INFUSED_BONE = register("marrow_infused_bone", new Block(boneProperties()));
+    public static final Block BONE_BRICKS = register("bone_bricks", Block::new, boneProperties());
+    public static final Block BONE_BRICK_STAIRS = register("bone_brick_stairs", p -> new ModStairBlock(BONE_BRICKS.defaultBlockState(), p), BlockBehaviour.Properties.ofFullCopy(BONE_BRICKS));
+    public static final Block BONE_BRICK_SLAB = register("bone_brick_slab", SlabBlock::new, BlockBehaviour.Properties.ofFullCopy(BONE_BRICKS));
+    public static final Block BONE_BRICK_WALL = register("bone_brick_wall", WallBlock::new, BlockBehaviour.Properties.ofFullCopy(BONE_BRICKS));
+    public static final Block CRACKED_BONE_BRICKS = register("cracked_bone_bricks", Block::new, boneProperties());
+    public static final Block CHISELED_BONE_BRICKS = register("chiseled_bone_bricks", Block::new, boneProperties());
+    public static final Block BONE_PILLAR = register("bone_pillar", RotatedPillarBlock::new, boneProperties());
+    public static final Block MARROW_INFUSED_BONE = register("marrow_infused_bone", Block::new, boneProperties());
 
-    public static final Block ENDER_INFUSED_GRASS = register("ender_infused_grass", new EnderInfusedGrassBlock(BlockBehaviour.Properties.of()
+    public static final Block ENDER_INFUSED_GRASS = register("ender_infused_grass", EnderInfusedGrassBlock::new, BlockBehaviour.Properties.of()
             .mapColor(MapColor.GRASS)
             .randomTicks()
             .strength(0.6f)
-            .sound(SoundType.GRASS)));
+            .sound(SoundType.GRASS));
 
-    public static final Block MARROW_LAMP = register("marrow_lamp", new MarrowLampBlock(BlockBehaviour.Properties.of()
+    public static final Block MARROW_LAMP = register("marrow_lamp", MarrowLampBlock::new, BlockBehaviour.Properties.of()
             .mapColor(MapColor.SAND)
             .forceSolidOn()
             .strength(1.5f)
             .sound(SoundType.BONE_BLOCK)
             .lightLevel(state -> 10)
             .noOcclusion()
-            .pushReaction(PushReaction.DESTROY)));
+            .pushReaction(PushReaction.DESTROY));
 
-    public static final Block WIND_CHIME = register("wind_chime", new WindChimeBlock(BlockBehaviour.Properties.of()
+    public static final Block WIND_CHIME = register("wind_chime", WindChimeBlock::new, BlockBehaviour.Properties.of()
             .mapColor(MapColor.SAND)
-            .noCollission()
+            .noCollision()
             .strength(0.3f)
             .sound(SoundType.BONE_BLOCK)
             .noOcclusion()
-            .pushReaction(PushReaction.DESTROY)));
+            .pushReaction(PushReaction.DESTROY));
 
-    public static final Block WHALE_EGG = register("whale_egg", new WhaleEggBlock(BlockBehaviour.Properties.of()
+    public static final Block WHALE_EGG = register("whale_egg", WhaleEggBlock::new, BlockBehaviour.Properties.of()
             .mapColor(MapColor.SAND)
             .strength(0.5f)
             .sound(SoundType.BONE_BLOCK)
             .noOcclusion()
-            .pushReaction(PushReaction.DESTROY)));
+            .pushReaction(PushReaction.DESTROY));
 
     public static BlockEntityType<WindChimeBlockEntity> WIND_CHIME_ENTITY;
 
@@ -78,7 +79,8 @@ public final class Blocks {
                 .sound(SoundType.BONE_BLOCK);
     }
 
-    private static Block register(String name, Block block) {
+    private static Block register(String name, Function<BlockBehaviour.Properties, Block> factory, BlockBehaviour.Properties properties) {
+        Block block = factory.apply(properties.setId(ResourceKey.create(Registries.BLOCK, Common.locate(name))));
         BLOCKS.put(name, block);
         return block;
     }
