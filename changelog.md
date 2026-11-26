@@ -1,3 +1,7 @@
+# 0.1.1
+
+* Fixed Neoforge specifying wrong Immersive Pillagers version range
+
 # 0.1.0
 
 * Hollow Vale, Ossuary and Marrow Hollows biomes
