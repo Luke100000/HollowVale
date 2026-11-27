@@ -33,7 +33,6 @@ import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.fml.loading.FMLLoader;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
-import net.neoforged.neoforge.event.brewing.RegisterBrewingRecipesEvent;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
@@ -57,7 +56,7 @@ public final class CommonNeoForge {
     @SubscribeEvent
     public static void register(RegisterEvent event) {
         registerHelper(event, BuiltInRegistries.SOUND_EVENT, Sounds::registerSounds);
-        registerHelper(event, BuiltInRegistries.FEATURE, TemplateFeature::register);
+        registerHelper(event, BuiltInRegistries.FEATURE_TYPE, TemplateFeature::register);
         registerHelper(event, BuiltInRegistries.ENTITY_TYPE, Entities::registerEntities);
         registerHelper(event, BuiltInRegistries.BLOCK, Blocks::registerBlocks);
         registerHelper(event, BuiltInRegistries.ITEM, Items::registerItems);
@@ -67,11 +66,6 @@ public final class CommonNeoForge {
                 (factory, blocks) -> new BlockEntityType<>(factory::apply, Set.of(blocks))));
         event.register(Registries.POINT_OF_INTEREST_TYPE, registry -> registry.register(Blocks.MARROW_LAMP_POI.identifier(), Blocks.createMarrowLampPoi()));
         event.register(Registries.CREATIVE_MODE_TAB, registry -> registry.register(Common.locate(Common.MOD_ID), Items.createTab(CreativeModeTab.builder())));
-    }
-
-    @SubscribeEvent
-    public static void onRegisterBrewingRecipes(RegisterBrewingRecipesEvent event) {
-        ModPotions.addBrewingRecipes(event.getBuilder());
     }
 
     @SubscribeEvent

@@ -13,7 +13,9 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "hollowvale:ender_fish_soup"
+        "recipes": [
+          "hollowvale:ender_fish_soup"
+        ]
       },
       "trigger": "minecraft:recipe_unlocked"
     }

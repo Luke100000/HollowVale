@@ -8,9 +8,9 @@
         {
           "type": "minecraft:item",
           "name": "minecraft:leather",
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "type": "minecraft:uniform",
                 "min": 0.0,
@@ -19,7 +19,7 @@
               "add": false
             },
             {
-              "function": "minecraft:enchanted_count_increase",
+              "type": "minecraft:enchanted_count_increase",
               "enchantment": "minecraft:looting",
               "count": {
                 "type": "minecraft:uniform",
@@ -38,9 +38,9 @@
         {
           "type": "minecraft:item",
           "name": "minecraft:bone",
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "type": "minecraft:uniform",
                 "min": 2.0,
@@ -49,7 +49,7 @@
               "add": false
             },
             {
-              "function": "minecraft:enchanted_count_increase",
+              "type": "minecraft:enchanted_count_increase",
               "enchantment": "minecraft:looting",
               "count": {
                 "type": "minecraft:uniform",
@@ -70,21 +70,24 @@
           "name": "hollowvale:bone_mask"
         }
       ],
-      "conditions": [
-        {
-          "condition": "minecraft:killed_by_player"
-        },
-        {
-          "condition": "minecraft:random_chance_with_enchanted_bonus",
-          "enchanted_chance": {
-            "type": "minecraft:linear",
-            "base": 0.08,
-            "per_level_above_first": 0.02
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:killed_by_player"
           },
-          "enchantment": "minecraft:looting",
-          "unenchanted_chance": 0.05
-        }
-      ]
+          {
+            "type": "minecraft:random_chance_with_enchanted_bonus",
+            "enchanted_chance": {
+              "type": "minecraft:linear",
+              "base": 0.08,
+              "per_level_above_first": 0.02
+            },
+            "enchantment": "minecraft:looting",
+            "unenchanted_chance": 0.05
+          }
+        ]
+      }
     }
   ],
   "random_sequence": "hollowvale:entities/undead_highland_cattle"

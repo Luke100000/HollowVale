@@ -12,9 +12,7 @@
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           },
-          "output_state": {
-            "Name": "minecraft:structure_void"
-          }
+          "output_state": "minecraft:structure_void"
         },
         {
           "input_predicate": {
@@ -25,9 +23,7 @@
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           },
-          "output_state": {
-            "Name": "minecraft:structure_void"
-          }
+          "output_state": "minecraft:structure_void"
         },
         {
           "input_predicate": {
@@ -38,24 +34,16 @@
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           },
-          "output_state": {
-            "Name": "minecraft:air"
-          }
+          "output_state": "minecraft:air"
         }
       ]
     },
     {
       "processor_type": "minecraft:block_ignore",
       "blocks": [
-        {
-          "Name": "minecraft:air"
-        },
-        {
-          "Name": "minecraft:cave_air"
-        },
-        {
-          "Name": "minecraft:structure_void"
-        }
+        "minecraft:air",
+        "minecraft:cave_air",
+        "minecraft:structure_void"
       ]
     }
   ]

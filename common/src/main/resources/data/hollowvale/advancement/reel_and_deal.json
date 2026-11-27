@@ -19,17 +19,15 @@
     "hit": {
       "trigger": "minecraft:player_hurt_entity",
       "conditions": {
-        "entity": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "minecraft:effects": {
-                "hollowvale:hooked": {}
-              }
+        "entity": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:effects": {
+              "hollowvale:hooked": {}
             }
           }
-        ]
+        }
       }
     }
   },

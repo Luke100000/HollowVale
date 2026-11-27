@@ -3,9 +3,7 @@
     {
       "processor_type": "minecraft:block_ignore",
       "blocks": [
-        {
-          "Name": "minecraft:cave_air"
-        }
+        "minecraft:cave_air"
       ]
     },
     {
@@ -20,9 +18,7 @@
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           },
-          "output_state": {
-            "Name": "hollowvale:cracked_bone_bricks"
-          }
+          "output_state": "hollowvale:cracked_bone_bricks"
         }
       ]
     }

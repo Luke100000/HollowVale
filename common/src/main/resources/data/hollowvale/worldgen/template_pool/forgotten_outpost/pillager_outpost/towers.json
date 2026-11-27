@@ -25,9 +25,7 @@
                       "location_predicate": {
                         "predicate_type": "minecraft:always_true"
                       },
-                      "output_state": {
-                        "Name": "minecraft:air"
-                      }
+                      "output_state": "minecraft:air"
                     },
                     {
                       "input_predicate": {
@@ -38,9 +36,7 @@
                       "location_predicate": {
                         "predicate_type": "minecraft:always_true"
                       },
-                      "output_state": {
-                        "Name": "minecraft:cobweb"
-                      }
+                      "output_state": "minecraft:cobweb"
                     },
                     {
                       "input_predicate": {
@@ -51,9 +47,7 @@
                       "location_predicate": {
                         "predicate_type": "minecraft:always_true"
                       },
-                      "output_state": {
-                        "Name": "minecraft:mossy_cobblestone"
-                      }
+                      "output_state": "minecraft:mossy_cobblestone"
                     },
                     {
                       "input_predicate": {
@@ -64,9 +58,7 @@
                       "location_predicate": {
                         "predicate_type": "minecraft:always_true"
                       },
-                      "output_state": {
-                        "Name": "minecraft:cobweb"
-                      }
+                      "output_state": "minecraft:cobweb"
                     },
                     {
                       "input_predicate": {
@@ -77,9 +69,7 @@
                       "location_predicate": {
                         "predicate_type": "minecraft:always_true"
                       },
-                      "output_state": {
-                        "Name": "minecraft:cobweb"
-                      }
+                      "output_state": "minecraft:cobweb"
                     },
                     {
                       "input_predicate": {
@@ -90,9 +80,7 @@
                       "location_predicate": {
                         "predicate_type": "minecraft:always_true"
                       },
-                      "output_state": {
-                        "Name": "minecraft:cobweb"
-                      }
+                      "output_state": "minecraft:cobweb"
                     },
                     {
                       "input_predicate": {
@@ -102,9 +90,7 @@
                       "location_predicate": {
                         "predicate_type": "minecraft:always_true"
                       },
-                      "output_state": {
-                        "Name": "minecraft:air"
-                      }
+                      "output_state": "minecraft:air"
                     },
                     {
                       "input_predicate": {
@@ -114,9 +100,7 @@
                       "location_predicate": {
                         "predicate_type": "minecraft:always_true"
                       },
-                      "output_state": {
-                        "Name": "minecraft:air"
-                      }
+                      "output_state": "minecraft:air"
                     },
                     {
                       "input_predicate": {
@@ -127,8 +111,8 @@
                         "predicate_type": "minecraft:always_true"
                       },
                       "output_state": {
-                        "Name": "minecraft:campfire",
-                        "Properties": {
+                        "id": "minecraft:campfire",
+                        "properties": {
                           "facing": "north",
                           "lit": "false",
                           "signal_fire": "false",
@@ -167,9 +151,7 @@
                       "location_predicate": {
                         "predicate_type": "minecraft:always_true"
                       },
-                      "output_state": {
-                        "Name": "minecraft:air"
-                      }
+                      "output_state": "minecraft:air"
                     },
                     {
                       "input_predicate": {
@@ -180,9 +162,7 @@
                       "location_predicate": {
                         "predicate_type": "minecraft:always_true"
                       },
-                      "output_state": {
-                        "Name": "minecraft:cobweb"
-                      }
+                      "output_state": "minecraft:cobweb"
                     },
                     {
                       "input_predicate": {
@@ -193,9 +173,7 @@
                       "location_predicate": {
                         "predicate_type": "minecraft:always_true"
                       },
-                      "output_state": {
-                        "Name": "minecraft:mossy_cobblestone"
-                      }
+                      "output_state": "minecraft:mossy_cobblestone"
                     },
                     {
                       "input_predicate": {
@@ -206,9 +184,7 @@
                       "location_predicate": {
                         "predicate_type": "minecraft:always_true"
                       },
-                      "output_state": {
-                        "Name": "minecraft:cobweb"
-                      }
+                      "output_state": "minecraft:cobweb"
                     },
                     {
                       "input_predicate": {
@@ -219,9 +195,7 @@
                       "location_predicate": {
                         "predicate_type": "minecraft:always_true"
                       },
-                      "output_state": {
-                        "Name": "minecraft:cobweb"
-                      }
+                      "output_state": "minecraft:cobweb"
                     },
                     {
                       "input_predicate": {
@@ -232,9 +206,7 @@
                       "location_predicate": {
                         "predicate_type": "minecraft:always_true"
                       },
-                      "output_state": {
-                        "Name": "minecraft:cobweb"
-                      }
+                      "output_state": "minecraft:cobweb"
                     },
                     {
                       "input_predicate": {
@@ -244,9 +216,7 @@
                       "location_predicate": {
                         "predicate_type": "minecraft:always_true"
                       },
-                      "output_state": {
-                        "Name": "minecraft:air"
-                      }
+                      "output_state": "minecraft:air"
                     },
                     {
                       "input_predicate": {
@@ -256,9 +226,7 @@
                       "location_predicate": {
                         "predicate_type": "minecraft:always_true"
                       },
-                      "output_state": {
-                        "Name": "minecraft:air"
-                      }
+                      "output_state": "minecraft:air"
                     },
                     {
                       "input_predicate": {
@@ -269,8 +237,8 @@
                         "predicate_type": "minecraft:always_true"
                       },
                       "output_state": {
-                        "Name": "minecraft:campfire",
-                        "Properties": {
+                        "id": "minecraft:campfire",
+                        "properties": {
                           "facing": "north",
                           "lit": "false",
                           "signal_fire": "false",

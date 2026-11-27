@@ -79,7 +79,7 @@ public class SkullSludge extends Monster implements GeoEntity {
                 sludge.setPersistenceRequired();
             }
             sludge.setNoAi(isNoAi());
-            sludge.setInvulnerable(isInvulnerable());
+            sludge.setPermanentlyInvulnerable(isPermanentlyInvulnerable());
 
             double angle = away + i * Math.PI * 2.0 / SPLIT_COUNT;
             double dx = Math.cos(angle);

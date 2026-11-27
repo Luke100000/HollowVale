@@ -60,7 +60,7 @@ public class SludgeRenderer<T extends Mob & GeoAnimatable> extends GeoEntityRend
 
     @Override
     protected void applyRotations(RenderPassInfo<LivingEntityRenderState> info, PoseStack poseStack, float nativeScale) {
-        poseStack.mulPose(Axis.YP.rotationDegrees(-info.getOrDefaultGeckolibData(SWAY, 0.0f)));
+        poseStack.rotate(Axis.YP.rotationDegrees(-info.getOrDefaultGeckolibData(SWAY, 0.0f)));
         super.applyRotations(info, poseStack, nativeScale);
     }
 }

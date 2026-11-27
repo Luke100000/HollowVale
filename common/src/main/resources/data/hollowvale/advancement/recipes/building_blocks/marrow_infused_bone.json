@@ -13,7 +13,9 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "hollowvale:marrow_infused_bone"
+        "recipes": [
+          "hollowvale:marrow_infused_bone"
+        ]
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -8,6 +8,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.animal.fox.Fox;
 import net.minecraft.world.item.ItemStack;
@@ -35,7 +36,7 @@ public abstract class TeleportRandomlyConsumeEffectMixin {
         Vec3 oldPos = user.position();
         for (Direction direction : Direction.Plane.HORIZONTAL) {
             BlockPos spot = lamp.relative(direction);
-            if (!user.randomTeleport(spot.getX() + 0.5, spot.getY(), spot.getZ() + 0.5, true)) {
+            if (!user.randomTeleport(spot.getX() + 0.5, spot.getY(), spot.getZ() + 0.5, true, BlockTags.CONSUMABLE_DOES_NOT_TELEPORT_TO)) {
                 continue;
             }
             level.gameEvent(GameEvent.TELEPORT, oldPos, GameEvent.Context.of(user));

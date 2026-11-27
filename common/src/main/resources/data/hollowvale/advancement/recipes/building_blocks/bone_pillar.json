@@ -13,7 +13,9 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "hollowvale:bone_pillar"
+        "recipes": [
+          "hollowvale:bone_pillar"
+        ]
       },
       "trigger": "minecraft:recipe_unlocked"
     }

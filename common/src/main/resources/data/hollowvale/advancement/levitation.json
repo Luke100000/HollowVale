@@ -18,7 +18,9 @@
     "brewed": {
       "trigger": "minecraft:brewed_potion",
       "conditions": {
-        "potion": "hollowvale:levitation"
+        "potion": {
+          "potions": "hollowvale:levitation"
+        }
       }
     }
   },

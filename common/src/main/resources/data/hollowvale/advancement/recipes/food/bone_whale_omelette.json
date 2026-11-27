@@ -13,7 +13,9 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "hollowvale:bone_whale_omelette"
+        "recipes": [
+          "hollowvale:bone_whale_omelette"
+        ]
       },
       "trigger": "minecraft:recipe_unlocked"
     }

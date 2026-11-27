@@ -1,14 +1,11 @@
 package net.conczin.hollowvale.item;
 
 import net.conczin.hollowvale.Common;
-import net.minecraft.core.Holder;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.alchemy.Potion;
-import net.minecraft.world.item.alchemy.PotionBrewing;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -24,16 +21,7 @@ public final class ModPotions {
         return ResourceKey.create(Registries.POTION, Common.locate(name));
     }
 
-    private static Holder<Potion> holder(ResourceKey<Potion> key) {
-        return BuiltInRegistries.POTION.get(key).orElseThrow();
-    }
-
     public static void registerPotions(Common.RegisterHelper<Potion> helper) {
         POTIONS.forEach((name, potion) -> helper.register(Common.locate(name), potion));
-    }
-
-    public static void addBrewingRecipes(PotionBrewing.Builder builder) {
-        builder.addMix(net.minecraft.world.item.alchemy.Potions.AWKWARD, Items.ENDER_MARROW, holder(LEVITATION));
-        builder.addMix(holder(LEVITATION), net.minecraft.world.item.Items.REDSTONE, holder(LONG_LEVITATION));
     }
 }

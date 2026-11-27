@@ -13,7 +13,9 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "hollowvale:bone_brick_stairs"
+        "recipes": [
+          "hollowvale:bone_brick_stairs"
+        ]
       },
       "trigger": "minecraft:recipe_unlocked"
     }

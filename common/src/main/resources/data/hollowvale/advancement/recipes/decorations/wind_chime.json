@@ -13,7 +13,9 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "hollowvale:wind_chime"
+        "recipes": [
+          "hollowvale:wind_chime"
+        ]
       },
       "trigger": "minecraft:recipe_unlocked"
     }

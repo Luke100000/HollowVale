@@ -253,7 +253,7 @@ public class HarpoonBolt extends ThrowableProjectile {
         pulled = true;
         double speed = pluck ? PLUCK_SPEED * strength : Math.min(REEL_SPEED * strength, distance * 0.5);
         target.setDeltaMovement(toOwner.normalize().scale(speed).add(0.0, 0.04, 0.0));
-        target.hurtMarked = true;
+        target.syncVelocity = true;
     }
 
     // Measured from the feet, so the wielder is pulled up onto a ledge instead of against its face.
@@ -274,7 +274,7 @@ public class HarpoonBolt extends ThrowableProjectile {
             }
         }
         owner.setDeltaMovement(motion);
-        owner.hurtMarked = true;
+        owner.syncVelocity = true;
         owner.fallDistance = 0.0f;
     }
 

@@ -49,7 +49,7 @@ public final class Blocks {
             .sound(SoundType.BONE_BLOCK)
             .lightLevel(state -> 10)
             .noOcclusion()
-            .pushReaction(PushReaction.DESTROY));
+            .pushReaction(PushReaction.POPPED));
 
     public static final Block WIND_CHIME = register("wind_chime", WindChimeBlock::new, BlockBehaviour.Properties.of()
             .mapColor(MapColor.SAND)
@@ -57,14 +57,14 @@ public final class Blocks {
             .strength(0.3f)
             .sound(SoundType.BONE_BLOCK)
             .noOcclusion()
-            .pushReaction(PushReaction.DESTROY));
+            .pushReaction(PushReaction.POPPED));
 
     public static final Block WHALE_EGG = register("whale_egg", WhaleEggBlock::new, BlockBehaviour.Properties.of()
             .mapColor(MapColor.SAND)
             .strength(0.5f)
             .sound(SoundType.BONE_BLOCK)
             .noOcclusion()
-            .pushReaction(PushReaction.DESTROY));
+            .pushReaction(PushReaction.POPPED));
 
     public static BlockEntityType<WindChimeBlockEntity> WIND_CHIME_ENTITY;
 

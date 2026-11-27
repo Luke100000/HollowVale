@@ -3,9 +3,7 @@
     {
       "processor_type": "minecraft:block_ignore",
       "blocks": [
-        {
-          "Name": "minecraft:cave_air"
-        }
+        "minecraft:cave_air"
       ]
     }
   ]

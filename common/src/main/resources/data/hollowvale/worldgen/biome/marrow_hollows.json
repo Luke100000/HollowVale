@@ -2,7 +2,6 @@
   "temperature": 0.5,
   "downfall": 0.4,
   "has_precipitation": true,
-  "creature_spawn_probability": 0.0,
   "attributes": {
     "minecraft:visual/fog_color": "#8a859f",
     "minecraft:visual/sky_color": "#6c6786",
@@ -35,6 +34,50 @@
         "sound": "hollowvale:ambient.additions",
         "tick_chance": 0.00555
       }
+    },
+    "minecraft:gameplay/creature_world_gen_spawn_probability": 0.0,
+    "minecraft:gameplay/natural_mob_spawns": {
+      "argument": {
+        "spawn_costs": {},
+        "spawns_by_category": {
+          "monster": [
+            {
+              "type": "minecraft:skeleton",
+              "weight": 200,
+              "count": 1
+            },
+            {
+              "type": "hollowvale:fry",
+              "weight": 80,
+              "count": 1
+            },
+            {
+              "type": "hollowvale:hopping_skull",
+              "weight": 80,
+              "count": 1
+            },
+            {
+              "type": "hollowvale:ender_skull",
+              "weight": 6,
+              "count": 1
+            }
+          ],
+          "creature": [],
+          "ambient": [
+            {
+              "type": "minecraft:bat",
+              "weight": 10,
+              "count": 8
+            }
+          ],
+          "axolotls": [],
+          "misc": [],
+          "underground_water_creature": [],
+          "water_ambient": [],
+          "water_creature": []
+        }
+      },
+      "modifier": "overlay"
     }
   },
   "effects": {
@@ -102,48 +145,5 @@
       "minecraft:glow_lichen",
       "minecraft:brown_mushroom_normal"
     ]
-  ],
-  "spawners": {
-    "monster": [
-      {
-        "type": "minecraft:skeleton",
-        "weight": 200,
-        "minCount": 1,
-        "maxCount": 1
-      },
-      {
-        "type": "hollowvale:fry",
-        "weight": 80,
-        "minCount": 1,
-        "maxCount": 1
-      },
-      {
-        "type": "hollowvale:hopping_skull",
-        "weight": 80,
-        "minCount": 1,
-        "maxCount": 1
-      },
-      {
-        "type": "hollowvale:ender_skull",
-        "weight": 6,
-        "minCount": 1,
-        "maxCount": 1
-      }
-    ],
-    "creature": [],
-    "ambient": [
-      {
-        "type": "minecraft:bat",
-        "weight": 10,
-        "minCount": 8,
-        "maxCount": 8
-      }
-    ],
-    "axolotls": [],
-    "misc": [],
-    "underground_water_creature": [],
-    "water_ambient": [],
-    "water_creature": []
-  },
-  "spawn_costs": {}
+  ]
 }

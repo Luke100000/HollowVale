@@ -2,15 +2,15 @@
   "gives": {
     "id": "minecraft:enchanted_book"
   },
-  "given_item_modifiers": [
+  "given_item_modifier": [
     {
-      "function": "minecraft:enchant_randomly",
+      "type": "minecraft:enchant_randomly",
       "include_additional_cost_component": true,
       "only_compatible": false,
       "options": "hollowvale:long_line"
     },
     {
-      "function": "minecraft:filtered",
+      "type": "minecraft:filtered",
       "item_filter": {
         "items": "minecraft:enchanted_book",
         "predicates": {
@@ -20,7 +20,7 @@
         }
       },
       "on_fail": {
-        "function": "minecraft:discard"
+        "type": "minecraft:discard"
       }
     }
   ],

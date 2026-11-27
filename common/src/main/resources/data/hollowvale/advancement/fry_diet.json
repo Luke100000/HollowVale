@@ -24,15 +24,13 @@
             "minecraft:chorus_fruit"
           ]
         },
-        "entity": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "minecraft:entity_type": "hollowvale:fry"
-            }
+        "entity": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:entity_type": "hollowvale:fry"
           }
-        ]
+        }
       }
     }
   }

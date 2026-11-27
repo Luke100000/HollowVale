@@ -11,20 +11,17 @@
         {
           "type": "hollowvale:bone_sludge",
           "weight": 4,
-          "minCount": 1,
-          "maxCount": 1
+          "count": 1
         },
         {
           "type": "hollowvale:skull_sludge",
           "weight": 1,
-          "minCount": 1,
-          "maxCount": 1
+          "count": 1
         },
         {
           "type": "hollowvale:fry",
           "weight": 4,
-          "minCount": 1,
-          "maxCount": 1
+          "count": 1
         }
       ]
     }

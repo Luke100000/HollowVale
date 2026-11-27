@@ -24,15 +24,13 @@
             "hollowvale:ender_marrow"
           ]
         },
-        "entity": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "minecraft:entity_type": "#hollowvale:marrow_healable"
-            }
+        "entity": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:entity_type": "#hollowvale:marrow_healable"
           }
-        ]
+        }
       }
     }
   }

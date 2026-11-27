@@ -21,7 +21,6 @@ import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.world.poi.PoiHelper;
-import net.fabricmc.fabric.api.registry.FabricPotionBrewingBuilder;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -39,13 +38,12 @@ public final class CommonFabric implements ModInitializer {
         Config.getInstance();
 
         registerHelper(BuiltInRegistries.SOUND_EVENT, Sounds::registerSounds);
-        registerHelper(BuiltInRegistries.FEATURE, TemplateFeature::register);
+        registerHelper(BuiltInRegistries.FEATURE_TYPE, TemplateFeature::register);
         registerHelper(BuiltInRegistries.ENTITY_TYPE, Entities::registerEntities);
         registerHelper(BuiltInRegistries.BLOCK, Blocks::registerBlocks);
         registerHelper(BuiltInRegistries.ITEM, Items::registerItems);
         registerHelper(BuiltInRegistries.POTION, ModPotions::registerPotions);
         registerHelper(BuiltInRegistries.MOB_EFFECT, ModEffects::registerEffects);
-        FabricPotionBrewingBuilder.BUILD.register(ModPotions::addBrewingRecipes);
         registerHelper(BuiltInRegistries.BLOCK_ENTITY_TYPE, helper -> Blocks.registerBlockEntities(helper,
                 (factory, blocks) -> FabricBlockEntityTypeBuilder.create(factory::apply, blocks).build()));
         PoiHelper.register(Blocks.MARROW_LAMP_POI.identifier(), 0, 1, Blocks.MARROW_LAMP);

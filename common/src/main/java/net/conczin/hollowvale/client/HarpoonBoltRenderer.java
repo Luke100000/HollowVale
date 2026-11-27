@@ -72,7 +72,7 @@ public class HarpoonBoltRenderer extends EntityRenderer<HarpoonBolt, HarpoonBolt
     }
 
     @Override
-    public boolean shouldRender(HarpoonBolt bolt, Frustum frustum, double x, double y, double z) {
+    public boolean shouldRender(HarpoonBolt bolt, Frustum frustum, double x, double y, double z, float partialTicks) {
         return bolt.getOwner() != null;
     }
 
@@ -113,7 +113,7 @@ public class HarpoonBoltRenderer extends EntityRenderer<HarpoonBolt, HarpoonBolt
         }
         if (state.showTip) {
             pose.pushPose();
-            pose.mulPose(state.tipRotation);
+            pose.rotate(state.tipRotation);
             pose.scale(TIP_SCALE, TIP_SCALE, TIP_SCALE);
             pose.translate(0.0f, -TIP_OFFSET, 0.0f);
             state.tip.submit(pose, collector, state.tipLight, OverlayTexture.NO_OVERLAY, state.outlineColor);

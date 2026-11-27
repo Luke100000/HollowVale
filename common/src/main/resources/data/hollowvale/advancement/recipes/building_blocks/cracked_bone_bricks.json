@@ -13,7 +13,9 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "hollowvale:cracked_bone_bricks"
+        "recipes": [
+          "hollowvale:cracked_bone_bricks"
+        ]
       },
       "trigger": "minecraft:recipe_unlocked"
     }

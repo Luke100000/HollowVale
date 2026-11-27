@@ -52,7 +52,7 @@ public class ChargeGoal extends Goal {
 
         if (skull.tickCount >= nextAttackTick && skull.isWithinMeleeAttackRange(target) && skull.hasLineOfSight(target)) {
             nextAttackTick = skull.tickCount + ATTACK_INTERVAL;
-            skull.swing(InteractionHand.MAIN_HAND);
+            skull.swingForAttack(InteractionHand.MAIN_HAND);
             skull.doHurtTarget((ServerLevel) skull.level(), target);
         }
     }

@@ -141,8 +141,8 @@ public class ScavengerRenderer extends GeoEntityRenderer<Scavenger, LivingEntity
         @Override
         protected void submitItemStackRender(PoseStack pose, GeoBone bone, ItemStackRenderState item, ItemDisplayContext context, LivingEntityRenderState state, SubmitNodeCollector collector, int light) {
             pose.pushPose();
-            pose.mulPose(Axis.XP.rotationDegrees(90.0f));
-            pose.mulPose(Axis.YP.rotationDegrees(180.0f));
+            pose.rotate(Axis.XP.rotationDegrees(90.0f));
+            pose.rotate(Axis.YP.rotationDegrees(180.0f));
             pose.translate(0.0, -0.125, 0.0);
             super.submitItemStackRender(pose, bone, item, context, state, collector, light);
             pose.popPose();
