@@ -1,3 +1,7 @@
+# 0.1.2
+
+* Fixed bone wall z fighting
+
 # 0.1.1
 
 * Fixed Neoforge specifying wrong Immersive Pillagers version range
@@ -9,6 +13,6 @@
 * Scavenger trader on a skeleton horse
 * Bone Harpoon with Long Line and Strong String enchantments
 * Bone Mask, Ender Marrow, Marrow Lamp, Wind Chime and bone brick blocks
-* Whale eggs, Ender Fish Soup and Bone Whale Omelette
+* Whale eggs, Ender Fish Soup and Bone Whale Omelet
 * Ruins, graveyards, catacombs, forgotten villages and whale remains
 * Advancements, music and ambient sounds
