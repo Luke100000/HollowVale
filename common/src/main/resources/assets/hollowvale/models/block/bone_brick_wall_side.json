@@ -2,7 +2,8 @@
   "textures": {
     "wall": "hollowvale:block/bone_bricks",
     "smooth": "hollowvale:block/bone_smooth_wall",
-    "particle": "#wall"
+    "particle": "#wall",
+    "bottom": "hollowvale:block/bone_wall_bottom"
   },
   "elements": [
     {
@@ -18,7 +19,7 @@
       ],
       "faces": {
         "down": {
-          "texture": "#wall",
+          "texture": "#bottom",
           "cullface": "down"
         },
         "up": {

@@ -13,7 +13,7 @@
     "show_toast": true,
     "announce_to_chat": true,
     "hidden": false,
-    "background": "minecraft:textures/block/bone_block_side.png"
+    "background": "minecraft:block/bone_block_side"
   },
   "criteria": {
     "entered": {
