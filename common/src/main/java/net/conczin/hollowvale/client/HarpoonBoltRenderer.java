@@ -6,7 +6,7 @@ import net.conczin.hollowvale.Common;
 import net.conczin.hollowvale.entity.HarpoonBolt;
 import net.conczin.hollowvale.item.Items;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.LevelRenderer;
+import net.minecraft.util.LightCoordsUtil;
 import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.culling.Frustum;
 import net.minecraft.client.renderer.entity.EntityRenderer;
@@ -92,7 +92,7 @@ public class HarpoonBoltRenderer extends EntityRenderer<HarpoonBolt, HarpoonBolt
             Vec3 direction = new Vec3(Mth.sin(yRot) * Mth.cos(xRot), Mth.sin(xRot), Mth.cos(yRot) * Mth.cos(xRot));
             BlockPos lightPos = BlockPos.containing(bolt.getPosition(partialTick).subtract(direction.scale(LIGHT_SAMPLE_OFFSET)));
             state.tipRotation.rotationTo(0.0f, 1.0f, 0.0f, (float) direction.x, (float) direction.y, (float) direction.z);
-            state.tipLight = LevelRenderer.getLightCoords(bolt.level(), lightPos);
+            state.tipLight = LightCoordsUtil.getLightCoords(bolt.level(), lightPos);
             if (tip == null) {
                 tip = new ItemStack(Items.BONE_HARPOON);
             }

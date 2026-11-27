@@ -23,7 +23,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "hollowvale:hopping_skull"
+              "minecraft:entity_type": "hollowvale:hopping_skull"
             }
           }
         ]
@@ -37,7 +37,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "hollowvale:bone_sludge"
+              "minecraft:entity_type": "hollowvale:bone_sludge"
             }
           }
         ]
@@ -51,7 +51,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "hollowvale:skull_sludge"
+              "minecraft:entity_type": "hollowvale:skull_sludge"
             }
           }
         ]
@@ -65,7 +65,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "hollowvale:ender_skull"
+              "minecraft:entity_type": "hollowvale:ender_skull"
             }
           }
         ]
@@ -79,7 +79,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "hollowvale:undead_highland_cattle"
+              "minecraft:entity_type": "hollowvale:undead_highland_cattle"
             }
           }
         ]
@@ -93,7 +93,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "hollowvale:bone_whale"
+              "minecraft:entity_type": "hollowvale:bone_whale"
             }
           }
         ]

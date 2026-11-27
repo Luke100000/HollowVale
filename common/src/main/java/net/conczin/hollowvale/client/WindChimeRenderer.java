@@ -91,7 +91,7 @@ public class WindChimeRenderer implements BlockEntityRenderer<WindChimeBlockEnti
             poseStack.mulPose(Axis.XP.rotationDegrees(state.amplitude * (0.4f * gustX + 0.6f * ownX)));
             poseStack.mulPose(Axis.ZP.rotationDegrees(state.amplitude * (0.4f * gustZ + 0.6f * ownZ)));
             poseStack.translate(-PIVOT_X, -PIVOT_Y, -PIVOT_Z);
-            collector.submitMovingBlock(poseStack, moving);
+            collector.submitMovingBlock(poseStack, moving, 0);
             poseStack.popPose();
         }
     }

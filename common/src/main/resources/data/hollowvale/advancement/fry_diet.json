@@ -29,7 +29,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "hollowvale:fry"
+              "minecraft:entity_type": "hollowvale:fry"
             }
           }
         ]

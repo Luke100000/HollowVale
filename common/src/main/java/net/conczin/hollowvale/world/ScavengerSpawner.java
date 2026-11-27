@@ -10,6 +10,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.animal.equine.SkeletonHorse;
 import net.minecraft.world.item.ItemStack;
@@ -67,7 +68,7 @@ public final class ScavengerSpawner {
 
     private static boolean canStand(ServerLevel level, BlockPos pos) {
         return level.getFluidState(pos).isEmpty() && level.getFluidState(pos.below()).isEmpty()
-               && level.noCollision(EntityType.SKELETON_HORSE.getSpawnAABB(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5));
+               && level.noCollision(EntityTypes.SKELETON_HORSE.getSpawnAABB(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5));
     }
 
     private static void spawn(ServerLevel level, BlockPos pos) {
@@ -83,7 +84,7 @@ public final class ScavengerSpawner {
         if (level.getRandom().nextBoolean()) {
             return;
         }
-        SkeletonHorse horse = EntityType.SKELETON_HORSE.create(level, EntitySpawnReason.EVENT);
+        SkeletonHorse horse = EntityTypes.SKELETON_HORSE.create(level, EntitySpawnReason.EVENT);
         if (horse == null) {
             return;
         }

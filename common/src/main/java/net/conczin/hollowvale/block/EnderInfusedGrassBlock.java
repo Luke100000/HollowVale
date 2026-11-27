@@ -35,7 +35,7 @@ public class EnderInfusedGrassBlock extends Block {
         if (aboveState.getFluidState().getAmount() == 8) {
             return false;
         }
-        int lightBlocked = LightEngine.getLightBlockInto(state, aboveState, Direction.UP, aboveState.getLightDampening());
+        int lightBlocked = LightEngine.getLightDampeningInto(state, aboveState, Direction.UP, aboveState.getLightDampening());
         return lightBlocked < LightEngine.MAX_LEVEL;
     }
 }
